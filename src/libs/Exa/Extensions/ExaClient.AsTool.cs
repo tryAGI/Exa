@@ -64,6 +64,33 @@ public static class ExaToolExtensions
             description: "Retrieves and returns the main text content from a given URL using Exa.");
     }
 
+    /// <summary>
+    /// Creates an <see cref="AIFunction"/> that wraps Exa answer generation,
+    /// suitable for RAG-style question answering as a tool.
+    /// </summary>
+    /// <param name="client">The Exa client to use for answering.</param>
+    /// <returns>An AIFunction that can be passed to ChatOptions.Tools.</returns>
+    public static AIFunction AsAnswerTool(this ExaClient client)
+    {
+        ArgumentNullException.ThrowIfNull(client);
+
+        return AIFunctionFactory.Create(
+            async (string query, CancellationToken cancellationToken) =>
+            {
+                var response = await client.AnswerAsync(
+                    request: new AnswerRequest
+                    {
+                        Query = query,
+                        Text = true,
+                    },
+                    cancellationToken: cancellationToken).ConfigureAwait(false);
+
+                return FormatAnswerResponse(response);
+            },
+            name: "AnswerQuestion",
+            description: "Answers a question using Exa's AI-powered search and answer generation. Returns a direct answer with citations from web sources.");
+    }
+
     private static string FormatSearchResponse(SearchResponse response)
     {
         var parts = new List<string>();
@@ -123,5 +150,26 @@ public static class ExaToolExtensions
         }
 
         return string.Join("\n\n", parts);
+    }
+
+    private static string FormatAnswerResponse(AllOf<AnswerResult, AnswerResponse2> response)
+    {
+        var parts = new List<string>();
+
+        if (!string.IsNullOrWhiteSpace(response.Value1?.Answer))
+        {
+            parts.Add($"Answer: {response.Value1.Answer}");
+        }
+
+        if (response.Value1?.Citations is { Count: > 0 })
+        {
+            parts.Add("Citations:");
+            foreach (var citation in response.Value1.Citations)
+            {
+                parts.Add($"- [{citation.Title}]({citation.Url})");
+            }
+        }
+
+        return string.Join("\n", parts);
     }
 }

@@ -80,3 +80,6 @@ var options = new ChatOptions
     ],
 };
 ```
+
+!!! tip "Cross-SDK tool combination"
+    Exa search tools can be combined with [DeepL translation tools](https://tryagi.github.io/DeepL/guides/combined-tools/) in a single `ChatOptions.Tools` list for multilingual research workflows.

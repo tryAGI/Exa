@@ -3,7 +3,7 @@
 !!! tip "Cross-SDK comparison"
     See the [centralized MEAI documentation](https://tryagi.github.io/docs/meai/) for feature matrices and comparisons across all tryAGI SDKs.
 
-The Exa SDK provides `AIFunction` tool wrappers from [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai), allowing you to use Exa search, content retrieval, and answer generation as tools with any `IChatClient`.
+The Exa SDK provides `AIFunction` tool wrappers compatible with [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai). These tools can be used with any `IChatClient` to give AI models web search, content retrieval, and question answering capabilities.
 
 ## Installation
 
@@ -11,75 +11,68 @@ The Exa SDK provides `AIFunction` tool wrappers from [Microsoft.Extensions.AI](h
 dotnet add package Exa
 ```
 
-## Search Tool
+## Available Tools
 
-Use `AsSearchTool()` to create an `AIFunction` that searches the web using Exa's AI-powered search:
+| Method | Tool Name | Description |
+|--------|-----------|-------------|
+| `AsSearchTool(numResults)` | `WebSearch` | Searches the web using Exa AI-powered search |
+| `AsGetContentsTool()` | `GetWebContent` | Retrieves main text content from a URL |
+| `AsAnswerTool()` | `AnswerQuestion` | Answers a question with citations from web sources |
+
+## Usage
 
 ```csharp
 using Exa;
 using Microsoft.Extensions.AI;
 
-var exaClient = new ExaClient(apiKey: Environment.GetEnvironmentVariable("EXA_API_KEY")!);
+var exa = new ExaClient(apiKey: Environment.GetEnvironmentVariable("EXA_API_KEY")!);
 
-var searchTool = exaClient.AsSearchTool(numResults: 5);
-
-// Use with any IChatClient
-IChatClient chatClient = /* your chat client */;
-var options = new ChatOptions
-{
-    Tools = [searchTool],
-};
-
-var response = await chatClient.GetResponseAsync(
-    "What are the latest developments in quantum computing?",
-    options);
-```
-
-## Content Retrieval Tool
-
-Use `AsGetContentsTool()` to extract page content from URLs:
-
-```csharp
-var contentTool = exaClient.AsGetContentsTool();
-
-var options = new ChatOptions
-{
-    Tools = [searchTool, contentTool],
-};
-```
-
-## Answer Tool
-
-Use `AsAnswerTool()` for RAG-style question answering with citations:
-
-```csharp
-var answerTool = exaClient.AsAnswerTool();
-
-var options = new ChatOptions
-{
-    Tools = [answerTool],
-};
-
-var response = await chatClient.GetResponseAsync(
-    "What is the latest valuation of SpaceX?",
-    options);
-```
-
-## Combining Tools
-
-All three tools can be used together to give an LLM comprehensive web research capabilities:
-
-```csharp
 var options = new ChatOptions
 {
     Tools =
     [
-        exaClient.AsSearchTool(numResults: 5),
-        exaClient.AsGetContentsTool(),
-        exaClient.AsAnswerTool(),
+        exa.AsSearchTool(numResults: 5),
+        exa.AsGetContentsTool(),
+        exa.AsAnswerTool(),
     ],
 };
+
+IChatClient chatClient = /* your chat client */;
+
+var messages = new List<ChatMessage>
+{
+    new(ChatRole.User, "What are the latest developments in quantum computing?"),
+};
+
+while (true)
+{
+    var response = await chatClient.GetResponseAsync(messages, options);
+    messages.AddRange(response.ToChatMessages());
+
+    if (response.FinishReason == ChatFinishReason.ToolCalls)
+    {
+        var results = await response.CallToolsAsync(options);
+        messages.AddRange(results);
+        continue;
+    }
+
+    Console.WriteLine(response.Text);
+    break;
+}
 ```
 
-!!! tip "Cross-SDK tool combination"
-    Exa search tools can be combined with [DeepL translation tools](https://tryagi.github.io/DeepL/guides/combined-tools/) in a single `ChatOptions.Tools` list for multilingual research workflows.
+## Tool Details
+
+### AsSearchTool Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `numResults` | `int` | `5` | Maximum number of search results to return |
+
+### AsGetContentsTool
+
+No configurable parameters. Extracts text content from a single URL.
+
+### AsAnswerTool
+
+No configurable parameters. Returns a direct answer with citations.

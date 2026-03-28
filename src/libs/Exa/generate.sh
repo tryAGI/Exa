@@ -5,17 +5,11 @@ dotnet tool update --global autosdk.cli --prerelease || dotnet tool install --gl
 rm -rf Generated
 curl -o openapi.yaml https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-openapi-spec.yaml
 
-# Fix auth: convert apiKey → http/bearer for AutoSDK constructor generation
-yq -i '
-  del(.components.securitySchemes) |
-  .components.securitySchemes.BearerAuth = {"type": "http", "scheme": "bearer"} |
-  del(.security) |
-  .security = [{"BearerAuth": []}]
-' openapi.yaml
-
+# Auth: --security-scheme overrides the spec's apiKey auth with standard HTTP bearer.
 autosdk generate openapi.yaml \
   --namespace Exa \
   --clientClassName ExaClient \
   --targetFramework net10.0 \
   --output Generated \
-  --exclude-deprecated-operations
+  --exclude-deprecated-operations \
+  --security-scheme Http:Header:Bearer

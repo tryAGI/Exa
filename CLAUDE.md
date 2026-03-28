@@ -23,7 +23,7 @@ var client = new ExaClient(apiKey); // EXA_API_KEY env var
 ## Key Files
 
 - `src/libs/Exa/openapi.yaml` — OpenAPI spec (downloaded from exa-labs/openapi-spec)
-- `src/libs/Exa/generate.sh` — Downloads spec, fixes auth scheme, runs autosdk
+- `src/libs/Exa/generate.sh` — Downloads spec, runs autosdk with `--security-scheme Http:Header:Bearer`
 - `src/libs/Exa/Generated/` — **Never edit** — auto-generated code
 - `src/tests/IntegrationTests/Tests.cs` — Test helper with bearer auth
 - `src/tests/IntegrationTests/Examples/` — Example tests (also generate docs)

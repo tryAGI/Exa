@@ -5,6 +5,8 @@ info:
   description: A comprehensive API for internet-scale search, allowing users to perform queries and retrieve results from a wide variety of sources using embeddings-based and traditional search.
 servers:
   - url: https://api.exa.ai
+security:
+  - apikey: []
 paths:
   /search:
     post:
@@ -24,10 +26,30 @@ paths:
               }'
         - lang: python
           label: Simple search and contents
-          source: "# pip install exa-py\nfrom exa_py import Exa\nexa = Exa('YOUR_EXA_API_KEY')\n\nresults = exa.search_and_contents(\n    \"Latest research in LLMs\", \n    text=True\n)\n\nprint(results)\n"
+          source: |
+            # pip install exa-py
+            from exa_py import Exa
+            exa = Exa('YOUR_EXA_API_KEY')
+
+            results = exa.search_and_contents(
+                "Latest research in LLMs", 
+                text=True
+            )
+
+            print(results)
         - lang: javascript
           label: Simple search and contents
-          source: "// npm install exa-js\nimport Exa from 'exa-js';\nconst exa = new Exa('YOUR_EXA_API_KEY');\n\nconst results = await exa.searchAndContents(\n    'Latest research in LLMs', \n    { text: true }\n);\n\nconsole.log(results);\n"
+          source: |
+            // npm install exa-js
+            import Exa from 'exa-js';
+            const exa = new Exa('YOUR_EXA_API_KEY');
+
+            const results = await exa.searchAndContents(
+                'Latest research in LLMs', 
+                { text: true }
+            );
+
+            console.log(results);
         - lang: php
           label: Simple search and contents
           source: ""
@@ -613,6 +635,16 @@ paths:
       summary: Get a research request by id
       tags: *ref_0
 components:
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: x-api-key
+      in: header
+      description: API key can be provided either via x-api-key header or Authorization header with Bearer scheme
+    bearer:
+      type: http
+      scheme: bearer
+      description: API key can be provided either via x-api-key header or Authorization header with Bearer scheme
   schemas:
     AnswerCitation:
       type: object
@@ -717,8 +749,27 @@ components:
               example: "Main developments"
             schema:
               type: object
-              description: "JSON schema for structured output from summary. \nSee https://json-schema.org/overview/what-is-jsonschema for JSON Schema documentation.\n"
-              example: {"$schema": "http://json-schema.org/draft-07/schema#", "title": "Title", "type": "object", "properties": {"Property 1": {"type": "string", "description": "Description"}, "Property 2": {"type": "string", "enum": ["option 1", "option 2", "option 3"], "description": "Description"}}, "required": ["Property 1"]}
+              description: |
+                JSON schema for structured output from summary. 
+                See https://json-schema.org/overview/what-is-jsonschema for JSON Schema documentation.
+              example:
+                {
+                  "$schema": "http://json-schema.org/draft-07/schema#",
+                  "title": "Title",
+                  "type": "object",
+                  "properties":
+                    {
+                      "Property 1":
+                        { "type": "string", "description": "Description" },
+                      "Property 2":
+                        {
+                          "type": "string",
+                          "enum": ["option 1", "option 2", "option 3"],
+                          "description": "Description",
+                        },
+                    },
+                  "required": ["Property 1"],
+                }
         livecrawl:
           type: string
           enum: [never, fallback, always, preferred]
@@ -782,6 +833,7 @@ components:
                   type: integer
                   description: Maximum character limit.
                   example: 10000
+
     CommonRequest:
       type: object
       properties:
@@ -851,8 +903,10 @@ components:
                   type: integer
                   description: Maximum character limit.
                   example: 10000
+
         contents:
           $ref: "#/components/schemas/ContentsRequest"
+
     EntityCompanyPropertiesWorkforce:
       type: object
       description: Company workforce information.
@@ -863,6 +917,7 @@ components:
             - "null"
           description: Total number of employees.
           example: 500
+
     EntityCompanyPropertiesHeadquarters:
       type: object
       description: Company headquarters information.
@@ -891,6 +946,7 @@ components:
             - "null"
           description: Full country name.
           example: "United States"
+
     EntityCompanyPropertiesFundingRound:
       type: object
       description: Funding round information.
@@ -913,6 +969,7 @@ components:
             - "null"
           description: Amount raised in USD.
           example: 50000000
+
     EntityCompanyPropertiesFinancials:
       type: object
       description: Company financial information.
@@ -933,6 +990,7 @@ components:
           oneOf:
             - $ref: "#/components/schemas/EntityCompanyPropertiesFundingRound"
             - type: "null"
+
     EntityCompanyPropertiesWebTraffic:
       type: object
       description: Company web traffic information.
@@ -943,6 +1001,7 @@ components:
             - "null"
           description: Estimated monthly website visits.
           example: 266306714
+
     EntityCompanyProperties:
       type: object
       description: Structured properties for a company entity.
@@ -981,6 +1040,7 @@ components:
           oneOf:
             - $ref: "#/components/schemas/EntityCompanyPropertiesWebTraffic"
             - type: "null"
+
     EntityDateRange:
       type: object
       description: Date range for work history entries.
@@ -997,6 +1057,7 @@ components:
             - "null"
           description: End date (YYYY-MM-DD format).
           example: "2023-06-30"
+
     EntityPersonPropertiesCompanyRef:
       type: object
       description: Reference to a company in work history.
@@ -1013,6 +1074,7 @@ components:
             - "null"
           description: Company name.
           example: "Exa"
+
     EntityPersonPropertiesWorkHistoryEntry:
       type: object
       description: A single work history entry for a person.
@@ -1037,6 +1099,7 @@ components:
           oneOf:
             - $ref: "#/components/schemas/EntityPersonPropertiesCompanyRef"
             - type: "null"
+
     EntityPersonProperties:
       type: object
       description: Structured properties for a person entity.
@@ -1058,6 +1121,7 @@ components:
           description: List of work history entries.
           items:
             $ref: "#/components/schemas/EntityPersonPropertiesWorkHistoryEntry"
+
     CompanyEntity:
       type: object
       description: Structured entity data for a company.
@@ -1082,6 +1146,7 @@ components:
           example: 1
         properties:
           $ref: "#/components/schemas/EntityCompanyProperties"
+
     PersonEntity:
       type: object
       description: Structured entity data for a person.
@@ -1106,6 +1171,7 @@ components:
           example: 1
         properties:
           $ref: "#/components/schemas/EntityPersonProperties"
+
     Entity:
       oneOf:
         - $ref: "#/components/schemas/CompanyEntity"
@@ -1116,6 +1182,7 @@ components:
           company: "#/components/schemas/CompanyEntity"
           person: "#/components/schemas/PersonEntity"
       description: Structured entity data for company or person search results. Only returned for category=company or category=people searches.
+
     Result:
       type: object
       properties:
@@ -1160,6 +1227,7 @@ components:
           format: uri
           description: The URL of the favicon for the search result's domain.
           example: "https://arxiv.org/favicon.ico"
+
     ResultWithContent:
       allOf:
         - $ref: "#/components/schemas/Result"
@@ -1192,7 +1260,23 @@ components:
               items:
                 $ref: "#/components/schemas/ResultWithContent"
               description: Array of subpages for the search result.
-              example: [{"id": "https://arxiv.org/abs/2303.17580", "url": "https://arxiv.org/pdf/2303.17580.pdf", "title": "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face", "author": "Yongliang  Shen, Microsoft Research Asia, Kaitao  Song, Microsoft Research Asia, Xu  Tan, Microsoft Research Asia, Dongsheng  Li, Microsoft Research Asia, Weiming  Lu, Microsoft Research Asia, Yueting  Zhuang, Microsoft Research Asia, yzhuang@zju.edu.cn, Zhejiang  University, Microsoft Research Asia, Microsoft  Research, Microsoft Research Asia", "publishedDate": "2023-11-16T01:36:20.486Z", "text": "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face Date Published: 2023-05-25 Authors: Yongliang Shen, Microsoft Research Asia Kaitao Song, Microsoft Research Asia Xu Tan, Microsoft Research Asia Dongsheng Li, Microsoft Research Asia Weiming Lu, Microsoft Research Asia Yueting Zhuang, Microsoft Research Asia, yzhuang@zju.edu.cn Zhejiang University, Microsoft Research Asia Microsoft Research, Microsoft Research Asia Abstract Solving complicated AI tasks with different domains and modalities is a key step toward artificial general intelligence. While there are abundant AI models available for different domains and modalities, they cannot handle complicated AI tasks. Considering large language models (LLMs) have exhibited exceptional ability in language understanding, generation, interaction, and reasoning, we advocate that LLMs could act as a controller to manage existing AI models to solve complicated AI tasks and language could be a generic interface to empower t", "summary": "HuggingGPT is a framework using ChatGPT as a central controller to orchestrate various AI models from Hugging Face to solve complex tasks. ChatGPT plans the task, selects appropriate models based on their descriptions, executes subtasks, and summarizes the results. This approach addresses limitations of LLMs by allowing them to handle multimodal data (vision, speech) and coordinate multiple models for complex tasks, paving the way for more advanced AI systems.", "highlights": ["2) Recently, some researchers started to investigate the integration of using tools or models in LLMs  ."], "highlightScores": [0.32679107785224915]}]
+              example:
+                [
+                  {
+                    "id": "https://arxiv.org/abs/2303.17580",
+                    "url": "https://arxiv.org/pdf/2303.17580.pdf",
+                    "title": "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face",
+                    "author": "Yongliang  Shen, Microsoft Research Asia, Kaitao  Song, Microsoft Research Asia, Xu  Tan, Microsoft Research Asia, Dongsheng  Li, Microsoft Research Asia, Weiming  Lu, Microsoft Research Asia, Yueting  Zhuang, Microsoft Research Asia, yzhuang@zju.edu.cn, Zhejiang  University, Microsoft Research Asia, Microsoft  Research, Microsoft Research Asia",
+                    "publishedDate": "2023-11-16T01:36:20.486Z",
+                    "text": "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face Date Published: 2023-05-25 Authors: Yongliang Shen, Microsoft Research Asia Kaitao Song, Microsoft Research Asia Xu Tan, Microsoft Research Asia Dongsheng Li, Microsoft Research Asia Weiming Lu, Microsoft Research Asia Yueting Zhuang, Microsoft Research Asia, yzhuang@zju.edu.cn Zhejiang University, Microsoft Research Asia Microsoft Research, Microsoft Research Asia Abstract Solving complicated AI tasks with different domains and modalities is a key step toward artificial general intelligence. While there are abundant AI models available for different domains and modalities, they cannot handle complicated AI tasks. Considering large language models (LLMs) have exhibited exceptional ability in language understanding, generation, interaction, and reasoning, we advocate that LLMs could act as a controller to manage existing AI models to solve complicated AI tasks and language could be a generic interface to empower t",
+                    "summary": "HuggingGPT is a framework using ChatGPT as a central controller to orchestrate various AI models from Hugging Face to solve complex tasks. ChatGPT plans the task, selects appropriate models based on their descriptions, executes subtasks, and summarizes the results. This approach addresses limitations of LLMs by allowing them to handle multimodal data (vision, speech) and coordinate multiple models for complex tasks, paving the way for more advanced AI systems.",
+                    "highlights":
+                      [
+                        "2) Recently, some researchers started to investigate the integration of using tools or models in LLMs  .",
+                      ],
+                    "highlightScores": [0.32679107785224915],
+                  },
+                ]
             extras:
               type: object
               description: Results from extras.
@@ -1208,6 +1292,7 @@ components:
               description: Structured entity data for company or person search results. Only returned for category=company or category=people searches.
               items:
                 $ref: "#/components/schemas/Entity"
+
     CostDollars:
       type: object
       properties:
@@ -1308,6 +1393,7 @@ components:
               format: float
               description: Standard price per page for summaries
               example: 0.001
+
     ListResearchResponseDto:
       type:
         - object
@@ -2058,6 +2144,7 @@ components:
                 description: A formatted string of the search results ready for LLMs.
               costDollars:
                 $ref: "#/components/schemas/CostDollars"
+
     FindSimilarResponse:
       description: OK
       content:
@@ -2079,6 +2166,7 @@ components:
                   $ref: "#/components/schemas/ResultWithContent"
               costDollars:
                 $ref: "#/components/schemas/CostDollars"
+
     ContentsResponse:
       description: OK
       content:
@@ -2120,7 +2208,14 @@ components:
                       properties:
                         tag:
                           type: string
-                          enum: ["CRAWL_NOT_FOUND", "CRAWL_TIMEOUT", "CRAWL_LIVECRAWL_TIMEOUT", "SOURCE_NOT_AVAILABLE", "CRAWL_UNKNOWN_ERROR"]
+                          enum:
+                            [
+                              "CRAWL_NOT_FOUND",
+                              "CRAWL_TIMEOUT",
+                              "CRAWL_LIVECRAWL_TIMEOUT",
+                              "SOURCE_NOT_AVAILABLE",
+                              "CRAWL_UNKNOWN_ERROR",
+                            ]
                           description: Specific error type
                           example: "CRAWL_NOT_FOUND"
                         httpStatusCode:
@@ -2131,6 +2226,7 @@ components:
                           example: 404
               costDollars:
                 $ref: "#/components/schemas/CostDollars"
+
     AnswerResponse:
       description: OK
       content:
@@ -2153,9 +2249,3 @@ components:
                 type: array
                 items:
                   $ref: "#/components/schemas/AnswerCitation"
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-security:
-  - BearerAuth: []

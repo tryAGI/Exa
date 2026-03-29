@@ -72,18 +72,18 @@ namespace Exa
         /// <param name="createdAt">
         /// Milliseconds since epoch time
         /// </param>
+        /// <param name="instructions">
+        /// The instructions given to this research request
+        /// </param>
+        /// <param name="error">
+        /// A message indicating why the request failed
+        /// </param>
         /// <param name="model">
         /// The model used for the research request<br/>
         /// Default Value: exa-research
         /// </param>
-        /// <param name="instructions">
-        /// The instructions given to this research request
-        /// </param>
         /// <param name="status"></param>
         /// <param name="events"></param>
-        /// <param name="error">
-        /// A message indicating why the request failed
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -98,11 +98,11 @@ namespace Exa
         {
             this.ResearchId = researchId ?? throw new global::System.ArgumentNullException(nameof(researchId));
             this.CreatedAt = createdAt;
-            this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
-            this.Error = error ?? throw new global::System.ArgumentNullException(nameof(error));
             this.Model = model;
+            this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
             this.Status = status;
             this.Events = events;
+            this.Error = error ?? throw new global::System.ArgumentNullException(nameof(error));
         }
 
         /// <summary>

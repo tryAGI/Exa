@@ -65,12 +65,12 @@ namespace Exa
         /// <param name="createdAt">
         /// Milliseconds since epoch time
         /// </param>
+        /// <param name="instructions">
+        /// The instructions given to this research request
+        /// </param>
         /// <param name="model">
         /// The model used for the research request<br/>
         /// Default Value: exa-research
-        /// </param>
-        /// <param name="instructions">
-        /// The instructions given to this research request
         /// </param>
         /// <param name="status"></param>
         /// <param name="events"></param>
@@ -87,8 +87,8 @@ namespace Exa
         {
             this.ResearchId = researchId ?? throw new global::System.ArgumentNullException(nameof(researchId));
             this.CreatedAt = createdAt;
-            this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
             this.Model = model;
+            this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
             this.Status = status;
             this.Events = events;
         }

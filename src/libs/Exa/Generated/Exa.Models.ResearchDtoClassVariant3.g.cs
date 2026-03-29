@@ -79,17 +79,17 @@ namespace Exa
         /// <param name="createdAt">
         /// Milliseconds since epoch time
         /// </param>
+        /// <param name="instructions">
+        /// The instructions given to this research request
+        /// </param>
+        /// <param name="output"></param>
+        /// <param name="costDollars"></param>
         /// <param name="model">
         /// The model used for the research request<br/>
         /// Default Value: exa-research
         /// </param>
-        /// <param name="instructions">
-        /// The instructions given to this research request
-        /// </param>
         /// <param name="status"></param>
         /// <param name="events"></param>
-        /// <param name="output"></param>
-        /// <param name="costDollars"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -105,12 +105,12 @@ namespace Exa
         {
             this.ResearchId = researchId ?? throw new global::System.ArgumentNullException(nameof(researchId));
             this.CreatedAt = createdAt;
-            this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
-            this.Output = output ?? throw new global::System.ArgumentNullException(nameof(output));
-            this.CostDollars = costDollars ?? throw new global::System.ArgumentNullException(nameof(costDollars));
             this.Model = model;
+            this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
             this.Status = status;
             this.Events = events;
+            this.Output = output ?? throw new global::System.ArgumentNullException(nameof(output));
+            this.CostDollars = costDollars ?? throw new global::System.ArgumentNullException(nameof(costDollars));
         }
 
         /// <summary>

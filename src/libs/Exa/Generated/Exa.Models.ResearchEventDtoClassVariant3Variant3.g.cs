@@ -59,7 +59,6 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchEventDtoClassVariant3Variant3" /> class.
         /// </summary>
-        /// <param name="eventType"></param>
         /// <param name="planId"></param>
         /// <param name="taskId"></param>
         /// <param name="output"></param>
@@ -67,6 +66,7 @@ namespace Exa
         /// Milliseconds since epoch time
         /// </param>
         /// <param name="researchId"></param>
+        /// <param name="eventType"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -78,12 +78,12 @@ namespace Exa
             string researchId,
             global::Exa.ResearchEventDtoClassVariant3Variant3EventType eventType)
         {
+            this.EventType = eventType;
             this.PlanId = planId ?? throw new global::System.ArgumentNullException(nameof(planId));
             this.TaskId = taskId ?? throw new global::System.ArgumentNullException(nameof(taskId));
             this.Output = output ?? throw new global::System.ArgumentNullException(nameof(output));
             this.CreatedAt = createdAt;
             this.ResearchId = researchId ?? throw new global::System.ArgumentNullException(nameof(researchId));
-            this.EventType = eventType;
         }
 
         /// <summary>

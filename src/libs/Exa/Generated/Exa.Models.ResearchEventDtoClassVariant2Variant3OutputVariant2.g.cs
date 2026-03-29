@@ -31,8 +31,8 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchEventDtoClassVariant2Variant3OutputVariant2" /> class.
         /// </summary>
-        /// <param name="outputType"></param>
         /// <param name="reasoning"></param>
+        /// <param name="outputType"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -40,8 +40,8 @@ namespace Exa
             string reasoning,
             global::Exa.ResearchEventDtoClassVariant2Variant3OutputVariant2OutputType outputType)
         {
-            this.Reasoning = reasoning ?? throw new global::System.ArgumentNullException(nameof(reasoning));
             this.OutputType = outputType;
+            this.Reasoning = reasoning ?? throw new global::System.ArgumentNullException(nameof(reasoning));
         }
 
         /// <summary>

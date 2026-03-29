@@ -38,9 +38,9 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchEventDtoClassVariant2Variant3OutputVariant1" /> class.
         /// </summary>
-        /// <param name="outputType"></param>
         /// <param name="reasoning"></param>
         /// <param name="tasksInstructions"></param>
+        /// <param name="outputType"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -49,9 +49,9 @@ namespace Exa
             global::System.Collections.Generic.IList<string> tasksInstructions,
             global::Exa.ResearchEventDtoClassVariant2Variant3OutputVariant1OutputType outputType)
         {
+            this.OutputType = outputType;
             this.Reasoning = reasoning ?? throw new global::System.ArgumentNullException(nameof(reasoning));
             this.TasksInstructions = tasksInstructions ?? throw new global::System.ArgumentNullException(nameof(tasksInstructions));
-            this.OutputType = outputType;
         }
 
         /// <summary>

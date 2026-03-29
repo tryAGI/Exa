@@ -55,16 +55,16 @@ namespace Exa
         /// Exa entity ID.<br/>
         /// Example: https://exa.ai/library/person/john-doe
         /// </param>
-        /// <param name="type">
-        /// Entity type discriminator.<br/>
-        /// Example: person
-        /// </param>
         /// <param name="version">
         /// Schema version number.<br/>
         /// Example: 1
         /// </param>
         /// <param name="properties">
         /// Structured properties for a person entity.
+        /// </param>
+        /// <param name="type">
+        /// Entity type discriminator.<br/>
+        /// Example: person
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -76,9 +76,9 @@ namespace Exa
             global::Exa.PersonEntityType type)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Type = type;
             this.Version = version;
             this.Properties = properties ?? throw new global::System.ArgumentNullException(nameof(properties));
-            this.Type = type;
         }
 
         /// <summary>

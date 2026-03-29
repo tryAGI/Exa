@@ -44,9 +44,9 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchEventDtoClassVariant1Variant2OutputVariant1" /> class.
         /// </summary>
-        /// <param name="outputType"></param>
         /// <param name="costDollars"></param>
         /// <param name="content"></param>
+        /// <param name="outputType"></param>
         /// <param name="parsed"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -57,9 +57,9 @@ namespace Exa
             global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant1OutputType outputType,
             object? parsed)
         {
+            this.OutputType = outputType;
             this.CostDollars = costDollars ?? throw new global::System.ArgumentNullException(nameof(costDollars));
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
-            this.OutputType = outputType;
             this.Parsed = parsed;
         }
 

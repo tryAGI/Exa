@@ -44,10 +44,10 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchOperationDtoClassVariant3" /> class.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="goal"></param>
         /// <param name="result"></param>
         /// <param name="pageTokens"></param>
+        /// <param name="type"></param>
+        /// <param name="goal"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -57,10 +57,10 @@ namespace Exa
             global::Exa.ResearchOperationDtoClassVariant3Type type,
             string? goal)
         {
-            this.Result = result ?? throw new global::System.ArgumentNullException(nameof(result));
-            this.PageTokens = pageTokens;
             this.Type = type;
             this.Goal = goal;
+            this.Result = result ?? throw new global::System.ArgumentNullException(nameof(result));
+            this.PageTokens = pageTokens;
         }
 
         /// <summary>

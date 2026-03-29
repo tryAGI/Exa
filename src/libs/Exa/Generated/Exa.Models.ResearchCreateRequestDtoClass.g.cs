@@ -37,11 +37,11 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchCreateRequestDtoClass" /> class.
         /// </summary>
-        /// <param name="model">
-        /// Default Value: exa-research
-        /// </param>
         /// <param name="instructions">
         /// Instructions for what research should be conducted
+        /// </param>
+        /// <param name="model">
+        /// Default Value: exa-research
         /// </param>
         /// <param name="outputSchema"></param>
 #if NET7_0_OR_GREATER
@@ -52,8 +52,8 @@ namespace Exa
             global::Exa.ResearchCreateRequestDtoClassModel? model,
             object? outputSchema)
         {
-            this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
             this.Model = model;
+            this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
             this.OutputSchema = outputSchema;
         }
 

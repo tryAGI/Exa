@@ -31,8 +31,8 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchOperationDtoClassVariant1" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="content"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -40,8 +40,8 @@ namespace Exa
             string content,
             global::Exa.ResearchOperationDtoClassVariant1Type type)
         {
-            this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.Type = type;
+            this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
         }
 
         /// <summary>

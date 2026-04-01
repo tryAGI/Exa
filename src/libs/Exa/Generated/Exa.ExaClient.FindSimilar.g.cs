@@ -196,7 +196,6 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.FindSimilarResponse> FindSimilarAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest>
             {
             };

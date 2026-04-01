@@ -194,7 +194,6 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.GetContentsResponse> GetContentsAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest>
             {
             };

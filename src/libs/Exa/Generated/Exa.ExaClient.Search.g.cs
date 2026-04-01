@@ -196,7 +196,6 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.SearchResponse> SearchAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest>
             {
             };

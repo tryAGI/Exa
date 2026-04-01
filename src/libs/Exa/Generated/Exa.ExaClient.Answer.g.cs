@@ -44,7 +44,6 @@ namespace Exa
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
-
             request = new global::Exa.AnswerRequest
             {
                 Query = request.Query,
@@ -215,7 +214,6 @@ namespace Exa
             bool? text = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Exa.AnswerRequest
             {
                 Query = query,

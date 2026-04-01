@@ -187,6 +187,7 @@ namespace Exa
             bool? text = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Exa.AnswerRequest
             {
                 Query = query,

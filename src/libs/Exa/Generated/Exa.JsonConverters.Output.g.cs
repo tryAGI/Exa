@@ -126,13 +126,13 @@ namespace Exa.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Completed, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Completed!, typeInfo);
             }
             else if (value.IsFailed)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failed, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failed!, typeInfo);
             }
         }
     }

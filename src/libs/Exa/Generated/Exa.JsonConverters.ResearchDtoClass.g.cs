@@ -251,31 +251,31 @@ namespace Exa.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchDtoClassVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchDtoClassVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchDtoClassVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Pending, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Pending!, typeInfo);
             }
             else if (value.IsRunning)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchDtoClassVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchDtoClassVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchDtoClassVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Running, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Running!, typeInfo);
             }
             else if (value.IsCompleted)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchDtoClassVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchDtoClassVariant3?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchDtoClassVariant3).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Completed, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Completed!, typeInfo);
             }
             else if (value.IsCanceled)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchDtoClassVariant4), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchDtoClassVariant4?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchDtoClassVariant4).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Canceled, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Canceled!, typeInfo);
             }
             else if (value.IsFailed)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchDtoClassVariant5), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchDtoClassVariant5?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchDtoClassVariant5).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failed, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failed!, typeInfo);
             }
         }
     }

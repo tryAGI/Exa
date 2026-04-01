@@ -59,13 +59,13 @@ namespace Exa.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.CompanyEntity), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.CompanyEntity?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.CompanyEntity).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Company, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Company!, typeInfo);
             }
             else if (value.IsPerson)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.PersonEntity), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.PersonEntity?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.PersonEntity).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Person, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Person!, typeInfo);
             }
         }
     }

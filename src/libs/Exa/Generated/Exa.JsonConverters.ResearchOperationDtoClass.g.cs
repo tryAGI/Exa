@@ -165,19 +165,19 @@ namespace Exa.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchOperationDtoClassVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchOperationDtoClassVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchOperationDtoClassVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Think, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Think!, typeInfo);
             }
             else if (value.IsSearch)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchOperationDtoClassVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchOperationDtoClassVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchOperationDtoClassVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Search, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Search!, typeInfo);
             }
             else if (value.IsCrawl)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResearchOperationDtoClassVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResearchOperationDtoClassVariant3?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResearchOperationDtoClassVariant3).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Crawl, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Crawl!, typeInfo);
             }
         }
     }

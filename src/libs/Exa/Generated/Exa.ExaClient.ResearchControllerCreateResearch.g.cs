@@ -197,6 +197,7 @@ namespace Exa
             object? outputSchema = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Exa.ResearchCreateRequestDtoClass
             {
                 Model = model,

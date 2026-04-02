@@ -48,8 +48,8 @@ namespace Exa.JsonConverters
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
             if (__score1 > __bestScore) { __bestScore = __score1; __bestIndex = 1; }
 
-            global::Exa.Result? value1 = default;
-            global::Exa.ResultWithContentVariant2? value2 = default;
+            global::Exa.Result? result = default;
+            global::Exa.ResultWithContentVariant2? resultWithContentVariant2 = default;
             if (__bestIndex >= 0)
             {
                 if (__bestIndex == 0)
@@ -58,7 +58,7 @@ namespace Exa.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.Result), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.Result> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.Result).Name}");
-                        value1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        result = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -73,7 +73,7 @@ namespace Exa.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResultWithContentVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResultWithContentVariant2> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResultWithContentVariant2).Name}");
-                        value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        resultWithContentVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -84,13 +84,13 @@ namespace Exa.JsonConverters
                 }
             }
 
-            if (value1 == null && value2 == null)
+            if (result == null && resultWithContentVariant2 == null)
             {
                 try
                 {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.Result), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.Result> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.Result).Name}");
-                    value1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    result = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -103,7 +103,7 @@ namespace Exa.JsonConverters
                 {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResultWithContentVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResultWithContentVariant2> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResultWithContentVariant2).Name}");
-                    value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    resultWithContentVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -114,9 +114,9 @@ namespace Exa.JsonConverters
             }
 
             var __value = new global::Exa.ResultWithContent(
-                value1,
+                result,
 
-                value2
+                resultWithContentVariant2
                 );
 
             return __value;
@@ -131,17 +131,17 @@ namespace Exa.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsValue1)
+            if (value.IsResult)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.Result), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.Result?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.Result).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Result!, typeInfo);
             }
-            else if (value.IsValue2)
+            else if (value.IsResultWithContentVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResultWithContentVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResultWithContentVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResultWithContentVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ResultWithContentVariant2!, typeInfo);
             }
         }
     }

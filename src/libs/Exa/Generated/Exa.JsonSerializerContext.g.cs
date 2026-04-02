@@ -318,7 +318,7 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ResearchEventDtoClassVariant1Variant1EventType), TypeInfoPropertyName = "ResearchEventDtoClassVariant1Variant1EventType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ResearchEventDtoClassVariant1Variant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ResearchEventDtoClassVariant1Variant2EventType), TypeInfoPropertyName = "ResearchEventDtoClassVariant1Variant2EventType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.Output), TypeInfoPropertyName = "Output3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.Output), TypeInfoPropertyName = "Output2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant1OutputType), TypeInfoPropertyName = "ResearchEventDtoClassVariant1Variant2OutputVariant1OutputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ResearchEventDtoClassVariant1Variant2OutputVariant1CostDollars))]

@@ -23,7 +23,7 @@ namespace Exa
         public global::System.Collections.Generic.IList<global::Exa.ResultWithContent>? Results { get; set; }
 
         /// <summary>
-        /// A formatted string of the search results ready for LLMs.
+        /// Deprecated. Combined context string from search results. Use highlights or text instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
         public string? Context { get; set; }
@@ -55,7 +55,7 @@ namespace Exa
         /// </param>
         /// <param name="results"></param>
         /// <param name="context">
-        /// A formatted string of the search results ready for LLMs.
+        /// Deprecated. Combined context string from search results. Use highlights or text instead.
         /// </param>
         /// <param name="statuses">
         /// Status information for each requested URL

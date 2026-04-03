@@ -9,12 +9,13 @@ namespace Exa
     public sealed partial class AnswerResult
     {
         /// <summary>
-        /// The generated answer based on search results.<br/>
+        /// The generated answer based on search results. Returns a string by default, or a structured object matching the provided outputSchema.<br/>
         /// Example: $350 billion.
         /// </summary>
         /// <example>$350 billion.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("answer")]
-        public string? Answer { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<string, object>))]
+        public global::Exa.OneOf<string, object>? Answer { get; set; }
 
         /// <summary>
         /// Search results used to generate the answer.
@@ -32,7 +33,7 @@ namespace Exa
         /// Initializes a new instance of the <see cref="AnswerResult" /> class.
         /// </summary>
         /// <param name="answer">
-        /// The generated answer based on search results.<br/>
+        /// The generated answer based on search results. Returns a string by default, or a structured object matching the provided outputSchema.<br/>
         /// Example: $350 billion.
         /// </param>
         /// <param name="citations">
@@ -42,7 +43,7 @@ namespace Exa
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AnswerResult(
-            string? answer,
+            global::Exa.OneOf<string, object>? answer,
             global::System.Collections.Generic.IList<global::Exa.AnswerCitation>? citations)
         {
             this.Answer = answer;

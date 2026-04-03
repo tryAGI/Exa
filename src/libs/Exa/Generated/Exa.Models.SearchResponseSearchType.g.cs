@@ -16,6 +16,10 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
+        DeepReasoning,
+        /// <summary>
+        /// 
+        /// </summary>
         Neural,
     }
 
@@ -32,6 +36,7 @@ namespace Exa
             return value switch
             {
                 SearchResponseSearchType.Deep => "deep",
+                SearchResponseSearchType.DeepReasoning => "deep-reasoning",
                 SearchResponseSearchType.Neural => "neural",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -44,6 +49,7 @@ namespace Exa
             return value switch
             {
                 "deep" => SearchResponseSearchType.Deep,
+                "deep-reasoning" => SearchResponseSearchType.DeepReasoning,
                 "neural" => SearchResponseSearchType.Neural,
                 _ => null,
             };

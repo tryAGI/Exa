@@ -4,16 +4,18 @@
 namespace Exa
 {
     /// <summary>
-    /// Return page contents as a context string for LLM. When true, combines all result contents into one string. Context strings often perform better than highlights for LLMs.
+    /// Deprecated: Use highlights or text instead. Returns page contents as a combined context string.
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class ContentsRequestContext
     {
         /// <summary>
-        /// Maximum character limit.<br/>
+        /// Deprecated. Maximum character limit for the context string.<br/>
         /// Example: 10000
         /// </summary>
         /// <example>10000</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxCharacters")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public int? MaxCharacters { get; set; }
 
         /// <summary>
@@ -26,7 +28,7 @@ namespace Exa
         /// Initializes a new instance of the <see cref="ContentsRequestContext" /> class.
         /// </summary>
         /// <param name="maxCharacters">
-        /// Maximum character limit.<br/>
+        /// Deprecated. Maximum character limit for the context string.<br/>
         /// Example: 10000
         /// </param>
 #if NET7_0_OR_GREATER

@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Exa
@@ -87,6 +89,15 @@ namespace Exa
         public global::Exa.OneOf<bool?, global::Exa.CommonRequestContext>? Context { get; set; }
 
         /// <summary>
+        /// Enable content moderation to filter unsafe content from search results.<br/>
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("moderation")]
+        public bool? Moderation { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("contents")]
@@ -138,6 +149,11 @@ namespace Exa
         /// Example: [course]
         /// </param>
         /// <param name="context"></param>
+        /// <param name="moderation">
+        /// Enable content moderation to filter unsafe content from search results.<br/>
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </param>
         /// <param name="contents"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -153,6 +169,7 @@ namespace Exa
             global::System.Collections.Generic.IList<string>? includeText,
             global::System.Collections.Generic.IList<string>? excludeText,
             global::Exa.OneOf<bool?, global::Exa.CommonRequestContext>? context,
+            bool? moderation,
             global::Exa.ContentsRequest? contents)
         {
             this.NumResults = numResults;
@@ -165,6 +182,7 @@ namespace Exa
             this.IncludeText = includeText;
             this.ExcludeText = excludeText;
             this.Context = context;
+            this.Moderation = moderation;
             this.Contents = contents;
         }
 

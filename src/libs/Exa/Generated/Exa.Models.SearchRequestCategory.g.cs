@@ -4,13 +4,13 @@
 namespace Exa
 {
     /// <summary>
-    /// A data category to focus on.<br/>
+    /// A data category to focus on. The `people` and `company` categories have improved quality for finding LinkedIn profiles and company pages. Note: The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `includeText`, `excludeText`, `excludeDomains`. For `people` category, `includeDomains` only accepts LinkedIn domains. Using unsupported parameters will result in a 400 error.<br/>
     /// Example: research paper
     /// </summary>
     public enum SearchRequestCategory
     {
         /// <summary>
-        /// 
+        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `includeText`, `excludeText`, `excludeDomains`. For `people` category, `includeDomains` only accepts LinkedIn domains. Using unsupported parameters will result in a 400 error.
         /// </summary>
         Company,
         /// <summary>
@@ -30,7 +30,7 @@ namespace Exa
         /// </summary>
         Pdf,
         /// <summary>
-        /// 
+        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `includeText`, `excludeText`, `excludeDomains`. For `people` category, `includeDomains` only accepts LinkedIn domains. Using unsupported parameters will result in a 400 error.
         /// </summary>
         People,
         /// <summary>

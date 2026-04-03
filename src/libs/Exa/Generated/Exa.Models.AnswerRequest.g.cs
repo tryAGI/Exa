@@ -32,6 +32,12 @@ namespace Exa
         public bool? Text { get; set; }
 
         /// <summary>
+        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("outputSchema")]
+        public global::Exa.AnswerRequestOutputSchema? OutputSchema { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -52,17 +58,22 @@ namespace Exa
         /// If true, the response includes full text content in the search results<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="outputSchema">
+        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AnswerRequest(
             string query,
             bool? stream,
-            bool? text)
+            bool? text,
+            global::Exa.AnswerRequestOutputSchema? outputSchema)
         {
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.Stream = stream;
             this.Text = text;
+            this.OutputSchema = outputSchema;
         }
 
         /// <summary>

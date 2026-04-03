@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Exa
@@ -16,10 +18,11 @@ namespace Exa
         public global::Exa.OneOf<bool?, global::Exa.ContentsRequestText>? Text { get; set; }
 
         /// <summary>
-        /// Text snippets the LLM identifies as most relevant from each page. We recommend you using context instead of highlights for LLMs.
+        /// Text snippets the LLM identifies as most relevant from each page.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("highlights")]
-        public global::Exa.ContentsRequestHighlights? Highlights { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsRequestHighlights>))]
+        public global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlights>? Highlights { get; set; }
 
         /// <summary>
         /// Summary of the webpage
@@ -28,16 +31,18 @@ namespace Exa
         public global::Exa.ContentsRequestSummary? Summary { get; set; }
 
         /// <summary>
+        /// **Deprecated**: Use `maxAgeHours` instead for more precise control over content freshness.<br/>
         /// Options for livecrawling pages.<br/>
         /// 'never': Disable livecrawling (default for neural search).<br/>
         /// 'fallback': Livecrawl when cache is empty.<br/>
-        /// 'always': Always livecrawl.<br/>
         /// 'preferred': Always try to livecrawl, but fall back to cache if crawling fails.<br/>
-        /// Example: always
+        /// 'always': Always live-crawl, never use cache. Only use if you cannot tolerate any cached content. This option is not recommended unless consulted with the Exa team.<br/>
+        /// Example: preferred
         /// </summary>
-        /// <example>always</example>
+        /// <example>preferred</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("livecrawl")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.ContentsRequestLivecrawlJsonConverter))]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::Exa.ContentsRequestLivecrawl? Livecrawl { get; set; }
 
         /// <summary>
@@ -103,18 +108,10 @@ namespace Exa
         /// </summary>
         /// <param name="text"></param>
         /// <param name="highlights">
-        /// Text snippets the LLM identifies as most relevant from each page. We recommend you using context instead of highlights for LLMs.
+        /// Text snippets the LLM identifies as most relevant from each page.
         /// </param>
         /// <param name="summary">
         /// Summary of the webpage
-        /// </param>
-        /// <param name="livecrawl">
-        /// Options for livecrawling pages.<br/>
-        /// 'never': Disable livecrawling (default for neural search).<br/>
-        /// 'fallback': Livecrawl when cache is empty.<br/>
-        /// 'always': Always livecrawl.<br/>
-        /// 'preferred': Always try to livecrawl, but fall back to cache if crawling fails.<br/>
-        /// Example: always
         /// </param>
         /// <param name="livecrawlTimeout">
         /// The timeout for livecrawling in milliseconds.<br/>
@@ -147,9 +144,8 @@ namespace Exa
 #endif
         public ContentsRequest(
             global::Exa.OneOf<bool?, global::Exa.ContentsRequestText>? text,
-            global::Exa.ContentsRequestHighlights? highlights,
+            global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlights>? highlights,
             global::Exa.ContentsRequestSummary? summary,
-            global::Exa.ContentsRequestLivecrawl? livecrawl,
             int? livecrawlTimeout,
             int? maxAgeHours,
             int? subpages,
@@ -160,7 +156,6 @@ namespace Exa
             this.Text = text;
             this.Highlights = highlights;
             this.Summary = summary;
-            this.Livecrawl = livecrawl;
             this.LivecrawlTimeout = livecrawlTimeout;
             this.MaxAgeHours = maxAgeHours;
             this.Subpages = subpages;

@@ -17,13 +17,13 @@ namespace Exa
         public string? RequestId { get; set; }
 
         /// <summary>
-        /// A formatted string of the search results ready for LLMs.
+        /// Deprecated. Combined context string from search results. Use highlights or text instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
         public string? Context { get; set; }
 
         /// <summary>
-        /// A list of search results containing title, URL, published date, author, and score.
+        /// A list of search results containing title, URL, published date, and author.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         public global::System.Collections.Generic.IList<global::Exa.ResultWithContent>? Results { get; set; }
@@ -48,10 +48,10 @@ namespace Exa
         /// Example: c6958155d5c89ffa0663b7c90c407396
         /// </param>
         /// <param name="context">
-        /// A formatted string of the search results ready for LLMs.
+        /// Deprecated. Combined context string from search results. Use highlights or text instead.
         /// </param>
         /// <param name="results">
-        /// A list of search results containing title, URL, published date, author, and score.
+        /// A list of search results containing title, URL, published date, and author.
         /// </param>
         /// <param name="costDollars"></param>
 #if NET7_0_OR_GREATER

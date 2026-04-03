@@ -17,7 +17,7 @@ namespace Exa
         public string? RequestId { get; set; }
 
         /// <summary>
-        /// A list of search results containing title, URL, published date, author, and score.
+        /// A list of search results containing title, URL, published date, and author.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         public global::System.Collections.Generic.IList<global::Exa.ResultWithContent>? Results { get; set; }
@@ -32,10 +32,16 @@ namespace Exa
         public global::Exa.SearchResponseSearchType? SearchType { get; set; }
 
         /// <summary>
-        /// A formatted string of the search results ready for LLMs.
+        /// Deprecated. Combined context string from search results. Use highlights or text instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
         public string? Context { get; set; }
+
+        /// <summary>
+        /// Deep-search synthesized output. Returned for deep search variants.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("output")]
+        public global::Exa.SearchResponseOutput? Output { get; set; }
 
         /// <summary>
         /// 
@@ -57,14 +63,17 @@ namespace Exa
         /// Example: b5947044c4b78efa9552a7c89b306d95
         /// </param>
         /// <param name="results">
-        /// A list of search results containing title, URL, published date, author, and score.
+        /// A list of search results containing title, URL, published date, and author.
         /// </param>
         /// <param name="searchType">
         /// For auto searches, indicates which search type was selected.<br/>
         /// Example: auto
         /// </param>
         /// <param name="context">
-        /// A formatted string of the search results ready for LLMs.
+        /// Deprecated. Combined context string from search results. Use highlights or text instead.
+        /// </param>
+        /// <param name="output">
+        /// Deep-search synthesized output. Returned for deep search variants.
         /// </param>
         /// <param name="costDollars"></param>
 #if NET7_0_OR_GREATER
@@ -75,12 +84,14 @@ namespace Exa
             global::System.Collections.Generic.IList<global::Exa.ResultWithContent>? results,
             global::Exa.SearchResponseSearchType? searchType,
             string? context,
+            global::Exa.SearchResponseOutput? output,
             global::Exa.CostDollars? costDollars)
         {
             this.RequestId = requestId;
             this.Results = results;
             this.SearchType = searchType;
             this.Context = context;
+            this.Output = output;
             this.CostDollars = costDollars;
         }
 

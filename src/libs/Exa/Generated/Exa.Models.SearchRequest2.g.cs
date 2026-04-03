@@ -18,7 +18,7 @@ namespace Exa
         public required string Query { get; set; }
 
         /// <summary>
-        /// Additional query variations for deep search. Only works with type="deep". When provided, these queries are used alongside the main query for comprehensive results.<br/>
+        /// Additional query variations for deep search. Only works with type="deep" or type="deep-reasoning". When provided, these queries are used alongside the main query for comprehensive results.<br/>
         /// Example: [LLM advancements, large language model progress]
         /// </summary>
         /// <example>[LLM advancements, large language model progress]</example>
@@ -26,7 +26,7 @@ namespace Exa
         public global::System.Collections.Generic.IList<string>? AdditionalQueries { get; set; }
 
         /// <summary>
-        /// The type of search. Neural uses an embeddings-based model, auto (default) intelligently combines available search methods, fast uses streamlined versions of the neural model, and deep provides comprehensive search with query expansion and detailed context.<br/>
+        /// The type of search. Neural uses an embeddings-based model, auto (default) intelligently combines neural and other search methods, fast uses streamlined versions of the search models, deep is light deep search, deep-reasoning is base deep search, and instant provides the lowest latency search optimized for real-time applications.<br/>
         /// Default Value: auto<br/>
         /// Example: auto
         /// </summary>
@@ -36,7 +36,13 @@ namespace Exa
         public global::Exa.SearchRequestType? Type { get; set; }
 
         /// <summary>
-        /// A data category to focus on.<br/>
+        /// JSON schema for deep search structured output mode. When provided, the output.content field is returned as structured JSON matching this schema.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("outputSchema")]
+        public object? OutputSchema { get; set; }
+
+        /// <summary>
+        /// A data category to focus on. The `people` and `company` categories have improved quality for finding LinkedIn profiles and company pages. Note: The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `includeText`, `excludeText`, `excludeDomains`. For `people` category, `includeDomains` only accepts LinkedIn domains. Using unsupported parameters will result in a 400 error.<br/>
         /// Example: research paper
         /// </summary>
         /// <example>research paper</example>
@@ -66,16 +72,19 @@ namespace Exa
         /// Example: Latest developments in LLM capabilities
         /// </param>
         /// <param name="additionalQueries">
-        /// Additional query variations for deep search. Only works with type="deep". When provided, these queries are used alongside the main query for comprehensive results.<br/>
+        /// Additional query variations for deep search. Only works with type="deep" or type="deep-reasoning". When provided, these queries are used alongside the main query for comprehensive results.<br/>
         /// Example: [LLM advancements, large language model progress]
         /// </param>
         /// <param name="type">
-        /// The type of search. Neural uses an embeddings-based model, auto (default) intelligently combines available search methods, fast uses streamlined versions of the neural model, and deep provides comprehensive search with query expansion and detailed context.<br/>
+        /// The type of search. Neural uses an embeddings-based model, auto (default) intelligently combines neural and other search methods, fast uses streamlined versions of the search models, deep is light deep search, deep-reasoning is base deep search, and instant provides the lowest latency search optimized for real-time applications.<br/>
         /// Default Value: auto<br/>
         /// Example: auto
         /// </param>
+        /// <param name="outputSchema">
+        /// JSON schema for deep search structured output mode. When provided, the output.content field is returned as structured JSON matching this schema.
+        /// </param>
         /// <param name="category">
-        /// A data category to focus on.<br/>
+        /// A data category to focus on. The `people` and `company` categories have improved quality for finding LinkedIn profiles and company pages. Note: The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `includeText`, `excludeText`, `excludeDomains`. For `people` category, `includeDomains` only accepts LinkedIn domains. Using unsupported parameters will result in a 400 error.<br/>
         /// Example: research paper
         /// </param>
         /// <param name="userLocation">
@@ -89,12 +98,14 @@ namespace Exa
             string query,
             global::System.Collections.Generic.IList<string>? additionalQueries,
             global::Exa.SearchRequestType? type,
+            object? outputSchema,
             global::Exa.SearchRequestCategory? category,
             string? userLocation)
         {
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.AdditionalQueries = additionalQueries;
             this.Type = type;
+            this.OutputSchema = outputSchema;
             this.Category = category;
             this.UserLocation = userLocation;
         }

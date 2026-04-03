@@ -29,6 +29,10 @@ namespace Exa
         /// 
         /// </summary>
         SourceNotAvailable,
+        /// <summary>
+        /// 
+        /// </summary>
+        UnsupportedUrl,
     }
 
     /// <summary>
@@ -48,6 +52,7 @@ namespace Exa
                 GetContentsResponseStatuseErrorTag.CrawlTimeout => "CRAWL_TIMEOUT",
                 GetContentsResponseStatuseErrorTag.CrawlUnknownError => "CRAWL_UNKNOWN_ERROR",
                 GetContentsResponseStatuseErrorTag.SourceNotAvailable => "SOURCE_NOT_AVAILABLE",
+                GetContentsResponseStatuseErrorTag.UnsupportedUrl => "UNSUPPORTED_URL",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -63,6 +68,7 @@ namespace Exa
                 "CRAWL_TIMEOUT" => GetContentsResponseStatuseErrorTag.CrawlTimeout,
                 "CRAWL_UNKNOWN_ERROR" => GetContentsResponseStatuseErrorTag.CrawlUnknownError,
                 "SOURCE_NOT_AVAILABLE" => GetContentsResponseStatuseErrorTag.SourceNotAvailable,
+                "UNSUPPORTED_URL" => GetContentsResponseStatuseErrorTag.UnsupportedUrl,
                 _ => null,
             };
         }

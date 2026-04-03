@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// The type of search. Neural uses an embeddings-based model, auto (default) intelligently combines available search methods, fast uses streamlined versions of the neural model, and deep provides comprehensive search with query expansion and detailed context.<br/>
+    /// The type of search. Neural uses an embeddings-based model, auto (default) intelligently combines neural and other search methods, fast uses streamlined versions of the search models, deep is light deep search, deep-reasoning is base deep search, and instant provides the lowest latency search optimized for real-time applications.<br/>
     /// Default Value: auto<br/>
     /// Example: auto
     /// </summary>
@@ -21,7 +21,15 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
+        DeepReasoning,
+        /// <summary>
+        /// 
+        /// </summary>
         Fast,
+        /// <summary>
+        /// 
+        /// </summary>
+        Instant,
         /// <summary>
         /// 
         /// </summary>
@@ -42,7 +50,9 @@ namespace Exa
             {
                 SearchRequestType.Auto => "auto",
                 SearchRequestType.Deep => "deep",
+                SearchRequestType.DeepReasoning => "deep-reasoning",
                 SearchRequestType.Fast => "fast",
+                SearchRequestType.Instant => "instant",
                 SearchRequestType.Neural => "neural",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -56,7 +66,9 @@ namespace Exa
             {
                 "auto" => SearchRequestType.Auto,
                 "deep" => SearchRequestType.Deep,
+                "deep-reasoning" => SearchRequestType.DeepReasoning,
                 "fast" => SearchRequestType.Fast,
+                "instant" => SearchRequestType.Instant,
                 "neural" => SearchRequestType.Neural,
                 _ => null,
             };

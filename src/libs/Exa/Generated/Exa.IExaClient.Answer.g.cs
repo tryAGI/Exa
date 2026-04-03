@@ -36,11 +36,15 @@ namespace Exa
         /// If true, the response includes full text content in the search results<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="outputSchema">
+        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>> AnswerAsync(
             string query,
             bool? text = default,
+            global::Exa.AnswerRequestOutputSchema? outputSchema = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

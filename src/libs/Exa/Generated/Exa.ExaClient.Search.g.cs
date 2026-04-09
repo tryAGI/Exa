@@ -5,6 +5,25 @@ namespace Exa
 {
     public partial class ExaClient
     {
+
+
+        private static readonly global::Exa.EndPointSecurityRequirement s_SearchSecurityRequirement0 =
+            new global::Exa.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Exa.EndPointAuthorizationRequirement[]
+                {                    new global::Exa.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Exa.EndPointSecurityRequirement[] s_SearchSecurityRequirements =
+            new global::Exa.EndPointSecurityRequirement[]
+            {                s_SearchSecurityRequirement0,
+            };
         partial void PrepareSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest> request);
@@ -48,9 +67,15 @@ namespace Exa
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::Exa.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_SearchSecurityRequirements,
+                operationName: "SearchAsync");
+
             var __pathBuilder = new global::Exa.PathBuilder(
                 path: "/search",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -60,7 +85,7 @@ namespace Exa
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

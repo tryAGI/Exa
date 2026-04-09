@@ -6,6 +6,7 @@ namespace Exa
     public sealed partial class ExaClient
     {
         /// <inheritdoc cref="ExaClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Exa.EndPointAuthorization}?, bool)"/>
+
         public ExaClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

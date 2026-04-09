@@ -5,6 +5,25 @@ namespace Exa
 {
     public partial class ExaClient
     {
+
+
+        private static readonly global::Exa.EndPointSecurityRequirement s_ResearchTasksCreateSecurityRequirement0 =
+            new global::Exa.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Exa.EndPointAuthorizationRequirement[]
+                {                    new global::Exa.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Exa.EndPointSecurityRequirement[] s_ResearchTasksCreateSecurityRequirements =
+            new global::Exa.EndPointSecurityRequirement[]
+            {                s_ResearchTasksCreateSecurityRequirement0,
+            };
         partial void PrepareResearchTasksCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Exa.ResearchTasksCreateRequest request);
@@ -40,9 +59,15 @@ namespace Exa
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::Exa.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ResearchTasksCreateSecurityRequirements,
+                operationName: "ResearchTasksCreateAsync");
+
             var __pathBuilder = new global::Exa.PathBuilder(
                 path: "/research/v0/tasks",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -52,7 +77,7 @@ namespace Exa
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

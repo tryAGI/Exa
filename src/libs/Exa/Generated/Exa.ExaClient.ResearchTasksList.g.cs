@@ -5,6 +5,25 @@ namespace Exa
 {
     public partial class ExaClient
     {
+
+
+        private static readonly global::Exa.EndPointSecurityRequirement s_ResearchTasksListSecurityRequirement0 =
+            new global::Exa.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Exa.EndPointAuthorizationRequirement[]
+                {                    new global::Exa.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Exa.EndPointSecurityRequirement[] s_ResearchTasksListSecurityRequirements =
+            new global::Exa.EndPointSecurityRequirement[]
+            {                s_ResearchTasksListSecurityRequirement0,
+            };
         partial void PrepareResearchTasksListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
@@ -44,13 +63,19 @@ namespace Exa
                 cursor: ref cursor,
                 limit: ref limit);
 
+
+            var __authorizations = global::Exa.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ResearchTasksListSecurityRequirements,
+                operationName: "ResearchTasksListAsync");
+
             var __pathBuilder = new global::Exa.PathBuilder(
                 path: "/research/v0/tasks",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("cursor", cursor)
                 .AddOptionalParameter("limit", limit?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -60,7 +85,7 @@ namespace Exa
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

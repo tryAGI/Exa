@@ -13,7 +13,7 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.exa.ai";
+        public const string DefaultBaseUrl = "https://api.exa.ai/";
 
         private bool _disposeHttpClient = true;
 

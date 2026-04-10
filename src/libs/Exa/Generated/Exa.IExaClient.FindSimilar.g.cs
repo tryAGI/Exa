@@ -9,6 +9,7 @@ namespace Exa
         /// Find similar links to the link provided. Optionally get contents.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Exa.ApiException"></exception>
         /// <remarks>
@@ -23,14 +24,17 @@ namespace Exa
         global::System.Threading.Tasks.Task<global::Exa.FindSimilarResponse> FindSimilarAsync(
 
             global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request,
+            global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Find similar links<br/>
         /// Find similar links to the link provided. Optionally get contents.
         /// </summary>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Exa.FindSimilarResponse> FindSimilarAsync(
+            global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -25,6 +25,7 @@ namespace Exa
             Authorizations.Add(new global::Exa.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "HttpBearer",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,

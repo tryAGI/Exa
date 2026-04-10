@@ -9,6 +9,7 @@ namespace Exa
         /// Perform a search with a Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Exa.ApiException"></exception>
         /// <remarks>
@@ -23,14 +24,17 @@ namespace Exa
         global::System.Threading.Tasks.Task<global::Exa.SearchResponse> SearchAsync(
 
             global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest> request,
+            global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search<br/>
         /// Perform a search with a Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.
         /// </summary>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Exa.SearchResponse> SearchAsync(
+            global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

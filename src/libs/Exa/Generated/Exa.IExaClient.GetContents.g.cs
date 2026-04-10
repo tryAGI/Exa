@@ -8,6 +8,7 @@ namespace Exa
         /// Get Contents
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Exa.ApiException"></exception>
         /// <remarks>
@@ -22,13 +23,16 @@ namespace Exa
         global::System.Threading.Tasks.Task<global::Exa.GetContentsResponse> GetContentsAsync(
 
             global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest> request,
+            global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Contents
         /// </summary>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Exa.GetContentsResponse> GetContentsAsync(
+            global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

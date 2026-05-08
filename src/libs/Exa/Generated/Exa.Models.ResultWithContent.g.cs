@@ -29,6 +29,19 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickResult(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Exa.Result? value)
+        {
+            value = Result;
+            return IsResult;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Exa.ResultWithContentVariant2? ResultWithContentVariant2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace Exa
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResultWithContentVariant2))]
 #endif
         public bool IsResultWithContentVariant2 => ResultWithContentVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickResultWithContentVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Exa.ResultWithContentVariant2? value)
+        {
+            value = ResultWithContentVariant2;
+            return IsResultWithContentVariant2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -118,8 +144,8 @@ namespace Exa
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Exa.Result?, TResult>? result = null,
-            global::System.Func<global::Exa.ResultWithContentVariant2?, TResult>? resultWithContentVariant2 = null,
+            global::System.Func<global::Exa.Result, TResult>? result = null,
+            global::System.Func<global::Exa.ResultWithContentVariant2, TResult>? resultWithContentVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +169,32 @@ namespace Exa
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Exa.Result?>? result = null,
-            global::System.Action<global::Exa.ResultWithContentVariant2?>? resultWithContentVariant2 = null,
+            global::System.Action<global::Exa.Result>? result = null,
+
+            global::System.Action<global::Exa.ResultWithContentVariant2>? resultWithContentVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsResult)
+            {
+                result?.Invoke(Result!);
+            }
+            else if (IsResultWithContentVariant2)
+            {
+                resultWithContentVariant2?.Invoke(ResultWithContentVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Exa.Result>? result = null,
+            global::System.Action<global::Exa.ResultWithContentVariant2>? resultWithContentVariant2 = null,
             bool validate = true)
         {
             if (validate)

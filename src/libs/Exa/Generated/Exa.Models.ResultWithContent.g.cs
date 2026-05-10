@@ -42,6 +42,13 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
+        public global::Exa.Result PickResult() => IsResult
+            ? Result!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Result' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Exa.ResultWithContentVariant2? ResultWithContentVariant2 { get; init; }
 #else
@@ -68,6 +75,13 @@ namespace Exa
             value = ResultWithContentVariant2;
             return IsResultWithContentVariant2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Exa.ResultWithContentVariant2 PickResultWithContentVariant2() => IsResultWithContentVariant2
+            ? ResultWithContentVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ResultWithContentVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

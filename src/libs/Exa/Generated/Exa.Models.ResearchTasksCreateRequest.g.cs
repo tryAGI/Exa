@@ -63,5 +63,6 @@ namespace Exa
         public ResearchTasksCreateRequest()
         {
         }
+
     }
 }

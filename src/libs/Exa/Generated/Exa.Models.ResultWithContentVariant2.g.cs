@@ -122,5 +122,6 @@ namespace Exa
         public ResultWithContentVariant2()
         {
         }
+
     }
 }

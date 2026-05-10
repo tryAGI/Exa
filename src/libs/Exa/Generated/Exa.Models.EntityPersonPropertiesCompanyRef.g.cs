@@ -58,5 +58,6 @@ namespace Exa
         public EntityPersonPropertiesCompanyRef()
         {
         }
+
     }
 }

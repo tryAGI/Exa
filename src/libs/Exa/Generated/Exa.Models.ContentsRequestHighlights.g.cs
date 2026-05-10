@@ -76,5 +76,6 @@ namespace Exa
         public ContentsRequestHighlights()
         {
         }
+
     }
 }

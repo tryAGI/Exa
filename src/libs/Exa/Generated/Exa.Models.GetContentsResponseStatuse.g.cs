@@ -70,5 +70,6 @@ namespace Exa
         public GetContentsResponseStatuse()
         {
         }
+
     }
 }

@@ -86,5 +86,6 @@ namespace Exa
         public EntityCompanyPropertiesHeadquarters()
         {
         }
+
     }
 }

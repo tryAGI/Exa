@@ -77,5 +77,6 @@ namespace Exa
         public CostDollars()
         {
         }
+
     }
 }

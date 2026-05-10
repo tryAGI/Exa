@@ -59,5 +59,6 @@ namespace Exa
         public GetContentsResponseStatuseError()
         {
         }
+
     }
 }

@@ -44,5 +44,6 @@ namespace Exa
         public ResultWithContentVariant2Extras()
         {
         }
+
     }
 }

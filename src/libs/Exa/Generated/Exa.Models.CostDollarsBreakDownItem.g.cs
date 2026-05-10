@@ -67,5 +67,6 @@ namespace Exa
         public CostDollarsBreakDownItem()
         {
         }
+
     }
 }

@@ -116,5 +116,6 @@ namespace Exa
         public SearchRequest2()
         {
         }
+
     }
 }

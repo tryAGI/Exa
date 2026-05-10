@@ -39,5 +39,6 @@ namespace Exa
         public AnswerResponse2()
         {
         }
+
     }
 }

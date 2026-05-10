@@ -94,6 +94,11 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
+        public static Entity FromCompany(global::Exa.CompanyEntity? value) => new Entity(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Entity(global::Exa.PersonEntity value) => new Entity((global::Exa.PersonEntity?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace Exa
         {
             Person = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Entity FromPerson(global::Exa.PersonEntity? value) => new Entity(value);
 
         /// <summary>
         /// 

@@ -97,6 +97,7 @@ namespace Exa.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.Result), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.Result> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.Result).Name}");
                     result = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -107,9 +108,13 @@ namespace Exa.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (result == null && resultWithContentVariant2 == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Exa.ResultWithContentVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Exa.ResultWithContentVariant2> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Exa.ResultWithContentVariant2).Name}");
                     resultWithContentVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

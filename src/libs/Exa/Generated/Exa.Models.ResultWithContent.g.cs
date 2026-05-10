@@ -89,6 +89,11 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
+        public static ResultWithContent FromResult(global::Exa.Result? value) => new ResultWithContent(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ResultWithContent(global::Exa.ResultWithContentVariant2 value) => new ResultWithContent((global::Exa.ResultWithContentVariant2?)value);
 
         /// <summary>
@@ -103,6 +108,11 @@ namespace Exa
         {
             ResultWithContentVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultWithContent FromResultWithContentVariant2(global::Exa.ResultWithContentVariant2? value) => new ResultWithContent(value);
 
         /// <summary>
         /// 

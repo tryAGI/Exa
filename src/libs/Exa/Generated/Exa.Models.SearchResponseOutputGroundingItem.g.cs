@@ -65,5 +65,6 @@ namespace Exa
         public SearchResponseOutputGroundingItem()
         {
         }
+
     }
 }

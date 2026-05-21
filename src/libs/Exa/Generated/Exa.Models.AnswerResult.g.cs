@@ -56,5 +56,6 @@ namespace Exa
         public AnswerResult()
         {
         }
+
     }
 }

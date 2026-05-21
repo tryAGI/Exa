@@ -100,5 +100,6 @@ namespace Exa
         public CostDollarsBreakDownItemBreakdown()
         {
         }
+
     }
 }

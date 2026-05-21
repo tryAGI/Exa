@@ -32,6 +32,26 @@ namespace Exa
         public bool IsCompany => Company != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCompany(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Exa.CompanyEntity? value)
+        {
+            value = Company;
+            return IsCompany;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Exa.CompanyEntity PickCompany() => IsCompany
+            ? Company!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Company' but the value was {ToString()}.");
+
+        /// <summary>
         /// Structured entity data for a person.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +67,26 @@ namespace Exa
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Person))]
 #endif
         public bool IsPerson => Person != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickPerson(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Exa.PersonEntity? value)
+        {
+            value = Person;
+            return IsPerson;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Exa.PersonEntity PickPerson() => IsPerson
+            ? Person!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Person' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -68,6 +108,11 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
+        public static Entity FromCompany(global::Exa.CompanyEntity? value) => new Entity(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Entity(global::Exa.PersonEntity value) => new Entity((global::Exa.PersonEntity?)value);
 
         /// <summary>
@@ -82,6 +127,11 @@ namespace Exa
         {
             Person = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Entity FromPerson(global::Exa.PersonEntity? value) => new Entity(value);
 
         /// <summary>
         /// 
@@ -126,8 +176,8 @@ namespace Exa
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Exa.CompanyEntity?, TResult>? company = null,
-            global::System.Func<global::Exa.PersonEntity?, TResult>? person = null,
+            global::System.Func<global::Exa.CompanyEntity, TResult>? company = null,
+            global::System.Func<global::Exa.PersonEntity, TResult>? person = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +201,32 @@ namespace Exa
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Exa.CompanyEntity?>? company = null,
-            global::System.Action<global::Exa.PersonEntity?>? person = null,
+            global::System.Action<global::Exa.CompanyEntity>? company = null,
+
+            global::System.Action<global::Exa.PersonEntity>? person = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsCompany)
+            {
+                company?.Invoke(Company!);
+            }
+            else if (IsPerson)
+            {
+                person?.Invoke(Person!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Exa.CompanyEntity>? company = null,
+            global::System.Action<global::Exa.PersonEntity>? person = null,
             bool validate = true)
         {
             if (validate)

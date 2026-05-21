@@ -101,5 +101,6 @@ namespace Exa
         public SearchResponse()
         {
         }
+
     }
 }

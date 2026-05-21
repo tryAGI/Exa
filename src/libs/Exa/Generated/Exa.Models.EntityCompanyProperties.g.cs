@@ -112,5 +112,6 @@ namespace Exa
         public EntityCompanyProperties()
         {
         }
+
     }
 }

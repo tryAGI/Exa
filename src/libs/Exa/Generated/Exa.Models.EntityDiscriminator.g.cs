@@ -40,5 +40,6 @@ namespace Exa
         public EntityDiscriminator()
         {
         }
+
     }
 }

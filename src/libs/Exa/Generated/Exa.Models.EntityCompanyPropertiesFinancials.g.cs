@@ -68,5 +68,6 @@ namespace Exa
         public EntityCompanyPropertiesFinancials()
         {
         }
+
     }
 }

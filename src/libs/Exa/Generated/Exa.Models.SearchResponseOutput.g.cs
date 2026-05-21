@@ -55,5 +55,6 @@ namespace Exa
         public SearchResponseOutput()
         {
         }
+
     }
 }

@@ -19,6 +19,13 @@ using Exa;
 using var client = new ExaClient(apiKey);
 ```
 
+### CLI
+
+```bash
+dotnet tool install --global Exa.CLI --prerelease
+exa api --help
+```
+
 <!-- EXAMPLES:START -->
 <!-- EXAMPLES:END -->
 

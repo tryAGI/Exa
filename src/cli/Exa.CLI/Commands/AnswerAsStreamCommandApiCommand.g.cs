@@ -73,10 +73,11 @@ Performs a search based on the query and generates either a direct answer or a d
                             __outputSchemaSpecified || __outputSchemaBase is not null
                                 ? new global::Exa.AnswerRequestOutputSchema
                                 {
-                                Type = outputSchemaType,
+	                                Type = outputSchemaType,
                                 Required = outputSchemaRequired,
                                 Description = outputSchemaDescriptionOption,
                                 AdditionalProperties = outputSchemaAdditionalProperties,
+
                                 }
                                 : __outputSchemaBase;
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);

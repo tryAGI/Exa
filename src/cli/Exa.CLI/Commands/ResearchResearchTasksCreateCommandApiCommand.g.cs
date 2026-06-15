@@ -94,8 +94,8 @@ internal static partial class ResearchResearchTasksCreateCommandApiCommand
                             global::Exa.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var instructions = parseResult.GetRequiredValue(Instructions);
-                        var model = CliRuntime.WasSpecified(parseResult, Model) ? parseResult.GetValue(Model) : __requestBase is not null ? __requestBase.Model : default;
-                        var output = CliRuntime.WasSpecified(parseResult, Output) ? parseResult.GetValue(Output) : __requestBase is not null ? __requestBase.Output : default;
+                        var model = CliRuntime.WasSpecified(parseResult, Model) ? parseResult.GetValue(Model) : (__requestBase is { } __ModelBaseValue ? __ModelBaseValue.Model : default);
+                        var output = CliRuntime.WasSpecified(parseResult, Output) ? parseResult.GetValue(Output) : (__requestBase is { } __OutputBaseValue ? __OutputBaseValue.Output : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

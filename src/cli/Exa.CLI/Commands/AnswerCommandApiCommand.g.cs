@@ -84,13 +84,13 @@ Performs a search based on the query and generates either a direct answer or a d
                             cancellationToken).ConfigureAwait(false);                        var query = parseResult.GetRequiredValue(AnswerRequestOptionSetOptions.Query);
                         var text = CliRuntime.WasSpecified(parseResult, AnswerRequestOptionSetOptions.Text) ? parseResult.GetValue(AnswerRequestOptionSetOptions.Text) : (__requestBase is { } __TextBaseValue ? __TextBaseValue.Text : default);
 
-                        var __outputSchemaBase = __requestBase is { } __OutputSchemaBaseValue ? __OutputSchemaBaseValue.OutputSchema : default;                        var outputSchemaType = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Type) ? parseResult.GetValue(OutputSchemaOptions.Type) : (__outputSchemaBase is { } __OutputSchematypeBaseValue ? __OutputSchematypeBaseValue.Type : default);
-                        var outputSchemaRequired = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Required) ? parseResult.GetValue(OutputSchemaOptions.Required) : (__outputSchemaBase is { } __OutputSchemarequiredBaseValue ? __OutputSchemarequiredBaseValue.Required : default);
-                        var outputSchemaDescriptionOption = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.DescriptionOption) ? parseResult.GetValue(OutputSchemaOptions.DescriptionOption) : (__outputSchemaBase is { } __OutputSchemadescriptionBaseValue ? __OutputSchemadescriptionBaseValue.Description : default);
-                        var outputSchemaAdditionalProperties = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.AdditionalProperties) ? parseResult.GetValue(OutputSchemaOptions.AdditionalProperties) : (__outputSchemaBase is { } __OutputSchemaadditionalPropertiesBaseValue ? __OutputSchemaadditionalPropertiesBaseValue.AdditionalProperties : default);
-                        var __outputSchemaSpecified = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Type) || CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Required) || CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.DescriptionOption) || CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.AdditionalProperties);
+                        var __OutputSchemaBase = __requestBase is { } __OutputSchemaBaseValue ? __OutputSchemaBaseValue.OutputSchema : default;                        var outputSchemaType = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Type) ? parseResult.GetValue(OutputSchemaOptions.Type) : (__OutputSchemaBase is { } __OutputSchematypeBaseValue ? __OutputSchematypeBaseValue.Type : default);
+                        var outputSchemaRequired = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Required) ? parseResult.GetValue(OutputSchemaOptions.Required) : (__OutputSchemaBase is { } __OutputSchemarequiredBaseValue ? __OutputSchemarequiredBaseValue.Required : default);
+                        var outputSchemaDescriptionOption = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.DescriptionOption) ? parseResult.GetValue(OutputSchemaOptions.DescriptionOption) : (__OutputSchemaBase is { } __OutputSchemadescriptionBaseValue ? __OutputSchemadescriptionBaseValue.Description : default);
+                        var outputSchemaAdditionalProperties = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.AdditionalProperties) ? parseResult.GetValue(OutputSchemaOptions.AdditionalProperties) : (__OutputSchemaBase is { } __OutputSchemaadditionalPropertiesBaseValue ? __OutputSchemaadditionalPropertiesBaseValue.AdditionalProperties : default);
+                        var __OutputSchemaSpecified = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Type) || CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Required) || CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.DescriptionOption) || CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.AdditionalProperties);
                         var outputSchema =
-                            __outputSchemaSpecified || __outputSchemaBase is not null
+                            __OutputSchemaSpecified || __OutputSchemaBase is not null
                                 ? new global::Exa.AnswerRequestOutputSchema
                                 {
 	                                Type = outputSchemaType,
@@ -99,7 +99,7 @@ Performs a search based on the query and generates either a direct answer or a d
                                 AdditionalProperties = outputSchemaAdditionalProperties,
 
                                 }
-                                : __outputSchemaBase;
+                                : __OutputSchemaBase;
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

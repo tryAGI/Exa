@@ -155,7 +155,7 @@ Updates an existing monitor. All fields are optional. For `search`, you can send
                         var __WebhookSpecified = CliRuntime.WasSpecified(parseResult, WebhookWebhookUrl) || __WebhookEventsSpecified;
                         if (__WebhookSpecified && string.IsNullOrWhiteSpace(webhookWebhookUrl))
                         {
-                            throw new CliException("Specify --webhook-url or include it in the base request body before using other --webhook-* options.");
+                            throw new CliException(@"Specify --webhook-url or include it in the base request body before using other --webhook-* options.");
                         }
 
 

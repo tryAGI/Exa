@@ -148,12 +148,12 @@ The response includes a `webhookSecret` that is only returned once at creation t
                         var __WebhookSpecified = CliRuntime.WasSpecified(parseResult, WebhookWebhookUrl) || __WebhookEventsSpecified;
                         if (__WebhookSpecified && string.IsNullOrWhiteSpace(webhookWebhookUrl))
                         {
-                            throw new CliException("Specify --webhook-url or include it in the base request body before using other --webhook-* options.");
+                            throw new CliException(@"Specify --webhook-url or include it in the base request body before using other --webhook-* options.");
                         }
 
                         var __webhookWebhookUrlRequired =
                             webhookWebhookUrl ??
-                            throw new CliException("Specify --webhook-url or include it in the base request body before using other --webhook-* options.");
+                            throw new CliException(@"Specify --webhook-url or include it in the base request body before using other --webhook-* options.");
 
                         var webhook =
                             __WebhookSpecified || __WebhookBase is not null
@@ -163,7 +163,7 @@ The response includes a `webhookSecret` that is only returned once at creation t
                                 Url = __webhookWebhookUrlRequired,
                                 Events = webhookWebhookEvents,
                                 }
-                                : __WebhookBase;
+                                : throw new CliException(@"Specify --webhook-url or include webhook in the base request body.");
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -173,7 +173,7 @@ The response includes a `webhookSecret` that is only returned once at creation t
                                     trigger: trigger,
                                     outputSchema: outputSchema,
                                     metadata: metadata,
-                                    webhook: webhook,
+                                    webhook: webhook!,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

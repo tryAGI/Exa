@@ -6,6 +6,14 @@ namespace Exa
     public partial class ExaClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_AnswerServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai",
+                name: "api.exa.ai",
+                url: "https://api.exa.ai/",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_AnswerSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -42,7 +50,7 @@ namespace Exa
             ref string content);
 
         /// <summary>
-        /// Generate an answer from search results<br/>
+        /// Answer<br/>
         /// Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
         /// </summary>
         /// <param name="request"></param>
@@ -58,7 +66,7 @@ namespace Exa
         ///     "text": true<br/>
         ///   }'
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>> AnswerAsync(
+        public async global::System.Threading.Tasks.Task<global::Exa.AnswerResponse> AnswerAsync(
 
             global::Exa.AnswerRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
@@ -74,7 +82,7 @@ namespace Exa
             return __response.Body;
         }
         /// <summary>
-        /// Generate an answer from search results<br/>
+        /// Answer<br/>
         /// Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
         /// </summary>
         /// <param name="request"></param>
@@ -90,7 +98,7 @@ namespace Exa
         ///     "text": true<br/>
         ///   }'
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>>> AnswerAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.AnswerResponse>> AnswerAsResponseAsync(
 
             global::Exa.AnswerRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
@@ -136,7 +144,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/answer",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_AnswerServers,
+                                defaultBaseUrl: "https://api.exa.ai/"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -384,9 +394,9 @@ namespace Exa
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Exa.AnswerResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Exa.AutoSDKHttpResponse<global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>>(
+                                    return new global::Exa.AutoSDKHttpResponse<global::Exa.AnswerResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Exa.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -416,9 +426,9 @@ namespace Exa
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Exa.AnswerResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Exa.AutoSDKHttpResponse<global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>>(
+                                    return new global::Exa.AutoSDKHttpResponse<global::Exa.AnswerResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Exa.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -459,24 +469,24 @@ namespace Exa
             }
         }
         /// <summary>
-        /// Generate an answer from search results<br/>
+        /// Answer<br/>
         /// Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
         /// </summary>
         /// <param name="query">
-        /// The question or query to answer.<br/>
+        /// Natural-language question or instructions for the request.<br/>
         /// Example: What is the latest valuation of SpaceX?
         /// </param>
         /// <param name="text">
-        /// If true, the response includes full text content in the search results<br/>
+        /// If true, returns full page text with default settings. If false, disables text return.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="outputSchema">
-        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
+        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer is returned as a structured object matching the schema instead of a plain string.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>> AnswerAsync(
+        public async global::System.Threading.Tasks.Task<global::Exa.AnswerResponse> AnswerAsync(
             string query,
             bool? text = default,
             global::Exa.AnswerRequestOutputSchema? outputSchema = default,

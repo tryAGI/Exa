@@ -6,6 +6,14 @@ namespace Exa
     public partial class ExaClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_SearchServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai",
+                name: "api.exa.ai",
+                url: "https://api.exa.ai/",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_SearchSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -27,11 +35,11 @@ namespace Exa
             };
         partial void PrepareSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest> request);
+            global::Exa.SearchRequest request);
         partial void PrepareSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest> request);
+            global::Exa.SearchRequest request);
         partial void ProcessSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,7 +51,7 @@ namespace Exa
 
         /// <summary>
         /// Search<br/>
-        /// Perform a search with a Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.
+        /// Perform a search with an Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -55,12 +63,14 @@ namespace Exa
         ///   -H 'Content-Type: application/json' \<br/>
         ///   -d '{<br/>
         ///     "query": "Latest research in LLMs",<br/>
-        ///     "text": true<br/>
+        ///     "contents": {<br/>
+        ///       "highlights": true<br/>
+        ///     }<br/>
         ///   }'
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.SearchResponse> SearchAsync(
 
-            global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest> request,
+            global::Exa.SearchRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -75,7 +85,7 @@ namespace Exa
         }
         /// <summary>
         /// Search<br/>
-        /// Perform a search with a Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.
+        /// Perform a search with an Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -87,15 +97,41 @@ namespace Exa
         ///   -H 'Content-Type: application/json' \<br/>
         ///   -d '{<br/>
         ///     "query": "Latest research in LLMs",<br/>
-        ///     "text": true<br/>
+        ///     "contents": {<br/>
+        ///       "highlights": true<br/>
+        ///     }<br/>
         ///   }'
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.SearchResponse>> SearchAsResponseAsync(
 
-            global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest> request,
+            global::Exa.SearchRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
+            request = new global::Exa.SearchRequest
+            {
+                IncludeDomains = request.IncludeDomains,
+                ExcludeDomains = request.ExcludeDomains,
+                StartCrawlDate = request.StartCrawlDate,
+                EndCrawlDate = request.EndCrawlDate,
+                StartPublishedDate = request.StartPublishedDate,
+                EndPublishedDate = request.EndPublishedDate,
+                NumResults = request.NumResults,
+                Context = request.Context,
+                Moderation = request.Moderation,
+                Contents = request.Contents,
+                Query = request.Query,
+                AdditionalQueries = request.AdditionalQueries,
+                Type = request.Type,
+                Category = request.Category,
+                UserLocation = request.UserLocation,
+                Compliance = request.Compliance,
+                OutputSchema = request.OutputSchema,
+                SystemPrompt = request.SystemPrompt,
+                Stream = false,
+            };
             PrepareArguments(
                 client: HttpClient);
             PrepareSearchArguments(
@@ -120,14 +156,16 @@ namespace Exa
             var __maxAttempts = global::Exa.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: true);
+                supportsRetry: false);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/search",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_SearchServers,
+                                defaultBaseUrl: "https://api.exa.ai/"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -451,17 +489,75 @@ namespace Exa
         }
         /// <summary>
         /// Search<br/>
-        /// Perform a search with a Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.
+        /// Perform a search with an Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.
         /// </summary>
+        /// <param name="includeDomains"></param>
+        /// <param name="excludeDomains"></param>
+        /// <param name="startCrawlDate"></param>
+        /// <param name="endCrawlDate"></param>
+        /// <param name="startPublishedDate"></param>
+        /// <param name="endPublishedDate"></param>
+        /// <param name="numResults"></param>
+        /// <param name="context"></param>
+        /// <param name="moderation"></param>
+        /// <param name="contents"></param>
+        /// <param name="query">
+        /// The query string for the search.<br/>
+        /// Example: Latest developments in LLM capabilities
+        /// </param>
+        /// <param name="additionalQueries"></param>
+        /// <param name="type"></param>
+        /// <param name="category"></param>
+        /// <param name="userLocation"></param>
+        /// <param name="compliance"></param>
+        /// <param name="outputSchema"></param>
+        /// <param name="systemPrompt"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Exa.SearchResponse> SearchAsync(
+            string query,
+            global::System.Collections.Generic.IList<string>? includeDomains = default,
+            global::System.Collections.Generic.IList<string>? excludeDomains = default,
+            global::System.DateTime? startCrawlDate = default,
+            global::System.DateTime? endCrawlDate = default,
+            global::System.DateTime? startPublishedDate = default,
+            global::System.DateTime? endPublishedDate = default,
+            int? numResults = default,
+            global::Exa.OneOf<bool?, global::Exa.SearchRequestContextVariant1>? context = default,
+            bool? moderation = default,
+            global::Exa.ContentsOptions? contents = default,
+            global::System.Collections.Generic.IList<string>? additionalQueries = default,
+            global::Exa.SearchRequestType2? type = default,
+            global::Exa.SearchRequestCategory2? category = default,
+            string? userLocation = default,
+            global::Exa.SearchRequestCompliance2? compliance = default,
+            global::Exa.OneOf<global::Exa.SearchRequestOutputSchemaVariant1, global::Exa.SearchRequestOutputSchemaVariant2>? outputSchema = default,
+            string? systemPrompt = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest>
+            var __request = new global::Exa.SearchRequest
             {
+                IncludeDomains = includeDomains,
+                ExcludeDomains = excludeDomains,
+                StartCrawlDate = startCrawlDate,
+                EndCrawlDate = endCrawlDate,
+                StartPublishedDate = startPublishedDate,
+                EndPublishedDate = endPublishedDate,
+                NumResults = numResults,
+                Context = context,
+                Moderation = moderation,
+                Contents = contents,
+                Query = query,
+                AdditionalQueries = additionalQueries,
+                Type = type,
+                Category = category,
+                UserLocation = userLocation,
+                Compliance = compliance,
+                OutputSchema = outputSchema,
+                SystemPrompt = systemPrompt,
+                Stream = false,
             };
 
             return await SearchAsync(

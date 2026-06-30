@@ -13,10 +13,33 @@ fetch_spec() {
     --connect-timeout 30 --max-time 300
 }
 
-# OpenAPI spec: https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-openapi-spec.yaml
+normalize_spec() {
+  ruby -ryaml -e '
+    path = "openapi.yaml"
+    spec = YAML.load_file(path)
+    schemas = spec.fetch("components").fetch("schemas")
+
+    # ContentsRequest is an allOf composition of URL/ID selectors and ContentsOptions.
+    # Flatten it before generation so the generated request model matches the wire JSON
+    # object directly and avoids a converter variable-name collision on "options".
+    contents_request = schemas.fetch("ContentsRequest")
+    contents_options = schemas.fetch("ContentsOptions")
+    selector = contents_request.fetch("allOf").first
+    contents_request.delete("allOf")
+    contents_request["type"] = "object"
+    contents_request["description"] = selector["description"]
+    contents_request["properties"] = selector.fetch("properties").merge(contents_options.fetch("properties"))
+    contents_request["oneOf"] = selector["oneOf"]
+
+    File.write(path, YAML.dump(spec))
+  '
+}
+
+# OpenAPI spec: https://exa.ai/docs/exa-spec.yaml
 install_autosdk_cli
 rm -rf Generated
-fetch_spec --fail --silent --show-error -L -o openapi.yaml https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-openapi-spec.yaml
+fetch_spec --fail --silent --show-error -L -o openapi.yaml https://exa.ai/docs/exa-spec.yaml
+normalize_spec
 
 # Auth: --security-scheme overrides the spec's apiKey auth with standard HTTP bearer.
 autosdk generate openapi.yaml \
@@ -24,7 +47,6 @@ autosdk generate openapi.yaml \
   --clientClassName ExaClient \
   --targetFramework net10.0 \
   --output Generated \
-  --exclude-deprecated-operations \
   --security-scheme Http:Header:Bearer
 
 rm -rf ../../cli/Exa.CLI
@@ -41,5 +63,4 @@ autosdk cli-project openapi.yaml \
   --api-key-env-var EXA_API_KEY \
   --base-url-env-var EXA_BASE_URL \
   --cli-credential-file \
-  --exclude-deprecated-operations \
   --security-scheme Http:Header:Bearer

@@ -25,10 +25,11 @@ public static class ExaToolExtensions
             async (string query, CancellationToken cancellationToken) =>
             {
                 var response = await client.SearchAsync(
-                    request: new AllOf<SearchRequest2, CommonRequest>
+                    request: new SearchRequest
                     {
-                        Value1 = new SearchRequest2 { Query = query },
-                        Value2 = new CommonRequest { NumResults = numResults },
+                        Query = query,
+                        NumResults = numResults,
+                        Contents = new ContentsOptions { Text = true },
                     },
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
@@ -52,10 +53,10 @@ public static class ExaToolExtensions
             async (string url, CancellationToken cancellationToken) =>
             {
                 var response = await client.GetContentsAsync(
-                    request: new AllOf<GetContentsRequest2, ContentsRequest>
+                    request: new ContentsRequest
                     {
-                        Value1 = new GetContentsRequest2 { Urls = [url] },
-                        Value2 = new ContentsRequest { Text = true },
+                        Urls = [url],
+                        Text = true,
                     },
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
@@ -96,15 +97,16 @@ public static class ExaToolExtensions
     {
         var parts = new List<string>();
 
-        if (response.Results is { Count: > 0 })
+        var results = GetResults(response);
+        if (results is { Count: > 0 })
         {
             parts.Add("Sources:");
-            foreach (var result in response.Results)
+            foreach (var result in results)
             {
-                var title = result.Value1?.Title;
-                var url = result.Value1?.Url;
-                var text = result.Value2?.Text;
-                var summary = result.Value2?.Summary;
+                var title = result.Title;
+                var url = result.Url;
+                var text = result.Text;
+                var summary = result.Summary;
 
                 var entry = $"- [{title}]({url})";
                 if (!string.IsNullOrWhiteSpace(summary))
@@ -123,7 +125,7 @@ public static class ExaToolExtensions
         return string.Join("\n", parts);
     }
 
-    private static string FormatContentsResponse(GetContentsResponse response)
+    private static string FormatContentsResponse(ContentsResponse response)
     {
         var parts = new List<string>();
 
@@ -131,9 +133,9 @@ public static class ExaToolExtensions
         {
             foreach (var result in response.Results)
             {
-                var title = result.Value1?.Title;
-                var url = result.Value1?.Url;
-                var text = result.Value2?.Text;
+                var title = result.Title;
+                var url = result.Url;
+                var text = result.Text;
 
                 if (!string.IsNullOrWhiteSpace(title))
                 {
@@ -153,24 +155,31 @@ public static class ExaToolExtensions
         return string.Join("\n\n", parts);
     }
 
-    private static string FormatAnswerResponse(AllOf<AnswerResult, AnswerResponse2> response)
+    private static string FormatAnswerResponse(AnswerResponse response)
     {
         var parts = new List<string>();
 
-        if (!string.IsNullOrWhiteSpace(response.Value1?.Answer))
+        var answer = response.Answer.ToString();
+        if (!string.IsNullOrWhiteSpace(answer))
         {
-            parts.Add($"Answer: {response.Value1.Answer}");
+            parts.Add($"Answer: {answer}");
         }
 
-        if (response.Value1?.Citations is { Count: > 0 })
+        if (response.Citations is { Count: > 0 })
         {
             parts.Add("Citations:");
-            foreach (var citation in response.Value1.Citations)
+            foreach (var citation in response.Citations)
             {
                 parts.Add($"- [{citation.Title}]({citation.Url})");
             }
         }
 
         return string.Join("\n", parts);
+    }
+
+    private static IList<SearchResultOutput>? GetResults(SearchResponse response)
+    {
+        return response.SearchResponseVariant2?.Results ??
+            response.SearchResponseVariant1?.Results;
     }
 }

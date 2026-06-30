@@ -16,16 +16,10 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// Retrieve the text content of specific web pages by URL.
-        var response = await client.GetContentsAsync(new AllOf<GetContentsRequest2, ContentsRequest>
+        var response = await client.GetContentsAsync(new ContentsRequest
         {
-            Value1 = new GetContentsRequest2
-            {
-                Urls = ["https://exa.ai"],
-            },
-            Value2 = new ContentsRequest
-            {
-                Text = true,
-            },
+            Urls = ["https://exa.ai"],
+            Text = true,
         });
 
         response.Results.Should().NotBeNullOrEmpty();
@@ -33,8 +27,8 @@ public partial class Tests
 
         foreach (var result in response.Results)
         {
-            var text = result.Value2?.Text;
-            Console.WriteLine($"  - {result.Value1?.Url}: {text?[..Math.Min(text.Length, 100)]}...");
+            var text = result.Text;
+            Console.WriteLine($"  - {result.Url}: {text?[..Math.Min(text.Length, 100)]}...");
         }
     }
 }

@@ -24,14 +24,12 @@ internal static class CliRuntime
             ? new global::System.Collections.Generic.List<global::Exa.EndPointAuthorization>()
             : new global::System.Collections.Generic.List<global::Exa.EndPointAuthorization>
             {
-        new global::Exa.EndPointAuthorization
-        {
-            Type = "Http",
-            SchemeId = "HttpBearer",
-            Location = "Header",
-            Name = "Bearer",
-            Value = apiKey,
-        },
+        CreateAuthorization(
+            type: "Http",
+            schemeId: "HttpBearer",
+            location: "Header",
+            name: "Bearer",
+            value: apiKey),
             };
         var baseUri = ResolveBaseUri(parseResult);
 
@@ -40,6 +38,30 @@ internal static class CliRuntime
             baseUri: baseUri,
             authorizations: authorizations,
             disposeHttpClient: true);
+    }
+
+    private static global::Exa.EndPointAuthorization CreateAuthorization(
+        string type,
+        string schemeId,
+        string location,
+        string name,
+        string value)
+    {
+        var authorization = new global::Exa.EndPointAuthorization
+        {
+            Type = type,
+            Location = location,
+            Name = name,
+            Value = value,
+        };
+
+        var schemeIdProperty = typeof(global::Exa.EndPointAuthorization).GetProperty("SchemeId");
+        if (schemeIdProperty?.CanWrite == true)
+        {
+            schemeIdProperty.SetValue(authorization, schemeId);
+        }
+
+        return authorization;
     }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage(

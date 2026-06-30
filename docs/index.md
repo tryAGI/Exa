@@ -6,11 +6,12 @@
 [![Discord](https://img.shields.io/discord/1115206893015662663?label=Discord&logo=discord&logoColor=white&color=d82679)](https://discord.gg/Ca2xhfBf3v)
 
 ## Features 🔥
-- Fully generated C# SDK based on [official Exa OpenAPI specification](https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-openapi-spec.yaml) using [AutoSDK](https://github.com/HavenDV/AutoSDK)
+- Fully generated C# SDK based on the [official Exa Public API v2 OpenAPI specification](https://exa.ai/docs/exa-spec.yaml) using [AutoSDK](https://github.com/HavenDV/AutoSDK)
+- Full generated coverage for Exa Search, Contents, Answer, Agent, Research, Monitors, Websets, Webhooks, Events, Imports, and team endpoints published in the v2 spec
 - Same day update to support new features
 - Updated and supported automatically if there are no breaking changes
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
-- Support .Net Framework/.Net Standard 2.0
+- Supports .NET 10
 
 ### Usage
 ```csharp

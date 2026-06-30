@@ -16,24 +16,19 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// Search the web for relevant results using a natural language query.
-        var response = await client.SearchAsync(new AllOf<SearchRequest2, CommonRequest>
+        var response = await client.SearchAsync(new SearchRequest
         {
-            Value1 = new SearchRequest2
-            {
-                Query = "Latest developments in LLM capabilities",
-            },
-            Value2 = new CommonRequest
-            {
-                NumResults = 5,
-            },
+            Query = "Latest developments in LLM capabilities",
+            NumResults = 5,
         });
 
-        response.Results.Should().NotBeNullOrEmpty();
-        Console.WriteLine($"Found {response.Results!.Count} results");
+        var results = response.SearchResponseVariant2?.Results ?? response.SearchResponseVariant1?.Results;
+        results.Should().NotBeNullOrEmpty();
+        Console.WriteLine($"Found {results!.Count} results");
 
-        foreach (var result in response.Results)
+        foreach (var result in results)
         {
-            Console.WriteLine($"  - {result.Value1?.Title}: {result.Value1?.Url}");
+            Console.WriteLine($"  - {result.Title}: {result.Url}");
         }
     }
 }

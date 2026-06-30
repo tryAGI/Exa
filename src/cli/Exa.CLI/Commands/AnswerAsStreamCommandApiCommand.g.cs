@@ -29,9 +29,8 @@ internal static partial class AnswerAsStreamCommandApiCommand
 
     public static Command Create()
     {
-        var command = new Command(@"answer-as-stream", @"Generate an answer from search results
-Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
-");
+        var command = new Command(@"answer-as-stream", @"Answer
+Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.");
                         command.Options.Add(AnswerRequestOptionSetOptions.Query);
                         command.Options.Add(AnswerRequestOptionSetOptions.Text);                        command.Options.Add(OutputSchemaOptions.Type);
                         command.Options.Add(OutputSchemaOptions.Required);

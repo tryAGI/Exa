@@ -1,0 +1,110 @@
+#nullable enable
+#pragma warning disable CS0618
+
+using System.CommandLine;
+
+namespace Exa.CLI.Commands;
+
+internal static partial class EventsEventsListCommandApiCommand
+{
+    private static Option<string?> Cursor { get; } = new(
+        name: @"--cursor")
+    {
+        Description = @"The cursor to paginate through the results",
+    };
+
+    private static Option<double?> Limit { get; } = new(
+        name: @"--limit")
+    {
+        Description = @"The number of results to return",
+    };
+
+    private static Option<global::System.Collections.Generic.IList<global::Exa.EventsListType>?> Types { get; } = new(
+        name: @"--types")
+    {
+        Description = @"The types of events to filter by",
+    };
+
+    private static Option<global::System.DateTime?> CreatedBefore { get; } = new(
+        name: @"--created-before")
+    {
+        Description = @"Filter events created before or at this timestamp (inclusive). Must be a valid ISO 8601 datetime string. All times are in UTC.",
+    };
+
+    private static Option<global::System.DateTime?> CreatedAfter { get; } = new(
+        name: @"--created-after")
+    {
+        Description = @"Filter events created after or at this timestamp (inclusive). Must be a valid ISO 8601 datetime string. All times are in UTC.",
+    };
+
+                    private static string FormatResponse(ParseResult parseResult, global::Exa.ListEventsResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    {
+                        string? text = null;
+                        CustomizeResponseText(parseResult, value, ref text);
+                        if (!string.IsNullOrWhiteSpace(text))
+                        {
+                            return text;
+                        }
+
+                        var hints = new Dictionary<string, CliFormatHint>(StringComparer.OrdinalIgnoreCase)
+                        {
+                        };
+                        CustomizeResponseFormatHints(hints);
+                        return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
+                    }
+
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.ListEventsResponse value, ref string? text);
+                    static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
+
+
+    public static Command Create()
+    {
+        var command = new Command(@"list", @"List all Events
+List all events that have occurred in the system.
+
+You can paginate through the results using the `cursor` parameter.");
+                        command.Options.Add(Cursor);
+                        command.Options.Add(Limit);
+                        command.Options.Add(Types);
+                        command.Options.Add(CreatedBefore);
+                        command.Options.Add(CreatedAfter);
+
+
+        command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
+            await CliRuntime.RunAsync(async () =>
+            {
+                        var cursor = parseResult.GetValue(Cursor);
+                        var limit = parseResult.GetValue(Limit);
+                        var types = parseResult.GetValue(Types);
+                        var createdBefore = parseResult.GetValue(CreatedBefore);
+                        var createdAfter = parseResult.GetValue(CreatedAfter);
+                using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
+
+
+                                var response = await client.Events.EventsListAsync(
+                                    cursor: cursor,
+                                    limit: limit,
+                                    types: types,
+                                    createdBefore: createdBefore,
+                                    createdAfter: createdAfter,
+                                    cancellationToken: cancellationToken).ConfigureAwait(false);
+
+
+                                if (!await CliRuntime.TryWriteOutputDirectoryAsync(
+                                        parseResult,
+                                        response,
+                                        global::Exa.SourceGenerationContext.Default,
+                                        @"Data",
+                                        cancellationToken).ConfigureAwait(false))
+                                {
+                                await CliRuntime.WriteResponseAsync(
+                                    parseResult,
+                                    response,
+                                    global::Exa.SourceGenerationContext.Default,
+                                    FormatResponse,
+                                    cancellationToken).ConfigureAwait(false);
+                                }
+            }, cancellationToken).ConfigureAwait(false));
+        return command;
+    }
+}

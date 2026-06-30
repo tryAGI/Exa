@@ -17,24 +17,20 @@ public partial class Tests
 
         //// Find pages similar to a given URL. This is useful for discovering
         //// related content, competitor analysis, or expanding a research corpus.
-        var response = await client.FindSimilarAsync(new AllOf<FindSimilarRequest2, CommonRequest>
+#pragma warning disable CS0618 // findSimilar is deprecated by Exa but kept for complete API coverage.
+        var response = await client.FindSimilarAsync(new FindSimilarRequest
         {
-            Value1 = new FindSimilarRequest2
-            {
-                Url = "https://arxiv.org/abs/2307.06435",
-            },
-            Value2 = new CommonRequest
-            {
-                NumResults = 3,
-            },
+            Url = "https://arxiv.org/abs/2307.06435",
+            NumResults = 3,
         });
+#pragma warning restore CS0618
 
         response.Results.Should().NotBeNullOrEmpty();
         Console.WriteLine($"Found {response.Results!.Count} similar pages");
 
         foreach (var result in response.Results)
         {
-            Console.WriteLine($"  - {result.Value1?.Title} (score: {result.Value1?.Score:F4})");
+            Console.WriteLine($"  - {result.Title}: {result.Url}");
         }
     }
 }

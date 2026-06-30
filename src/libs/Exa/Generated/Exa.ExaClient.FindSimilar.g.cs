@@ -6,6 +6,14 @@ namespace Exa
     public partial class ExaClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_FindSimilarServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai",
+                name: "api.exa.ai",
+                url: "https://api.exa.ai/",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_FindSimilarSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -27,11 +35,11 @@ namespace Exa
             };
         partial void PrepareFindSimilarArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request);
+            global::Exa.FindSimilarRequest request);
         partial void PrepareFindSimilarRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request);
+            global::Exa.FindSimilarRequest request);
         partial void ProcessFindSimilarResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,24 +51,16 @@ namespace Exa
 
         /// <summary>
         /// Find similar links<br/>
-        /// Find similar links to the link provided. Optionally get contents.
+        /// Find links similar to the provided URL and optionally retrieve their contents. Deprecated: prefer `/search` with a query describing the source.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Exa.ApiException"></exception>
-        /// <remarks>
-        /// curl -X POST 'https://api.exa.ai/findSimilar' \<br/>
-        ///   -H 'x-api-key: YOUR-EXA-API-KEY' \<br/>
-        ///   -H 'Content-Type: application/json' \<br/>
-        ///   -d '{<br/>
-        ///     "url": "https://arxiv.org/abs/2307.06435",<br/>
-        ///     "text": true<br/>
-        ///   }'
-        /// </remarks>
+        [global::System.Obsolete("This method marked as deprecated.")]
         public async global::System.Threading.Tasks.Task<global::Exa.FindSimilarResponse> FindSimilarAsync(
 
-            global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request,
+            global::Exa.FindSimilarRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -75,27 +75,21 @@ namespace Exa
         }
         /// <summary>
         /// Find similar links<br/>
-        /// Find similar links to the link provided. Optionally get contents.
+        /// Find links similar to the provided URL and optionally retrieve their contents. Deprecated: prefer `/search` with a query describing the source.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Exa.ApiException"></exception>
-        /// <remarks>
-        /// curl -X POST 'https://api.exa.ai/findSimilar' \<br/>
-        ///   -H 'x-api-key: YOUR-EXA-API-KEY' \<br/>
-        ///   -H 'Content-Type: application/json' \<br/>
-        ///   -d '{<br/>
-        ///     "url": "https://arxiv.org/abs/2307.06435",<br/>
-        ///     "text": true<br/>
-        ///   }'
-        /// </remarks>
+        [global::System.Obsolete("This method marked as deprecated.")]
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.FindSimilarResponse>> FindSimilarAsResponseAsync(
 
-            global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request,
+            global::Exa.FindSimilarRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareFindSimilarArguments(
@@ -127,7 +121,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/findSimilar",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_FindSimilarServers,
+                                defaultBaseUrl: "https://api.exa.ai/"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -451,17 +447,54 @@ namespace Exa
         }
         /// <summary>
         /// Find similar links<br/>
-        /// Find similar links to the link provided. Optionally get contents.
+        /// Find links similar to the provided URL and optionally retrieve their contents. Deprecated: prefer `/search` with a query describing the source.
         /// </summary>
+        /// <param name="includeDomains"></param>
+        /// <param name="excludeDomains"></param>
+        /// <param name="startCrawlDate"></param>
+        /// <param name="endCrawlDate"></param>
+        /// <param name="startPublishedDate"></param>
+        /// <param name="endPublishedDate"></param>
+        /// <param name="numResults"></param>
+        /// <param name="contents"></param>
+        /// <param name="url">
+        /// The url for which you would like to find similar links.<br/>
+        /// Example: https://arxiv.org/abs/2307.06435
+        /// </param>
+        /// <param name="category"></param>
+        /// <param name="excludeSourceDomain"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
+        [global::System.Obsolete("This method marked as deprecated.")]
         public async global::System.Threading.Tasks.Task<global::Exa.FindSimilarResponse> FindSimilarAsync(
+            string url,
+            global::System.Collections.Generic.IList<string>? includeDomains = default,
+            global::System.Collections.Generic.IList<string>? excludeDomains = default,
+            global::System.DateTime? startCrawlDate = default,
+            global::System.DateTime? endCrawlDate = default,
+            global::System.DateTime? startPublishedDate = default,
+            global::System.DateTime? endPublishedDate = default,
+            int? numResults = default,
+            global::Exa.ContentsOptions? contents = default,
+            global::Exa.FindSimilarRequestCategory2? category = default,
+            bool? excludeSourceDomain = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest>
+            var __request = new global::Exa.FindSimilarRequest
             {
+                IncludeDomains = includeDomains,
+                ExcludeDomains = excludeDomains,
+                StartCrawlDate = startCrawlDate,
+                EndCrawlDate = endCrawlDate,
+                StartPublishedDate = startPublishedDate,
+                EndPublishedDate = endPublishedDate,
+                NumResults = numResults,
+                Contents = contents,
+                Url = url,
+                Category = category,
+                ExcludeSourceDomain = excludeSourceDomain,
             };
 
             return await FindSimilarAsync(

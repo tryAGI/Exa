@@ -1,0 +1,68 @@
+
+#nullable enable
+
+namespace Exa
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class UpdateWebhookParameters
+    {
+        /// <summary>
+        /// The events to trigger the webhook
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("events")]
+        public global::System.Collections.Generic.IList<global::Exa.EventType>? Events { get; set; }
+
+        /// <summary>
+        /// The URL to send the webhook to
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
+        public string? Url { get; set; }
+
+        /// <summary>
+        /// Set of key-value pairs you want to associate with this object.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateWebhookParameters" /> class.
+        /// </summary>
+        /// <param name="events">
+        /// The events to trigger the webhook
+        /// </param>
+        /// <param name="url">
+        /// The URL to send the webhook to
+        /// </param>
+        /// <param name="metadata">
+        /// Set of key-value pairs you want to associate with this object.
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public UpdateWebhookParameters(
+            global::System.Collections.Generic.IList<global::Exa.EventType>? events,
+            string? url,
+            global::System.Collections.Generic.Dictionary<string, string>? metadata)
+        {
+            this.Events = events;
+            this.Url = url;
+            this.Metadata = metadata;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateWebhookParameters" /> class.
+        /// </summary>
+        public UpdateWebhookParameters()
+        {
+        }
+
+    }
+}

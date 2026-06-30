@@ -2,7 +2,7 @@
 
 namespace Exa
 {
-    public sealed partial class SearchResponse
+    public readonly partial struct SearchResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -17,6 +17,14 @@ namespace Exa
         }
 
         /// <summary>
+        /// Serializes the current instance to a JSON string using the generated default JsonSerializerContext.
+        /// </summary>
+        public string ToJson()
+        {
+            return ToJson(global::Exa.SourceGenerationContext.Default);
+        }
+
+        /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
         /// </summary>
 #if NET8_0_OR_GREATER
@@ -26,6 +34,11 @@ namespace Exa
         public string ToJson(
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
+            if (jsonSerializerOptions is null)
+            {
+                return ToJson(global::Exa.SourceGenerationContext.Default);
+            }
+
             return global::System.Text.Json.JsonSerializer.Serialize(
                 this,
                 jsonSerializerOptions);
@@ -41,7 +54,18 @@ namespace Exa
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::Exa.SearchResponse),
-                jsonSerializerContext) as global::Exa.SearchResponse;
+                jsonSerializerContext) as global::Exa.SearchResponse?;
+        }
+
+        /// <summary>
+        /// Deserializes a JSON string using the generated default JsonSerializerContext.
+        /// </summary>
+        public static global::Exa.SearchResponse? FromJson(
+            string json)
+        {
+            return FromJson(
+                json,
+                global::Exa.SourceGenerationContext.Default);
         }
 
         /// <summary>
@@ -55,6 +79,13 @@ namespace Exa
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
+            if (jsonSerializerOptions is null)
+            {
+                return FromJson(
+                    json,
+                    global::Exa.SourceGenerationContext.Default);
+            }
+
             return global::System.Text.Json.JsonSerializer.Deserialize<global::Exa.SearchResponse>(
                 json,
                 jsonSerializerOptions);
@@ -70,7 +101,18 @@ namespace Exa
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::Exa.SearchResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Exa.SearchResponse;
+                jsonSerializerContext).ConfigureAwait(false)) as global::Exa.SearchResponse?;
+        }
+
+        /// <summary>
+        /// Deserializes a JSON stream using the generated default JsonSerializerContext.
+        /// </summary>
+        public static global::System.Threading.Tasks.ValueTask<global::Exa.SearchResponse?> FromJsonStreamAsync(
+            global::System.IO.Stream jsonStream)
+        {
+            return FromJsonStreamAsync(
+                jsonStream,
+                global::Exa.SourceGenerationContext.Default);
         }
 
         /// <summary>
@@ -84,6 +126,13 @@ namespace Exa
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
+            if (jsonSerializerOptions is null)
+            {
+                return FromJsonStreamAsync(
+                    jsonStream,
+                    global::Exa.SourceGenerationContext.Default);
+            }
+
             return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Exa.SearchResponse?>(
                 jsonStream,
                 jsonSerializerOptions);

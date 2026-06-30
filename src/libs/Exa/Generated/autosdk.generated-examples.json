@@ -2,14 +2,58 @@
   "Examples": [
     {
       "Order": 1,
-      "Title": "Create a research task with instructions and an output schema",
-      "Slug": "research-tasks-create",
+      "Title": "Answer",
+      "Slug": "answer",
+      "Description": "Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.",
+      "Language": "http",
+      "Code": "### Answer\n# @name answer\nPOST {{host}}/answer\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json, text/event-stream\n\n{\n  \u0022query\u0022: \u0022What is the latest valuation of SpaceX?\u0022,\n  \u0022stream\u0022: false,\n  \u0022text\u0022: false,\n  \u0022outputSchema\u0022: {\n    \u0022type\u0022: \u0022object\u0022,\n    \u0022properties\u0022: {},\n    \u0022required\u0022: [\n      \u0022string\u0022\n    ],\n    \u0022description\u0022: \u0022string\u0022,\n    \u0022additionalProperties\u0022: false\n  }\n}\n\n## Responses\n# 200\n# Description: OK\n# Content-Type: application/json, text/event-stream",
+      "Format": "http",
+      "OperationId": "answer",
+      "Setup": null
+    },
+    {
+      "Order": 2,
+      "Title": "Contents",
+      "Slug": "getcontents",
       "Description": "Generated from OpenAPI examples.",
+      "Language": "http",
+      "Code": "### Contents\n# @name getContents\nPOST {{host}}/contents\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n\u0022string\u0022\n\n## Responses\n# 200\n# Description: OK\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "getContents",
+      "Setup": null
+    },
+    {
+      "Order": 3,
+      "Title": "Search",
+      "Slug": "search",
+      "Description": "Perform a search with an Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.",
+      "Language": "http",
+      "Code": "### Search\n# @name search\nPOST {{host}}/search\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json, text/event-stream\n\n{\n  \u0022includeDomains\u0022: [\n    \u0022arxiv.org\u0022,\n    \u0022paperswithcode.com\u0022\n  ],\n  \u0022excludeDomains\u0022: [\n    \u0022string\u0022\n  ],\n  \u0022startCrawlDate\u0022: \u00222023-01-01 00:00:00.000000000 Z\u0022,\n  \u0022endCrawlDate\u0022: \u00222023-12-31 00:00:00.000000000 Z\u0022,\n  \u0022startPublishedDate\u0022: \u00222023-01-01 00:00:00.000000000 Z\u0022,\n  \u0022endPublishedDate\u0022: \u00222023-12-31 00:00:00.000000000 Z\u0022,\n  \u0022numResults\u0022: 10,\n  \u0022context\u0022: true,\n  \u0022moderation\u0022: true,\n  \u0022contents\u0022: {\n    \u0022text\u0022: false,\n    \u0022highlights\u0022: false,\n    \u0022summary\u0022: {\n      \u0022query\u0022: \u0022Main developments\u0022,\n      \u0022schema\u0022: {\n        \u0022$schema\u0022: \u0022http://json-schema.org/draft-07/schema#\u0022,\n        \u0022title\u0022: \u0022Title\u0022,\n        \u0022type\u0022: \u0022object\u0022,\n        \u0022properties\u0022: {\n          \u0022Property 1\u0022: {\n            \u0022type\u0022: \u0022string\u0022,\n            \u0022description\u0022: \u0022Description\u0022\n          },\n          \u0022Property 2\u0022: {\n            \u0022type\u0022: \u0022string\u0022,\n            \u0022enum\u0022: [\n              \u0022option 1\u0022,\n              \u0022option 2\u0022,\n              \u0022option 3\u0022\n            ],\n            \u0022description\u0022: \u0022Description\u0022\n          }\n        },\n        \u0022required\u0022: [\n          \u0022Property 1\u0022\n        ]\n      }\n    },\n    \u0022extras\u0022: {\n      \u0022links\u0022: 1,\n      \u0022imageLinks\u0022: 1,\n      \u0022richImageLinks\u0022: 0,\n      \u0022richLinks\u0022: 0,\n      \u0022codeBlocks\u0022: 0\n    },\n    \u0022context\u0022: true,\n    \u0022livecrawl\u0022: \u0022preferred\u0022,\n    \u0022livecrawlTimeout\u0022: 1000,\n    \u0022maxAgeHours\u0022: 24,\n    \u0022subpages\u0022: 1,\n    \u0022subpageTarget\u0022: \u0022sources\u0022\n  },\n  \u0022query\u0022: \u0022Latest developments in LLM capabilities\u0022,\n  \u0022additionalQueries\u0022: [\n    \u0022LLM advancements\u0022,\n    \u0022large language model progress\u0022\n  ],\n  \u0022type\u0022: \u0022auto\u0022,\n  \u0022category\u0022: \u0022research paper\u0022,\n  \u0022userLocation\u0022: \u0022US\u0022,\n  \u0022compliance\u0022: \u0022hipaa\u0022,\n  \u0022outputSchema\u0022: {\n    \u0022type\u0022: \u0022string\u0022,\n    \u0022description\u0022: \u0022string\u0022\n  },\n  \u0022systemPrompt\u0022: \u0022Prefer official sources and avoid duplicate results.\u0022,\n  \u0022stream\u0022: false\n}\n\n## Responses\n# 200\n# Description: OK\n# Content-Type: application/json, text/event-stream",
+      "Format": "http",
+      "OperationId": "search",
+      "Setup": null
+    },
+    {
+      "Order": 4,
+      "Title": "Create a run",
+      "Slug": "createagentrun",
+      "Description": "Create an asynchronous Agent run. By default, the API returns the run object immediately. Set \u0060Accept: text/event-stream\u0060 to stream run lifecycle events until the run reaches a terminal status.",
       "Language": "csharp",
-      "Code": "using var client = new ExaClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Exa.ResearchTasksCreateRequest\u003E(\n    @\u0022{\n  \u0022\u0022instructions\u0022\u0022: \u0022\u0022What species of ant are similar to honeypot ants?\u0022\u0022,\n  \u0022\u0022model\u0022\u0022: \u0022\u0022exa-research\u0022\u0022,\n  \u0022\u0022output\u0022\u0022: {\n    \u0022\u0022schema\u0022\u0022: {\n      \u0022\u0022type\u0022\u0022: \u0022\u0022object\u0022\u0022,\n      \u0022\u0022properties\u0022\u0022: {\n        \u0022\u0022answer\u0022\u0022: {\n          \u0022\u0022type\u0022\u0022: \u0022\u0022string\u0022\u0022\n        }\n      }\n    }\n  }\n}\u0022)!;\n\nvar response = await client.ResearchTasksCreateAsync(\n    request: request\n);",
+      "Code": "using var client = new ExaClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Exa.CreateAgentRunRequest\u003E(\n    @\u0022{\n  \u0022\u0022query\u0022\u0022: \u0022\u0022Find engineering leaders at AI infrastructure companies that raised a Series A or B in the last 6 months.\u0022\u0022,\n  \u0022\u0022effort\u0022\u0022: \u0022\u0022auto\u0022\u0022,\n  \u0022\u0022outputSchema\u0022\u0022: {\n    \u0022\u0022type\u0022\u0022: \u0022\u0022object\u0022\u0022,\n    \u0022\u0022required\u0022\u0022: [\n      \u0022\u0022people\u0022\u0022\n    ],\n    \u0022\u0022properties\u0022\u0022: {\n      \u0022\u0022people\u0022\u0022: {\n        \u0022\u0022type\u0022\u0022: \u0022\u0022array\u0022\u0022,\n        \u0022\u0022maxItems\u0022\u0022: 10,\n        \u0022\u0022items\u0022\u0022: {\n          \u0022\u0022type\u0022\u0022: \u0022\u0022object\u0022\u0022,\n          \u0022\u0022required\u0022\u0022: [\n            \u0022\u0022name\u0022\u0022,\n            \u0022\u0022linkedin_url\u0022\u0022\n          ],\n          \u0022\u0022properties\u0022\u0022: {\n            \u0022\u0022name\u0022\u0022: {\n              \u0022\u0022type\u0022\u0022: \u0022\u0022string\u0022\u0022\n            },\n            \u0022\u0022contact_email\u0022\u0022: {\n              \u0022\u0022type\u0022\u0022: \u0022\u0022string\u0022\u0022,\n              \u0022\u0022format\u0022\u0022: \u0022\u0022email\u0022\u0022\n            },\n            \u0022\u0022linkedin_url\u0022\u0022: {\n              \u0022\u0022type\u0022\u0022: \u0022\u0022string\u0022\u0022,\n              \u0022\u0022format\u0022\u0022: \u0022\u0022uri\u0022\u0022\n            }\n          }\n        }\n      }\n    }\n  }\n}\u0022)!;\n\nvar response = await client.Agent.CreateAgentRunAsync(\n    request: request\n);\n\n// Example response:\n// {\n//   \u0022id\u0022: \u0022agent_run_01j7x9v0m2n4p6q8r0s2t4v6w8\u0022,\n//   \u0022object\u0022: \u0022agent_run\u0022,\n//   \u0022status\u0022: \u0022running\u0022,\n//   \u0022stopReason\u0022: \u0022\u0022,\n//   \u0022createdAt\u0022: \u00222026-05-07 18:31:00.000000000 Z\u0022,\n//   \u0022completedAt\u0022: \u0022\u0022,\n//   \u0022request\u0022: {\n//     \u0022query\u0022: \u0022What are the most important AI infrastructure funding rounds announced this week?\u0022\n//   },\n//   \u0022output\u0022: {\n//     \u0022text\u0022: \u0022\u0022,\n//     \u0022structured\u0022: \u0022\u0022,\n//     \u0022grounding\u0022: []\n//   },\n//   \u0022usage\u0022: {\n//     \u0022agentComputeUnits\u0022: 0,\n//     \u0022searches\u0022: 0,\n//     \u0022emails\u0022: 0,\n//     \u0022phoneNumbers\u0022: 0\n//   },\n//   \u0022costDollars\u0022: {\n//     \u0022total\u0022: 0,\n//     \u0022agentCompute\u0022: 0,\n//     \u0022search\u0022: 0,\n//     \u0022emails\u0022: 0,\n//     \u0022phoneNumbers\u0022: 0\n//   }\n// }",
       "Format": "sdk",
-      "OperationId": "research-tasks-create",
+      "OperationId": "createAgentRun",
       "Setup": "This example assumes \u0060using Exa;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 5,
+      "Title": "List run events",
+      "Slug": "listagentrunevents",
+      "Description": "List stored events for an Agent run. Set \u0060Accept: text/event-stream\u0060 to replay stored events as server-sent events. Use \u0060cursor\u0060 for JSON pagination or \u0060Last-Event-ID\u0060 for SSE replay.",
+      "Language": "http",
+      "Code": "### List run events\n# @name listAgentRunEvents\nGET {{host}}/agent/runs/{{id}}/events?limit=20\u0026cursor={{cursor}}\nAuthorization: Bearer {{token}}\nAccept: application/json\nLast-Event-ID: {{Last-Event-ID}}\nAccept: application/json, text/event-stream\n\n## Responses\n# 200\n# Description: Agent run events\n# Content-Type: application/json, text/event-stream\n# 400\n# Description: Invalid request.\n# Content-Type: application/json\n# 401\n# Description: Team context or authentication was not found.\n# Content-Type: application/json\n# 404\n# Description: Run not found.\n# Content-Type: application/json\n# 429\n# Description: Agent run concurrency limit reached.\n# Content-Type: application/json\n# 500\n# Description: Server error or run timeout.\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "listAgentRunEvents",
+      "Setup": null
     }
   ]
 }

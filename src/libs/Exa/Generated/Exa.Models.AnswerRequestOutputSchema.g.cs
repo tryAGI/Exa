@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
+    /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer is returned as a structured object matching the schema instead of a plain string.
     /// </summary>
     public sealed partial class AnswerRequestOutputSchema
     {

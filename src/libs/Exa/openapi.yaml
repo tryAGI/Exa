@@ -1135,15 +1135,15 @@ paths:
                     id: agent_run_01j7x9v0m2n4p6q8r0s2t4v6w8
                     object: agent_run
                     status: running
-                    stopReason: 
+                    stopReason:
                     createdAt: 2026-05-07 18:31:00.000000000 Z
-                    completedAt: 
+                    completedAt:
                     request:
                       query: What are the most important AI infrastructure funding
                         rounds announced this week?
                     output:
                       text: ''
-                      structured: 
+                      structured:
                       grounding: []
                     usage:
                       agentComputeUnits: 0

@@ -14,9 +14,14 @@ fetch_spec() {
 }
 
 normalize_spec() {
-  ruby -ryaml -e '
+  ruby -ryaml -rdate -e '
     path = "openapi.yaml"
-    spec = YAML.load_file(path)
+    spec =
+      begin
+        YAML.load_file(path, permitted_classes: [Time, Date])
+      rescue ArgumentError
+        YAML.load_file(path)
+      end
     schemas = spec.fetch("components").fetch("schemas")
 
     # ContentsRequest is an allOf composition of URL/ID selectors and ContentsOptions.

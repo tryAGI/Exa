@@ -6,6 +6,14 @@ namespace Exa
     public partial class WebsetsClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_WebsetsGetServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai-websets",
+                name: "api.exa.ai websets",
+                url: "https://api.exa.ai/websets",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_WebsetsGetSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -126,7 +134,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: $"/v0/websets/{id}",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.exa.ai/websets", global::System.UriKind.RelativeOrAbsolute));
+                                baseUri: ResolveBaseUri(
+                                servers: s_WebsetsGetServers,
+                                defaultBaseUrl: "https://api.exa.ai/websets"));
                             __pathBuilder
                                 .AddOptionalParameter("expand", expand, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 ;

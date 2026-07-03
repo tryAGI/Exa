@@ -6,6 +6,14 @@ namespace Exa
     public partial class ImportsClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_ImportsCreateServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai-websets",
+                name: "api.exa.ai websets",
+                url: "https://api.exa.ai/websets",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_ImportsCreateSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -141,7 +149,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/v0/imports",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.exa.ai/websets", global::System.UriKind.RelativeOrAbsolute));
+                                baseUri: ResolveBaseUri(
+                                servers: s_ImportsCreateServers,
+                                defaultBaseUrl: "https://api.exa.ai/websets"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,

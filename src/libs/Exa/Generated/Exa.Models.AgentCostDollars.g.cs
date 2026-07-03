@@ -44,7 +44,7 @@ namespace Exa
         public required double PhoneNumbers { get; set; }
 
         /// <summary>
-        /// Per-provider cost in dollars for Exa Connect data sources used during the run. Keys are provider names (e.g. `fiber_ai`, `similarweb`). Only providers with non-zero usage are included.
+        /// Per-provider cost in dollars for Exa Connect data sources used during the run. Keys are provider names (e.g. `fiber`, `similarweb`). Only providers with non-zero usage are included.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dataSources")]
         public global::System.Collections.Generic.Dictionary<string, double>? DataSources { get; set; }
@@ -64,7 +64,7 @@ namespace Exa
         /// <param name="emails"></param>
         /// <param name="phoneNumbers"></param>
         /// <param name="dataSources">
-        /// Per-provider cost in dollars for Exa Connect data sources used during the run. Keys are provider names (e.g. `fiber_ai`, `similarweb`). Only providers with non-zero usage are included.
+        /// Per-provider cost in dollars for Exa Connect data sources used during the run. Keys are provider names (e.g. `fiber`, `similarweb`). Only providers with non-zero usage are included.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -6044,19 +6044,19 @@ components:
         provider:
           description: Exa Connect data provider to enable for the run. All provider
             tools are available by default.
-          example: fiber_ai
+          example: fiber
           "$ref": "#/components/schemas/AgentDataSourceProvider"
       required:
       - provider
     AgentDataSourceProvider:
       type: string
       enum:
-      - fiber_ai
+      - fiber
       - financial_datasets
       - similarweb
       - baselayer
       - affiliate
-      - particle_news
+      - particle
       - jinko
       description: Identifier of an Exa Connect data provider.
     SearchResponse:
@@ -6911,7 +6911,7 @@ components:
         type: integer
         minimum: 0
       description: Per-provider tool call counts for Exa Connect data sources used
-        during the run. Keys are provider names (e.g. `fiber_ai`, `similarweb`). Only
+        during the run. Keys are provider names (e.g. `fiber`, `similarweb`). Only
         providers with non-zero usage are included.
     AgentCostDollars:
       type: object
@@ -6948,7 +6948,7 @@ components:
         type: number
         minimum: 0
       description: Per-provider cost in dollars for Exa Connect data sources used
-        during the run. Keys are provider names (e.g. `fiber_ai`, `similarweb`). Only
+        during the run. Keys are provider names (e.g. `fiber`, `similarweb`). Only
         providers with non-zero usage are included.
     AgentErrorResponse:
       type: object
@@ -8667,7 +8667,7 @@ components:
         provider:
           description: Exa Connect data provider to enable for the run. All provider
             tools are available by default.
-          example: fiber_ai
+          example: fiber
           "$ref": "#/components/schemas/AgentDataSourceProvider"
       required:
       - provider

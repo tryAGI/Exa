@@ -19,7 +19,7 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
-        FiberAi,
+        Fiber,
         /// <summary>
         /// 
         /// </summary>
@@ -31,7 +31,7 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
-        ParticleNews,
+        Particle,
         /// <summary>
         /// 
         /// </summary>
@@ -52,10 +52,10 @@ namespace Exa
             {
                 AgentDataSourceProvider.Affiliate => "affiliate",
                 AgentDataSourceProvider.Baselayer => "baselayer",
-                AgentDataSourceProvider.FiberAi => "fiber_ai",
+                AgentDataSourceProvider.Fiber => "fiber",
                 AgentDataSourceProvider.FinancialDatasets => "financial_datasets",
                 AgentDataSourceProvider.Jinko => "jinko",
-                AgentDataSourceProvider.ParticleNews => "particle_news",
+                AgentDataSourceProvider.Particle => "particle",
                 AgentDataSourceProvider.Similarweb => "similarweb",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -69,10 +69,10 @@ namespace Exa
             {
                 "affiliate" => AgentDataSourceProvider.Affiliate,
                 "baselayer" => AgentDataSourceProvider.Baselayer,
-                "fiber_ai" => AgentDataSourceProvider.FiberAi,
+                "fiber" => AgentDataSourceProvider.Fiber,
                 "financial_datasets" => AgentDataSourceProvider.FinancialDatasets,
                 "jinko" => AgentDataSourceProvider.Jinko,
-                "particle_news" => AgentDataSourceProvider.ParticleNews,
+                "particle" => AgentDataSourceProvider.Particle,
                 "similarweb" => AgentDataSourceProvider.Similarweb,
                 _ => null,
             };

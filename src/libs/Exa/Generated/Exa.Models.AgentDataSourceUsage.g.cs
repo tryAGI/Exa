@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// Per-provider tool call counts for Exa Connect data sources used during the run. Keys are provider names (e.g. `fiber_ai`, `similarweb`). Only providers with non-zero usage are included.
+    /// Per-provider tool call counts for Exa Connect data sources used during the run. Keys are provider names (e.g. `fiber`, `similarweb`). Only providers with non-zero usage are included.
     /// </summary>
     public sealed partial class AgentDataSourceUsage
     {

@@ -4590,20 +4590,24 @@ components:
         startCrawlDate:
           anyOf:
           - type: string
-            description: Crawl date refers to the date that Exa discovered a link.
-              Results will include links that were crawled after this date. Must be
-              specified in ISO 8601 format.
+            description: Deprecated and will be removed in a future release. Crawl
+              date refers to the date that Exa discovered a link. Results will include
+              links that were crawled after this date. Must be specified in ISO 8601
+              format.
             example: 2023-01-01 00:00:00.000000000 Z
             format: date-time
+            deprecated: true
           - type: 'null'
         endCrawlDate:
           anyOf:
           - type: string
-            description: Crawl date refers to the date that Exa discovered a link.
-              Results will include links that were crawled before this date. Must
-              be specified in ISO 8601 format.
+            description: Deprecated and will be removed in a future release. Crawl
+              date refers to the date that Exa discovered a link. Results will include
+              links that were crawled before this date. Must be specified in ISO 8601
+              format.
             example: 2023-12-31 00:00:00.000000000 Z
             format: date-time
+            deprecated: true
           - type: 'null'
         startPublishedDate:
           anyOf:
@@ -5283,20 +5287,24 @@ components:
         startCrawlDate:
           anyOf:
           - type: string
-            description: Crawl date refers to the date that Exa discovered a link.
-              Results will include links that were crawled after this date. Must be
-              specified in ISO 8601 format.
+            description: Deprecated and will be removed in a future release. Crawl
+              date refers to the date that Exa discovered a link. Results will include
+              links that were crawled after this date. Must be specified in ISO 8601
+              format.
             example: 2023-01-01 00:00:00.000000000 Z
             format: date-time
+            deprecated: true
           - type: 'null'
         endCrawlDate:
           anyOf:
           - type: string
-            description: Crawl date refers to the date that Exa discovered a link.
-              Results will include links that were crawled before this date. Must
-              be specified in ISO 8601 format.
+            description: Deprecated and will be removed in a future release. Crawl
+              date refers to the date that Exa discovered a link. Results will include
+              links that were crawled before this date. Must be specified in ISO 8601
+              format.
             example: 2023-12-31 00:00:00.000000000 Z
             format: date-time
+            deprecated: true
           - type: 'null'
         startPublishedDate:
           anyOf:

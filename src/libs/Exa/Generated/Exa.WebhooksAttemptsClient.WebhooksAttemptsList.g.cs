@@ -37,7 +37,7 @@ namespace Exa
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
             ref string? cursor,
-            ref double? limit,
+            ref int? limit,
             ref global::Exa.WebhooksAttemptsListEventType? eventType,
             ref bool? successful);
         partial void PrepareWebhooksAttemptsListRequest(
@@ -45,7 +45,7 @@ namespace Exa
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id,
             string? cursor,
-            double? limit,
+            int? limit,
             global::Exa.WebhooksAttemptsListEventType? eventType,
             bool? successful);
         partial void ProcessWebhooksAttemptsListResponse(
@@ -86,7 +86,7 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.ListWebhookAttemptsResponse> WebhooksAttemptsListAsync(
             string id,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.WebhooksAttemptsListEventType? eventType = default,
             bool? successful = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
@@ -133,7 +133,7 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListWebhookAttemptsResponse>> WebhooksAttemptsListAsResponseAsync(
             string id,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.WebhooksAttemptsListEventType? eventType = default,
             bool? successful = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,

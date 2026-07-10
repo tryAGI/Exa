@@ -12,7 +12,7 @@ namespace Exa
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public double? Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// 
@@ -168,7 +168,7 @@ namespace Exa
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ResearchDtoClassCompletedCitationProfileVariant4ContentExperienceHistoryItemCompany(
-            double? id,
+            string? id,
             string? name,
             string? type,
             double? foundedYear,

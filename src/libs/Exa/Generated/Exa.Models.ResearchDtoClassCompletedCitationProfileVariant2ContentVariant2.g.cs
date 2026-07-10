@@ -12,8 +12,7 @@ namespace Exa
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public string? Url { get; set; }
 
         /// <summary>
         /// 
@@ -99,8 +98,8 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2" /> class.
         /// </summary>
-        /// <param name="url"></param>
         /// <param name="identity"></param>
+        /// <param name="url"></param>
         /// <param name="linkedinUrl"></param>
         /// <param name="version">
         /// Default Value: 1-reduced
@@ -118,8 +117,8 @@ namespace Exa
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2(
-            string url,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2Identity identity,
+            string? url,
             string? linkedinUrl,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2Version? version,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2Classification? classification,
@@ -132,7 +131,7 @@ namespace Exa
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2NewsActivity? newsActivity,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2Metadata? metadata)
         {
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
+            this.Url = url;
             this.LinkedinUrl = linkedinUrl;
             this.Version = version;
             this.Identity = identity ?? throw new global::System.ArgumentNullException(nameof(identity));

@@ -12,15 +12,19 @@ namespace Exa
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public string? Url { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("linkedin_url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LinkedinUrl { get; set; }
+        public string? LinkedinUrl { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("linkedin_url_aliases")]
+        public global::System.Collections.Generic.IList<string>? LinkedinUrlAliases { get; set; }
 
         /// <summary>
         /// Default Value: 1-complete
@@ -123,9 +127,10 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ResearchDtoClassCompletedCitationProfileVariant2ContentVariant1" /> class.
         /// </summary>
+        /// <param name="identity"></param>
         /// <param name="url"></param>
         /// <param name="linkedinUrl"></param>
-        /// <param name="identity"></param>
+        /// <param name="linkedinUrlAliases"></param>
         /// <param name="version">
         /// Default Value: 1-complete
         /// </param>
@@ -146,9 +151,10 @@ namespace Exa
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ResearchDtoClassCompletedCitationProfileVariant2ContentVariant1(
-            string url,
-            string linkedinUrl,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant1Identity identity,
+            string? url,
+            string? linkedinUrl,
+            global::System.Collections.Generic.IList<string>? linkedinUrlAliases,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant1Version? version,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant1Classification? classification,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant1Locations? locations,
@@ -164,8 +170,9 @@ namespace Exa
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant1NewsActivity? newsActivity,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant1Xverum? xverum)
         {
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
-            this.LinkedinUrl = linkedinUrl ?? throw new global::System.ArgumentNullException(nameof(linkedinUrl));
+            this.Url = url;
+            this.LinkedinUrl = linkedinUrl;
+            this.LinkedinUrlAliases = linkedinUrlAliases;
             this.Version = version;
             this.Identity = identity ?? throw new global::System.ArgumentNullException(nameof(identity));
             this.Classification = classification;

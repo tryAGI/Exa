@@ -36,13 +36,13 @@ namespace Exa
         partial void PrepareMonitorsListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
-            ref double? limit,
+            ref int? limit,
             ref string? websetId);
         partial void PrepareMonitorsListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
-            double? limit,
+            int? limit,
             string? websetId);
         partial void ProcessMonitorsListResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -79,7 +79,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.ListMonitorsResponse> MonitorsListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             string? websetId = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -120,7 +120,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListMonitorsResponse>> MonitorsListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             string? websetId = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

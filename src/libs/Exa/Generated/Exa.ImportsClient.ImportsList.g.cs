@@ -36,12 +36,12 @@ namespace Exa
         partial void PrepareImportsListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
-            ref double? limit);
+            ref int? limit);
         partial void PrepareImportsListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
-            double? limit);
+            int? limit);
         partial void ProcessImportsListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -76,7 +76,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.ListImportsResponse> ImportsListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -114,7 +114,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListImportsResponse>> ImportsListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

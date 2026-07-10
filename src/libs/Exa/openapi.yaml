@@ -2600,7 +2600,7 @@ paths:
           minimum: 1
           maximum: 100
           default: 20
-          type: number
+          type: integer
       - name: sourceId
         required: false
         in: query
@@ -3052,7 +3052,7 @@ paths:
           minimum: 1
           maximum: 200
           default: 25
-          type: number
+          type: integer
       responses:
         '200':
           description: List of webhooks
@@ -3326,7 +3326,7 @@ paths:
           minimum: 1
           maximum: 200
           default: 25
-          type: number
+          type: integer
       - name: eventType
         required: false
         in: query
@@ -3433,7 +3433,7 @@ paths:
           minimum: 1
           maximum: 200
           default: 25
-          type: number
+          type: integer
       - name: types
         required: false
         in: query
@@ -3899,7 +3899,7 @@ paths:
           minimum: 1
           maximum: 200
           default: 25
-          type: number
+          type: integer
       - name: websetId
         required: false
         in: query
@@ -4342,7 +4342,7 @@ paths:
           minimum: 1
           maximum: 200
           default: 25
-          type: number
+          type: integer
       responses:
         '200':
           description: List of imports
@@ -9189,6 +9189,14 @@ components:
                             linkedin_url:
                               type:
                               - string
+                              - 'null'
+                            linkedin_url_aliases:
+                              type:
+                              - array
+                              - 'null'
+                              items:
+                                type:
+                                - string
                             version:
                               default: 1-complete
                               type:
@@ -11201,8 +11209,6 @@ components:
                                   - string
                                   - 'null'
                           required:
-                          - url
-                          - linkedin_url
                           - identity
                         - type:
                           - object
@@ -11584,10 +11590,48 @@ components:
                                   - 'null'
                                 funding_rounds:
                                   type:
-                                  - string
+                                  - array
                                   - 'null'
-                                  enum:
-                                  - 'null'
+                                  items:
+                                    type:
+                                    - object
+                                    properties:
+                                      name:
+                                        type:
+                                        - string
+                                        - 'null'
+                                      date:
+                                        type:
+                                        - string
+                                        - 'null'
+                                      amount:
+                                        type:
+                                        - object
+                                        - 'null'
+                                        properties:
+                                          value:
+                                            type:
+                                            - number
+                                          currency:
+                                            default: USD
+                                            type:
+                                            - string
+                                        required:
+                                        - value
+                                      valuation:
+                                        type:
+                                        - object
+                                        - 'null'
+                                        properties:
+                                          value:
+                                            type:
+                                            - number
+                                          currency:
+                                            default: USD
+                                            type:
+                                            - string
+                                        required:
+                                        - value
                             web_traffic:
                               type:
                               - object
@@ -11626,7 +11670,6 @@ components:
                               - collected_at
                               - primary_source
                           required:
-                          - url
                           - identity
                     required:
                     - type
@@ -12205,7 +12248,7 @@ components:
                                 properties:
                                   company_id:
                                     type:
-                                    - number
+                                    - string
                                   title:
                                     type:
                                     - string
@@ -12300,7 +12343,7 @@ components:
                                       properties:
                                         id:
                                           type:
-                                          - number
+                                          - string
                                         name:
                                           type:
                                           - string
@@ -12938,7 +12981,7 @@ components:
                               properties:
                                 company_id:
                                   type:
-                                  - number
+                                  - string
                                 company_name:
                                   type:
                                   - string
@@ -12972,7 +13015,7 @@ components:
                               properties:
                                 company_id:
                                   type:
-                                  - number
+                                  - string
                                 company_name:
                                   type:
                                   - string
@@ -13005,7 +13048,6 @@ components:
                             - '1'
                         required:
                         - canonical_url
-                        - publish_timestamp
                     required:
                     - type
                     - content
@@ -13018,7 +13060,6 @@ components:
                   - research paper
                   - news
                   - github
-                  - tweet
                   - movie
                   - song
                   - personal site
@@ -13026,6 +13067,7 @@ components:
                   - people
                   - financial report
                   - linkedin profile
+                  - tweet
                 source:
                   type:
                   - string
@@ -14110,7 +14152,12 @@ components:
                 type:
                 - string
                 minLength: 1
-                description: The ID of the source to search.
+                description: The ID of the source to import.
+              evaluate:
+                type:
+                - boolean
+                description: When true, items from this import will be evaluated against
+                  the search criteria. Requires a search to be provided.
             required:
             - source
             - id
@@ -15032,12 +15079,129 @@ components:
               format: uri
               description: The image URL of the person
               nullable: true
+            workHistory:
+              type:
+              - array
+              items:
+                type:
+                - object
+                properties:
+                  title:
+                    type: string
+                    description: Job title or position
+                    nullable: true
+                  location:
+                    type: string
+                    description: Work location
+                    nullable: true
+                  dates:
+                    type: object
+                    properties:
+                      from:
+                        type: string
+                        description: Start date
+                        nullable: true
+                      to:
+                        type: string
+                        description: End date
+                        nullable: true
+                    required:
+                    - from
+                    - to
+                    title: WebsetItemPersonDateRange
+                    description: Employment dates
+                    nullable: true
+                  company:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Entity ID of the company
+                        nullable: true
+                      name:
+                        type: string
+                        description: Company name
+                        nullable: true
+                      linkedinUrl:
+                        type: string
+                        description: LinkedIn URL of the company
+                        nullable: true
+                    required:
+                    - id
+                    - name
+                    - linkedinUrl
+                    title: WebsetItemPersonWorkHistoryCompanyRef
+                    nullable: true
+                required:
+                - title
+                - location
+                - dates
+                - company
+                title: WebsetItemPersonWorkHistoryEntry
+              description: The work history of the person
+            educationHistory:
+              type:
+              - array
+              items:
+                type:
+                - object
+                properties:
+                  degree:
+                    type: string
+                    description: Degree obtained
+                    nullable: true
+                  dates:
+                    type: object
+                    properties:
+                      from:
+                        type: string
+                        description: Start date
+                        nullable: true
+                      to:
+                        type: string
+                        description: End date
+                        nullable: true
+                    required:
+                    - from
+                    - to
+                    title: WebsetItemPersonDateRange
+                    description: Education dates
+                    nullable: true
+                  institution:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Entity ID of the institution
+                        nullable: true
+                      name:
+                        type: string
+                        description: Institution name
+                        nullable: true
+                      linkedinUrl:
+                        type: string
+                        description: LinkedIn URL of the institution
+                        nullable: true
+                    required:
+                    - id
+                    - name
+                    - linkedinUrl
+                    title: WebsetItemPersonEducationInstitutionRef
+                    nullable: true
+                required:
+                - degree
+                - dates
+                - institution
+                title: WebsetItemPersonEducationHistoryEntry
+              description: The education history of the person
           required:
           - name
           - location
           - position
           - company
           - pictureUrl
+          - workHistory
+          - educationHistory
           title: WebsetItemPersonPropertiesFields
       required:
       - type
@@ -15078,7 +15242,7 @@ components:
               description: The main location of the company
               nullable: true
             employees:
-              type: number
+              type: integer
               description: The number of employees of the company
               nullable: true
             industry:
@@ -15100,8 +15264,6 @@ components:
               nullable: true
             headquarters:
               type: object
-              nullable: true
-              description: The structured headquarters address of the company
               properties:
                 address:
                   type: string
@@ -15135,10 +15297,10 @@ components:
               - country
               - countryCode
               title: WebsetItemCompanyHeadquarters
+              description: The structured headquarters address of the company
+              nullable: true
             financials:
               type: object
-              nullable: true
-              description: Financial information about the company
               properties:
                 revenueAnnual:
                   type: number
@@ -15150,8 +15312,6 @@ components:
                   nullable: true
                 fundingLatestRound:
                   type: object
-                  nullable: true
-                  description: The latest funding round
                   properties:
                     name:
                       type: string
@@ -15170,15 +15330,17 @@ components:
                   - date
                   - amount
                   title: WebsetItemCompanyFundingRound
+                  description: The latest funding round
+                  nullable: true
               required:
               - revenueAnnual
               - fundingTotal
               - fundingLatestRound
               title: WebsetItemCompanyFinancials
+              description: Financial information about the company
+              nullable: true
             webTraffic:
               type: object
-              nullable: true
-              description: Web traffic metrics for the company
               properties:
                 visitsMonthly:
                   type: number
@@ -15192,6 +15354,8 @@ components:
               - visitsMonthly
               - uniqueVisitors
               title: WebsetItemCompanyWebTraffic
+              description: Web traffic metrics for the company
+              nullable: true
           required:
           - name
           - location
@@ -15370,8 +15534,8 @@ components:
           type:
           - string
           enum:
-          - 'yes'
-          - 'no'
+          - true
+          - false
           - unclear
           description: The satisfaction of the criterion
         references:
@@ -15500,6 +15664,11 @@ components:
           - string
           description: The original identifier used to resolve this item (e.g., email,
             name, or URL). Only relevant when the source is import.
+        scopeId:
+          type:
+          - string
+          description: The import that sourced this item, when the item came from
+            a scoped search with evaluate enabled on the import.
         websetId:
           type:
           - string

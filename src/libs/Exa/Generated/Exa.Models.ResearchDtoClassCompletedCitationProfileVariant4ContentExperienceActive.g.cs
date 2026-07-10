@@ -12,7 +12,7 @@ namespace Exa
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("company_id")]
-        public double? CompanyId { get; set; }
+        public string? CompanyId { get; set; }
 
         /// <summary>
         /// 
@@ -77,7 +77,7 @@ namespace Exa
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ResearchDtoClassCompletedCitationProfileVariant4ContentExperienceActive(
-            double? companyId,
+            string? companyId,
             string? title,
             string? description,
             string? department,

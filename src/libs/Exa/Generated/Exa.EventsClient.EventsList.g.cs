@@ -36,7 +36,7 @@ namespace Exa
         partial void PrepareEventsListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
-            ref double? limit,
+            ref int? limit,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types,
             ref global::System.DateTime? createdBefore,
             ref global::System.DateTime? createdAfter);
@@ -44,7 +44,7 @@ namespace Exa
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
-            double? limit,
+            int? limit,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types,
             global::System.DateTime? createdBefore,
             global::System.DateTime? createdAfter);
@@ -86,7 +86,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.ListEventsResponse> EventsListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types = default,
             global::System.DateTime? createdBefore = default,
             global::System.DateTime? createdAfter = default,
@@ -134,7 +134,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListEventsResponse>> EventsListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types = default,
             global::System.DateTime? createdBefore = default,
             global::System.DateTime? createdAfter = default,

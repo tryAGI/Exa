@@ -17,11 +17,17 @@ namespace Exa
         public required global::Exa.CreateWebsetParametersImportItemSource Source { get; set; }
 
         /// <summary>
-        /// The ID of the source to search.
+        /// The ID of the source to import.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
+
+        /// <summary>
+        /// When true, items from this import will be evaluated against the search criteria. Requires a search to be provided.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("evaluate")]
+        public bool? Evaluate { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,17 +40,22 @@ namespace Exa
         /// </summary>
         /// <param name="source"></param>
         /// <param name="id">
-        /// The ID of the source to search.
+        /// The ID of the source to import.
+        /// </param>
+        /// <param name="evaluate">
+        /// When true, items from this import will be evaluated against the search criteria. Requires a search to be provided.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateWebsetParametersImportItem(
             global::Exa.CreateWebsetParametersImportItemSource source,
-            string id)
+            string id,
+            bool? evaluate)
         {
             this.Source = source;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Evaluate = evaluate;
         }
 
         /// <summary>

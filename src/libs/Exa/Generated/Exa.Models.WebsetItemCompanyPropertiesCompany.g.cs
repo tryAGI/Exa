@@ -25,7 +25,7 @@ namespace Exa
         /// The number of employees of the company
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("employees")]
-        public double? Employees { get; set; }
+        public int? Employees { get; set; }
 
         /// <summary>
         /// The industry of the company
@@ -114,7 +114,7 @@ namespace Exa
         public WebsetItemCompanyPropertiesCompany(
             string name,
             string? location,
-            double? employees,
+            int? employees,
             string? industry,
             string? about,
             string? logoUrl,

@@ -33,7 +33,7 @@ namespace Exa
         global::System.Threading.Tasks.Task<global::Exa.ListWebhookAttemptsResponse> WebhooksAttemptsListAsync(
             string id,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.WebhooksAttemptsListEventType? eventType = default,
             bool? successful = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
@@ -67,7 +67,7 @@ namespace Exa
         global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListWebhookAttemptsResponse>> WebhooksAttemptsListAsResponseAsync(
             string id,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.WebhooksAttemptsListEventType? eventType = default,
             bool? successful = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,

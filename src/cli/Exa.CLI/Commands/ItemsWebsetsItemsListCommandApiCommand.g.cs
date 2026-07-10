@@ -19,7 +19,7 @@ internal static partial class ItemsWebsetsItemsListCommandApiCommand
         Description = @"The cursor to paginate through the results",
     };
 
-    private static Option<double?> Limit { get; } = new(
+    private static Option<int?> Limit { get; } = new(
         name: @"--limit")
     {
         Description = @"The number of results to return",

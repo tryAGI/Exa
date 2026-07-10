@@ -33,7 +33,7 @@ namespace Exa
         global::System.Threading.Tasks.Task<global::Exa.ListWebsetItemResponse> WebsetsItemsListAsync(
             string webset,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             string? sourceId = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -66,7 +66,7 @@ namespace Exa
         global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListWebsetItemResponse>> WebsetsItemsListAsResponseAsync(
             string webset,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             string? sourceId = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

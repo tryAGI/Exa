@@ -37,14 +37,14 @@ namespace Exa
             global::System.Net.Http.HttpClient httpClient,
             ref string webset,
             ref string? cursor,
-            ref double? limit,
+            ref int? limit,
             ref string? sourceId);
         partial void PrepareWebsetsItemsListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string webset,
             string? cursor,
-            double? limit,
+            int? limit,
             string? sourceId);
         partial void ProcessWebsetsItemsListResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -84,7 +84,7 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.ListWebsetItemResponse> WebsetsItemsListAsync(
             string webset,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             string? sourceId = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -129,7 +129,7 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListWebsetItemResponse>> WebsetsItemsListAsResponseAsync(
             string webset,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             string? sourceId = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

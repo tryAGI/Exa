@@ -36,12 +36,12 @@ namespace Exa
         partial void PrepareWebhooksListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
-            ref double? limit);
+            ref int? limit);
         partial void PrepareWebhooksListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
-            double? limit);
+            int? limit);
         partial void ProcessWebhooksListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -73,7 +73,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.ListWebhooksResponse> WebhooksListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -108,7 +108,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListWebhooksResponse>> WebhooksListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

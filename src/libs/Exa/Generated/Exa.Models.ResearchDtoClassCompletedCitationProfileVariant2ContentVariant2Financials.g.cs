@@ -62,8 +62,7 @@ namespace Exa
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("funding_rounds")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2FinancialsFundingRoundsJsonConverter))]
-        public global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2FinancialsFundingRounds? FundingRounds { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2FinancialsFundingRound>? FundingRounds { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -95,7 +94,7 @@ namespace Exa
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2FinancialsMarketCap? marketCap,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2FinancialsAcquisitions? acquisitions,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2FinancialsIpoDate? ipoDate,
-            global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2FinancialsFundingRounds? fundingRounds)
+            global::System.Collections.Generic.IList<global::Exa.ResearchDtoClassCompletedCitationProfileVariant2ContentVariant2FinancialsFundingRound>? fundingRounds)
         {
             this.RevenueAnnual = revenueAnnual;
             this.RevenueRange = revenueRange;

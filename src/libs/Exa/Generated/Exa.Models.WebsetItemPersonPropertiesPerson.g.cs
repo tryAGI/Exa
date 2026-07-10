@@ -40,6 +40,20 @@ namespace Exa
         public string? PictureUrl { get; set; }
 
         /// <summary>
+        /// The work history of the person
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workHistory")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItem> WorkHistory { get; set; }
+
+        /// <summary>
+        /// The education history of the person
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("educationHistory")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItem> EducationHistory { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -50,6 +64,12 @@ namespace Exa
         /// </summary>
         /// <param name="name">
         /// The name of the person
+        /// </param>
+        /// <param name="workHistory">
+        /// The work history of the person
+        /// </param>
+        /// <param name="educationHistory">
+        /// The education history of the person
         /// </param>
         /// <param name="location">
         /// The location of the person
@@ -66,6 +86,8 @@ namespace Exa
 #endif
         public WebsetItemPersonPropertiesPerson(
             string name,
+            global::System.Collections.Generic.IList<global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItem> workHistory,
+            global::System.Collections.Generic.IList<global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItem> educationHistory,
             string? location,
             string? position,
             global::Exa.WebsetItemPersonPropertiesPersonCompany? company,
@@ -76,6 +98,8 @@ namespace Exa
             this.Position = position;
             this.Company = company;
             this.PictureUrl = pictureUrl;
+            this.WorkHistory = workHistory ?? throw new global::System.ArgumentNullException(nameof(workHistory));
+            this.EducationHistory = educationHistory ?? throw new global::System.ArgumentNullException(nameof(educationHistory));
         }
 
         /// <summary>

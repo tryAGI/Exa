@@ -33,7 +33,7 @@ namespace Exa
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Exa.ListEventsResponse> EventsListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types = default,
             global::System.DateTime? createdBefore = default,
             global::System.DateTime? createdAfter = default,
@@ -68,7 +68,7 @@ namespace Exa
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListEventsResponse>> EventsListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types = default,
             global::System.DateTime? createdBefore = default,
             global::System.DateTime? createdAfter = default,

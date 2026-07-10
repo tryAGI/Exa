@@ -30,7 +30,7 @@ namespace Exa
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Exa.ListMonitorsResponse> MonitorsListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             string? websetId = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -60,7 +60,7 @@ namespace Exa
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListMonitorsResponse>> MonitorsListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             string? websetId = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

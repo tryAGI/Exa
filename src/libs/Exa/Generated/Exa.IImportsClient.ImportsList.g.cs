@@ -29,7 +29,7 @@ namespace Exa
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Exa.ListImportsResponse> ImportsListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -57,7 +57,7 @@ namespace Exa
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListImportsResponse>> ImportsListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

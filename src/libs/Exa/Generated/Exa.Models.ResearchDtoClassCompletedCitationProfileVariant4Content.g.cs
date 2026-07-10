@@ -19,8 +19,7 @@ namespace Exa
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("publish_timestamp")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime PublishTimestamp { get; set; }
+        public global::System.DateTime? PublishTimestamp { get; set; }
 
         /// <summary>
         /// 
@@ -349,7 +348,7 @@ namespace Exa
 #endif
         public ResearchDtoClassCompletedCitationProfileVariant4Content(
             string canonicalUrl,
-            global::System.DateTime publishTimestamp,
+            global::System.DateTime? publishTimestamp,
             global::Exa.ResearchDtoClassCompletedCitationProfileVariant4ContentCsMetadata? csMetadata,
             string? fullName,
             string? firstName,

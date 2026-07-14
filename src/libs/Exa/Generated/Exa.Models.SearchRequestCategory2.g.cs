@@ -4,33 +4,33 @@
 namespace Exa
 {
     /// <summary>
-    /// A data category to focus on. Known categories include `company`, `research paper`, `news`, `personal site`, `financial report`, and `people`. Other strings are accepted and used as category hints for search. The `people` and `company` categories have improved quality for finding people profiles and company pages. Note: The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category, `includeDomains` only accepts supported profile domains. Using unsupported parameters will result in a 400 error.<br/>
+    /// A data category to focus on. Known categories include `company`, `research paper`, `news`, `personal site`, `financial report`, and `people`. Other strings are accepted and used as category hints for search. The `people` and `company` categories have improved quality for finding people profiles and company pages. Note: The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported parameters will result in a 400 error.<br/>
     /// Example: research paper
     /// </summary>
     public enum SearchRequestCategory2
     {
         /// <summary>
-        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category, `includeDomains` only accepts supported profile domains. Using unsupported parameters will result in a 400 error.
+        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported parameters will result in a 400 error.
         /// </summary>
         Company,
         /// <summary>
-        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category, `includeDomains` only accepts supported profile domains. Using unsupported parameters will result in a 400 error.
+        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported parameters will result in a 400 error.
         /// </summary>
         FinancialReport,
         /// <summary>
-        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category, `includeDomains` only accepts supported profile domains. Using unsupported parameters will result in a 400 error.
+        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported parameters will result in a 400 error.
         /// </summary>
         News,
         /// <summary>
-        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category, `includeDomains` only accepts supported profile domains. Using unsupported parameters will result in a 400 error.
+        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported parameters will result in a 400 error.
         /// </summary>
         People,
         /// <summary>
-        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category, `includeDomains` only accepts supported profile domains. Using unsupported parameters will result in a 400 error.
+        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported parameters will result in a 400 error.
         /// </summary>
         PersonalSite,
         /// <summary>
-        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category, `includeDomains` only accepts supported profile domains. Using unsupported parameters will result in a 400 error.
+        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported parameters will result in a 400 error.
         /// </summary>
         ResearchPaper,
     }

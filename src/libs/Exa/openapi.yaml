@@ -4734,8 +4734,7 @@ components:
               people profiles and company pages. Note: The `company` and `people`
               categories only support a limited set of filters. The following parameters
               are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`,
-              `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category,
-              `includeDomains` only accepts supported profile domains. Using unsupported
+              `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported
               parameters will result in a 400 error.'
             example: research paper
           - type: 'null'
@@ -5361,8 +5360,7 @@ components:
               people profiles and company pages. Note: The `company` and `people`
               categories only support a limited set of filters. The following parameters
               are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`,
-              `startCrawlDate`, `endCrawlDate`, `excludeDomains`. For `people` category,
-              `includeDomains` only accepts supported profile domains. Using unsupported
+              `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported
               parameters will result in a 400 error.'
             example: research paper
           - type: 'null'

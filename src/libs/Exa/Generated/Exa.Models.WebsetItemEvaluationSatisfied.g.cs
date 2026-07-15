@@ -11,15 +11,15 @@ namespace Exa
         /// <summary>
         /// 
         /// </summary>
-        No,
+        False,
+        /// <summary>
+        /// 
+        /// </summary>
+        True,
         /// <summary>
         /// 
         /// </summary>
         Unclear,
-        /// <summary>
-        /// 
-        /// </summary>
-        Yes,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Exa
         {
             return value switch
             {
-                WebsetItemEvaluationSatisfied.No => "no",
+                WebsetItemEvaluationSatisfied.False => "false",
+                WebsetItemEvaluationSatisfied.True => "true",
                 WebsetItemEvaluationSatisfied.Unclear => "unclear",
-                WebsetItemEvaluationSatisfied.Yes => "yes",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Exa
         {
             return value switch
             {
-                "no" => WebsetItemEvaluationSatisfied.No,
+                "false" => WebsetItemEvaluationSatisfied.False,
+                "true" => WebsetItemEvaluationSatisfied.True,
                 "unclear" => WebsetItemEvaluationSatisfied.Unclear,
-                "yes" => WebsetItemEvaluationSatisfied.Yes,
                 _ => null,
             };
         }

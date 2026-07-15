@@ -8147,6 +8147,11 @@ components:
                       - type: 'null'
                       description: Number of works this publication cites (outgoing
                         references).
+                    abstract:
+                      anyOf:
+                      - type: string
+                      - type: 'null'
+                      description: Publication abstract text.
                   required:
                   - title
                   - year
@@ -8156,6 +8161,7 @@ components:
                   - citationCount
                   - authors
                   - referenceCount
+                  - abstract
                   additionalProperties: false
                   description: Publication-specific entity fields.
               required:
@@ -11381,8 +11387,8 @@ components:
           type:
           - string
           enum:
-          - 'yes'
-          - 'no'
+          - true
+          - false
           - unclear
           description: The satisfaction of the criterion
         references:

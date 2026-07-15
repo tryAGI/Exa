@@ -11387,8 +11387,8 @@ components:
           type:
           - string
           enum:
-          - true
-          - false
+          - 'yes'
+          - 'no'
           - unclear
           description: The satisfaction of the criterion
         references:

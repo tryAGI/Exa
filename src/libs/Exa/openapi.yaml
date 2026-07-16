@@ -4723,19 +4723,20 @@ components:
             enum:
             - company
             - research paper
+            - publication
             - news
             - personal site
             - financial report
             - people
             description: 'A data category to focus on. Known categories include `company`,
-              `research paper`, `news`, `personal site`, `financial report`, and `people`.
-              Other strings are accepted and used as category hints for search. The
-              `people` and `company` categories have improved quality for finding
-              people profiles and company pages. Note: The `company` and `people`
-              categories only support a limited set of filters. The following parameters
-              are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`,
-              `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported
-              parameters will result in a 400 error.'
+              `research paper`, `publication`, `news`, `personal site`, `financial
+              report`, and `people`. Other strings are accepted and used as category
+              hints for search. The `people` and `company` categories have improved
+              quality for finding people profiles and company pages. Note: The `company`
+              and `people` categories only support a limited set of filters. The following
+              parameters are NOT supported for these categories: `startPublishedDate`,
+              `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`.
+              Using unsupported parameters will result in a 400 error.'
             example: research paper
           - type: 'null'
         userLocation:
@@ -5349,19 +5350,20 @@ components:
             enum:
             - company
             - research paper
+            - publication
             - news
             - personal site
             - financial report
             - people
             description: 'A data category to focus on. Known categories include `company`,
-              `research paper`, `news`, `personal site`, `financial report`, and `people`.
-              Other strings are accepted and used as category hints for search. The
-              `people` and `company` categories have improved quality for finding
-              people profiles and company pages. Note: The `company` and `people`
-              categories only support a limited set of filters. The following parameters
-              are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`,
-              `startCrawlDate`, `endCrawlDate`, `excludeDomains`. Using unsupported
-              parameters will result in a 400 error.'
+              `research paper`, `publication`, `news`, `personal site`, `financial
+              report`, and `people`. Other strings are accepted and used as category
+              hints for search. The `people` and `company` categories have improved
+              quality for finding people profiles and company pages. Note: The `company`
+              and `people` categories only support a limited set of filters. The following
+              parameters are NOT supported for these categories: `startPublishedDate`,
+              `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `excludeDomains`.
+              Using unsupported parameters will result in a 400 error.'
             example: research paper
           - type: 'null'
         excludeSourceDomain:
@@ -7880,6 +7882,137 @@ components:
                         additionalProperties: false
                       - type: 'null'
                       description: Company web traffic information.
+                    research:
+                      anyOf:
+                      - type: object
+                        properties:
+                          worksCount:
+                            anyOf:
+                            - type: integer
+                            - type: 'null'
+                            description: Number of works with an affiliated author.
+                          citationCount:
+                            anyOf:
+                            - type: integer
+                            - type: 'null'
+                            description: Lifetime citation count.
+                          areas:
+                            type: array
+                            items:
+                              type: string
+                            description: Ranked research areas, most active first.
+                          notableWorks:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                title:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  description: Publication title.
+                                year:
+                                  anyOf:
+                                  - type: integer
+                                  - type: 'null'
+                                  description: Publication year.
+                                venue:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  description: Publication venue.
+                                citationCount:
+                                  anyOf:
+                                  - type: integer
+                                  - type: 'null'
+                                  description: Number of works citing this publication.
+                                doi:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  description: Digital Object Identifier.
+                                id:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  description: Resolved publication entity identifier,
+                                    when available.
+                                type:
+                                  anyOf:
+                                  - type: string
+                                    enum:
+                                    - article
+                                    - book
+                                    - book-chapter
+                                    - dataset
+                                    - dissertation
+                                    - preprint
+                                    - report
+                                    - review
+                                  - type: 'null'
+                                  description: Publication type.
+                              required:
+                              - title
+                              - year
+                              - venue
+                              - citationCount
+                              - doi
+                              - id
+                              - type
+                              additionalProperties: false
+                            description: Most-cited notable works.
+                          topResearchers:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                person:
+                                  anyOf:
+                                  - type: object
+                                    properties:
+                                      name:
+                                        anyOf:
+                                        - type: string
+                                        - type: 'null'
+                                        description: Referenced person name.
+                                      id:
+                                        anyOf:
+                                        - type: string
+                                        - type: 'null'
+                                        description: Referenced person entity identifier.
+                                    required:
+                                    - name
+                                    - id
+                                    additionalProperties: false
+                                  - type: 'null'
+                                  description: Referenced researcher.
+                                worksCount:
+                                  anyOf:
+                                  - type: integer
+                                  - type: 'null'
+                                  description: Number of works produced at the organization.
+                                citationCount:
+                                  anyOf:
+                                  - type: integer
+                                  - type: 'null'
+                                  description: Number of citations for works produced
+                                    at the organization.
+                              required:
+                              - person
+                              - worksCount
+                              - citationCount
+                              additionalProperties: false
+                            description: Researchers ordered by works produced at
+                              the organization.
+                        required:
+                        - worksCount
+                        - citationCount
+                        - areas
+                        - notableWorks
+                        - topResearchers
+                        additionalProperties: false
+                      - type: 'null'
+                      description: Company research information.
                   required:
                   - name
                   - foundedYear
@@ -7888,6 +8021,7 @@ components:
                   - headquarters
                   - financials
                   - webTraffic
+                  - research
                   additionalProperties: false
                   description: Company-specific entity fields.
               required:
@@ -8050,6 +8184,111 @@ components:
                         - institution
                         additionalProperties: false
                       description: Known education history for this person.
+                    research:
+                      anyOf:
+                      - type: object
+                        properties:
+                          worksCount:
+                            anyOf:
+                            - type: integer
+                            - type: 'null'
+                            description: Lifetime number of works.
+                          citationCount:
+                            anyOf:
+                            - type: integer
+                            - type: 'null'
+                            description: Lifetime citation count.
+                          hIndex:
+                            anyOf:
+                            - type: integer
+                            - type: 'null'
+                            description: Research h-index.
+                          firstPublicationYear:
+                            anyOf:
+                            - type: integer
+                            - type: 'null'
+                            description: Year of the first publication.
+                          latestPublicationYear:
+                            anyOf:
+                            - type: integer
+                            - type: 'null'
+                            description: Year of the latest publication.
+                          areas:
+                            type: array
+                            items:
+                              type: string
+                            description: Ranked research areas, most active first.
+                          notableWorks:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                title:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  description: Publication title.
+                                year:
+                                  anyOf:
+                                  - type: integer
+                                  - type: 'null'
+                                  description: Publication year.
+                                venue:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  description: Publication venue.
+                                citationCount:
+                                  anyOf:
+                                  - type: integer
+                                  - type: 'null'
+                                  description: Number of works citing this publication.
+                                doi:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  description: Digital Object Identifier.
+                                id:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  description: Resolved publication entity identifier,
+                                    when available.
+                                type:
+                                  anyOf:
+                                  - type: string
+                                    enum:
+                                    - article
+                                    - book
+                                    - book-chapter
+                                    - dataset
+                                    - dissertation
+                                    - preprint
+                                    - report
+                                    - review
+                                  - type: 'null'
+                                  description: Publication type.
+                              required:
+                              - title
+                              - year
+                              - venue
+                              - citationCount
+                              - doi
+                              - id
+                              - type
+                              additionalProperties: false
+                            description: Most-cited notable works.
+                        required:
+                        - worksCount
+                        - citationCount
+                        - hIndex
+                        - firstPublicationYear
+                        - latestPublicationYear
+                        - areas
+                        - notableWorks
+                        additionalProperties: false
+                      - type: 'null'
+                      description: Person research information.
                   required:
                   - name
                   - firstName
@@ -8057,6 +8296,7 @@ components:
                   - location
                   - workHistory
                   - educationHistory
+                  - research
                   additionalProperties: false
                   description: Person-specific entity fields.
               required:
@@ -11387,8 +11627,8 @@ components:
           type:
           - string
           enum:
-          - 'yes'
-          - 'no'
+          - true
+          - false
           - unclear
           description: The satisfaction of the criterion
         references:

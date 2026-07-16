@@ -169,6 +169,14 @@ namespace Exa
 
             typeof(global::Exa.JsonConverters.AgentRunEventEventNullableJsonConverter),
 
+            typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant1PropertiesResearchNotableWorkType2JsonConverter),
+
+            typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant1PropertiesResearchNotableWorkType2NullableJsonConverter),
+
+            typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant2PropertiesResearchNotableWorkType2JsonConverter),
+
+            typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant2PropertiesResearchNotableWorkType2NullableJsonConverter),
+
             typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant3PropertiesType2JsonConverter),
 
             typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant3PropertiesType2NullableJsonConverter),
@@ -904,6 +912,13 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant1PropertiesWebTraffic2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitieVariant1PropertiesWebTrafficHistoryItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant1PropertiesWebTrafficHistoryItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant1PropertiesResearch2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitieVariant1PropertiesResearchNotableWork>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant1PropertiesResearchNotableWork))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant1PropertiesResearchNotableWorkType2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitieVariant1PropertiesResearchTopResearcher>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant1PropertiesResearchTopResearcher))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant1PropertiesResearchTopResearcherPerson2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant2Properties))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitieVariant2PropertiesWorkHistoryItem>))]
@@ -914,6 +929,10 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant2PropertiesEducationHistoryItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant2PropertiesEducationHistoryItemDates2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant2PropertiesEducationHistoryItemInstitution2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant2PropertiesResearch2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitieVariant2PropertiesResearchNotableWork>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant2PropertiesResearchNotableWork))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant2PropertiesResearchNotableWorkType2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant3Properties))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieVariant3PropertiesType2))]
@@ -1158,17 +1177,6 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.EnrichmentResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.GetWebsetResponse), TypeInfoPropertyName = "GetWebsetResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.GetWebsetResponseVariant2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.WebsetItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.UpdateWebsetRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ListWebsetsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.Webset>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetParameters))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetParametersSearch))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.WebsetItemPreview))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseSearch))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.CompanyEntity, global::Exa.PersonEntity, global::Exa.ArticleEntity, global::Exa.ResearchPaperEntity, global::Exa.CustomEntity>), TypeInfoPropertyName = "OneOfCompanyEntityPersonEntityArticleEntityResearchPaperEntityCustomEntity2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseSearchCriteriaItem>))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1335,6 +1343,14 @@ namespace Exa
             typeof(global::Exa.JsonConverters.AgentRunEventEventJsonConverter),
 
             typeof(global::Exa.JsonConverters.AgentRunEventEventNullableJsonConverter),
+
+            typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant1PropertiesResearchNotableWorkType2JsonConverter),
+
+            typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant1PropertiesResearchNotableWorkType2NullableJsonConverter),
+
+            typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant2PropertiesResearchNotableWorkType2JsonConverter),
+
+            typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant2PropertiesResearchNotableWorkType2NullableJsonConverter),
 
             typeof(global::Exa.JsonConverters.SearchResultOutputEntitieVariant3PropertiesType2JsonConverter),
 
@@ -1838,6 +1854,17 @@ namespace Exa
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.WebsetItemPersonProperties, global::Exa.WebsetItemCompanyProperties, global::Exa.WebsetItemArticleProperties, global::Exa.WebsetItemResearchPaperProperties, global::Exa.WebsetItemCustomProperties>), TypeInfoPropertyName = "WebsetItemCustomProperties_976e7369ebb8440c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.WebsetItemPersonProperties, global::Exa.WebsetItemCompanyProperties, global::Exa.WebsetItemArticleProperties, global::Exa.WebsetItemResearchPaperProperties, global::Exa.WebsetItemCustomProperties>?), TypeInfoPropertyName = "WebsetItemCustomProperties_2a7882e053a7bb38")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.WebsetItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.UpdateWebsetRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ListWebsetsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.Webset>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetParameters))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetParametersSearch))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.WebsetItemPreview))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseSearch))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.CompanyEntity, global::Exa.PersonEntity, global::Exa.ArticleEntity, global::Exa.ResearchPaperEntity, global::Exa.CustomEntity>), TypeInfoPropertyName = "OneOfCompanyEntityPersonEntityArticleEntityResearchPaperEntityCustomEntity2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseSearchCriteriaItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseSearchCriteriaItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseEnrichment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseEnrichment))]
@@ -2127,8 +2154,11 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchResultOutputSubpage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.OneOf<global::Exa.SearchResultOutputEntitieVariant1, global::Exa.SearchResultOutputEntitieVariant2, global::Exa.SearchResultOutputEntitieVariant3>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchResultOutputEntitieVariant1PropertiesWebTrafficHistoryItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchResultOutputEntitieVariant1PropertiesResearchNotableWork>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchResultOutputEntitieVariant1PropertiesResearchTopResearcher>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchResultOutputEntitieVariant2PropertiesWorkHistoryItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchResultOutputEntitieVariant2PropertiesEducationHistoryItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchResultOutputEntitieVariant2PropertiesResearchNotableWork>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchResultOutputEntitieVariant3PropertiesAuthor>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchSynthesisOutputOutputGroundingItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.SearchSynthesisOutputOutputGroundingItemCitation>))]
@@ -2301,6 +2331,10 @@ namespace Exa
             options.Converters.Add(new global::Exa.JsonConverters.SearchStreamChunkVariant2GroundingItemConfidenceNullableJsonConverter());
             options.Converters.Add(new global::Exa.JsonConverters.AgentRunEventEventJsonConverter());
             options.Converters.Add(new global::Exa.JsonConverters.AgentRunEventEventNullableJsonConverter());
+            options.Converters.Add(new global::Exa.JsonConverters.SearchResultOutputEntitieVariant1PropertiesResearchNotableWorkType2JsonConverter());
+            options.Converters.Add(new global::Exa.JsonConverters.SearchResultOutputEntitieVariant1PropertiesResearchNotableWorkType2NullableJsonConverter());
+            options.Converters.Add(new global::Exa.JsonConverters.SearchResultOutputEntitieVariant2PropertiesResearchNotableWorkType2JsonConverter());
+            options.Converters.Add(new global::Exa.JsonConverters.SearchResultOutputEntitieVariant2PropertiesResearchNotableWorkType2NullableJsonConverter());
             options.Converters.Add(new global::Exa.JsonConverters.SearchResultOutputEntitieVariant3PropertiesType2JsonConverter());
             options.Converters.Add(new global::Exa.JsonConverters.SearchResultOutputEntitieVariant3PropertiesType2NullableJsonConverter());
             options.Converters.Add(new global::Exa.JsonConverters.SearchSynthesisOutputOutputGroundingItemConfidenceJsonConverter());

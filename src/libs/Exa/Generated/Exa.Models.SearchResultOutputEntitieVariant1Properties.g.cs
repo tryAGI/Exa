@@ -51,6 +51,12 @@ namespace Exa
         public global::Exa.SearchResultOutputEntitieVariant1PropertiesWebTraffic2? WebTraffic { get; set; }
 
         /// <summary>
+        /// Company research information.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("research")]
+        public global::Exa.SearchResultOutputEntitieVariant1PropertiesResearch2? Research { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -80,6 +86,9 @@ namespace Exa
         /// <param name="webTraffic">
         /// Company web traffic information.
         /// </param>
+        /// <param name="research">
+        /// Company research information.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -90,7 +99,8 @@ namespace Exa
             global::Exa.SearchResultOutputEntitieVariant1PropertiesWorkforce2? workforce,
             global::Exa.SearchResultOutputEntitieVariant1PropertiesHeadquarters2? headquarters,
             global::Exa.SearchResultOutputEntitieVariant1PropertiesFinancials2? financials,
-            global::Exa.SearchResultOutputEntitieVariant1PropertiesWebTraffic2? webTraffic)
+            global::Exa.SearchResultOutputEntitieVariant1PropertiesWebTraffic2? webTraffic,
+            global::Exa.SearchResultOutputEntitieVariant1PropertiesResearch2? research)
         {
             this.Name = name;
             this.FoundedYear = foundedYear;
@@ -99,6 +109,7 @@ namespace Exa
             this.Headquarters = headquarters;
             this.Financials = financials;
             this.WebTraffic = webTraffic;
+            this.Research = research;
         }
 
         /// <summary>

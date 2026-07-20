@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    /// JSON schema for deep search structured output mode. When provided, the output.content field is returned as structured JSON matching this schema.
     /// </summary>
     public sealed partial class SearchRequestOutputSchema
     {

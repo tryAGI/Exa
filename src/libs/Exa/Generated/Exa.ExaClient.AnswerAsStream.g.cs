@@ -6,14 +6,6 @@ namespace Exa
     public partial class ExaClient
     {
 
-        private static readonly global::Exa.AutoSDKServer[] s_AnswerAsStreamServers = new global::Exa.AutoSDKServer[]
-        {            new global::Exa.AutoSDKServer(
-                id: "https-api-exa-ai",
-                name: "api.exa.ai",
-                url: "https://api.exa.ai/",
-                description: ""),
-        };
-
 
         private static readonly global::Exa.EndPointSecurityRequirement s_AnswerAsStreamSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -45,7 +37,7 @@ namespace Exa
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
         /// <summary>
-        /// Answer<br/>
+        /// Generate an answer from search results<br/>
         /// Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
         /// </summary>
         /// <param name="request"></param>
@@ -61,7 +53,7 @@ namespace Exa
         ///     "text": true<br/>
         ///   }'
         /// </remarks>
-        public async global::System.Collections.Generic.IAsyncEnumerable<global::Exa.AnswerStreamChunk> AnswerAsStreamAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<global::Exa.AnswerResponse3> AnswerAsStreamAsync(
 
             global::Exa.AnswerRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
@@ -107,9 +99,7 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/answer",
-                                baseUri: ResolveBaseUri(
-                                servers: s_AnswerAsStreamServers,
-                                defaultBaseUrl: "https://api.exa.ai/"));
+                                baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -381,7 +371,7 @@ namespace Exa
                                     yield break;
                                 }
 
-                                var __streamedResponse = global::Exa.AnswerStreamChunk.FromJson(__content, JsonSerializerContext) ??
+                                var __streamedResponse = global::Exa.AnswerResponse3.FromJson(__content, JsonSerializerContext) ??
                                                        throw global::Exa.ApiException.Create(
                                                            statusCode: __response.StatusCode,
                                                            message: $"Response deserialization failed for \"{__content}\" ",
@@ -403,24 +393,24 @@ namespace Exa
             }
         }
         /// <summary>
-        /// Answer<br/>
+        /// Generate an answer from search results<br/>
         /// Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
         /// </summary>
         /// <param name="query">
-        /// Natural-language question or instructions for the request.<br/>
+        /// The question or query to answer.<br/>
         /// Example: What is the latest valuation of SpaceX?
         /// </param>
         /// <param name="text">
-        /// If true, returns full page text with default settings. If false, disables text return.<br/>
+        /// If true, the response includes full text content in the search results<br/>
         /// Default Value: false
         /// </param>
         /// <param name="outputSchema">
-        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer is returned as a structured object matching the schema instead of a plain string.
+        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Collections.Generic.IAsyncEnumerable<global::Exa.AnswerStreamChunk> AnswerAsStreamAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<global::Exa.AnswerResponse3> AnswerAsStreamAsync(
             string query,
             bool? text = default,
             global::Exa.AnswerRequestOutputSchema? outputSchema = default,

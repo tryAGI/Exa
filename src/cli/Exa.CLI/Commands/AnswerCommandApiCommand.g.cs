@@ -27,7 +27,7 @@ internal static partial class AnswerCommandApiCommand
           Hidden = true,
       };
 
-                    private static string FormatResponse(ParseResult parseResult, global::Exa.AnswerResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    private static string FormatResponse(ParseResult parseResult, global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2> value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
                         CustomizeResponseText(parseResult, value, ref text);
@@ -43,14 +43,15 @@ internal static partial class AnswerCommandApiCommand
                         return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
                     }
 
-                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.AnswerResponse value, ref string? text);
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2> value, ref string? text);
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
     public static Command Create()
     {
-        var command = new Command(@"answer", @"Answer
-Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.");
+        var command = new Command(@"answer", @"Generate an answer from search results
+Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
+");
                         command.Options.Add(AnswerRequestOptionSetOptions.Query);
                         command.Options.Add(AnswerRequestOptionSetOptions.Text);                        command.Options.Add(OutputSchemaOptions.Type);
                         command.Options.Add(OutputSchemaOptions.Required);
@@ -109,20 +110,12 @@ Performs a search based on the query and generates either a direct answer or a d
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
-                                if (!await CliRuntime.TryWriteOutputDirectoryAsync(
-                                        parseResult,
-                                        response,
-                                        global::Exa.SourceGenerationContext.Default,
-                                        @"Citations",
-                                        cancellationToken).ConfigureAwait(false))
-                                {
                                 await CliRuntime.WriteResponseAsync(
                                     parseResult,
                                     response,
                                     global::Exa.SourceGenerationContext.Default,
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
-                                }
             }, cancellationToken).ConfigureAwait(false));
         return command;
     }

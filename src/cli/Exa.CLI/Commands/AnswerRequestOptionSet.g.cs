@@ -17,11 +17,11 @@ internal sealed record AnswerRequestOptionSet(
         return new AnswerRequestOptionSet(
                         Query: new Option<string>($"--{normalizedPrefix}query")
                 {
-                    Description = @"Natural-language question or instructions for the request.",
+                    Description = @"The question or query to answer.",
                     Required = true,
                 },
-                Stream: CliRuntime.CreateNullableBoolOption(name: $"--{normalizedPrefix}stream", description: @"If true, the response is returned as a server-sent events (SSE) stream."),
-                Text: CliRuntime.CreateNullableBoolOption(name: $"--{normalizedPrefix}text", description: @"If true, returns full page text with default settings. If false, disables text return.")
+                Stream: CliRuntime.CreateNullableBoolOption(name: $"--{normalizedPrefix}stream", description: @"If true, the response is returned as a server-sent events (SSS) stream."),
+                Text: CliRuntime.CreateNullableBoolOption(name: $"--{normalizedPrefix}text", description: @"If true, the response includes full text content in the search results")
         );
     }
 }

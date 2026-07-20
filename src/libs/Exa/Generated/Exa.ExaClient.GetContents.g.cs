@@ -6,14 +6,6 @@ namespace Exa
     public partial class ExaClient
     {
 
-        private static readonly global::Exa.AutoSDKServer[] s_GetContentsServers = new global::Exa.AutoSDKServer[]
-        {            new global::Exa.AutoSDKServer(
-                id: "https-api-exa-ai",
-                name: "api.exa.ai",
-                url: "https://api.exa.ai/",
-                description: ""),
-        };
-
 
         private static readonly global::Exa.EndPointSecurityRequirement s_GetContentsSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -35,11 +27,11 @@ namespace Exa
             };
         partial void PrepareGetContentsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Exa.ContentsRequest request);
+            global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest> request);
         partial void PrepareGetContentsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Exa.ContentsRequest request);
+            global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest> request);
         partial void ProcessGetContentsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -50,7 +42,7 @@ namespace Exa
             ref string content);
 
         /// <summary>
-        /// Contents
+        /// Get Contents
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -65,9 +57,9 @@ namespace Exa
         ///     "text": true<br/>
         ///   }'
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Exa.ContentsResponse> GetContentsAsync(
+        public async global::System.Threading.Tasks.Task<global::Exa.GetContentsResponse> GetContentsAsync(
 
-            global::Exa.ContentsRequest request,
+            global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest> request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +73,7 @@ namespace Exa
             return __response.Body;
         }
         /// <summary>
-        /// Contents
+        /// Get Contents
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -96,14 +88,12 @@ namespace Exa
         ///     "text": true<br/>
         ///   }'
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ContentsResponse>> GetContentsAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.GetContentsResponse>> GetContentsAsResponseAsync(
 
-            global::Exa.ContentsRequest request,
+            global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest> request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
             PrepareGetContentsArguments(
@@ -135,9 +125,7 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/contents",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetContentsServers,
-                                defaultBaseUrl: "https://api.exa.ai/"));
+                                baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -385,9 +373,9 @@ namespace Exa
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Exa.ContentsResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Exa.GetContentsResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Exa.AutoSDKHttpResponse<global::Exa.ContentsResponse>(
+                                    return new global::Exa.AutoSDKHttpResponse<global::Exa.GetContentsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Exa.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -417,9 +405,9 @@ namespace Exa
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Exa.ContentsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Exa.GetContentsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Exa.AutoSDKHttpResponse<global::Exa.ContentsResponse>(
+                                    return new global::Exa.AutoSDKHttpResponse<global::Exa.GetContentsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Exa.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -460,62 +448,17 @@ namespace Exa
             }
         }
         /// <summary>
-        /// Contents
+        /// Get Contents
         /// </summary>
-        /// <param name="ids">
-        /// Document IDs obtained from searches.<br/>
-        /// Example: [https://arxiv.org/pdf/2307.06435]
-        /// </param>
-        /// <param name="urls">
-        /// URLs to crawl (backwards compatible with the `ids` parameter).<br/>
-        /// Example: [https://arxiv.org/pdf/2307.06435]
-        /// </param>
-        /// <param name="compliance"></param>
-        /// <param name="text"></param>
-        /// <param name="highlights"></param>
-        /// <param name="summary"></param>
-        /// <param name="extras"></param>
-        /// <param name="context"></param>
-        /// <param name="livecrawl"></param>
-        /// <param name="livecrawlTimeout"></param>
-        /// <param name="maxAgeHours"></param>
-        /// <param name="subpages"></param>
-        /// <param name="subpageTarget"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Exa.ContentsResponse> GetContentsAsync(
-            global::System.Collections.Generic.IList<string>? ids = default,
-            global::System.Collections.Generic.IList<string>? urls = default,
-            global::Exa.ContentsRequestCompliance2? compliance = default,
-            global::Exa.OneOf<bool?, global::Exa.ContentsRequestTextVariant1>? text = default,
-            global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlightsVariant1>? highlights = default,
-            global::Exa.ContentsRequestSummary2? summary = default,
-            global::Exa.ContentsRequestExtras2? extras = default,
-            global::Exa.OneOf<bool?, global::Exa.ContentsRequestContextVariant1>? context = default,
-            global::Exa.ContentsRequestLivecrawl2? livecrawl = default,
-            int? livecrawlTimeout = default,
-            int? maxAgeHours = default,
-            int? subpages = default,
-            global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? subpageTarget = default,
+        public async global::System.Threading.Tasks.Task<global::Exa.GetContentsResponse> GetContentsAsync(
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Exa.ContentsRequest
+            var __request = new global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest>
             {
-                Ids = ids,
-                Urls = urls,
-                Compliance = compliance,
-                Text = text,
-                Highlights = highlights,
-                Summary = summary,
-                Extras = extras,
-                Context = context,
-                Livecrawl = livecrawl,
-                LivecrawlTimeout = livecrawlTimeout,
-                MaxAgeHours = maxAgeHours,
-                Subpages = subpages,
-                SubpageTarget = subpageTarget,
             };
 
             return await GetContentsAsync(

@@ -9,7 +9,7 @@ namespace Exa
     public sealed partial class AnswerRequest
     {
         /// <summary>
-        /// Natural-language question or instructions for the request.<br/>
+        /// The question or query to answer.<br/>
         /// Example: What is the latest valuation of SpaceX?
         /// </summary>
         /// <example>What is the latest valuation of SpaceX?</example>
@@ -18,21 +18,21 @@ namespace Exa
         public required string Query { get; set; }
 
         /// <summary>
-        /// If true, the response is returned as a server-sent events (SSE) stream.<br/>
+        /// If true, the response is returned as a server-sent events (SSS) stream.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream")]
         public bool? Stream { get; set; }
 
         /// <summary>
-        /// If true, returns full page text with default settings. If false, disables text return.<br/>
+        /// If true, the response includes full text content in the search results<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         public bool? Text { get; set; }
 
         /// <summary>
-        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer is returned as a structured object matching the schema instead of a plain string.
+        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("outputSchema")]
         public global::Exa.AnswerRequestOutputSchema? OutputSchema { get; set; }
@@ -47,19 +47,19 @@ namespace Exa
         /// Initializes a new instance of the <see cref="AnswerRequest" /> class.
         /// </summary>
         /// <param name="query">
-        /// Natural-language question or instructions for the request.<br/>
+        /// The question or query to answer.<br/>
         /// Example: What is the latest valuation of SpaceX?
         /// </param>
         /// <param name="stream">
-        /// If true, the response is returned as a server-sent events (SSE) stream.<br/>
+        /// If true, the response is returned as a server-sent events (SSS) stream.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="text">
-        /// If true, returns full page text with default settings. If false, disables text return.<br/>
+        /// If true, the response includes full text content in the search results<br/>
         /// Default Value: false
         /// </param>
         /// <param name="outputSchema">
-        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer is returned as a structured object matching the schema instead of a plain string.
+        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

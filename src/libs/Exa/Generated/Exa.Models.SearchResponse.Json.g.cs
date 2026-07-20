@@ -2,7 +2,7 @@
 
 namespace Exa
 {
-    public readonly partial struct SearchResponse
+    public sealed partial class SearchResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -54,7 +54,7 @@ namespace Exa
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::Exa.SearchResponse),
-                jsonSerializerContext) as global::Exa.SearchResponse?;
+                jsonSerializerContext) as global::Exa.SearchResponse;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Exa
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::Exa.SearchResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Exa.SearchResponse?;
+                jsonSerializerContext).ConfigureAwait(false)) as global::Exa.SearchResponse;
         }
 
         /// <summary>

@@ -13,38 +13,11 @@ fetch_spec() {
     --connect-timeout 30 --max-time 300
 }
 
-normalize_spec() {
-  ruby -ryaml -rdate -e '
-    path = "openapi.yaml"
-    spec =
-      begin
-        YAML.load_file(path, permitted_classes: [Time, Date])
-      rescue ArgumentError
-        YAML.load_file(path)
-      end
-    schemas = spec.fetch("components").fetch("schemas")
-
-    # ContentsRequest is an allOf composition of URL/ID selectors and ContentsOptions.
-    # Flatten it before generation so the generated request model matches the wire JSON
-    # object directly and avoids a converter variable-name collision on "options".
-    contents_request = schemas.fetch("ContentsRequest")
-    contents_options = schemas.fetch("ContentsOptions")
-    selector = contents_request.fetch("allOf").first
-    contents_request.delete("allOf")
-    contents_request["type"] = "object"
-    contents_request["description"] = selector["description"]
-    contents_request["properties"] = selector.fetch("properties").merge(contents_options.fetch("properties"))
-    contents_request["oneOf"] = selector["oneOf"]
-
-    File.write(path, YAML.dump(spec))
-  '
-}
-
-# OpenAPI spec: https://exa.ai/docs/exa-spec.yaml
+# OpenAPI spec: https://github.com/exa-labs/openapi-spec
 install_autosdk_cli
 rm -rf Generated
-fetch_spec --fail --silent --show-error -L -o openapi.yaml https://exa.ai/docs/exa-spec.yaml
-normalize_spec
+fetch_spec --fail --silent --show-error -L -o openapi.yaml \
+  https://raw.githubusercontent.com/exa-labs/openapi-spec/master/exa-openapi-spec.yaml
 
 # Auth: --security-scheme overrides the spec's apiKey auth with standard HTTP bearer.
 autosdk generate openapi.yaml \

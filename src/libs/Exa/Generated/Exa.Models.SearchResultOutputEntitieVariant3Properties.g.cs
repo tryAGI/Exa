@@ -58,6 +58,12 @@ namespace Exa
         public int? ReferenceCount { get; set; }
 
         /// <summary>
+        /// Publication abstract text.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("abstract")]
+        public string? Abstract { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -90,6 +96,9 @@ namespace Exa
         /// <param name="referenceCount">
         /// Number of works this publication cites (outgoing references).
         /// </param>
+        /// <param name="abstract">
+        /// Publication abstract text.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -101,7 +110,8 @@ namespace Exa
             global::Exa.SearchResultOutputEntitieVariant3PropertiesType2? type,
             string? language,
             int? citationCount,
-            int? referenceCount)
+            int? referenceCount,
+            string? @abstract)
         {
             this.Title = title;
             this.Year = year;
@@ -111,6 +121,7 @@ namespace Exa
             this.CitationCount = citationCount;
             this.Authors = authors ?? throw new global::System.ArgumentNullException(nameof(authors));
             this.ReferenceCount = referenceCount;
+            this.Abstract = @abstract;
         }
 
         /// <summary>

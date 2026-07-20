@@ -6,6 +6,14 @@ namespace Exa
     public partial class WebhooksClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_WebhooksListServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai-websets",
+                name: "api.exa.ai websets",
+                url: "https://api.exa.ai/websets",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_WebhooksListSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -28,12 +36,12 @@ namespace Exa
         partial void PrepareWebhooksListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
-            ref double? limit);
+            ref int? limit);
         partial void PrepareWebhooksListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
-            double? limit);
+            int? limit);
         partial void ProcessWebhooksListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -65,7 +73,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.ListWebhooksResponse> WebhooksListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -100,7 +108,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListWebhooksResponse>> WebhooksListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -136,7 +144,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/v0/webhooks",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.exa.ai/websets", global::System.UriKind.RelativeOrAbsolute));
+                                baseUri: ResolveBaseUri(
+                                servers: s_WebhooksListServers,
+                                defaultBaseUrl: "https://api.exa.ai/websets"));
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("limit", limit?.ToString())

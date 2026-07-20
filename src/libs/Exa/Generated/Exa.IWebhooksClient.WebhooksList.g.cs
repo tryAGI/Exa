@@ -26,7 +26,7 @@ namespace Exa
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Exa.ListWebhooksResponse> WebhooksListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -51,7 +51,7 @@ namespace Exa
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListWebhooksResponse>> WebhooksListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

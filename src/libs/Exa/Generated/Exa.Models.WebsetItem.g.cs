@@ -44,6 +44,12 @@ namespace Exa
         public string? SourceEntityId { get; set; }
 
         /// <summary>
+        /// The import that sourced this item, when the item came from a scoped search with evaluate enabled on the import.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scopeId")]
+        public string? ScopeId { get; set; }
+
+        /// <summary>
         /// The unique identifier for the Webset this Item belongs to.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("websetId")]
@@ -121,6 +127,9 @@ namespace Exa
         /// <param name="sourceEntityId">
         /// The original identifier used to resolve this item (e.g., email, name, or URL). Only relevant when the source is import.
         /// </param>
+        /// <param name="scopeId">
+        /// The import that sourced this item, when the item came from a scoped search with evaluate enabled on the import.
+        /// </param>
         /// <param name="enrichments">
         /// The enrichments results of the Webset item
         /// </param>
@@ -140,6 +149,7 @@ namespace Exa
             global::System.DateTime createdAt,
             global::System.DateTime updatedAt,
             string? sourceEntityId,
+            string? scopeId,
             global::System.Collections.Generic.IList<global::Exa.EnrichmentResult>? enrichments,
             string @object = "webset_item")
         {
@@ -148,6 +158,7 @@ namespace Exa
             this.Source = source;
             this.SourceId = sourceId ?? throw new global::System.ArgumentNullException(nameof(sourceId));
             this.SourceEntityId = sourceEntityId;
+            this.ScopeId = scopeId;
             this.WebsetId = websetId ?? throw new global::System.ArgumentNullException(nameof(websetId));
             this.Properties = properties;
             this.Evaluations = evaluations ?? throw new global::System.ArgumentNullException(nameof(evaluations));

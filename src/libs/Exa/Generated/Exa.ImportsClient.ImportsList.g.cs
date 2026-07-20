@@ -6,6 +6,14 @@ namespace Exa
     public partial class ImportsClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_ImportsListServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai-websets",
+                name: "api.exa.ai websets",
+                url: "https://api.exa.ai/websets",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_ImportsListSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -28,12 +36,12 @@ namespace Exa
         partial void PrepareImportsListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
-            ref double? limit);
+            ref int? limit);
         partial void PrepareImportsListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
-            double? limit);
+            int? limit);
         partial void ProcessImportsListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -68,7 +76,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.ListImportsResponse> ImportsListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -106,7 +114,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListImportsResponse>> ImportsListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -142,7 +150,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/v0/imports",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.exa.ai/websets", global::System.UriKind.RelativeOrAbsolute));
+                                baseUri: ResolveBaseUri(
+                                servers: s_ImportsListServers,
+                                defaultBaseUrl: "https://api.exa.ai/websets"));
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("limit", limit?.ToString())

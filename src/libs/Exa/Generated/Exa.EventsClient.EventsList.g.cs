@@ -6,6 +6,14 @@ namespace Exa
     public partial class EventsClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_EventsListServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai-websets",
+                name: "api.exa.ai websets",
+                url: "https://api.exa.ai/websets",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_EventsListSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -28,7 +36,7 @@ namespace Exa
         partial void PrepareEventsListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
-            ref double? limit,
+            ref int? limit,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types,
             ref global::System.DateTime? createdBefore,
             ref global::System.DateTime? createdAfter);
@@ -36,7 +44,7 @@ namespace Exa
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
-            double? limit,
+            int? limit,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types,
             global::System.DateTime? createdBefore,
             global::System.DateTime? createdAfter);
@@ -78,7 +86,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.ListEventsResponse> EventsListAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types = default,
             global::System.DateTime? createdBefore = default,
             global::System.DateTime? createdAfter = default,
@@ -126,7 +134,7 @@ namespace Exa
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListEventsResponse>> EventsListAsResponseAsync(
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::System.Collections.Generic.IList<global::Exa.EventsListType>? types = default,
             global::System.DateTime? createdBefore = default,
             global::System.DateTime? createdAfter = default,
@@ -168,7 +176,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/v0/events",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.exa.ai/websets", global::System.UriKind.RelativeOrAbsolute));
+                                baseUri: ResolveBaseUri(
+                                servers: s_EventsListServers,
+                                defaultBaseUrl: "https://api.exa.ai/websets"));
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("limit", limit?.ToString())

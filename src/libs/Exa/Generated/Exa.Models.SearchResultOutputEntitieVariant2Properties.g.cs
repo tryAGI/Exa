@@ -47,6 +47,12 @@ namespace Exa
         public required global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitieVariant2PropertiesEducationHistoryItem> EducationHistory { get; set; }
 
         /// <summary>
+        /// Person research information.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("research")]
+        public global::Exa.SearchResultOutputEntitieVariant2PropertiesResearch2? Research { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -73,6 +79,9 @@ namespace Exa
         /// <param name="location">
         /// Person location.
         /// </param>
+        /// <param name="research">
+        /// Person research information.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -82,7 +91,8 @@ namespace Exa
             string? name,
             string? firstName,
             string? lastName,
-            string? location)
+            string? location,
+            global::Exa.SearchResultOutputEntitieVariant2PropertiesResearch2? research)
         {
             this.Name = name;
             this.FirstName = firstName;
@@ -90,6 +100,7 @@ namespace Exa
             this.Location = location;
             this.WorkHistory = workHistory ?? throw new global::System.ArgumentNullException(nameof(workHistory));
             this.EducationHistory = educationHistory ?? throw new global::System.ArgumentNullException(nameof(educationHistory));
+            this.Research = research;
         }
 
         /// <summary>

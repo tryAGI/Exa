@@ -6,6 +6,14 @@ namespace Exa
     public partial class WebhooksAttemptsClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_WebhooksAttemptsListServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai-websets",
+                name: "api.exa.ai websets",
+                url: "https://api.exa.ai/websets",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_WebhooksAttemptsListSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -29,7 +37,7 @@ namespace Exa
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
             ref string? cursor,
-            ref double? limit,
+            ref int? limit,
             ref global::Exa.WebhooksAttemptsListEventType? eventType,
             ref bool? successful);
         partial void PrepareWebhooksAttemptsListRequest(
@@ -37,7 +45,7 @@ namespace Exa
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id,
             string? cursor,
-            double? limit,
+            int? limit,
             global::Exa.WebhooksAttemptsListEventType? eventType,
             bool? successful);
         partial void ProcessWebhooksAttemptsListResponse(
@@ -78,7 +86,7 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.ListWebhookAttemptsResponse> WebhooksAttemptsListAsync(
             string id,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.WebhooksAttemptsListEventType? eventType = default,
             bool? successful = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
@@ -125,7 +133,7 @@ namespace Exa
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.ListWebhookAttemptsResponse>> WebhooksAttemptsListAsResponseAsync(
             string id,
             string? cursor = default,
-            double? limit = default,
+            int? limit = default,
             global::Exa.WebhooksAttemptsListEventType? eventType = default,
             bool? successful = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
@@ -166,7 +174,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: $"/v0/webhooks/{id}/attempts",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.exa.ai/websets", global::System.UriKind.RelativeOrAbsolute));
+                                baseUri: ResolveBaseUri(
+                                servers: s_WebhooksAttemptsListServers,
+                                defaultBaseUrl: "https://api.exa.ai/websets"));
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("limit", limit?.ToString())

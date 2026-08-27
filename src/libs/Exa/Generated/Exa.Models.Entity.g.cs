@@ -10,7 +10,7 @@ namespace Exa
     public readonly partial struct Entity : global::System.IEquatable<Entity>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Exa.EntityDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace Exa
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Company))]
@@ -32,7 +32,7 @@ namespace Exa
         public bool IsCompany => Company != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCompany(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Exa.CompanyEntity PickCompany() => IsCompany
             ? Company!
@@ -61,7 +61,7 @@ namespace Exa
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Person))]
@@ -69,7 +69,7 @@ namespace Exa
         public bool IsPerson => Person != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPerson(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Exa.PersonEntity PickPerson() => IsPerson
             ? Person!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Person' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Entity(global::Exa.CompanyEntity value) => new Entity((global::Exa.CompanyEntity?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Exa.CompanyEntity?(Entity @this) => @this.Company;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Entity(global::Exa.CompanyEntity? value)
         {
@@ -106,22 +106,22 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Entity FromCompany(global::Exa.CompanyEntity? value) => new Entity(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Entity(global::Exa.PersonEntity value) => new Entity((global::Exa.PersonEntity?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Exa.PersonEntity?(Entity @this) => @this.Person;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Entity(global::Exa.PersonEntity? value)
         {
@@ -129,12 +129,12 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Entity FromPerson(global::Exa.PersonEntity? value) => new Entity(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Entity(
             global::Exa.EntityDiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Person as object ??
-            Company as object 
+            Company as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Company?.ToString() ??
-            Person?.ToString() 
+            Person?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Exa.CompanyEntity, TResult>? company = null,
@@ -198,7 +198,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Exa.CompanyEntity>? company = null,
@@ -222,7 +222,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Exa.CompanyEntity>? company = null,
@@ -245,7 +245,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(Entity other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Exa.CompanyEntity?>.Default.Equals(Company, other.Company) &&
-                global::System.Collections.Generic.EqualityComparer<global::Exa.PersonEntity?>.Default.Equals(Person, other.Person) 
+                global::System.Collections.Generic.EqualityComparer<global::Exa.PersonEntity?>.Default.Equals(Person, other.Person)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(Entity obj1, Entity obj2)
         {
@@ -285,7 +285,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(Entity obj1, Entity obj2)
         {
@@ -293,7 +293,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

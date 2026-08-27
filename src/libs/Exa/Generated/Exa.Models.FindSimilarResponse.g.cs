@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FindSimilarResponse
     {
@@ -29,7 +29,7 @@ namespace Exa
         public global::System.Collections.Generic.IList<global::Exa.ResultWithContent>? Results { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("costDollars")]
         public global::Exa.CostDollars? CostDollars { get; set; }

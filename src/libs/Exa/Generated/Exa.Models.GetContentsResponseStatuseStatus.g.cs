@@ -10,11 +10,11 @@ namespace Exa
     public enum GetContentsResponseStatuseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

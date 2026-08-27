@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SearchResponseOutputContent
     {

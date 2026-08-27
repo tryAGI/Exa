@@ -4,36 +4,36 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ContentsRequestTextIncludeSection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Banner,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Body,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Footer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Header,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Metadata,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Navigation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sidebar,
     }

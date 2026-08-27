@@ -10,7 +10,7 @@ namespace Exa
     public enum PersonEntityType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Person,
     }

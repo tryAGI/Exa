@@ -20,7 +20,7 @@ namespace Exa.JsonConverters
                     {
                         return global::Exa.GetContentsResponseStatuseErrorTagExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

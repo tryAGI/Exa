@@ -14,19 +14,19 @@ namespace Exa
         /// </summary>
         Company,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialReport,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Github,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         News,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pdf,
         /// <summary>
@@ -34,11 +34,11 @@ namespace Exa
         /// </summary>
         People,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PersonalSite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResearchPaper,
     }

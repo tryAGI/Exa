@@ -6,12 +6,12 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ContentsRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsRequestText>))]
@@ -91,7 +91,7 @@ namespace Exa
         public global::Exa.ContentsRequestExtras? Extras { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsRequestContext>))]

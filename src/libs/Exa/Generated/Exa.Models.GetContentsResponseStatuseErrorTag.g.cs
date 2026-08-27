@@ -10,27 +10,27 @@ namespace Exa
     public enum GetContentsResponseStatuseErrorTag
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CrawlLivecrawlTimeout,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CrawlNotFound,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CrawlTimeout,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CrawlUnknownError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SourceNotAvailable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnsupportedUrl,
     }

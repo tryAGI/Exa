@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SearchResponseOutputGroundingItem
     {
@@ -23,7 +23,7 @@ namespace Exa
         public required global::System.Collections.Generic.IList<global::Exa.SearchResponseOutputGroundingItemCitation> Citations { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("confidence")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.SearchResponseOutputGroundingItemConfidenceJsonConverter))]

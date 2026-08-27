@@ -9,11 +9,11 @@ namespace Exa
     public enum ResearchTasksCreateRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExaResearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExaResearchPro,
     }

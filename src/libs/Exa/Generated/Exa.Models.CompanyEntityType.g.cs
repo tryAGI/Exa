@@ -10,7 +10,7 @@ namespace Exa
     public enum CompanyEntityType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Company,
     }

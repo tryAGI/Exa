@@ -5,12 +5,12 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ResultWithContent : global::System.IEquatable<ResultWithContent>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Exa.Result? Result { get; init; }
@@ -19,7 +19,7 @@ namespace Exa
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Result))]
@@ -27,7 +27,7 @@ namespace Exa
         public bool IsResult => Result != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResult(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Exa.Result PickResult() => IsResult
             ? Result!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Result' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Exa.ResultWithContentVariant2? ResultWithContentVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Exa
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResultWithContentVariant2))]
@@ -64,7 +64,7 @@ namespace Exa
         public bool IsResultWithContentVariant2 => ResultWithContentVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResultWithContentVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Exa.ResultWithContentVariant2 PickResultWithContentVariant2() => IsResultWithContentVariant2
             ? ResultWithContentVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResultWithContentVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultWithContent(global::Exa.Result value) => new ResultWithContent((global::Exa.Result?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Exa.Result?(ResultWithContent @this) => @this.Result;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultWithContent(global::Exa.Result? value)
         {
@@ -101,22 +101,22 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultWithContent FromResult(global::Exa.Result? value) => new ResultWithContent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultWithContent(global::Exa.ResultWithContentVariant2 value) => new ResultWithContent((global::Exa.ResultWithContentVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Exa.ResultWithContentVariant2?(ResultWithContent @this) => @this.ResultWithContentVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultWithContent(global::Exa.ResultWithContentVariant2? value)
         {
@@ -124,12 +124,12 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultWithContent FromResultWithContentVariant2(global::Exa.ResultWithContentVariant2? value) => new ResultWithContent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultWithContent(
             global::Exa.Result? result,
@@ -141,23 +141,23 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ResultWithContentVariant2 as object ??
-            Result as object 
+            Result as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Result?.ToString() ??
-            ResultWithContentVariant2?.ToString() 
+            ResultWithContentVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Exa.Result, TResult>? result = null,
@@ -190,7 +190,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Exa.Result>? result = null,
@@ -214,7 +214,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Exa.Result>? result = null,
@@ -237,7 +237,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ResultWithContent other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Exa.Result?>.Default.Equals(Result, other.Result) &&
-                global::System.Collections.Generic.EqualityComparer<global::Exa.ResultWithContentVariant2?>.Default.Equals(ResultWithContentVariant2, other.ResultWithContentVariant2) 
+                global::System.Collections.Generic.EqualityComparer<global::Exa.ResultWithContentVariant2?>.Default.Equals(ResultWithContentVariant2, other.ResultWithContentVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ResultWithContent obj1, ResultWithContent obj2)
         {
@@ -277,7 +277,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ResultWithContent obj1, ResultWithContent obj2)
         {
@@ -285,7 +285,7 @@ namespace Exa
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -4,20 +4,20 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SearchResponseOutputGroundingItemConfidence
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Medium,
     }

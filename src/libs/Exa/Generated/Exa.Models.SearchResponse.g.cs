@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SearchResponse
     {
@@ -44,7 +44,7 @@ namespace Exa
         public global::Exa.SearchResponseOutput? Output { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("costDollars")]
         public global::Exa.CostDollars? CostDollars { get; set; }

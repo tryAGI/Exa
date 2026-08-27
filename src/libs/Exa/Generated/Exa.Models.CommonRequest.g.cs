@@ -6,7 +6,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CommonRequest
     {
@@ -82,7 +82,7 @@ namespace Exa
         public global::System.Collections.Generic.IList<string>? ExcludeText { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.CommonRequestContext>))]
@@ -98,7 +98,7 @@ namespace Exa
         public bool? Moderation { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("contents")]
         public global::Exa.ContentsRequest? Contents { get; set; }

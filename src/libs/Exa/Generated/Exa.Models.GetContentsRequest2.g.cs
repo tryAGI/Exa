@@ -6,7 +6,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetContentsRequest2
     {

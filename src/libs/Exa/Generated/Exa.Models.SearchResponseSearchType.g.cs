@@ -10,15 +10,15 @@ namespace Exa
     public enum SearchResponseSearchType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deep,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeepReasoning,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Neural,
     }

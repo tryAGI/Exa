@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AnswerResponse3
     {
@@ -15,7 +15,7 @@ namespace Exa
         public string? Answer { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("citations")]
         public global::System.Collections.Generic.IList<global::Exa.AnswerCitation>? Citations { get; set; }

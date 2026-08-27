@@ -4,16 +4,16 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EntityDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Company,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Person,
     }

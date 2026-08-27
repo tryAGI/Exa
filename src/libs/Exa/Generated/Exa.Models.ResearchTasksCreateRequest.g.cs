@@ -23,7 +23,7 @@ namespace Exa
         public global::Exa.ResearchTasksCreateRequestModel? Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
         public global::Exa.ResearchTasksCreateRequestOutput? Output { get; set; }

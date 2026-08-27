@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CostDollarsBreakDownItem
     {
@@ -25,7 +25,7 @@ namespace Exa
         public float? Contents { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("breakdown")]
         public global::Exa.CostDollarsBreakDownItemBreakdown? Breakdown { get; set; }

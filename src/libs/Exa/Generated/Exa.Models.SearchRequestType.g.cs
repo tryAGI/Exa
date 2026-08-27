@@ -11,27 +11,27 @@ namespace Exa
     public enum SearchRequestType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deep,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeepReasoning,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Instant,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Neural,
     }

@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetContentsResponse
     {
@@ -17,7 +17,7 @@ namespace Exa
         public string? RequestId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         public global::System.Collections.Generic.IList<global::Exa.ResultWithContent>? Results { get; set; }
@@ -35,7 +35,7 @@ namespace Exa
         public global::System.Collections.Generic.IList<global::Exa.GetContentsResponseStatuse>? Statuses { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("costDollars")]
         public global::Exa.CostDollars? CostDollars { get; set; }

@@ -28,8 +28,7 @@ namespace Exa
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fundingLatestRound")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesFundingRound, object>))]
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesFundingRound, object>? FundingLatestRound { get; set; }
+        public global::Exa.EntityCompanyPropertiesFundingRound? FundingLatestRound { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -55,7 +54,7 @@ namespace Exa
         public EntityCompanyPropertiesFinancials(
             int? revenueAnnual,
             int? fundingTotal,
-            global::Exa.OneOf<global::Exa.EntityCompanyPropertiesFundingRound, object>? fundingLatestRound)
+            global::Exa.EntityCompanyPropertiesFundingRound? fundingLatestRound)
         {
             this.RevenueAnnual = revenueAnnual;
             this.FundingTotal = fundingTotal;

@@ -36,29 +36,25 @@ namespace Exa
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workforce")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesWorkforce, object>))]
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesWorkforce, object>? Workforce { get; set; }
+        public global::Exa.EntityCompanyPropertiesWorkforce? Workforce { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("headquarters")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesHeadquarters, object>))]
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesHeadquarters, object>? Headquarters { get; set; }
+        public global::Exa.EntityCompanyPropertiesHeadquarters? Headquarters { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("financials")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesFinancials, object>))]
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesFinancials, object>? Financials { get; set; }
+        public global::Exa.EntityCompanyPropertiesFinancials? Financials { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webTraffic")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesWebTraffic, object>))]
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesWebTraffic, object>? WebTraffic { get; set; }
+        public global::Exa.EntityCompanyPropertiesWebTraffic? WebTraffic { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -92,10 +88,10 @@ namespace Exa
             string? name,
             int? foundedYear,
             string? description,
-            global::Exa.OneOf<global::Exa.EntityCompanyPropertiesWorkforce, object>? workforce,
-            global::Exa.OneOf<global::Exa.EntityCompanyPropertiesHeadquarters, object>? headquarters,
-            global::Exa.OneOf<global::Exa.EntityCompanyPropertiesFinancials, object>? financials,
-            global::Exa.OneOf<global::Exa.EntityCompanyPropertiesWebTraffic, object>? webTraffic)
+            global::Exa.EntityCompanyPropertiesWorkforce? workforce,
+            global::Exa.EntityCompanyPropertiesHeadquarters? headquarters,
+            global::Exa.EntityCompanyPropertiesFinancials? financials,
+            global::Exa.EntityCompanyPropertiesWebTraffic? webTraffic)
         {
             this.Name = name;
             this.FoundedYear = foundedYear;

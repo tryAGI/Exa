@@ -160,303 +160,275 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesFundingRound, object>? Type33 { get; set; }
+        public global::Exa.EntityCompanyPropertiesWebTraffic? Type33 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EntityCompanyPropertiesWebTraffic? Type34 { get; set; }
+        public global::Exa.EntityCompanyProperties? Type34 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EntityCompanyProperties? Type35 { get; set; }
+        public global::Exa.EntityDateRange? Type35 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesWorkforce, object>? Type36 { get; set; }
+        public global::Exa.EntityPersonPropertiesCompanyRef? Type36 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesHeadquarters, object>? Type37 { get; set; }
+        public global::Exa.EntityPersonPropertiesWorkHistoryEntry? Type37 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesFinancials, object>? Type38 { get; set; }
+        public global::Exa.EntityPersonProperties? Type38 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.EntityCompanyPropertiesWebTraffic, object>? Type39 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.EntityPersonPropertiesWorkHistoryEntry>? Type39 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EntityDateRange? Type40 { get; set; }
+        public global::Exa.CompanyEntity? Type40 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EntityPersonPropertiesCompanyRef? Type41 { get; set; }
+        public global::Exa.CompanyEntityType? Type41 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EntityPersonPropertiesWorkHistoryEntry? Type42 { get; set; }
+        public global::Exa.PersonEntity? Type42 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.EntityDateRange, object>? Type43 { get; set; }
+        public global::Exa.PersonEntityType? Type43 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.EntityPersonPropertiesCompanyRef, object>? Type44 { get; set; }
+        public global::Exa.Entity? Type44 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EntityPersonProperties? Type45 { get; set; }
+        public global::Exa.EntityDiscriminator? Type45 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.EntityPersonPropertiesWorkHistoryEntry>? Type46 { get; set; }
+        public global::Exa.EntityDiscriminatorType? Type46 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CompanyEntity? Type47 { get; set; }
+        public global::Exa.Result? Type47 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CompanyEntityType? Type48 { get; set; }
+        public double? Type48 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PersonEntity? Type49 { get; set; }
+        public global::Exa.ResultWithContent? Type49 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PersonEntityType? Type50 { get; set; }
+        public global::Exa.ResultWithContentVariant2? Type50 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Entity? Type51 { get; set; }
+        public global::System.Collections.Generic.IList<float>? Type51 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EntityDiscriminator? Type52 { get; set; }
+        public float? Type52 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EntityDiscriminatorType? Type53 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.ResultWithContent>? Type53 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Result? Type54 { get; set; }
+        public global::Exa.ResultWithContentVariant2Extras? Type54 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public double? Type55 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.Entity>? Type55 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResultWithContent? Type56 { get; set; }
+        public global::Exa.CostDollars? Type56 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResultWithContentVariant2? Type57 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CostDollarsBreakDownItem>? Type57 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<float>? Type58 { get; set; }
+        public global::Exa.CostDollarsBreakDownItem? Type58 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public float? Type59 { get; set; }
+        public global::Exa.CostDollarsBreakDownItemBreakdown? Type59 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.ResultWithContent>? Type60 { get; set; }
+        public global::Exa.CostDollarsPerRequestPrices? Type60 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResultWithContentVariant2Extras? Type61 { get; set; }
+        public global::Exa.CostDollarsPerPagePrices? Type61 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.Entity>? Type62 { get; set; }
+        public global::Exa.ResearchTaskDto? Type62 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CostDollars? Type63 { get; set; }
+        public global::Exa.ResearchTaskDtoStatus? Type63 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CostDollarsBreakDownItem>? Type64 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::Exa.ResearchTaskDtoCitation>>? Type64 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CostDollarsBreakDownItem? Type65 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.ResearchTaskDtoCitation>? Type65 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CostDollarsBreakDownItemBreakdown? Type66 { get; set; }
+        public global::Exa.ResearchTaskDtoCitation? Type66 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CostDollarsPerRequestPrices? Type67 { get; set; }
+        public global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest>? Type67 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CostDollarsPerPagePrices? Type68 { get; set; }
+        public global::Exa.SearchRequest2? Type68 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResearchTaskDto? Type69 { get; set; }
+        public global::Exa.SearchRequestType? Type69 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResearchTaskDtoStatus? Type70 { get; set; }
+        public global::Exa.SearchRequestCategory? Type70 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::Exa.ResearchTaskDtoCitation>>? Type71 { get; set; }
+        public global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest>? Type71 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.ResearchTaskDtoCitation>? Type72 { get; set; }
+        public global::Exa.FindSimilarRequest2? Type72 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResearchTaskDtoCitation? Type73 { get; set; }
+        public global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest>? Type73 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AllOf<global::Exa.SearchRequest2, global::Exa.CommonRequest>? Type74 { get; set; }
+        public global::Exa.GetContentsRequest2? Type74 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchRequest2? Type75 { get; set; }
+        public global::Exa.AnswerRequest? Type75 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchRequestType? Type76 { get; set; }
+        public global::Exa.AnswerRequestOutputSchema? Type76 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchRequestCategory? Type77 { get; set; }
+        public global::Exa.ResearchTasksCreateRequest? Type77 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest>? Type78 { get; set; }
+        public global::Exa.ResearchTasksCreateRequestModel? Type78 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.FindSimilarRequest2? Type79 { get; set; }
+        public global::Exa.ResearchTasksCreateRequestOutput? Type79 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest>? Type80 { get; set; }
+        public global::Exa.SearchResponse? Type80 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.GetContentsRequest2? Type81 { get; set; }
+        public global::Exa.SearchResponseSearchType? Type81 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerRequest? Type82 { get; set; }
+        public global::Exa.SearchResponseOutput? Type82 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerRequestOutputSchema? Type83 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchResponseOutputGroundingItem>? Type83 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResearchTasksCreateRequest? Type84 { get; set; }
+        public global::Exa.SearchResponseOutputGroundingItem? Type84 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResearchTasksCreateRequestModel? Type85 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchResponseOutputGroundingItemCitation>? Type85 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResearchTasksCreateRequestOutput? Type86 { get; set; }
+        public global::Exa.SearchResponseOutputGroundingItemCitation? Type86 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResponse? Type87 { get; set; }
+        public global::Exa.SearchResponseOutputGroundingItemConfidence? Type87 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResponseSearchType? Type88 { get; set; }
+        public global::Exa.FindSimilarResponse? Type88 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResponseOutput? Type89 { get; set; }
+        public global::Exa.GetContentsResponse? Type89 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchResponseOutputGroundingItem>? Type90 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.GetContentsResponseStatuse>? Type90 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResponseOutputGroundingItem? Type91 { get; set; }
+        public global::Exa.GetContentsResponseStatuse? Type91 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchResponseOutputGroundingItemCitation>? Type92 { get; set; }
+        public global::Exa.GetContentsResponseStatuseStatus? Type92 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResponseOutputGroundingItemCitation? Type93 { get; set; }
+        public global::Exa.GetContentsResponseStatuseError? Type93 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResponseOutputGroundingItemConfidence? Type94 { get; set; }
+        public global::Exa.GetContentsResponseStatuseErrorTag? Type94 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.FindSimilarResponse? Type95 { get; set; }
+        public global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>? Type95 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.GetContentsResponse? Type96 { get; set; }
+        public global::Exa.AnswerResponse2? Type96 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.GetContentsResponseStatuse>? Type97 { get; set; }
+        public global::Exa.AnswerResponse3? Type97 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.GetContentsResponseStatuse? Type98 { get; set; }
+        public global::Exa.ResearchTasksCreateResponse? Type98 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.GetContentsResponseStatuseStatus? Type99 { get; set; }
+        public global::Exa.ResearchTasksListResponse? Type99 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.GetContentsResponseStatuseError? Type100 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Exa.GetContentsResponseStatuseErrorTag? Type101 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2>? Type102 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Exa.AnswerResponse2? Type103 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Exa.AnswerResponse3? Type104 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Exa.ResearchTasksCreateResponse? Type105 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Exa.ResearchTasksListResponse? Type106 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.ResearchTaskDto>? Type107 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.ResearchTaskDto>? Type100 { get; set; }
 
         /// <summary>
         ///

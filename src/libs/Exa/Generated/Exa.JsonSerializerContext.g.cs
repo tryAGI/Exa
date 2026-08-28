@@ -89,20 +89,6 @@ namespace Exa
 
             typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.CommonRequestContext>),
 
-            typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesFundingRound, object>),
-
-            typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesWorkforce, object>),
-
-            typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesHeadquarters, object>),
-
-            typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesFinancials, object>),
-
-            typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityCompanyPropertiesWebTraffic, object>),
-
-            typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityDateRange, object>),
-
-            typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityPersonPropertiesCompanyRef, object>),
-
             typeof(global::Exa.JsonConverters.AllOfJsonConverter<global::Exa.SearchRequest2, global::Exa.CommonRequest>),
 
             typeof(global::Exa.JsonConverters.AllOfJsonConverter<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest>),
@@ -149,18 +135,11 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityCompanyPropertiesHeadquarters))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityCompanyPropertiesFundingRound))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityCompanyPropertiesFinancials))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.EntityCompanyPropertiesFundingRound, object>), TypeInfoPropertyName = "OneOfEntityCompanyPropertiesFundingRoundObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityCompanyPropertiesWebTraffic))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityCompanyProperties))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.EntityCompanyPropertiesWorkforce, object>), TypeInfoPropertyName = "OneOfEntityCompanyPropertiesWorkforceObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.EntityCompanyPropertiesHeadquarters, object>), TypeInfoPropertyName = "OneOfEntityCompanyPropertiesHeadquartersObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.EntityCompanyPropertiesFinancials, object>), TypeInfoPropertyName = "OneOfEntityCompanyPropertiesFinancialsObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.EntityCompanyPropertiesWebTraffic, object>), TypeInfoPropertyName = "OneOfEntityCompanyPropertiesWebTrafficObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityDateRange))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityPersonPropertiesCompanyRef))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityPersonPropertiesWorkHistoryEntry))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.EntityDateRange, object>), TypeInfoPropertyName = "OneOfEntityDateRangeObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.EntityPersonPropertiesCompanyRef, object>), TypeInfoPropertyName = "OneOfEntityPersonPropertiesCompanyRefObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityPersonProperties))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.EntityPersonPropertiesWorkHistoryEntry>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.CompanyEntity))]

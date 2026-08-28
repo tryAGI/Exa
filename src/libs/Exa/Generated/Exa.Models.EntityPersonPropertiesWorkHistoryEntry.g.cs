@@ -28,15 +28,13 @@ namespace Exa
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dates")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityDateRange, object>))]
-        public global::Exa.OneOf<global::Exa.EntityDateRange, object>? Dates { get; set; }
+        public global::Exa.EntityDateRange? Dates { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("company")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.EntityPersonPropertiesCompanyRef, object>))]
-        public global::Exa.OneOf<global::Exa.EntityPersonPropertiesCompanyRef, object>? Company { get; set; }
+        public global::Exa.EntityPersonPropertiesCompanyRef? Company { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -63,8 +61,8 @@ namespace Exa
         public EntityPersonPropertiesWorkHistoryEntry(
             string? title,
             string? location,
-            global::Exa.OneOf<global::Exa.EntityDateRange, object>? dates,
-            global::Exa.OneOf<global::Exa.EntityPersonPropertiesCompanyRef, object>? company)
+            global::Exa.EntityDateRange? dates,
+            global::Exa.EntityPersonPropertiesCompanyRef? company)
         {
             this.Title = title;
             this.Location = location;

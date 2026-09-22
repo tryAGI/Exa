@@ -8,6 +8,7 @@
     <PackAsTool>true</PackAsTool>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
     <PackageId>Exa.CLI</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ToolCommandName>exa</ToolCommandName>
     <UserSecretsId>Exa.CLI</UserSecretsId>

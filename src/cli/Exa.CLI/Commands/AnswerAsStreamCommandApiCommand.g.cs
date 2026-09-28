@@ -27,6 +27,8 @@ internal static partial class AnswerAsStreamCommandApiCommand
           Hidden = true,
       };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"answer-as-stream", @"Generate an answer from search results
@@ -98,6 +100,7 @@ Performs a search based on the query and generates either a direct answer or a d
                                         cancellationToken: cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

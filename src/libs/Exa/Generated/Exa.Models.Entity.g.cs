@@ -47,8 +47,8 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CompanyEntity PickCompany() => IsCompany
-            ? Company!
+        public global::Exa.CompanyEntity PickCompany() => Company is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Company' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PersonEntity PickPerson() => IsPerson
-            ? Person!
+        public global::Exa.PersonEntity PickPerson() => Person is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Person' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace Exa
                 Validate();
             }
 
-            if (IsCompany && company != null)
+            if (Company is { } __value0 && company != null)
             {
-                return company(Company!);
+                return company(__value0);
             }
-            else if (IsPerson && person != null)
+            else if (Person is { } __value1 && person != null)
             {
-                return person(Person!);
+                return person(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace Exa
                 Validate();
             }
 
-            if (IsCompany)
+            if (Company is { } __value0)
             {
-                company?.Invoke(Company!);
+                company?.Invoke(__value0);
             }
-            else if (IsPerson)
+            else if (Person is { } __value1)
             {
-                person?.Invoke(Person!);
+                person?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace Exa
                 Validate();
             }
 
-            if (IsCompany)
+            if (Company is { } __value0)
             {
-                company?.Invoke(Company!);
+                company?.Invoke(__value0);
             }
-            else if (IsPerson)
+            else if (Person is { } __value1)
             {
-                person?.Invoke(Person!);
+                person?.Invoke(__value1);
             }
         }
 

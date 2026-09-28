@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace Exa.CLI.Commands;
 
-internal static class DefaultApiGroupCommand
+internal static partial class DefaultApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"default", @"default endpoint commands.");
@@ -14,6 +16,7 @@ internal static class DefaultApiGroupCommand
                          command.Subcommands.Add(FindSimilarCommandApiCommand.Create());
                          command.Subcommands.Add(GetContentsCommandApiCommand.Create());
                          command.Subcommands.Add(SearchCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

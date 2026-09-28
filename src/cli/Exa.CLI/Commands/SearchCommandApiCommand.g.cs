@@ -45,6 +45,8 @@ internal static partial class SearchCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"search", @"Search
@@ -100,6 +102,7 @@ Perform a search with a Exa prompt-engineered query and retrieve a list of relev
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

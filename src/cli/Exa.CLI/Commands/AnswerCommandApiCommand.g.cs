@@ -47,6 +47,8 @@ internal static partial class AnswerCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"answer", @"Generate an answer from search results
@@ -117,6 +119,7 @@ Performs a search based on the query and generates either a direct answer or a d
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

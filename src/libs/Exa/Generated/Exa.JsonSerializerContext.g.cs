@@ -1,14 +1,13 @@
 
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-#pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
-
 namespace Exa
 {
     /// <summary>
     ///
     /// </summary>
+    #pragma warning disable CS3016 // Converter type array in this attribute is not CLS-compliant.
+    #pragma warning disable CS0618 // Converter references a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[]
@@ -101,6 +100,8 @@ namespace Exa
 
             typeof(global::Exa.JsonConverters.UnixTimestampJsonConverter),
         })]
+    #pragma warning restore CS0618
+    #pragma warning restore CS3016
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.JsonSerializerContextTypes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AnswerCitation))]
@@ -122,16 +123,26 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlights>), TypeInfoPropertyName = "OneOfBooleanContentsRequestHighlights2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsRequestHighlights))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsRequestSummary))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsRequestLivecrawl), TypeInfoPropertyName = "ContentsRequestLivecrawl2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>), TypeInfoPropertyName = "OneOfStringIListString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsRequestExtras))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.ContentsRequestContext>), TypeInfoPropertyName = "OneOfBooleanContentsRequestContext2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsRequestContext))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.CommonRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.CommonRequestContext>), TypeInfoPropertyName = "OneOfBooleanCommonRequestContext2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.CommonRequestContext))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityCompanyPropertiesWorkforce))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityCompanyPropertiesHeadquarters))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EntityCompanyPropertiesFundingRound))]

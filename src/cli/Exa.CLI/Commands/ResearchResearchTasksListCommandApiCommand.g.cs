@@ -41,9 +41,9 @@ internal static partial class ResearchResearchTasksListCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"tasks-list", @"List research tasks");
+        var command = new Command(commandName ?? @"tasks-list", @"List research tasks");
                         command.Options.Add(Cursor);
                         command.Options.Add(Limit);
 

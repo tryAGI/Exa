@@ -80,9 +80,9 @@ internal static partial class ResearchResearchTasksCreateCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"tasks-create", @"Create a research task with instructions and an output schema");
+        var command = new Command(commandName ?? @"tasks-create", @"Create a research task with instructions and an output schema");
                         command.Options.Add(Instructions);
                         command.Options.Add(Model);
                         command.Options.Add(Output);

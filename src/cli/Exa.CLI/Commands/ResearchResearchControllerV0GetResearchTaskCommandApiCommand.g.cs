@@ -35,9 +35,9 @@ internal static partial class ResearchResearchControllerV0GetResearchTaskCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"controller-v0-get-research-task", @"Get a research task by id");
+        var command = new Command(commandName ?? @"controller-v0-get-research-task", @"Get a research task by id");
                         command.Arguments.Add(Id);
 
 

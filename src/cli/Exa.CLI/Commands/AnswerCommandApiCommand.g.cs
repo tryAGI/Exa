@@ -49,9 +49,9 @@ internal static partial class AnswerCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"answer", @"Generate an answer from search results
+        var command = new Command(commandName ?? @"answer", @"Generate an answer from search results
 Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
 ");
                         command.Options.Add(AnswerRequestOptionSetOptions.Query);

@@ -2,7 +2,7 @@
 
 namespace Exa
 {
-    public sealed partial class SearchRequestOutputSchema
+    public readonly partial struct SearchRequestOutputSchema
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -54,7 +54,7 @@ namespace Exa
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::Exa.SearchRequestOutputSchema),
-                jsonSerializerContext) as global::Exa.SearchRequestOutputSchema;
+                jsonSerializerContext) as global::Exa.SearchRequestOutputSchema?;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Exa
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::Exa.SearchRequestOutputSchema),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Exa.SearchRequestOutputSchema;
+                jsonSerializerContext).ConfigureAwait(false)) as global::Exa.SearchRequestOutputSchema?;
         }
 
         /// <summary>

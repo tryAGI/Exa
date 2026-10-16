@@ -4,13 +4,12 @@
 namespace Exa
 {
     /// <summary>
-    /// A data category to focus on. The `people` and `company` categories have improved quality for finding LinkedIn profiles and company pages. Note: The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `includeText`, `excludeText`, `excludeDomains`. For `people` category, `includeDomains` only accepts LinkedIn domains. Using unsupported parameters will result in a 400 error.<br/>
-    /// Example: research paper
+    /// A data category to focus on. Other strings are accepted and used as category hints. `people` and `company` return higher-quality people profiles and company pages. `publication` returns scholarly publications such as research papers, preprints, and journal articles, with metadata like authors, venue, and citations. `company` and `people` do not support `startPublishedDate` or `endPublishedDate`, and `people` also does not support `excludeDomains`. Requests that set an unsupported filter return a 400 error.
     /// </summary>
     public enum SearchRequestCategory
     {
         /// <summary>
-        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `includeText`, `excludeText`, `excludeDomains`. For `people` category, `includeDomains` only accepts LinkedIn domains. Using unsupported parameters will result in a 400 error.
+        ///
         /// </summary>
         Company,
         /// <summary>
@@ -20,17 +19,9 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        Github,
-        /// <summary>
-        ///
-        /// </summary>
         News,
         /// <summary>
         ///
-        /// </summary>
-        Pdf,
-        /// <summary>
-        /// The `company` and `people` categories only support a limited set of filters. The following parameters are NOT supported for these categories: `startPublishedDate`, `endPublishedDate`, `startCrawlDate`, `endCrawlDate`, `includeText`, `excludeText`, `excludeDomains`. For `people` category, `includeDomains` only accepts LinkedIn domains. Using unsupported parameters will result in a 400 error.
         /// </summary>
         People,
         /// <summary>
@@ -40,7 +31,7 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        ResearchPaper,
+        Publication,
     }
 
     /// <summary>
@@ -57,12 +48,10 @@ namespace Exa
             {
                 SearchRequestCategory.Company => "company",
                 SearchRequestCategory.FinancialReport => "financial report",
-                SearchRequestCategory.Github => "github",
                 SearchRequestCategory.News => "news",
-                SearchRequestCategory.Pdf => "pdf",
                 SearchRequestCategory.People => "people",
                 SearchRequestCategory.PersonalSite => "personal site",
-                SearchRequestCategory.ResearchPaper => "research paper",
+                SearchRequestCategory.Publication => "publication",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -75,12 +64,10 @@ namespace Exa
             {
                 "company" => SearchRequestCategory.Company,
                 "financial report" => SearchRequestCategory.FinancialReport,
-                "github" => SearchRequestCategory.Github,
                 "news" => SearchRequestCategory.News,
-                "pdf" => SearchRequestCategory.Pdf,
                 "people" => SearchRequestCategory.People,
                 "personal site" => SearchRequestCategory.PersonalSite,
-                "research paper" => SearchRequestCategory.ResearchPaper,
+                "publication" => SearchRequestCategory.Publication,
                 _ => null,
             };
         }

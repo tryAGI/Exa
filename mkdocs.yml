@@ -10,6 +10,12 @@ nav:
   - Authentication: guides/authentication.md
   - MEAI Integration: guides/meai.md
 # EXAMPLES:START
+- Examples:
+  - Search: examples/search.md
+  - Get Contents: examples/get-contents.md
+  - Find Similar: examples/find-similar.md
+  - Search Tool: examples/search-tool.md
+  - Answer Tool: examples/answer-tool.md
 # EXAMPLES:END
 
 theme:

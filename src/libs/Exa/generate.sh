@@ -13,11 +13,17 @@ fetch_spec() {
     --connect-timeout 30 --max-time 300
 }
 
-# OpenAPI spec: https://github.com/exa-labs/openapi-spec
-install_autosdk_cli
-rm -rf Generated
+# Official specs: https://exa.ai/docs/admin/openapi-spec
+if [[ "${EXA_SKIP_TOOL_UPDATE:-0}" != "1" ]]; then
+  install_autosdk_cli
+fi
 fetch_spec --fail --silent --show-error -L -o openapi.yaml \
-  https://raw.githubusercontent.com/exa-labs/openapi-spec/master/exa-openapi-spec.yaml
+  https://exa.ai/docs/exa-spec.yaml
+fetch_spec -o team-management-openapi.yaml \
+  https://exa.ai/docs/team-management-spec.yaml
+
+# Download both specs successfully before replacing generated output.
+rm -rf Generated
 
 # Auth: --security-scheme overrides the spec's apiKey auth with standard HTTP bearer.
 autosdk generate openapi.yaml \
@@ -26,6 +32,14 @@ autosdk generate openapi.yaml \
   --targetFramework net10.0 \
   --output Generated \
   --security-scheme Http:Header:Bearer
+
+# Team management uses a separate host and service key, so expose a separate client.
+autosdk generate team-management-openapi.yaml \
+  --namespace Exa.TeamManagement \
+  --clientClassName ExaTeamManagementClient \
+  --targetFramework net10.0 \
+  --output Generated/TeamManagement \
+  --security-scheme ApiKey:Header:x-api-key
 
 rm -rf ../../cli/Exa.CLI
 

@@ -7,6 +7,11 @@ namespace Exa.CLI.Commands;
 
 internal static partial class AnswerCommandApiCommand
 {
+    private static Option<global::Exa.OneOf<string, global::Exa.AnswerRequestUserLocationVariant1Variant2, global::Exa.AnswerRequestUserLocationVariant1Variant3>?> UserLocation { get; } = new(
+        name: @"--user-location")
+    {
+        Description = @"",
+    };
     private static readonly AnswerRequestOptionSet AnswerRequestOptionSetOptions = AnswerRequestOptionSet.Create();
 
     private static readonly AnswerRequestOutputSchemaOptionSet OutputSchemaOptions = AnswerRequestOutputSchemaOptionSet.Create(@"output-schema");
@@ -27,7 +32,7 @@ internal static partial class AnswerCommandApiCommand
           Hidden = true,
       };
 
-                    private static string FormatResponse(ParseResult parseResult, global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2> value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    private static string FormatResponse(ParseResult parseResult, global::Exa.AnswerResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
                         CustomizeResponseText(parseResult, value, ref text);
@@ -43,7 +48,7 @@ internal static partial class AnswerCommandApiCommand
                         return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
                     }
 
-                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.AllOf<global::Exa.AnswerResult, global::Exa.AnswerResponse2> value, ref string? text);
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.AnswerResponse value, ref string? text);
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
@@ -51,11 +56,13 @@ internal static partial class AnswerCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"answer", @"Generate an answer from search results
-Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
-");
-                        command.Options.Add(AnswerRequestOptionSetOptions.Query);
-                        command.Options.Add(AnswerRequestOptionSetOptions.Text);                        command.Options.Add(OutputSchemaOptions.Type);
+        var command = new Command(commandName ?? @"answer", @"Answer
+Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.");
+                        command.Options.Add(UserLocation);                        command.Options.Add(AnswerRequestOptionSetOptions.Query);
+                        command.Options.Add(AnswerRequestOptionSetOptions.Text);
+                        command.Options.Add(AnswerRequestOptionSetOptions.Model);
+                        command.Options.Add(AnswerRequestOptionSetOptions.SystemPrompt);
+                        command.Options.Add(AnswerRequestOptionSetOptions.UserIdentifier);                        command.Options.Add(OutputSchemaOptions.Type);
                         command.Options.Add(OutputSchemaOptions.Required);
                         command.Options.Add(OutputSchemaOptions.DescriptionOption);
                         command.Options.Add(OutputSchemaOptions.AdditionalProperties);
@@ -83,8 +90,12 @@ Performs a search based on the query and generates either a direct answer or a d
                             RequestJson,
                             RequestFile,
                             global::Exa.SourceGenerationContext.Default,
-                            cancellationToken).ConfigureAwait(false);                        var query = parseResult.GetRequiredValue(AnswerRequestOptionSetOptions.Query);
+                            cancellationToken).ConfigureAwait(false);
+                        var userLocation = CliRuntime.WasSpecified(parseResult, UserLocation) ? parseResult.GetValue(UserLocation) : (__requestBase is { } __UserLocationBaseValue ? __UserLocationBaseValue.UserLocation : default);                        var query = parseResult.GetRequiredValue(AnswerRequestOptionSetOptions.Query);
                         var text = CliRuntime.WasSpecified(parseResult, AnswerRequestOptionSetOptions.Text) ? parseResult.GetValue(AnswerRequestOptionSetOptions.Text) : (__requestBase is { } __TextBaseValue ? __TextBaseValue.Text : default);
+                        var model = CliRuntime.WasSpecified(parseResult, AnswerRequestOptionSetOptions.Model) ? parseResult.GetValue(AnswerRequestOptionSetOptions.Model) : (__requestBase is { } __ModelBaseValue ? __ModelBaseValue.Model : default);
+                        var systemPrompt = CliRuntime.WasSpecified(parseResult, AnswerRequestOptionSetOptions.SystemPrompt) ? parseResult.GetValue(AnswerRequestOptionSetOptions.SystemPrompt) : (__requestBase is { } __SystemPromptBaseValue ? __SystemPromptBaseValue.SystemPrompt : default);
+                        var userIdentifier = CliRuntime.WasSpecified(parseResult, AnswerRequestOptionSetOptions.UserIdentifier) ? parseResult.GetValue(AnswerRequestOptionSetOptions.UserIdentifier) : (__requestBase is { } __UserIdentifierBaseValue ? __UserIdentifierBaseValue.UserIdentifier : default);
 
                         var __OutputSchemaBase = __requestBase is { } __OutputSchemaBaseValue ? __OutputSchemaBaseValue.OutputSchema : default;                        var outputSchemaType = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Type) ? parseResult.GetValue(OutputSchemaOptions.Type) : (__OutputSchemaBase is { } __OutputSchematypeBaseValue ? __OutputSchematypeBaseValue.Type : default);
                         var outputSchemaRequired = CliRuntime.WasSpecified(parseResult, OutputSchemaOptions.Required) ? parseResult.GetValue(OutputSchemaOptions.Required) : (__OutputSchemaBase is { } __OutputSchemarequiredBaseValue ? __OutputSchemarequiredBaseValue.Required : default);
@@ -106,18 +117,30 @@ Performs a search based on the query and generates either a direct answer or a d
 
 
                                 var response = await client.AnswerAsync(
+                                    userLocation: userLocation,
                                     query: query,
                                     text: text,
+                                    model: model,
+                                    systemPrompt: systemPrompt,
+                                    userIdentifier: userIdentifier,
                                     outputSchema: outputSchema,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
+                                if (!await CliRuntime.TryWriteOutputDirectoryAsync(
+                                        parseResult,
+                                        response,
+                                        global::Exa.SourceGenerationContext.Default,
+                                        @"Citations",
+                                        cancellationToken).ConfigureAwait(false))
+                                {
                                 await CliRuntime.WriteResponseAsync(
                                     parseResult,
                                     response,
                                     global::Exa.SourceGenerationContext.Default,
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
+                                }
             }, cancellationToken).ConfigureAwait(false));
         CustomizeCommand(ref command);
         return command;

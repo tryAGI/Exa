@@ -17,20 +17,15 @@ public partial class Tests
 
         //// Search the web for relevant results using a natural language query.
         var response = await client.SearchAsync(
-            new AllOf<SearchRequest2, CommonRequest>(
-                value1: new SearchRequest2
-                {
-                    Query = "Latest developments in LLM capabilities",
-                },
-                value2: new CommonRequest { NumResults = 5 }));
+            new SearchRequest { Query = "Latest developments in LLM capabilities", Type = "auto", NumResults = 5 });
 
-        var results = response.Results;
+        var results = response.Results?.Results;
         results.Should().NotBeNullOrEmpty();
         Console.WriteLine($"Found {results!.Count} results");
 
         foreach (var result in results)
         {
-            Console.WriteLine($"  - {result.Result?.Title}: {result.Result?.Url}");
+            Console.WriteLine($"  - {result.Title}: {result.Url}");
         }
     }
 }

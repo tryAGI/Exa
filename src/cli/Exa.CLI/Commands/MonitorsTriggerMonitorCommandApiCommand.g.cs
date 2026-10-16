@@ -1,0 +1,67 @@
+#nullable enable
+#pragma warning disable CS0618
+
+using System.CommandLine;
+
+namespace Exa.CLI.Commands;
+
+internal static partial class MonitorsTriggerMonitorCommandApiCommand
+{
+    private static Argument<string> Id { get; } = new(
+        name: @"id")
+    {
+        Description = @"The monitor ID",
+    };
+
+                    private static string FormatResponse(ParseResult parseResult, global::Exa.TriggerSearchMonitorResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    {
+                        string? text = null;
+                        CustomizeResponseText(parseResult, value, ref text);
+                        if (!string.IsNullOrWhiteSpace(text))
+                        {
+                            return text;
+                        }
+
+                        var hints = new Dictionary<string, CliFormatHint>(StringComparer.OrdinalIgnoreCase)
+                        {
+                        };
+                        CustomizeResponseFormatHints(hints);
+                        return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
+                    }
+
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.TriggerSearchMonitorResponse value, ref string? text);
+                    static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
+
+
+    static partial void CustomizeCommand(ref Command command);
+
+    public static Command Create(string? commandName = null)
+    {
+        var command = new Command(commandName ?? @"trigger-monitor", @"Trigger a monitor
+Triggers a run immediately, regardless of the schedule. Works for monitors with status `active` or `paused`.");
+                        command.Arguments.Add(Id);
+
+
+        command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
+            await CliRuntime.RunAsync(async () =>
+            {
+                        var id = parseResult.GetRequiredValue(Id);
+                using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
+
+
+                                var response = await client.Monitors.TriggerMonitorAsync(
+                                    id: id,
+                                    cancellationToken: cancellationToken).ConfigureAwait(false);
+
+
+                                await CliRuntime.WriteResponseAsync(
+                                    parseResult,
+                                    response,
+                                    global::Exa.SourceGenerationContext.Default,
+                                    FormatResponse,
+                                    cancellationToken).ConfigureAwait(false);
+            }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
+        return command;
+    }
+}

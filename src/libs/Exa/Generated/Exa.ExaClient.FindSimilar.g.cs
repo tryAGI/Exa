@@ -1,10 +1,20 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace Exa
 {
     public partial class ExaClient
     {
+
+        private static readonly global::Exa.AutoSDKServer[] s_FindSimilarServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai",
+                name: "api.exa.ai",
+                url: "https://api.exa.ai/",
+                description: ""),
+        };
 
 
         private static readonly global::Exa.EndPointSecurityRequirement s_FindSimilarSecurityRequirement0 =
@@ -27,11 +37,11 @@ namespace Exa
             };
         partial void PrepareFindSimilarArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request);
+            global::Exa.FindSimilarRequest request);
         partial void PrepareFindSimilarRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request);
+            global::Exa.FindSimilarRequest request);
         partial void ProcessFindSimilarResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,24 +53,16 @@ namespace Exa
 
         /// <summary>
         /// Find similar links<br/>
-        /// Find similar links to the link provided. Optionally get contents.
+        /// Find links similar to the provided URL and optionally retrieve their contents. Deprecated: prefer `/search` with a query describing the source.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Exa.ApiException"></exception>
-        /// <remarks>
-        /// curl -X POST 'https://api.exa.ai/findSimilar' \<br/>
-        ///   -H 'x-api-key: YOUR-EXA-API-KEY' \<br/>
-        ///   -H 'Content-Type: application/json' \<br/>
-        ///   -d '{<br/>
-        ///     "url": "https://arxiv.org/abs/2307.06435",<br/>
-        ///     "text": true<br/>
-        ///   }'
-        /// </remarks>
+        [global::System.Obsolete("This method marked as deprecated.")]
         public async global::System.Threading.Tasks.Task<global::Exa.FindSimilarResponse> FindSimilarAsync(
 
-            global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request,
+            global::Exa.FindSimilarRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -75,27 +77,21 @@ namespace Exa
         }
         /// <summary>
         /// Find similar links<br/>
-        /// Find similar links to the link provided. Optionally get contents.
+        /// Find links similar to the provided URL and optionally retrieve their contents. Deprecated: prefer `/search` with a query describing the source.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Exa.ApiException"></exception>
-        /// <remarks>
-        /// curl -X POST 'https://api.exa.ai/findSimilar' \<br/>
-        ///   -H 'x-api-key: YOUR-EXA-API-KEY' \<br/>
-        ///   -H 'Content-Type: application/json' \<br/>
-        ///   -d '{<br/>
-        ///     "url": "https://arxiv.org/abs/2307.06435",<br/>
-        ///     "text": true<br/>
-        ///   }'
-        /// </remarks>
+        [global::System.Obsolete("This method marked as deprecated.")]
         public async global::System.Threading.Tasks.Task<global::Exa.AutoSDKHttpResponse<global::Exa.FindSimilarResponse>> FindSimilarAsResponseAsync(
 
-            global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest> request,
+            global::Exa.FindSimilarRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareFindSimilarArguments(
@@ -127,7 +123,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/findSimilar",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_FindSimilarServers,
+                                defaultBaseUrl: "https://api.exa.ai/"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -353,6 +351,265 @@ namespace Exa
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            // The request body or query parameters failed validation.
+                            if ((int)__response.StatusCode == 400)
+                            {
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                global::Exa.ErrorResponse? __value_400 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_400 = global::Exa.ErrorResponse.FromJson(__content_400, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_400 = global::Exa.ErrorResponse.FromJson(__content_400, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_400 = __ex;
+                                }
+
+
+                                throw global::Exa.ApiException<global::Exa.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    responseBody: __content_400,
+                                    responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The API key is missing or invalid.
+                            if ((int)__response.StatusCode == 401)
+                            {
+                                string? __content_401 = null;
+                                global::System.Exception? __exception_401 = null;
+                                global::Exa.ErrorResponse? __value_401 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_401 = global::Exa.ErrorResponse.FromJson(__content_401, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_401 = global::Exa.ErrorResponse.FromJson(__content_401, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_401 = __ex;
+                                }
+
+
+                                throw global::Exa.ApiException<global::Exa.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_401 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_401,
+                                    responseBody: __content_401,
+                                    responseObject: __value_401,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The team is out of credits or a spending budget has been exceeded.
+                            if ((int)__response.StatusCode == 402)
+                            {
+                                string? __content_402 = null;
+                                global::System.Exception? __exception_402 = null;
+                                global::Exa.ErrorResponse? __value_402 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_402 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_402 = global::Exa.ErrorResponse.FromJson(__content_402, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_402 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_402 = global::Exa.ErrorResponse.FromJson(__content_402, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_402 = __ex;
+                                }
+
+
+                                throw global::Exa.ApiException<global::Exa.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_402 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_402,
+                                    responseBody: __content_402,
+                                    responseObject: __value_402,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The team is not permitted to use this endpoint (`TEAM_BLOCKED`), or the feature is not enabled for it (`FEATURE_DISABLED`).
+                            if ((int)__response.StatusCode == 403)
+                            {
+                                string? __content_403 = null;
+                                global::System.Exception? __exception_403 = null;
+                                global::Exa.ErrorResponse? __value_403 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_403 = global::Exa.ErrorResponse.FromJson(__content_403, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_403 = global::Exa.ErrorResponse.FromJson(__content_403, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_403 = __ex;
+                                }
+
+
+                                throw global::Exa.ApiException<global::Exa.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_403,
+                                    responseBody: __content_403,
+                                    responseObject: __value_403,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // A rate limit for this API key, team, or network was exceeded.
+                            if ((int)__response.StatusCode == 429)
+                            {
+                                string? __content_429 = null;
+                                global::System.Exception? __exception_429 = null;
+                                global::Exa.ErrorResponse? __value_429 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_429 = global::Exa.ErrorResponse.FromJson(__content_429, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_429 = global::Exa.ErrorResponse.FromJson(__content_429, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_429 = __ex;
+                                }
+
+
+                                throw global::Exa.ApiException<global::Exa.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_429,
+                                    responseBody: __content_429,
+                                    responseObject: __value_429,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // An unexpected error occurred while processing the request.
+                            if ((int)__response.StatusCode == 500)
+                            {
+                                string? __content_500 = null;
+                                global::System.Exception? __exception_500 = null;
+                                global::Exa.ErrorResponse? __value_500 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_500 = global::Exa.ErrorResponse.FromJson(__content_500, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_500 = global::Exa.ErrorResponse.FromJson(__content_500, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_500 = __ex;
+                                }
+
+
+                                throw global::Exa.ApiException<global::Exa.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_500,
+                                    responseBody: __content_500,
+                                    responseObject: __value_500,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // Exa is temporarily over capacity or unavailable. The request was not processed; retry with exponential backoff.
+                            if ((int)__response.StatusCode == 503)
+                            {
+                                string? __content_503 = null;
+                                global::System.Exception? __exception_503 = null;
+                                global::Exa.ErrorResponse? __value_503 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_503 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_503 = global::Exa.ErrorResponse.FromJson(__content_503, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_503 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_503 = global::Exa.ErrorResponse.FromJson(__content_503, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_503 = __ex;
+                                }
+
+
+                                throw global::Exa.ApiException<global::Exa.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_503 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_503,
+                                    responseBody: __content_503,
+                                    responseObject: __value_503,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
 
                             if (__effectiveReadResponseAsString)
                             {
@@ -451,17 +708,53 @@ namespace Exa
         }
         /// <summary>
         /// Find similar links<br/>
-        /// Find similar links to the link provided. Optionally get contents.
+        /// Find links similar to the provided URL and optionally retrieve their contents. Deprecated: prefer `/search` with a query describing the source.
         /// </summary>
+        /// <param name="includeDomains"></param>
+        /// <param name="excludeDomains"></param>
+        /// <param name="startPublishedDate"></param>
+        /// <param name="endPublishedDate"></param>
+        /// <param name="numResults"></param>
+        /// <param name="contents"></param>
+        /// <param name="url">
+        /// The url for which you would like to find similar links.
+        /// </param>
+        /// <param name="category"></param>
+        /// <param name="excludeSourceDomain"></param>
+        /// <param name="startCrawlDate"></param>
+        /// <param name="endCrawlDate"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
+        [global::System.Obsolete("This method marked as deprecated.")]
         public async global::System.Threading.Tasks.Task<global::Exa.FindSimilarResponse> FindSimilarAsync(
+            string url,
+            global::System.Collections.Generic.IList<string>? includeDomains = default,
+            global::System.Collections.Generic.IList<string>? excludeDomains = default,
+            global::System.DateTime? startPublishedDate = default,
+            global::System.DateTime? endPublishedDate = default,
+            int? numResults = default,
+            global::Exa.ContentsOptions? contents = default,
+            global::Exa.FindSimilarRequestCategory? category = default,
+            bool? excludeSourceDomain = default,
+            global::System.DateTime? startCrawlDate = default,
+            global::System.DateTime? endCrawlDate = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Exa.AllOf<global::Exa.FindSimilarRequest2, global::Exa.CommonRequest>
+            var __request = new global::Exa.FindSimilarRequest
             {
+                IncludeDomains = includeDomains,
+                ExcludeDomains = excludeDomains,
+                StartPublishedDate = startPublishedDate,
+                EndPublishedDate = endPublishedDate,
+                NumResults = numResults,
+                Contents = contents,
+                Url = url,
+                Category = category,
+                ExcludeSourceDomain = excludeSourceDomain,
+                StartCrawlDate = startCrawlDate,
+                EndCrawlDate = endCrawlDate,
             };
 
             return await FindSimilarAsync(

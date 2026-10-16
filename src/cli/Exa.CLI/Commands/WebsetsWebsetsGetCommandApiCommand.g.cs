@@ -1,0 +1,78 @@
+#nullable enable
+#pragma warning disable CS0618
+
+using System.CommandLine;
+
+namespace Exa.CLI.Commands;
+
+internal static partial class WebsetsWebsetsGetCommandApiCommand
+{
+    private static Argument<string> Id { get; } = new(
+        name: @"id")
+    {
+        Description = @"The id or externalId of the Webset.",
+    };
+
+    private static Option<global::System.Collections.Generic.IList<global::Exa.WebsetsGetExpandItem>?> Expand { get; } = new(
+        name: @"--expand")
+    {
+        Description = @"Expand the response with the specified resources",
+    };
+
+                    private static string FormatResponse(ParseResult parseResult, global::Exa.GetWebsetResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    {
+                        string? text = null;
+                        CustomizeResponseText(parseResult, value, ref text);
+                        if (!string.IsNullOrWhiteSpace(text))
+                        {
+                            return text;
+                        }
+
+                        var hints = new Dictionary<string, CliFormatHint>(StringComparer.OrdinalIgnoreCase)
+                        {
+                        };
+                        CustomizeResponseFormatHints(hints);
+                        return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
+                    }
+
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.GetWebsetResponse value, ref string? text);
+                    static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
+
+
+    static partial void CustomizeCommand(ref Command command);
+
+    public static Command Create(string? commandName = null)
+    {
+        var command = new Command(commandName ?? @"get", @"Get a Webset
+Returns a Webset by `id` or `externalId`, including its status, searches, imports, enrichments, and monitors.
+
+Pass `expand=items` to include up to the first 100 items in the response.");
+                        command.Arguments.Add(Id);
+                        command.Options.Add(Expand);
+
+
+        command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
+            await CliRuntime.RunAsync(async () =>
+            {
+                        var id = parseResult.GetRequiredValue(Id);
+                        var expand = parseResult.GetValue(Expand);
+                using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
+
+
+                                var response = await client.Websets.WebsetsGetAsync(
+                                    id: id,
+                                    expand: expand,
+                                    cancellationToken: cancellationToken).ConfigureAwait(false);
+
+
+                                await CliRuntime.WriteResponseAsync(
+                                    parseResult,
+                                    response,
+                                    global::Exa.SourceGenerationContext.Default,
+                                    FormatResponse,
+                                    cancellationToken).ConfigureAwait(false);
+            }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
+        return command;
+    }
+}

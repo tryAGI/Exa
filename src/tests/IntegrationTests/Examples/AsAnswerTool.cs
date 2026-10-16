@@ -13,7 +13,7 @@ public partial class Tests
     [TestMethod]
     public void AsAnswerTool()
     {
-        using var client = GetAuthenticatedClient();
+        using var client = new ExaClient("test-key");
 
         //// Create an answer tool from the Exa client for RAG-style question answering.
         var tool = client.AsAnswerTool();

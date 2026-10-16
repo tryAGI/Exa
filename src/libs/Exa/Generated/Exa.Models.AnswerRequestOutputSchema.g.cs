@@ -4,15 +4,13 @@
 namespace Exa
 {
     /// <summary>
-    /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
+    /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer is returned as a structured object matching the schema instead of a plain string.
     /// </summary>
     public sealed partial class AnswerRequestOutputSchema
     {
         /// <summary>
-        /// The root schema type (typically "object").<br/>
-        /// Example: object
+        /// The root schema type (typically "object").
         /// </summary>
-        /// <example>object</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string? Type { get; set; }
 
@@ -20,7 +18,7 @@ namespace Exa
         /// An object where each key is a property name and each value is a JSON Schema describing that property (with `type`, `description`, etc).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("properties")]
-        public object? Properties { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::Exa.JsonValue?>? Properties { get; set; }
 
         /// <summary>
         /// List of required property names.
@@ -51,8 +49,7 @@ namespace Exa
         /// Initializes a new instance of the <see cref="AnswerRequestOutputSchema" /> class.
         /// </summary>
         /// <param name="type">
-        /// The root schema type (typically "object").<br/>
-        /// Example: object
+        /// The root schema type (typically "object").
         /// </param>
         /// <param name="properties">
         /// An object where each key is a property name and each value is a JSON Schema describing that property (with `type`, `description`, etc).
@@ -72,7 +69,7 @@ namespace Exa
 #endif
         public AnswerRequestOutputSchema(
             string? type,
-            object? properties,
+            global::System.Collections.Generic.Dictionary<string, global::Exa.JsonValue?>? properties,
             global::System.Collections.Generic.IList<string>? required,
             string? description,
             bool? additionalProperties)

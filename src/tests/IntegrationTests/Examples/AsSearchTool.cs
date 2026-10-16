@@ -13,7 +13,7 @@ public partial class Tests
     [TestMethod]
     public void AsSearchTool()
     {
-        using var client = GetAuthenticatedClient();
+        using var client = new ExaClient("test-key");
 
         //// Create a search tool from the Exa client for use with any IChatClient.
         var tool = client.AsSearchTool(numResults: 3);

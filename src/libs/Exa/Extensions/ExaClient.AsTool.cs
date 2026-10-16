@@ -25,13 +25,13 @@ public static class ExaToolExtensions
             async (string query, CancellationToken cancellationToken) =>
             {
                 var response = await client.SearchAsync(
-                    request: new AllOf<SearchRequest2, CommonRequest>(
-                        value1: new SearchRequest2 { Query = query },
-                        value2: new CommonRequest
-                        {
-                            NumResults = numResults,
-                            Contents = new ContentsRequest { Text = true },
-                        }),
+                    request: new SearchRequest
+                    {
+                        Query = query,
+                        Type = "auto",
+                        NumResults = numResults,
+                        Contents = new ContentsOptions { Text = true },
+                    },
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
                 return FormatSearchResponse(response);
@@ -54,9 +54,7 @@ public static class ExaToolExtensions
             async (string url, CancellationToken cancellationToken) =>
             {
                 var response = await client.GetContentsAsync(
-                    request: new AllOf<GetContentsRequest2, ContentsRequest>(
-                        value1: new GetContentsRequest2 { Urls = [url] },
-                        value2: new ContentsRequest { Text = true }),
+                    request: new ContentsRequest { Urls = [url], Text = true },
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
                 return FormatContentsResponse(response);
@@ -102,10 +100,10 @@ public static class ExaToolExtensions
             parts.Add("Sources:");
             foreach (var result in results)
             {
-                var title = result.Result?.Title;
-                var url = result.Result?.Url;
-                var text = result.ResultWithContentVariant2?.Text;
-                var summary = result.ResultWithContentVariant2?.Summary;
+                var title = result.Title;
+                var url = result.Url;
+                var text = result.Text;
+                var summary = result.Summary;
 
                 var entry = $"- [{title}]({url})";
                 if (!string.IsNullOrWhiteSpace(summary))
@@ -124,7 +122,7 @@ public static class ExaToolExtensions
         return string.Join("\n", parts);
     }
 
-    private static string FormatContentsResponse(GetContentsResponse response)
+    private static string FormatContentsResponse(ContentsResponse response)
     {
         var parts = new List<string>();
 
@@ -132,9 +130,9 @@ public static class ExaToolExtensions
         {
             foreach (var result in response.Results)
             {
-                var title = result.Result?.Title;
-                var url = result.Result?.Url;
-                var text = result.ResultWithContentVariant2?.Text;
+                var title = result.Title;
+                var url = result.Url;
+                var text = result.Text;
 
                 if (!string.IsNullOrWhiteSpace(title))
                 {
@@ -154,12 +152,12 @@ public static class ExaToolExtensions
         return string.Join("\n\n", parts);
     }
 
-    private static string FormatAnswerResponse(AllOf<AnswerResult, AnswerResponse2> response)
+    private static string FormatAnswerResponse(AnswerResponse response)
     {
         var parts = new List<string>();
-        var result = response.Value1;
+        var result = response;
 
-        var answer = result?.Answer?.ToString();
+        var answer = result.Answer.ToString();
         if (!string.IsNullOrWhiteSpace(answer))
         {
             parts.Add($"Answer: {answer}");
@@ -177,8 +175,8 @@ public static class ExaToolExtensions
         return string.Join("\n", parts);
     }
 
-    private static IList<ResultWithContent>? GetResults(SearchResponse response)
+    private static IList<SearchResultOutput>? GetResults(SearchResponse response)
     {
-        return response.Results;
+        return response.Results?.Results ?? response.Synthesis?.Results;
     }
 }

@@ -4,30 +4,24 @@
 namespace Exa
 {
     /// <summary>
-    /// **Deprecated**: Use `maxAgeHours` instead for more precise control over content freshness.<br/>
-    /// Options for livecrawling pages.<br/>
-    /// 'never': Disable livecrawling (default for neural search).<br/>
-    /// 'fallback': Livecrawl when cache is empty.<br/>
-    /// 'preferred': Always try to livecrawl, but fall back to cache if crawling fails.<br/>
-    /// 'always': Always live-crawl, never use cache. Only use if you cannot tolerate any cached content. This option is not recommended unless consulted with the Exa team.<br/>
-    /// Example: preferred
+    /// Deprecated. Use `maxAgeHours` instead. Does not guarantee freshly fetched content. Cannot be combined with `maxAgeHours`.
     /// </summary>
     public enum ContentsRequestLivecrawl
     {
         /// <summary>
-        /// Always live-crawl, never use cache. Only use if you cannot tolerate any cached content. This option is not recommended unless consulted with the Exa team.
+        ///
         /// </summary>
         Always,
         /// <summary>
-        /// Livecrawl when cache is empty.
+        ///
         /// </summary>
         Fallback,
         /// <summary>
-        /// Disable livecrawling (default for neural search).
+        ///
         /// </summary>
         Never,
         /// <summary>
-        /// Always try to livecrawl, but fall back to cache if crawling fails.
+        ///
         /// </summary>
         Preferred,
     }

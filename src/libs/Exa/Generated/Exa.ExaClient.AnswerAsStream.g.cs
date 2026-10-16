@@ -6,6 +6,14 @@ namespace Exa
     public partial class ExaClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_AnswerAsStreamServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai",
+                name: "api.exa.ai",
+                url: "https://api.exa.ai/",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_AnswerAsStreamSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -37,7 +45,7 @@ namespace Exa
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
         /// <summary>
-        /// Generate an answer from search results<br/>
+        /// Answer<br/>
         /// Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
         /// </summary>
         /// <param name="request"></param>
@@ -45,15 +53,12 @@ namespace Exa
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Exa.ApiException"></exception>
         /// <remarks>
-        /// curl -X POST 'https://api.exa.ai/answer' \<br/>
-        ///   -H 'x-api-key: YOUR-EXA-API-KEY' \<br/>
-        ///   -H 'Content-Type: application/json' \<br/>
-        ///   -d '{<br/>
-        ///     "query": "What is the latest valuation of SpaceX?",<br/>
-        ///     "text": true<br/>
-        ///   }'
+        /// curl -X POST https://api.exa.ai/answer \<br/>
+        ///   -H "x-api-key: $EXA_API_KEY" \<br/>
+        ///   -H "Content-Type: application/json" \<br/>
+        ///   -d '{"query":"&lt;query&gt;"}'
         /// </remarks>
-        public async global::System.Collections.Generic.IAsyncEnumerable<global::Exa.AnswerResponse3> AnswerAsStreamAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<global::Exa.AnswerStreamChunk> AnswerAsStreamAsync(
 
             global::Exa.AnswerRequest request,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
@@ -66,7 +71,11 @@ namespace Exa
                 Query = request.Query,
                 Stream = true,
                 Text = request.Text,
+                Model = request.Model,
+                SystemPrompt = request.SystemPrompt,
+                UserLocation = request.UserLocation,
                 OutputSchema = request.OutputSchema,
+                UserIdentifier = request.UserIdentifier,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -99,7 +108,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/answer",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_AnswerAsStreamServers,
+                                defaultBaseUrl: "https://api.exa.ai/"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -375,7 +386,7 @@ namespace Exa
                                     yield break;
                                 }
 
-                                var __streamedResponse = global::Exa.AnswerResponse3.FromJson(__content, JsonSerializerContext) ??
+                                var __streamedResponse = global::Exa.AnswerStreamChunk.FromJson(__content, JsonSerializerContext) ??
                                                        throw global::Exa.ApiException.Create(
                                                            statusCode: __response.StatusCode,
                                                            message: $"Response deserialization failed for \"{__content}\" ",
@@ -397,27 +408,42 @@ namespace Exa
             }
         }
         /// <summary>
-        /// Generate an answer from search results<br/>
+        /// Answer<br/>
         /// Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.
         /// </summary>
         /// <param name="query">
-        /// The question or query to answer.<br/>
-        /// Example: What is the latest valuation of SpaceX?
+        /// Natural-language question or instructions for the request.
         /// </param>
         /// <param name="text">
-        /// If true, the response includes full text content in the search results<br/>
+        /// If true, returns full page text with default settings. If false, disables text return.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="model">
+        /// The model used to generate the answer.<br/>
+        /// Default Value: exa
+        /// </param>
+        /// <param name="systemPrompt">
+        /// Additional instructions that guide generated output or agent behavior. Use this for source preferences, novelty constraints, duplication constraints, or other behavior guidance.
+        /// </param>
+        /// <param name="userLocation"></param>
         /// <param name="outputSchema">
-        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer will be returned as a structured object matching the schema instead of a plain string.
+        /// A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer is returned as a structured object matching the schema instead of a plain string.
+        /// </param>
+        /// <param name="userIdentifier">
+        /// An opaque ID your platform assigns to the end user this request is made for, such as a UUID. Lets Exa attribute usage to that end user rather than your whole team. Must not contain personal information such as an email address, phone number, username, or name. Hash such values before sending them. 1 to 64 characters: letters, digits, underscores, and hyphens. Retained even when your team has Zero Data Retention enabled. Does not affect results.<br/>
+        /// Example: 7f3a9c52-1d4e-4b8a-9e60-2c5d8a1f0b37
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Collections.Generic.IAsyncEnumerable<global::Exa.AnswerResponse3> AnswerAsStreamAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<global::Exa.AnswerStreamChunk> AnswerAsStreamAsync(
             string query,
             bool? text = default,
+            global::Exa.AnswerRequestModel? model = default,
+            string? systemPrompt = default,
+            global::Exa.OneOf<string, global::Exa.AnswerRequestUserLocationVariant1Variant2, global::Exa.AnswerRequestUserLocationVariant1Variant3>? userLocation = default,
             global::Exa.AnswerRequestOutputSchema? outputSchema = default,
+            string? userIdentifier = default,
             global::Exa.AutoSDKRequestOptions? requestOptions = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -426,7 +452,11 @@ namespace Exa
                 Query = query,
                 Stream = true,
                 Text = text,
+                Model = model,
+                SystemPrompt = systemPrompt,
+                UserLocation = userLocation,
                 OutputSchema = outputSchema,
+                UserIdentifier = userIdentifier,
             };
 
             var __enumerable = AnswerAsStreamAsync(

@@ -7,51 +7,94 @@ namespace Exa.CLI.Commands;
 
 internal static partial class GetContentsCommandApiCommand
 {
-    private static Option<global::System.Collections.Generic.IList<string>> Urls { get; } = new(
-        name: @"--urls")
+    private static Option<global::System.Collections.Generic.IList<string>?> Ids { get; } = new(
+        name: @"--ids")
     {
-        Description = @"Array of URLs to crawl (backwards compatible with 'ids' parameter).",
+        Description = @"Document IDs obtained from searches.",
     };
 
-    private static Option<string?> SummaryQuery { get; } = new(
-        name: @"--summary-query")
+    private static Option<global::System.Collections.Generic.IList<string>?> Urls { get; } = new(
+        name: @"--urls")
     {
-        Description = @"Custom query for the LLM-generated summary.",
+        Description = @"URLs to crawl (backwards compatible with the `ids` parameter).",
+    };
+
+    private static Option<global::Exa.ContentsRequestCompliance?> Compliance { get; } = new(
+        name: @"--compliance")
+    {
+        Description = @"",
+    };
+
+    private static Option<string?> UserIdentifier { get; } = new(
+        name: @"--user-identifier")
+    {
+        Description = @"An opaque ID your platform assigns to the end user this request is made for, such as a UUID. Lets Exa attribute usage to that end user rather than your whole team. Must not contain personal information such as an email address, phone number, username, or name. Hash such values before sending them. 1 to 64 characters: letters, digits, underscores, and hyphens. Retained even when your team has Zero Data Retention enabled. Does not affect results.",
+    };
+
+    private static Option<global::Exa.OneOf<bool?, global::Exa.ContentsRequestTextVariant1>?> Text { get; } = new(
+        name: @"--text")
+    {
+        Description = @"",
+    };
+
+    private static Option<global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlightsVariant1>?> Highlights { get; } = new(
+        name: @"--highlights")
+    {
+        Description = @"",
+    };
+
+    private static Option<global::Exa.ContentsRequestSummary?> Summary { get; } = new(
+        name: @"--summary")
+    {
+        Description = @"",
+    };
+
+    private static Option<global::Exa.ContentsRequestExtras?> Extras { get; } = new(
+        name: @"--extras")
+    {
+        Description = @"",
     };
 
     private static Option<int?> LivecrawlTimeout { get; } = new(
         name: @"--livecrawl-timeout")
     {
-        Description = @"The timeout for livecrawling in milliseconds.",
+        Description = @"",
     };
 
     private static Option<int?> MaxAgeHours { get; } = new(
         name: @"--max-age-hours")
     {
-        Description = @"Maximum age of cached content in hours. Controls when livecrawling is triggered based on content freshness.
-- Positive value (e.g. 24): Use cached content if it's less than this many hours old, otherwise livecrawl.
-- 0: Always livecrawl, never use cache.
-- -1: Never livecrawl, always use cache.
-- Omit (default): Livecrawl as fallback only when no cached content exists.
-",
+        Description = @"",
+    };
+
+    private static Option<global::System.DateTime?> SnapshotAsOf { get; } = new(
+        name: @"--snapshot-as-of")
+    {
+        Description = @"",
     };
 
     private static Option<int?> Subpages { get; } = new(
         name: @"--subpages")
     {
-        Description = @"The number of subpages to crawl. The actual number crawled may be limited by system constraints.",
+        Description = @"",
     };
 
-    private static Option<int?> ExtrasLinks { get; } = new(
-        name: @"--extras-links")
+    private static Option<global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>?> SubpageTarget { get; } = new(
+        name: @"--subpage-target")
     {
-        Description = @"Number of URLs to return from each webpage.",
+        Description = @"",
     };
 
-    private static Option<int?> ExtrasImageLinks { get; } = new(
-        name: @"--extras-image-links")
+    private static Option<global::Exa.OneOf<bool?, global::Exa.ContentsRequestContextVariant1>?> Context { get; } = new(
+        name: @"--context")
     {
-        Description = @"Number of images to return for each result.",
+        Description = @"",
+    };
+
+    private static Option<global::Exa.ContentsRequestLivecrawl?> Livecrawl { get; } = new(
+        name: @"--livecrawl")
+    {
+        Description = @"",
     };
       private static Option<string?> Input { get; } = new(@"--input")
       {
@@ -70,7 +113,7 @@ internal static partial class GetContentsCommandApiCommand
           Hidden = true,
       };
 
-                    private static string FormatResponse(ParseResult parseResult, global::Exa.GetContentsResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    private static string FormatResponse(ParseResult parseResult, global::Exa.ContentsResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
                         CustomizeResponseText(parseResult, value, ref text);
@@ -86,7 +129,7 @@ internal static partial class GetContentsCommandApiCommand
                         return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
                     }
 
-                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.GetContentsResponse value, ref string? text);
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::Exa.ContentsResponse value, ref string? text);
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
@@ -94,14 +137,22 @@ internal static partial class GetContentsCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"get-contents", @"Get Contents");
+        var command = new Command(commandName ?? @"get-contents", @"Contents");
+                        command.Options.Add(Ids);
                         command.Options.Add(Urls);
-                        command.Options.Add(SummaryQuery);
+                        command.Options.Add(Compliance);
+                        command.Options.Add(UserIdentifier);
+                        command.Options.Add(Text);
+                        command.Options.Add(Highlights);
+                        command.Options.Add(Summary);
+                        command.Options.Add(Extras);
                         command.Options.Add(LivecrawlTimeout);
                         command.Options.Add(MaxAgeHours);
+                        command.Options.Add(SnapshotAsOf);
                         command.Options.Add(Subpages);
-                        command.Options.Add(ExtrasLinks);
-                        command.Options.Add(ExtrasImageLinks);
+                        command.Options.Add(SubpageTarget);
+                        command.Options.Add(Context);
+                        command.Options.Add(Livecrawl);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -120,83 +171,47 @@ internal static partial class GetContentsCommandApiCommand
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-                        var __requestBase = await CliRuntime.ReadRequestOrDefaultAsync<global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest>>(
+                        var __requestBase = await CliRuntime.ReadRequestOrDefaultAsync<global::Exa.ContentsRequest>(
                             parseResult,
                             Input,
                             RequestJson,
                             RequestFile,
                             global::Exa.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
-                        var urls = (CliRuntime.WasSpecified(parseResult, Urls)
-                            ? parseResult.GetValue(Urls)
-                            : __requestBase.Value1?.Urls)
-                            ?? throw new CliException(@"Specify urls or include it in the base request body.");
-                        var summaryQuery = CliRuntime.WasSpecified(parseResult, SummaryQuery) ? parseResult.GetValue(SummaryQuery) : (__requestBase is { } __SummaryQueryBaseValue ? __SummaryQueryBaseValue.Value2?.Summary?.Query : default);
-                        var livecrawlTimeout = CliRuntime.WasSpecified(parseResult, LivecrawlTimeout) ? parseResult.GetValue(LivecrawlTimeout) : (__requestBase is { } __LivecrawlTimeoutBaseValue ? __LivecrawlTimeoutBaseValue.Value2?.LivecrawlTimeout : default);
-                        var maxAgeHours = CliRuntime.WasSpecified(parseResult, MaxAgeHours) ? parseResult.GetValue(MaxAgeHours) : (__requestBase is { } __MaxAgeHoursBaseValue ? __MaxAgeHoursBaseValue.Value2?.MaxAgeHours : default);
-                        var subpages = CliRuntime.WasSpecified(parseResult, Subpages) ? parseResult.GetValue(Subpages) : (__requestBase is { } __SubpagesBaseValue ? __SubpagesBaseValue.Value2?.Subpages : default);
-                        var extrasLinks = CliRuntime.WasSpecified(parseResult, ExtrasLinks) ? parseResult.GetValue(ExtrasLinks) : (__requestBase is { } __ExtrasLinksBaseValue ? __ExtrasLinksBaseValue.Value2?.Extras?.Links : default);
-                        var extrasImageLinks = CliRuntime.WasSpecified(parseResult, ExtrasImageLinks) ? parseResult.GetValue(ExtrasImageLinks) : (__requestBase is { } __ExtrasImageLinksBaseValue ? __ExtrasImageLinksBaseValue.Value2?.Extras?.ImageLinks : default);
-                        var __component1 = __requestBase.Value1 ?? new global::Exa.GetContentsRequest2 { Urls = urls! };
-                        __component1.Urls = urls;
-
-                        var __component2 = __requestBase.Value2 ?? new global::Exa.ContentsRequest();
-                        __component2.LivecrawlTimeout = livecrawlTimeout;
-                        __component2.MaxAgeHours = maxAgeHours;
-                        __component2.Subpages = subpages;
-                        if (CliRuntime.WasSpecified(parseResult, SummaryQuery))
-                        {
-                            __component2.Summary ??= new global::Exa.ContentsRequestSummary();
-                            if (CliRuntime.WasSpecified(parseResult, SummaryQuery))
-                            {
-                                __component2.Summary.Query = summaryQuery;
-                            }
-                        }
-                        if (CliRuntime.WasSpecified(parseResult, ExtrasLinks) || CliRuntime.WasSpecified(parseResult, ExtrasImageLinks))
-                        {
-                            __component2.Extras ??= new global::Exa.ContentsRequestExtras();
-                            if (CliRuntime.WasSpecified(parseResult, ExtrasLinks))
-                            {
-                                __component2.Extras.Links = extrasLinks;
-                            }
-                            if (CliRuntime.WasSpecified(parseResult, ExtrasImageLinks))
-                            {
-                                __component2.Extras.ImageLinks = extrasImageLinks;
-                            }
-                        }
-                        if (CliRuntime.WasSpecified(parseResult, SummaryQuery))
-                        {
-                            __component1.AdditionalProperties?.Remove(@"summary");
-                        }
-                        if (CliRuntime.WasSpecified(parseResult, LivecrawlTimeout))
-                        {
-                            __component1.AdditionalProperties?.Remove(@"livecrawlTimeout");
-                        }
-                        if (CliRuntime.WasSpecified(parseResult, MaxAgeHours))
-                        {
-                            __component1.AdditionalProperties?.Remove(@"maxAgeHours");
-                        }
-                        if (CliRuntime.WasSpecified(parseResult, Subpages))
-                        {
-                            __component1.AdditionalProperties?.Remove(@"subpages");
-                        }
-                        if (CliRuntime.WasSpecified(parseResult, ExtrasLinks) || CliRuntime.WasSpecified(parseResult, ExtrasImageLinks))
-                        {
-                            __component1.AdditionalProperties?.Remove(@"extras");
-                        }
-                        if (CliRuntime.WasSpecified(parseResult, Urls))
-                        {
-                            __component2.AdditionalProperties?.Remove(@"urls");
-                        }
-                        var request = new global::Exa.AllOf<global::Exa.GetContentsRequest2, global::Exa.ContentsRequest>(
-                            __component1, __component2);
-
+                        var ids = CliRuntime.WasSpecified(parseResult, Ids) ? parseResult.GetValue(Ids) : (__requestBase is { } __IdsBaseValue ? __IdsBaseValue.Ids : default);
+                        var urls = CliRuntime.WasSpecified(parseResult, Urls) ? parseResult.GetValue(Urls) : (__requestBase is { } __UrlsBaseValue ? __UrlsBaseValue.Urls : default);
+                        var compliance = CliRuntime.WasSpecified(parseResult, Compliance) ? parseResult.GetValue(Compliance) : (__requestBase is { } __ComplianceBaseValue ? __ComplianceBaseValue.Compliance : default);
+                        var userIdentifier = CliRuntime.WasSpecified(parseResult, UserIdentifier) ? parseResult.GetValue(UserIdentifier) : (__requestBase is { } __UserIdentifierBaseValue ? __UserIdentifierBaseValue.UserIdentifier : default);
+                        var text = CliRuntime.WasSpecified(parseResult, Text) ? parseResult.GetValue(Text) : (__requestBase is { } __TextBaseValue ? __TextBaseValue.Text : default);
+                        var highlights = CliRuntime.WasSpecified(parseResult, Highlights) ? parseResult.GetValue(Highlights) : (__requestBase is { } __HighlightsBaseValue ? __HighlightsBaseValue.Highlights : default);
+                        var summary = CliRuntime.WasSpecified(parseResult, Summary) ? parseResult.GetValue(Summary) : (__requestBase is { } __SummaryBaseValue ? __SummaryBaseValue.Summary : default);
+                        var extras = CliRuntime.WasSpecified(parseResult, Extras) ? parseResult.GetValue(Extras) : (__requestBase is { } __ExtrasBaseValue ? __ExtrasBaseValue.Extras : default);
+                        var livecrawlTimeout = CliRuntime.WasSpecified(parseResult, LivecrawlTimeout) ? parseResult.GetValue(LivecrawlTimeout) : (__requestBase is { } __LivecrawlTimeoutBaseValue ? __LivecrawlTimeoutBaseValue.LivecrawlTimeout : default);
+                        var maxAgeHours = CliRuntime.WasSpecified(parseResult, MaxAgeHours) ? parseResult.GetValue(MaxAgeHours) : (__requestBase is { } __MaxAgeHoursBaseValue ? __MaxAgeHoursBaseValue.MaxAgeHours : default);
+                        var snapshotAsOf = CliRuntime.WasSpecified(parseResult, SnapshotAsOf) ? parseResult.GetValue(SnapshotAsOf) : (__requestBase is { } __SnapshotAsOfBaseValue ? __SnapshotAsOfBaseValue.SnapshotAsOf : default);
+                        var subpages = CliRuntime.WasSpecified(parseResult, Subpages) ? parseResult.GetValue(Subpages) : (__requestBase is { } __SubpagesBaseValue ? __SubpagesBaseValue.Subpages : default);
+                        var subpageTarget = CliRuntime.WasSpecified(parseResult, SubpageTarget) ? parseResult.GetValue(SubpageTarget) : (__requestBase is { } __SubpageTargetBaseValue ? __SubpageTargetBaseValue.SubpageTarget : default);
+                        var context = CliRuntime.WasSpecified(parseResult, Context) ? parseResult.GetValue(Context) : (__requestBase is { } __ContextBaseValue ? __ContextBaseValue.Context : default);
+                        var livecrawl = CliRuntime.WasSpecified(parseResult, Livecrawl) ? parseResult.GetValue(Livecrawl) : (__requestBase is { } __LivecrawlBaseValue ? __LivecrawlBaseValue.Livecrawl : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
                                 var response = await client.GetContentsAsync(
-
-                                    request: request,
+                                    ids: ids,
+                                    urls: urls,
+                                    compliance: compliance,
+                                    userIdentifier: userIdentifier,
+                                    text: text,
+                                    highlights: highlights,
+                                    summary: summary,
+                                    extras: extras,
+                                    livecrawlTimeout: livecrawlTimeout,
+                                    maxAgeHours: maxAgeHours,
+                                    snapshotAsOf: snapshotAsOf,
+                                    subpages: subpages,
+                                    subpageTarget: subpageTarget,
+                                    context: context,
+                                    livecrawl: livecrawl,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

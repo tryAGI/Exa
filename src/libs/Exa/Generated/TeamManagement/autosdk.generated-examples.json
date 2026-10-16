@@ -1,0 +1,15 @@
+{
+  "Examples": [
+    {
+      "Order": 1,
+      "Title": "Get API key usage",
+      "Slug": "get-api-key-usage",
+      "Description": "Returns an API key\u0027s cost over a time period, in total and by price.",
+      "Language": "http",
+      "Code": "### Get API key usage\n# @name get-api-key-usage\nGET {{host}}/api-keys/{{id}}/usage?start_date=2025-01-01T00:00:00Z\u0026end_date=2025-01-31T23:59:59Z\u0026group_by=day\nx-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Usage data retrieved successfully\n# Content-Type: application/json\n# 400\n# Description: Bad Request - Invalid parameters\n# Content-Type: application/json\n# 401\n# Description: Unauthorized - Invalid or missing service key\n# Content-Type: application/json\n# 404\n# Description: Not Found - API key does not exist\n# Content-Type: application/json\n# 500\n# Description: Internal Server Error - Failed to fetch usage data\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "get-api-key-usage",
+      "Setup": null
+    }
+  ]
+}

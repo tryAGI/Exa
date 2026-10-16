@@ -16,6 +16,7 @@ internal static partial class DefaultApiGroupCommand
                          command.Subcommands.Add(FindSimilarCommandApiCommand.Create());
                          command.Subcommands.Add(GetContentsCommandApiCommand.Create());
                          command.Subcommands.Add(SearchCommandApiCommand.Create());
+                         command.Subcommands.Add(SearchAsStreamCommandApiCommand.Create());
         CustomizeCommand(ref command);
         return command;
     }

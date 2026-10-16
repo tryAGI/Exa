@@ -12,7 +12,7 @@ dotnet tool install --global Exa.CLI --prerelease
 
 ```bash
 exa --help
-exa default --help
+exa agent --help
 ```
 
 ## Customization

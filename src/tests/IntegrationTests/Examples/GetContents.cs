@@ -17,17 +17,15 @@ public partial class Tests
 
         //// Retrieve the text content of specific web pages by URL.
         var response = await client.GetContentsAsync(
-            new AllOf<GetContentsRequest2, ContentsRequest>(
-                value1: new GetContentsRequest2 { Urls = ["https://exa.ai"] },
-                value2: new ContentsRequest { Text = true }));
+            new ContentsRequest { Urls = ["https://exa.ai"], Text = true });
 
         response.Results.Should().NotBeNullOrEmpty();
         Console.WriteLine($"Retrieved contents for {response.Results!.Count} URL(s)");
 
         foreach (var result in response.Results)
         {
-            var text = result.ResultWithContentVariant2?.Text;
-            Console.WriteLine($"  - {result.Result?.Url}: {text?[..Math.Min(text.Length, 100)]}...");
+            var text = result.Text;
+            Console.WriteLine($"  - {result.Url}: {text?[..Math.Min(text.Length, 100)]}...");
         }
     }
 }

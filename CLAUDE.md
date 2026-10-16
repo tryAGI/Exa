@@ -2,8 +2,8 @@
 
 ## Overview
 
-Auto-generated C# SDK for [Exa](https://exa.ai/) — AI-powered web search, contents retrieval, find-similar, answer, and research endpoints.
-OpenAPI spec from the official [exa-labs/openapi-spec](https://github.com/exa-labs/openapi-spec) repo.
+Auto-generated C# SDK for [Exa](https://exa.ai/) — Search, Contents, Answer, Agent, Monitors, Batch, Websets, and Team Management APIs.
+OpenAPI specs from the official [Exa documentation deployment](https://exa.ai/docs/admin/openapi-spec).
 
 ## Build & Test
 
@@ -22,8 +22,12 @@ var client = new ExaClient(apiKey); // EXA_API_KEY env var
 
 ## Key Files
 
-- `src/libs/Exa/openapi.yaml` — OpenAPI spec (downloaded from exa-labs/openapi-spec)
-- `src/libs/Exa/generate.sh` — Downloads spec, runs autosdk with `--security-scheme Http:Header:Bearer`
+- `src/libs/Exa/openapi.yaml` — current Public API v2 spec (downloaded from exa.ai/docs/exa-spec.yaml)
+- `src/libs/Exa/generate.sh` — downloads both official specs; generates public clients with `--security-scheme Http:Header:Bearer`
 - `src/libs/Exa/Generated/` — **Never edit** — auto-generated code
 - `src/tests/IntegrationTests/Tests.cs` — Test helper with bearer auth
 - `src/tests/IntegrationTests/Examples/` — Example tests (also generate docs)
+
+- `src/libs/Exa/team-management-openapi.yaml` — Team Management spec; generated separately under `Exa.TeamManagement` using service-key `x-api-key` auth and the admin host.
+- `src/tests/IntegrationTests/Tests.ApiCoverage.cs` — no-cost HTTP contract tests for API routing, authentication, and search tool serialization.
+- `src/libs/Exa/Extensions/ClientRouting.cs` — supplies default request URLs for single-server tag clients in the mixed-server public specification without mutating shared HTTP client state.

@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace Exa.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class SearchMonitorContentsTextVerbosityNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Exa.SearchMonitorContentsTextVerbosity?>
+    {
+        /// <inheritdoc />
+        public override global::Exa.SearchMonitorContentsTextVerbosity? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::Exa.SearchMonitorContentsTextVerbosityExtensions.ToEnum(stringValue);
+                    }
+
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::Exa.SearchMonitorContentsTextVerbosity)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Exa.SearchMonitorContentsTextVerbosity?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::Exa.SearchMonitorContentsTextVerbosity? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::Exa.SearchMonitorContentsTextVerbosityExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}

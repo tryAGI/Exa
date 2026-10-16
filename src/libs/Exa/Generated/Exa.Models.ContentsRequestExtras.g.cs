@@ -9,22 +9,34 @@ namespace Exa
     public sealed partial class ContentsRequestExtras
     {
         /// <summary>
-        /// Number of URLs to return from each webpage.<br/>
-        /// Default Value: 0<br/>
-        /// Example: 1
+        ///
         /// </summary>
-        /// <example>1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("links")]
         public int? Links { get; set; }
 
         /// <summary>
-        /// Number of images to return for each result.<br/>
-        /// Default Value: 0<br/>
-        /// Example: 1
+        ///
         /// </summary>
-        /// <example>1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("imageLinks")]
         public int? ImageLinks { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("richImageLinks")]
+        public int? RichImageLinks { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("richLinks")]
+        public int? RichLinks { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("codeBlocks")]
+        public int? CodeBlocks { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -35,25 +47,26 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ContentsRequestExtras" /> class.
         /// </summary>
-        /// <param name="links">
-        /// Number of URLs to return from each webpage.<br/>
-        /// Default Value: 0<br/>
-        /// Example: 1
-        /// </param>
-        /// <param name="imageLinks">
-        /// Number of images to return for each result.<br/>
-        /// Default Value: 0<br/>
-        /// Example: 1
-        /// </param>
+        /// <param name="links"></param>
+        /// <param name="imageLinks"></param>
+        /// <param name="richImageLinks"></param>
+        /// <param name="richLinks"></param>
+        /// <param name="codeBlocks"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ContentsRequestExtras(
             int? links,
-            int? imageLinks)
+            int? imageLinks,
+            int? richImageLinks,
+            int? richLinks,
+            int? codeBlocks)
         {
             this.Links = links;
             this.ImageLinks = imageLinks;
+            this.RichImageLinks = richImageLinks;
+            this.RichLinks = richLinks;
+            this.CodeBlocks = codeBlocks;
         }
 
         /// <summary>

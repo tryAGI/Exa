@@ -6,86 +6,56 @@
 namespace Exa
 {
     /// <summary>
-    ///
+    /// Provide either `ids` or `urls`, but not both.
     /// </summary>
     public sealed partial class ContentsRequest
     {
         /// <summary>
+        /// Document IDs obtained from searches.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ids")]
+        public global::System.Collections.Generic.IList<string>? Ids { get; set; }
+
+        /// <summary>
+        /// URLs to crawl (backwards compatible with the `ids` parameter).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("urls")]
+        public global::System.Collections.Generic.IList<string>? Urls { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("compliance")]
+        public global::Exa.ContentsRequestCompliance? Compliance { get; set; }
+
+        /// <summary>
+        /// An opaque ID your platform assigns to the end user this request is made for, such as a UUID. Lets Exa attribute usage to that end user rather than your whole team. Must not contain personal information such as an email address, phone number, username, or name. Hash such values before sending them. 1 to 64 characters: letters, digits, underscores, and hyphens. Retained even when your team has Zero Data Retention enabled. Does not affect results.<br/>
+        /// Example: 7f3a9c52-1d4e-4b8a-9e60-2c5d8a1f0b37
+        /// </summary>
+        /// <example>7f3a9c52-1d4e-4b8a-9e60-2c5d8a1f0b37</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("userIdentifier")]
+        public string? UserIdentifier { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsRequestText>))]
-        public global::Exa.OneOf<bool?, global::Exa.ContentsRequestText>? Text { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.ContentsRequestTextVariant1>? Text { get; set; }
 
         /// <summary>
-        /// Text snippets the LLM identifies as most relevant from each page.
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("highlights")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsRequestHighlights>))]
-        public global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlights>? Highlights { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlightsVariant1>? Highlights { get; set; }
 
         /// <summary>
-        /// Summary of the webpage
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
         public global::Exa.ContentsRequestSummary? Summary { get; set; }
 
         /// <summary>
-        /// **Deprecated**: Use `maxAgeHours` instead for more precise control over content freshness.<br/>
-        /// Options for livecrawling pages.<br/>
-        /// 'never': Disable livecrawling (default for neural search).<br/>
-        /// 'fallback': Livecrawl when cache is empty.<br/>
-        /// 'preferred': Always try to livecrawl, but fall back to cache if crawling fails.<br/>
-        /// 'always': Always live-crawl, never use cache. Only use if you cannot tolerate any cached content. This option is not recommended unless consulted with the Exa team.<br/>
-        /// Example: preferred
-        /// </summary>
-        /// <example>preferred</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("livecrawl")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.ContentsRequestLivecrawlJsonConverter))]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Exa.ContentsRequestLivecrawl? Livecrawl { get; set; }
-
-        /// <summary>
-        /// The timeout for livecrawling in milliseconds.<br/>
-        /// Default Value: 10000<br/>
-        /// Example: 1000
-        /// </summary>
-        /// <example>1000</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("livecrawlTimeout")]
-        public int? LivecrawlTimeout { get; set; }
-
-        /// <summary>
-        /// Maximum age of cached content in hours. Controls when livecrawling is triggered based on content freshness.<br/>
-        /// - Positive value (e.g. 24): Use cached content if it's less than this many hours old, otherwise livecrawl.<br/>
-        /// - 0: Always livecrawl, never use cache.<br/>
-        /// - -1: Never livecrawl, always use cache.<br/>
-        /// - Omit (default): Livecrawl as fallback only when no cached content exists.<br/>
-        /// Example: 24
-        /// </summary>
-        /// <example>24</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("maxAgeHours")]
-        public int? MaxAgeHours { get; set; }
-
-        /// <summary>
-        /// The number of subpages to crawl. The actual number crawled may be limited by system constraints.<br/>
-        /// Default Value: 0<br/>
-        /// Example: 1
-        /// </summary>
-        /// <example>1</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("subpages")]
-        public int? Subpages { get; set; }
-
-        /// <summary>
-        /// Keyword to find specific subpages of search results. Can be a single string or an array of strings, comma delimited.<br/>
-        /// Example: sources
-        /// </summary>
-        /// <example>sources</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("subpageTarget")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
-        public global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? SubpageTarget { get; set; }
-
-        /// <summary>
-        /// Extra parameters to pass.
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extras")]
         public global::Exa.ContentsRequestExtras? Extras { get; set; }
@@ -93,9 +63,51 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("livecrawlTimeout")]
+        public int? LivecrawlTimeout { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("maxAgeHours")]
+        public int? MaxAgeHours { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("snapshotAsOf")]
+        public global::System.DateTime? SnapshotAsOf { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("subpages")]
+        public int? Subpages { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("subpageTarget")]
+        public global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? SubpageTarget { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsRequestContext>))]
-        public global::Exa.OneOf<bool?, global::Exa.ContentsRequestContext>? Context { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.ContentsRequestContextVariant1>? Context { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("livecrawl")]
+        public global::Exa.ContentsRequestLivecrawl? Livecrawl { get; set; }
+
+        /// <summary>
+        /// Deprecated. Use `snapshotAsOf` instead. Alias of snapshotAsOf with identical behavior.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("crawledBeforeDate")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public string? CrawledBeforeDate { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -106,62 +118,63 @@ namespace Exa
         /// <summary>
         /// Initializes a new instance of the <see cref="ContentsRequest" /> class.
         /// </summary>
+        /// <param name="ids">
+        /// Document IDs obtained from searches.
+        /// </param>
+        /// <param name="urls">
+        /// URLs to crawl (backwards compatible with the `ids` parameter).
+        /// </param>
+        /// <param name="compliance"></param>
+        /// <param name="userIdentifier">
+        /// An opaque ID your platform assigns to the end user this request is made for, such as a UUID. Lets Exa attribute usage to that end user rather than your whole team. Must not contain personal information such as an email address, phone number, username, or name. Hash such values before sending them. 1 to 64 characters: letters, digits, underscores, and hyphens. Retained even when your team has Zero Data Retention enabled. Does not affect results.<br/>
+        /// Example: 7f3a9c52-1d4e-4b8a-9e60-2c5d8a1f0b37
+        /// </param>
         /// <param name="text"></param>
-        /// <param name="highlights">
-        /// Text snippets the LLM identifies as most relevant from each page.
-        /// </param>
-        /// <param name="summary">
-        /// Summary of the webpage
-        /// </param>
-        /// <param name="livecrawlTimeout">
-        /// The timeout for livecrawling in milliseconds.<br/>
-        /// Default Value: 10000<br/>
-        /// Example: 1000
-        /// </param>
-        /// <param name="maxAgeHours">
-        /// Maximum age of cached content in hours. Controls when livecrawling is triggered based on content freshness.<br/>
-        /// - Positive value (e.g. 24): Use cached content if it's less than this many hours old, otherwise livecrawl.<br/>
-        /// - 0: Always livecrawl, never use cache.<br/>
-        /// - -1: Never livecrawl, always use cache.<br/>
-        /// - Omit (default): Livecrawl as fallback only when no cached content exists.<br/>
-        /// Example: 24
-        /// </param>
-        /// <param name="subpages">
-        /// The number of subpages to crawl. The actual number crawled may be limited by system constraints.<br/>
-        /// Default Value: 0<br/>
-        /// Example: 1
-        /// </param>
-        /// <param name="subpageTarget">
-        /// Keyword to find specific subpages of search results. Can be a single string or an array of strings, comma delimited.<br/>
-        /// Example: sources
-        /// </param>
-        /// <param name="extras">
-        /// Extra parameters to pass.
-        /// </param>
+        /// <param name="highlights"></param>
+        /// <param name="summary"></param>
+        /// <param name="extras"></param>
+        /// <param name="livecrawlTimeout"></param>
+        /// <param name="maxAgeHours"></param>
+        /// <param name="snapshotAsOf"></param>
+        /// <param name="subpages"></param>
+        /// <param name="subpageTarget"></param>
         /// <param name="context"></param>
+        /// <param name="livecrawl"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ContentsRequest(
-            global::Exa.OneOf<bool?, global::Exa.ContentsRequestText>? text,
-            global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlights>? highlights,
+            global::System.Collections.Generic.IList<string>? ids,
+            global::System.Collections.Generic.IList<string>? urls,
+            global::Exa.ContentsRequestCompliance? compliance,
+            string? userIdentifier,
+            global::Exa.OneOf<bool?, global::Exa.ContentsRequestTextVariant1>? text,
+            global::Exa.OneOf<bool?, global::Exa.ContentsRequestHighlightsVariant1>? highlights,
             global::Exa.ContentsRequestSummary? summary,
+            global::Exa.ContentsRequestExtras? extras,
             int? livecrawlTimeout,
             int? maxAgeHours,
+            global::System.DateTime? snapshotAsOf,
             int? subpages,
             global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? subpageTarget,
-            global::Exa.ContentsRequestExtras? extras,
-            global::Exa.OneOf<bool?, global::Exa.ContentsRequestContext>? context)
+            global::Exa.OneOf<bool?, global::Exa.ContentsRequestContextVariant1>? context,
+            global::Exa.ContentsRequestLivecrawl? livecrawl)
         {
+            this.Ids = ids;
+            this.Urls = urls;
+            this.Compliance = compliance;
+            this.UserIdentifier = userIdentifier;
             this.Text = text;
             this.Highlights = highlights;
             this.Summary = summary;
+            this.Extras = extras;
             this.LivecrawlTimeout = livecrawlTimeout;
             this.MaxAgeHours = maxAgeHours;
+            this.SnapshotAsOf = snapshotAsOf;
             this.Subpages = subpages;
             this.SubpageTarget = subpageTarget;
-            this.Extras = extras;
             this.Context = context;
+            this.Livecrawl = livecrawl;
         }
 
         /// <summary>

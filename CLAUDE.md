@@ -30,4 +30,3 @@ var client = new ExaClient(apiKey); // EXA_API_KEY env var
 
 - `src/libs/Exa/team-management-openapi.yaml` — Team Management spec; generated separately under `Exa.TeamManagement` using service-key `x-api-key` auth and the admin host.
 - `src/tests/IntegrationTests/Tests.ApiCoverage.cs` — no-cost HTTP contract tests for API routing, authentication, and search tool serialization.
-- `src/libs/Exa/Extensions/ClientRouting.cs` — supplies default request URLs for single-server tag clients in the mixed-server public specification without mutating shared HTTP client state.

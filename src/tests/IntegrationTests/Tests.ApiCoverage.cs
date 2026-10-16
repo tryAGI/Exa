@@ -11,6 +11,8 @@ public partial class Tests
     [DataRow("agent", "/agent/runs")]
     [DataRow("batches", "/batches")]
     [DataRow("monitors", "/monitors")]
+    [DataRow("monitor-runs", "/monitors/test-monitor/runs")]
+    [DataRow("monitor-run", "/monitors/test-monitor/runs/test-run")]
     [DataRow("websets", "/websets/v0/websets")]
     [DataRow("webset-monitors", "/websets/v0/monitors")]
     [DataRow("imports", "/websets/v0/imports")]
@@ -40,6 +42,8 @@ public partial class Tests
             "agent" => async () => { await client.Agent.ListAgentRunsAsync(); },
             "batches" => async () => { await client.Batches.ListBatchesAsync(ListBatchesExaBeta.Batches20260606); },
             "monitors" => async () => { await client.Monitors.ListMonitorsAsync(); },
+            "monitor-runs" => async () => { await client.Runs.ListRunsAsync("test-monitor"); },
+            "monitor-run" => async () => { await client.Runs.GetRunAsync("test-monitor", "test-run"); },
             "websets" => async () => { await client.Websets.WebsetsListAsync(); },
             "webset-monitors" => async () => { await client.Monitors.MonitorsListAsync(); },
             "imports" => async () => { await client.Imports.ImportsListAsync(); },

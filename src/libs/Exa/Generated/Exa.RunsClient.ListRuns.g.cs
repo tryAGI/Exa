@@ -144,7 +144,7 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: $"/monitors/{id}/runs",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.exa.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("limit", limit?.ToString())

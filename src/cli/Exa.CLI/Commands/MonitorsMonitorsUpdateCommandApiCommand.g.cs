@@ -116,7 +116,7 @@ Updates a monitor configuration.");
                                 }
                                 : __CadenceBase;
 
-                        var __BehaviorBase = __requestBase is { } __BehaviorBaseValue ? __BehaviorBaseValue.Behavior : default;                        var behaviorType = parseResult.GetValue(BehaviorOptions.Type);
+                        var __BehaviorBase = __requestBase is { } __BehaviorBaseValue ? __BehaviorBaseValue.Behavior : default;                        var behaviorType = parseResult.GetRequiredValue(BehaviorOptions.Type);
                         var __BehaviorSpecified = CliRuntime.WasSpecified(parseResult, BehaviorOptions.Type);
                         var behavior =
                             __BehaviorSpecified || __BehaviorBase is not null

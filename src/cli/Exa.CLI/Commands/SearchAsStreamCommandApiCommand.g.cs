@@ -123,8 +123,8 @@ Perform a search with an Exa prompt-engineered query and retrieve a list of rele
                         command.Options.Add(SearchRequestOptionSetOptions.UserIdentifier);
                         command.Options.Add(SearchRequestOptionSetOptions.SystemPrompt);                        command.Options.Add(ContentsOptions.LivecrawlTimeout);
                         command.Options.Add(ContentsOptions.MaxAgeHours);
-                        command.Options.Add(ContentsOptions.Subpages);
                         command.Options.Add(ContentsOptions.CrawledBeforeDate);
+                        command.Options.Add(ContentsOptions.Subpages);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -171,17 +171,17 @@ Perform a search with an Exa prompt-engineered query and retrieve a list of rele
 
                         var __ContentsBase = __requestBase is { } __ContentsBaseValue ? __ContentsBaseValue.Contents : default;                        var contentsLivecrawlTimeout = CliRuntime.WasSpecified(parseResult, ContentsOptions.LivecrawlTimeout) ? parseResult.GetValue(ContentsOptions.LivecrawlTimeout) : (__ContentsBase is { } __ContentslivecrawlTimeoutBaseValue ? __ContentslivecrawlTimeoutBaseValue.LivecrawlTimeout : default);
                         var contentsMaxAgeHours = CliRuntime.WasSpecified(parseResult, ContentsOptions.MaxAgeHours) ? parseResult.GetValue(ContentsOptions.MaxAgeHours) : (__ContentsBase is { } __ContentsmaxAgeHoursBaseValue ? __ContentsmaxAgeHoursBaseValue.MaxAgeHours : default);
-                        var contentsSubpages = CliRuntime.WasSpecified(parseResult, ContentsOptions.Subpages) ? parseResult.GetValue(ContentsOptions.Subpages) : (__ContentsBase is { } __ContentssubpagesBaseValue ? __ContentssubpagesBaseValue.Subpages : default);
                         var contentsCrawledBeforeDate = CliRuntime.WasSpecified(parseResult, ContentsOptions.CrawledBeforeDate) ? parseResult.GetValue(ContentsOptions.CrawledBeforeDate) : (__ContentsBase is { } __ContentscrawledBeforeDateBaseValue ? __ContentscrawledBeforeDateBaseValue.CrawledBeforeDate : default);
-                        var __ContentsSpecified = CliRuntime.WasSpecified(parseResult, ContentsOptions.LivecrawlTimeout) || CliRuntime.WasSpecified(parseResult, ContentsOptions.MaxAgeHours) || CliRuntime.WasSpecified(parseResult, ContentsOptions.Subpages) || CliRuntime.WasSpecified(parseResult, ContentsOptions.CrawledBeforeDate);
+                        var contentsSubpages = CliRuntime.WasSpecified(parseResult, ContentsOptions.Subpages) ? parseResult.GetValue(ContentsOptions.Subpages) : (__ContentsBase is { } __ContentssubpagesBaseValue ? __ContentssubpagesBaseValue.Subpages : default);
+                        var __ContentsSpecified = CliRuntime.WasSpecified(parseResult, ContentsOptions.LivecrawlTimeout) || CliRuntime.WasSpecified(parseResult, ContentsOptions.MaxAgeHours) || CliRuntime.WasSpecified(parseResult, ContentsOptions.CrawledBeforeDate) || CliRuntime.WasSpecified(parseResult, ContentsOptions.Subpages);
                         var contents =
                             __ContentsSpecified || __ContentsBase is not null
                                 ? new global::Exa.ContentsOptions
                                 {
 	                                LivecrawlTimeout = contentsLivecrawlTimeout,
                                 MaxAgeHours = contentsMaxAgeHours,
-                                Subpages = contentsSubpages,
                                 CrawledBeforeDate = contentsCrawledBeforeDate,
+                                Subpages = contentsSubpages,
 
                                 }
                                 : __ContentsBase;

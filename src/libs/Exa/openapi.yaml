@@ -3713,16 +3713,20 @@ components:
                     - type: integer
                       minimum: 0
                       maximum: 1000
-                      description: Number of rich links to return for each result.
                       default: 0
+                      description: Deprecated. Number of rich links to return for each result.
+                      x-exa-lifecycle: deprecated
+                      deprecated: true
                     - type: "null"
                 codeBlocks:
                   anyOf:
                     - type: integer
                       minimum: 0
                       maximum: 1000
-                      description: Number of code blocks to return for each result.
                       default: 0
+                      description: Deprecated. Number of code blocks to return for each result.
+                      x-exa-lifecycle: deprecated
+                      deprecated: true
                     - type: "null"
               description: Extra parameters to pass.
             - type: "null"
@@ -3751,29 +3755,6 @@ components:
                 - type: string
                   description: ISO 8601 date (`YYYY-MM-DD`), interpreted as midnight UTC.
                   format: date
-            - type: "null"
-        subpages:
-          anyOf:
-            - type: integer
-              minimum: 0
-              maximum: 100
-              description: The number of subpages to crawl. The actual number crawled may be limited by system constraints.
-              default: 0
-            - type: "null"
-        subpageTarget:
-          anyOf:
-            - description: Term to find specific subpages of search results. Can be a single string or an array of strings.
-              oneOf:
-                - type: string
-                  minLength: 1
-                  maxLength: 100
-                - minItems: 0
-                  maxItems: 100
-                  type: array
-                  items:
-                    type: string
-                    minLength: 1
-                    maxLength: 100
             - type: "null"
         context:
           anyOf:
@@ -3827,6 +3808,33 @@ components:
           x-exa-lifecycle: deprecated
           deprecated: true
           x-exa-replacement: snapshotAsOf
+        subpages:
+          anyOf:
+            - type: integer
+              minimum: 0
+              maximum: 100
+              default: 0
+              description: Deprecated. The number of subpages to crawl for each result. The actual number crawled may be limited by system constraints. To crawl subpages, send the result URLs to `/contents` with `subpages`.
+              x-exa-lifecycle: deprecated
+              deprecated: true
+            - type: "null"
+        subpageTarget:
+          anyOf:
+            - description: Deprecated. Term to find specific subpages of search results. Can be a single string or an array of strings. To target subpages, send the result URLs to `/contents` with `subpageTarget`.
+              x-exa-lifecycle: deprecated
+              deprecated: true
+              oneOf:
+                - type: string
+                  minLength: 1
+                  maxLength: 100
+                - minItems: 0
+                  maxItems: 100
+                  type: array
+                  items:
+                    type: string
+                    minLength: 1
+                    maxLength: 100
+            - type: "null"
     OutputSchemaText:
       type: object
       properties:
@@ -4594,7 +4602,7 @@ components:
               title: Advanced highlights options
               description: "Advanced options for steering highlight extraction. Pass highlights: true for the highest-quality default; supply this object only when you need to guide selection with your own query."
         summary:
-          description: Return an LLM-generated summary. Pass `true` for defaults, or an object with `query` and `maxTokens`.
+          description: Return an LLM-generated summary. Pass `true` for defaults, or an object with `query`.
           oneOf:
             - type: boolean
             - $ref: "#/components/schemas/SummaryWithMaxTokensOptions"
@@ -4630,16 +4638,20 @@ components:
                 - type: integer
                   minimum: 0
                   maximum: 1000
-                  description: Number of rich links to return for each result.
                   default: 0
+                  description: Deprecated. Number of rich links to return for each result.
+                  x-exa-lifecycle: deprecated
+                  deprecated: true
                 - type: "null"
             codeBlocks:
               anyOf:
                 - type: integer
                   minimum: 0
                   maximum: 1000
-                  description: Number of code blocks to return for each result.
                   default: 0
+                  description: Deprecated. Number of code blocks to return for each result.
+                  x-exa-lifecycle: deprecated
+                  deprecated: true
                 - type: "null"
           description: Extra parameters to pass.
         livecrawl:
@@ -4726,7 +4738,9 @@ components:
         maxTokens:
           type: integer
           minimum: 1
-          description: Maximum tokens for the generated summary.
+          description: Deprecated. Maximum tokens for the generated summary.
+          x-exa-lifecycle: deprecated
+          deprecated: true
     SearchMonitorTrigger:
       type: object
       properties:
@@ -8129,7 +8143,7 @@ components:
               title: Advanced highlights options
               description: "Advanced options for steering highlight extraction. Pass highlights: true for the highest-quality default; supply this object only when you need to guide selection with your own query."
         summary:
-          description: Return an LLM-generated summary. Pass `true` for defaults, or an object with `query` and `maxTokens`.
+          description: Return an LLM-generated summary. Pass `true` for defaults, or an object with `query`.
           oneOf:
             - type: boolean
             - $ref: "#/components/schemas/SummaryWithMaxTokensOptionsOutput"
@@ -8165,16 +8179,20 @@ components:
                 - type: integer
                   minimum: 0
                   maximum: 1000
-                  description: Number of rich links to return for each result.
                   default: 0
+                  description: Deprecated. Number of rich links to return for each result.
+                  x-exa-lifecycle: deprecated
+                  deprecated: true
                 - type: "null"
             codeBlocks:
               anyOf:
                 - type: integer
                   minimum: 0
                   maximum: 1000
-                  description: Number of code blocks to return for each result.
                   default: 0
+                  description: Deprecated. Number of code blocks to return for each result.
+                  x-exa-lifecycle: deprecated
+                  deprecated: true
                 - type: "null"
           additionalProperties: false
           description: Extra parameters to pass.
@@ -8264,7 +8282,9 @@ components:
         maxTokens:
           type: integer
           minimum: 1
-          description: Maximum tokens for the generated summary.
+          description: Deprecated. Maximum tokens for the generated summary.
+          x-exa-lifecycle: deprecated
+          deprecated: true
       additionalProperties: false
     SearchMonitorTriggerOutput:
       type: object

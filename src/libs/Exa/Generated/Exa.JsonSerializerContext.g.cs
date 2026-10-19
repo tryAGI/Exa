@@ -55,7 +55,6 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsOptionsHighlightsVariant1Verbosity), TypeInfoPropertyName = "ContentsOptionsHighlightsVariant1Verbosity2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsOptionsSummary))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsOptionsExtras))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>))]
     #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.ContentsOptionsContextVariant1>))]
     #pragma warning restore CS0618
@@ -63,6 +62,7 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsOptionsContextVariant1))]
     #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsOptionsLivecrawl), TypeInfoPropertyName = "ContentsOptionsLivecrawl2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ContentsRequestCompliance), TypeInfoPropertyName = "ContentsRequestCompliance2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.ContentsRequestTextVariant1>))]
@@ -894,10 +894,10 @@ namespace Exa
             #pragma warning restore CS0618
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsOptionsTextVariant1>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsOptionsHighlightsVariant1>());
-            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             #pragma warning disable CS0618 // Converter references a deprecated API model.
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsOptionsContextVariant1>());
             #pragma warning restore CS0618
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsRequestTextVariant1>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.ContentsRequestHighlightsVariant1>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());

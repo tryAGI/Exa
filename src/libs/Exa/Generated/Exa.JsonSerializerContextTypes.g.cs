@@ -177,19 +177,19 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? Type36 { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.ContentsOptionsContextVariant1>? Type36 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<bool?, global::Exa.ContentsOptionsContextVariant1>? Type37 { get; set; }
+        public global::Exa.ContentsOptionsContextVariant1? Type37 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ContentsOptionsContextVariant1? Type38 { get; set; }
+        public global::Exa.ContentsOptionsLivecrawl? Type38 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ContentsOptionsLivecrawl? Type39 { get; set; }
+        public global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? Type39 { get; set; }
         /// <summary>
         ///
         /// </summary>

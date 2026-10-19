@@ -55,18 +55,6 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("subpages")]
-        public int? Subpages { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("subpageTarget")]
-        public global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? SubpageTarget { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
         public global::Exa.OneOf<bool?, global::Exa.ContentsOptionsContextVariant1>? Context { get; set; }
 
@@ -84,6 +72,18 @@ namespace Exa
         public string? CrawledBeforeDate { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("subpages")]
+        public int? Subpages { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("subpageTarget")]
+        public global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? SubpageTarget { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -99,10 +99,10 @@ namespace Exa
         /// <param name="livecrawlTimeout"></param>
         /// <param name="maxAgeHours"></param>
         /// <param name="snapshotAsOf"></param>
-        /// <param name="subpages"></param>
-        /// <param name="subpageTarget"></param>
         /// <param name="context"></param>
         /// <param name="livecrawl"></param>
+        /// <param name="subpages"></param>
+        /// <param name="subpageTarget"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -114,10 +114,10 @@ namespace Exa
             int? livecrawlTimeout,
             int? maxAgeHours,
             global::System.DateTime? snapshotAsOf,
-            int? subpages,
-            global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? subpageTarget,
             global::Exa.OneOf<bool?, global::Exa.ContentsOptionsContextVariant1>? context,
-            global::Exa.ContentsOptionsLivecrawl? livecrawl)
+            global::Exa.ContentsOptionsLivecrawl? livecrawl,
+            int? subpages,
+            global::Exa.OneOf<string, global::System.Collections.Generic.IList<string>>? subpageTarget)
         {
             this.Text = text;
             this.Highlights = highlights;
@@ -126,10 +126,10 @@ namespace Exa
             this.LivecrawlTimeout = livecrawlTimeout;
             this.MaxAgeHours = maxAgeHours;
             this.SnapshotAsOf = snapshotAsOf;
-            this.Subpages = subpages;
-            this.SubpageTarget = subpageTarget;
             this.Context = context;
             this.Livecrawl = livecrawl;
+            this.Subpages = subpages;
+            this.SubpageTarget = subpageTarget;
         }
 
         /// <summary>

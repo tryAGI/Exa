@@ -7,8 +7,8 @@ namespace Exa.CLI.Commands;
 internal sealed record ContentsOptionsOptionSet(
     Option<int?> LivecrawlTimeout,
                      Option<int?> MaxAgeHours,
-                     Option<int?> Subpages,
-                     Option<string?> CrawledBeforeDate)
+                     Option<string?> CrawledBeforeDate,
+                     Option<int?> Subpages)
 {
     public static ContentsOptionsOptionSet Create(string? prefix = null)
     {
@@ -24,13 +24,13 @@ internal sealed record ContentsOptionsOptionSet(
                 {
                     Description = @"",
                 },
-                Subpages: new Option<int?>($"--{normalizedPrefix}subpages")
-                {
-                    Description = @"",
-                },
                 CrawledBeforeDate: new Option<string?>($"--{normalizedPrefix}crawled-before-date")
                 {
                     Description = @"Deprecated. Use `snapshotAsOf` instead. Alias of snapshotAsOf with identical behavior.",
+                },
+                Subpages: new Option<int?>($"--{normalizedPrefix}subpages")
+                {
+                    Description = @"",
                 }
         );
     }

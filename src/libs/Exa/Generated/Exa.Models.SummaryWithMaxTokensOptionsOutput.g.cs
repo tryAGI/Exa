@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Exa
@@ -15,9 +17,10 @@ namespace Exa
         public string? Query { get; set; }
 
         /// <summary>
-        /// Maximum tokens for the generated summary.
+        /// Deprecated. Maximum tokens for the generated summary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxTokens")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public int? MaxTokens { get; set; }
 
         /// <summary>
@@ -30,18 +33,13 @@ namespace Exa
         /// Initializes a new instance of the <see cref="SummaryWithMaxTokensOptionsOutput" /> class.
         /// </summary>
         /// <param name="query"></param>
-        /// <param name="maxTokens">
-        /// Maximum tokens for the generated summary.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SummaryWithMaxTokensOptionsOutput(
-            string? query,
-            int? maxTokens)
+            string? query)
         {
             this.Query = query;
-            this.MaxTokens = maxTokens;
         }
 
         /// <summary>

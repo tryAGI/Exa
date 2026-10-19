@@ -25,7 +25,7 @@ namespace Exa
         public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputHighlights>? Highlights { get; set; }
 
         /// <summary>
-        /// Return an LLM-generated summary. Pass `true` for defaults, or an object with `query` and `maxTokens`.
+        /// Return an LLM-generated summary. Pass `true` for defaults, or an object with `query`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SummaryWithMaxTokensOptionsOutput>))]
@@ -100,7 +100,7 @@ namespace Exa
         /// Text snippets the LLM identifies as most relevant from each page.
         /// </param>
         /// <param name="summary">
-        /// Return an LLM-generated summary. Pass `true` for defaults, or an object with `query` and `maxTokens`.
+        /// Return an LLM-generated summary. Pass `true` for defaults, or an object with `query`.
         /// </param>
         /// <param name="extras">
         /// Extra parameters to pass.

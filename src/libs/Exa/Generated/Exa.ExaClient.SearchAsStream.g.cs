@@ -445,12 +445,13 @@ namespace Exa
         /// <param name="additionalQueries"></param>
         /// <param name="type">
         /// The search mode to use. Defaults to `auto`, a balanced mode recommended for most applications.<br/>
-        /// - `instant`: Optimized for minimum response time, trading some search depth for speed in real-time experiences such as chat, voice agents, and autocomplete.<br/>
-        /// - `fast`: Returns high-quality results with reduced latency, making it a good fit for user-facing search and interactive workflows.<br/>
         /// - `auto`: The default. A balanced mode that optimizes for both quality and speed and is recommended for most applications.<br/>
+        /// - `lite`: Low-cost, low-latency search for real-time and interactive experiences such as chat, voice agents, and autocomplete. Accepts only `query` (a single string), `objective`, `userIdentifier`, `metadata`, `category`, `numResults`, `contents.highlights`, `contents.text`, `contents.snapshotAsOf`, `userLocation`, `includeDomains`, `excludeDomains`, `startPublishedDate`, `endPublishedDate`, `moderation`, and `compliance`; a request that sets any other parameter is rejected. Serves cached content only; it never fetches live, so the freshness options are rejected.<br/>
         /// - `deep-lite`: Performs lightweight research with synthesized results and a consistent 4-second latency, lower than full deep search.<br/>
         /// - `deep`: Conducts comprehensive multi-step research with synthesis.<br/>
-        /// - `deep-reasoning`: Adds stronger reasoning to `deep` for complex analysis and decision-making tasks.<br/>
+        /// - `instant`: Legacy. Use `lite` instead. Runs a minimum-latency search that trades some search depth for speed. Unlike `lite`, it accepts every search parameter.<br/>
+        /// - `fast`: Legacy. Use `lite` instead. Runs a reduced-latency search for user-facing and interactive workflows. Unlike `lite`, it accepts every search parameter.<br/>
+        /// - `deep-reasoning`: Legacy. Use `deep` instead. Runs `deep` with stronger reasoning at each step, for complex analysis and decision-making tasks. For agentic, multi-step research, use the Agent API.<br/>
         /// Default Value: auto
         /// </param>
         /// <param name="category"></param>

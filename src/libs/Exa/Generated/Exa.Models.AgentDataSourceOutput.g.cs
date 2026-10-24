@@ -12,9 +12,8 @@ namespace Exa
         /// Exa Connect data provider to enable for the run. All provider tools are available by default.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.AgentDataSourceProviderJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Exa.AgentDataSourceProvider Provider { get; set; }
+        public required string Provider { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -32,9 +31,9 @@ namespace Exa
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentDataSourceOutput(
-            global::Exa.AgentDataSourceProvider provider)
+            string provider)
         {
-            this.Provider = provider;
+            this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
         }
 
         /// <summary>

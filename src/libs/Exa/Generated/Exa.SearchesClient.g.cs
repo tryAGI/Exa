@@ -37,14 +37,14 @@ namespace Exa
 
         internal global::Exa.AutoSDKServerConfiguration AutoSDKServerConfiguration { get; set; } = new global::Exa.AutoSDKServerConfiguration();
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Exa.SearchesSourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext>? JsonSerializerContextProvider { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
-            get => JsonSerializerContextProvider.Value;
+            get => JsonSerializerContextProvider?.Value ?? global::Exa.SearchesSourceGenerationContext.Default;
             set => JsonSerializerContextProvider = new(() => value);
         }
 

@@ -31,7 +31,7 @@ namespace Exa
         public required global::Exa.AgentRunStatus Status { get; set; }
 
         /// <summary>
-        /// Why the run stopped. `null` while the run is queued or running.
+        /// Why the run stopped. `null` while the run is queued or running. Every reason except `error` and `cancelled` means the run completed and returned what it found. Clients should accept values not listed here.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stopReason")]
         public global::Exa.AgentStopReason? StopReason { get; set; }
@@ -63,7 +63,7 @@ namespace Exa
         public required global::Exa.AgentRunOutput Output { get; set; }
 
         /// <summary>
-        ///
+        /// Billed usage for the run. When an `auto` or `ultra` run's metered cost exceeds `budget.maxCostDollars`, the run is billed the budget and each quantity except `dataSources` is scaled down in proportion, so quantities can be fractional.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -93,10 +93,12 @@ namespace Exa
         /// When the run was created
         /// </param>
         /// <param name="output"></param>
-        /// <param name="usage"></param>
+        /// <param name="usage">
+        /// Billed usage for the run. When an `auto` or `ultra` run's metered cost exceeds `budget.maxCostDollars`, the run is billed the budget and each quantity except `dataSources` is scaled down in proportion, so quantities can be fractional.
+        /// </param>
         /// <param name="costDollars"></param>
         /// <param name="stopReason">
-        /// Why the run stopped. `null` while the run is queued or running.
+        /// Why the run stopped. `null` while the run is queued or running. Every reason except `error` and `cancelled` means the run completed and returned what it found. Clients should accept values not listed here.
         /// </param>
         /// <param name="completedAt"></param>
         /// <param name="request"></param>

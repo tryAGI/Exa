@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    ///
+    /// Billed usage for the run. When an `auto` or `ultra` run's metered cost exceeds `budget.maxCostDollars`, the run is billed the budget and each quantity except `dataSources` is scaled down in proportion, so quantities can be fractional.
     /// </summary>
     public sealed partial class AgentUsage
     {
@@ -20,21 +20,21 @@ namespace Exa
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("searches")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Searches { get; set; }
+        public required double Searches { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("emails")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Emails { get; set; }
+        public required double Emails { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phoneNumbers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int PhoneNumbers { get; set; }
+        public required double PhoneNumbers { get; set; }
 
         /// <summary>
         /// Per-provider tool call counts for Exa Connect data sources used during the run. Keys are provider names (e.g. `fiber`, `similarweb`). Only providers with non-zero usage are included.
@@ -63,9 +63,9 @@ namespace Exa
 #endif
         public AgentUsage(
             double agentComputeUnits,
-            int searches,
-            int emails,
-            int phoneNumbers,
+            double searches,
+            double emails,
+            double phoneNumbers,
             global::System.Collections.Generic.Dictionary<string, int>? dataSources)
         {
             this.AgentComputeUnits = agentComputeUnits;

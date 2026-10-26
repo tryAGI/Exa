@@ -3294,7 +3294,7 @@ components:
               title: auto
             - type: string
               const: lite
-              description: Low-cost, low-latency search for real-time and interactive experiences such as chat, voice agents, and autocomplete. Accepts only `query` (a single string), `objective`, `userIdentifier`, `metadata`, `category`, `numResults`, `contents.highlights`, `contents.text`, `contents.snapshotAsOf`, `userLocation`, `includeDomains`, `excludeDomains`, `startPublishedDate`, `endPublishedDate`, `moderation`, and `compliance`; a request that sets any other parameter is rejected. Serves cached content only; it never fetches live, so the freshness options are rejected.
+              description: Low-cost, low-latency search for real-time and interactive experiences such as chat, voice agents, and autocomplete. Accepts only `query` (a single string), `objective`, `userIdentifier`, `metadata`, `category`, `numResults`, `contents.highlights`, `contents.text`, `contents.snapshotAsOf`, `userLocation`, `includeDomains`, `excludeDomains`, `startPublishedDate`, `endPublishedDate`, `moderation`, and `compliance`; a request that sets any other parameter is rejected. Lite serves content directly from Exa’s regularly refreshed search index, without fetching pages at query time. Freshness options that require live fetching are not supported.
               title: lite
             - type: string
               const: deep-lite
@@ -3338,7 +3338,7 @@ components:
             The search mode to use. Defaults to `auto`, a balanced mode recommended for most applications.
 
             - `auto`: The default. A balanced mode that optimizes for both quality and speed and is recommended for most applications.
-            - `lite`: Low-cost, low-latency search for real-time and interactive experiences such as chat, voice agents, and autocomplete. Accepts only `query` (a single string), `objective`, `userIdentifier`, `metadata`, `category`, `numResults`, `contents.highlights`, `contents.text`, `contents.snapshotAsOf`, `userLocation`, `includeDomains`, `excludeDomains`, `startPublishedDate`, `endPublishedDate`, `moderation`, and `compliance`; a request that sets any other parameter is rejected. Serves cached content only; it never fetches live, so the freshness options are rejected.
+            - `lite`: Low-cost, low-latency search for real-time and interactive experiences such as chat, voice agents, and autocomplete. Accepts only `query` (a single string), `objective`, `userIdentifier`, `metadata`, `category`, `numResults`, `contents.highlights`, `contents.text`, `contents.snapshotAsOf`, `userLocation`, `includeDomains`, `excludeDomains`, `startPublishedDate`, `endPublishedDate`, `moderation`, and `compliance`; a request that sets any other parameter is rejected. Lite serves content directly from Exa’s regularly refreshed search index, without fetching pages at query time. Freshness options that require live fetching are not supported.
             - `deep-lite`: Performs lightweight research with synthesized results and a consistent 4-second latency, lower than full deep search.
             - `deep`: Conducts comprehensive multi-step research with synthesis.
             - `instant`: Legacy. Use `lite` instead. Runs a minimum-latency search that trades some search depth for speed. Unlike `lite`, it accepts every search parameter.
@@ -5022,17 +5022,8 @@ components:
         - provider
     AgentDataSourceProvider:
       type: string
-      enum:
-        - fiber
-        - financial_datasets
-        - similarweb
-        - baselayer
-        - affiliate
-        - particle
-        - jinko
-        - polymarket
-        - macrobond
-      description: Identifier of an Exa Connect data provider.
+      minLength: 1
+      description: Identifier of an Exa Connect data provider, such as `fiber` or `financial_datasets`. A team can use the self-serve providers and any provider enabled for it; requesting any other provider returns a 400.
     AgentBudget:
       type: object
       properties:
@@ -6002,7 +5993,7 @@ components:
           anyOf:
             - $ref: "#/components/schemas/AgentStopReason"
             - type: "null"
-          description: Why the run stopped. `null` while the run is queued or running.
+          description: Why the run stopped. `null` while the run is queued or running. Every reason except `error` and `cancelled` means the run completed and returned what it found. Clients should accept values not listed here.
         createdAt:
           type: string
           format: date-time
@@ -6044,14 +6035,33 @@ components:
         - failed
         - cancelled
     AgentStopReason:
-      type: string
-      enum:
-        - schema_satisfied
-        - budget_reached
-        - time_limit_reached
-        - stopped
-        - error
-        - cancelled
+      anyOf:
+        - type: string
+          const: schema_satisfied
+          description: The agent finished the task.
+        - type: string
+          const: budget_reached
+          description: The run reached `budget.maxCostDollars`.
+        - type: string
+          const: time_limit_reached
+          description: The run reached `budget.maxDurationSeconds`.
+        - type: string
+          const: iteration_limit_reached
+          description: The run reached its maximum number of agent steps.
+        - type: string
+          const: token_limit_reached
+          description: The run reached its limit on model tokens.
+        - type: string
+          const: stopped
+          description: You stopped the run.
+        - type: string
+          const: error
+          description: The run failed.
+        - type: string
+          const: cancelled
+          description: The run was cancelled.
+        - type: string
+      x-exa-enum-open: true
     AgentRunRequest:
       type: object
       properties:
@@ -6180,13 +6190,13 @@ components:
           type: number
           minimum: 0
         searches:
-          type: integer
+          type: number
           minimum: 0
         emails:
-          type: integer
+          type: number
           minimum: 0
         phoneNumbers:
-          type: integer
+          type: number
           minimum: 0
         dataSources:
           $ref: "#/components/schemas/AgentDataSourceUsage"
@@ -6196,6 +6206,7 @@ components:
         - emails
         - phoneNumbers
       additionalProperties: false
+      description: Billed usage for the run. When an `auto` or `ultra` run's metered cost exceeds `budget.maxCostDollars`, the run is billed the budget and each quantity except `dataSources` is scaled down in proportion, so quantities can be fractional.
     AgentDataSourceUsage:
       type: object
       propertyNames:

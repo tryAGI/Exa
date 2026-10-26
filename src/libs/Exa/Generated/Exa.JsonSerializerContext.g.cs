@@ -14,6 +14,7 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
@@ -528,7 +529,6 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseSearchCriteriaItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseEnrichment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseEnrichment))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseEnrichmentFormat), TypeInfoPropertyName = "PreviewWebsetResponseEnrichmentFormat2")]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -541,6 +541,7 @@ namespace Exa
     )]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.WebsetItemPersonProperties, global::Exa.WebsetItemCompanyProperties, global::Exa.WebsetItemArticleProperties, global::Exa.WebsetItemResearchPaperProperties, global::Exa.WebsetItemCustomProperties>), TypeInfoPropertyName = "WebsetItemCustomProperties_976e7369ebb8440c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.WebsetItemPersonProperties, global::Exa.WebsetItemCompanyProperties, global::Exa.WebsetItemArticleProperties, global::Exa.WebsetItemResearchPaperProperties, global::Exa.WebsetItemCustomProperties>?), TypeInfoPropertyName = "WebsetItemCustomProperties_2a7882e053a7bb38")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseEnrichmentFormat), TypeInfoPropertyName = "PreviewWebsetResponseEnrichmentFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseEnrichmentOption>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.PreviewWebsetResponseEnrichmentOption))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.WebsetItemPreview>))]
@@ -596,6 +597,9 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.EventsListType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.EventsListType), TypeInfoPropertyName = "EventsListType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.X402PaymentChallenge>), TypeInfoPropertyName = "OneOfErrorResponseX402PaymentChallenge2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchRequestCategory?), TypeInfoPropertyName = "NullableSearchRequestCategory2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchRequestCompliance?), TypeInfoPropertyName = "NullableSearchRequestCompliance2")]

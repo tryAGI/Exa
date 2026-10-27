@@ -3920,8 +3920,8 @@ components:
                       anyOf:
                         - type: integer
                           minimum: 1
-                          maximum: 1000000
-                          description: Maximum character limit for the full page text. Useful for controlling response size and API costs.
+                          maximum: 5000000
+                          description: Maximum character limit for the full page text. Useful for controlling response size and API costs. Defaults to 5,000,000.
                         - type: "null"
                     includeHtmlTags:
                       anyOf:

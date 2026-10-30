@@ -47,14 +47,16 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SummaryWithMaxTokensOptions>), TypeInfoPropertyName = "OneOfBooleanSummaryWithMaxTokensOptions2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SummaryWithMaxTokensOptions))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsExtras))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.SearchMonitorContentsLivecrawl?, string>), TypeInfoPropertyName = "OneOfSearchMonitorContentsLivecrawlString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsLivecrawl), TypeInfoPropertyName = "SearchMonitorContentsLivecrawl2")]
     #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsContext>), TypeInfoPropertyName = "OneOfBooleanSearchMonitorContentsContext2")]
     #pragma warning restore CS0618
     #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsContext))]
     #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.SearchMonitorContentsLivecrawl?, string>), TypeInfoPropertyName = "OneOfSearchMonitorContentsLivecrawlString2")]
+    #pragma warning restore CS0618
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsLivecrawl), TypeInfoPropertyName = "SearchMonitorContentsLivecrawl2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorOutputSchemaVariant1Discriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorOutputSchemaVariant1DiscriminatorType), TypeInfoPropertyName = "SearchMonitorOutputSchemaVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.SearchMonitorWebhookEvent>))]
@@ -98,14 +100,16 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SummaryWithMaxTokensOptionsOutput>), TypeInfoPropertyName = "OneOfBooleanSummaryWithMaxTokensOptionsOutput2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SummaryWithMaxTokensOptionsOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsOutputExtras))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>), TypeInfoPropertyName = "OneOfSearchMonitorContentsOutputLivecrawlString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsOutputLivecrawl), TypeInfoPropertyName = "SearchMonitorContentsOutputLivecrawl2")]
     #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputContext>), TypeInfoPropertyName = "OneOfBooleanSearchMonitorContentsOutputContext2")]
     #pragma warning restore CS0618
     #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsOutputContext))]
     #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>), TypeInfoPropertyName = "OneOfSearchMonitorContentsOutputLivecrawlString2")]
+    #pragma warning restore CS0618
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsOutputLivecrawl), TypeInfoPropertyName = "SearchMonitorContentsOutputLivecrawl2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OutputSchemaTextOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorOutputSchemaOutputVariant1Discriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorOutputSchemaOutputVariant1DiscriminatorType), TypeInfoPropertyName = "SearchMonitorOutputSchemaOutputVariant1DiscriminatorType2")]
@@ -148,11 +152,13 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsHighlights>?), TypeInfoPropertyName = "NullableOneOfBooleanSearchMonitorContentsHighlights2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsHighlightsVerbosity?), TypeInfoPropertyName = "NullableSearchMonitorContentsHighlightsVerbosity2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SummaryWithMaxTokensOptions>?), TypeInfoPropertyName = "NullableOneOfBooleanSummaryWithMaxTokensOptions2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.SearchMonitorContentsLivecrawl?, string>?), TypeInfoPropertyName = "NullableOneOfSearchMonitorContentsLivecrawlString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsLivecrawl?), TypeInfoPropertyName = "NullableSearchMonitorContentsLivecrawl2")]
     #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsContext>?), TypeInfoPropertyName = "NullableOneOfBooleanSearchMonitorContentsContext2")]
     #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.SearchMonitorContentsLivecrawl?, string>?), TypeInfoPropertyName = "NullableOneOfSearchMonitorContentsLivecrawlString2")]
+    #pragma warning restore CS0618
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsLivecrawl?), TypeInfoPropertyName = "NullableSearchMonitorContentsLivecrawl2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorOutputSchemaVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableSearchMonitorOutputSchemaVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorWebhookEvent?), TypeInfoPropertyName = "NullableSearchMonitorWebhookEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.BatchMonitorsRequestAction?), TypeInfoPropertyName = "NullableBatchMonitorsRequestAction2")]
@@ -169,11 +175,13 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputHighlights>?), TypeInfoPropertyName = "NullableOneOfBooleanSearchMonitorContentsOutputHighlights2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsOutputHighlightsVerbosity?), TypeInfoPropertyName = "NullableSearchMonitorContentsOutputHighlightsVerbosity2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SummaryWithMaxTokensOptionsOutput>?), TypeInfoPropertyName = "NullableOneOfBooleanSummaryWithMaxTokensOptionsOutput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>?), TypeInfoPropertyName = "NullableOneOfSearchMonitorContentsOutputLivecrawlString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsOutputLivecrawl?), TypeInfoPropertyName = "NullableSearchMonitorContentsOutputLivecrawl2")]
     #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputContext>?), TypeInfoPropertyName = "NullableOneOfBooleanSearchMonitorContentsOutputContext2")]
     #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>?), TypeInfoPropertyName = "NullableOneOfSearchMonitorContentsOutputLivecrawlString2")]
+    #pragma warning restore CS0618
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorContentsOutputLivecrawl?), TypeInfoPropertyName = "NullableSearchMonitorContentsOutputLivecrawl2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorOutputSchemaOutputVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableSearchMonitorOutputSchemaOutputVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchMonitorWebhookOutputEvent?), TypeInfoPropertyName = "NullableSearchMonitorWebhookOutputEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.Entity?), TypeInfoPropertyName = "NullableEntity2")]
@@ -255,21 +263,21 @@ namespace Exa
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SearchMonitorContentsText>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SearchMonitorContentsHighlights>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SummaryWithMaxTokensOptions>());
-            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.SearchMonitorContentsLivecrawl?, string>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             #pragma warning disable CS0618 // Converter references a deprecated API model.
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SearchMonitorContentsContext>());
             #pragma warning restore CS0618
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.SearchMonitorContentsLivecrawl?, string>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, global::Exa.JsonValue?>>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, global::Exa.JsonValue?>>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SearchMonitorContentsOutputText>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SearchMonitorContentsOutputHighlights>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SummaryWithMaxTokensOptionsOutput>());
-            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             #pragma warning disable CS0618 // Converter references a deprecated API model.
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<bool?, global::Exa.SearchMonitorContentsOutputContext>());
             #pragma warning restore CS0618
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.CompanyEntity, global::Exa.PersonEntity, global::Exa.ArticleEntity, global::Exa.ResearchPaperEntity, global::Exa.CustomEntity>());
             options.Converters.Add(new global::Exa.JsonConverters.UnixTimestampJsonConverter());
             options.Converters.Add(new LazyEnumJsonConverterFactory());

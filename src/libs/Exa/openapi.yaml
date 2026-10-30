@@ -4654,17 +4654,6 @@ components:
                   deprecated: true
                 - type: "null"
           description: Extra parameters to pass.
-        livecrawl:
-          description: Crawl strategy for fetching page content
-          oneOf:
-            - type: string
-              enum:
-                - never
-                - always
-                - fallback
-                - preferred
-            - type: string
-              const: auto
         livecrawlTimeout:
           type: integer
           exclusiveMinimum: 0
@@ -4726,6 +4715,20 @@ components:
               x-exa-replacement:
                 - highlights
                 - text
+        livecrawl:
+          description: Deprecated. Use `maxAgeHours` instead. Does not guarantee freshly fetched content. Cannot be combined with `maxAgeHours`.
+          x-exa-lifecycle: deprecated
+          deprecated: true
+          x-exa-replacement: maxAgeHours
+          oneOf:
+            - type: string
+              enum:
+                - never
+                - always
+                - fallback
+                - preferred
+            - type: string
+              const: auto
       description: Content extraction options applied to each search result. All fields are optional.
     SummaryWithMaxTokensOptions:
       type: object
@@ -8207,17 +8210,6 @@ components:
                 - type: "null"
           additionalProperties: false
           description: Extra parameters to pass.
-        livecrawl:
-          description: Crawl strategy for fetching page content
-          oneOf:
-            - type: string
-              enum:
-                - never
-                - always
-                - fallback
-                - preferred
-            - type: string
-              const: auto
         livecrawlTimeout:
           type: integer
           exclusiveMinimum: 0
@@ -8280,6 +8272,20 @@ components:
               x-exa-replacement:
                 - highlights
                 - text
+        livecrawl:
+          description: Deprecated. Use `maxAgeHours` instead. Does not guarantee freshly fetched content. Cannot be combined with `maxAgeHours`.
+          x-exa-lifecycle: deprecated
+          deprecated: true
+          x-exa-replacement: maxAgeHours
+          oneOf:
+            - type: string
+              enum:
+                - never
+                - always
+                - fallback
+                - preferred
+            - type: string
+              const: auto
       additionalProperties: false
       description: Content extraction options applied to each search result. All fields are optional.
     SummaryWithMaxTokensOptionsOutput:

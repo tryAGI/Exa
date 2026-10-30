@@ -378,19 +378,19 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.SearchMonitorContentsLivecrawl?, string>? Type85 { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsContext>? Type85 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsLivecrawl? Type86 { get; set; }
+        public global::Exa.SearchMonitorContentsContext? Type86 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsContext>? Type87 { get; set; }
+        public global::Exa.OneOf<global::Exa.SearchMonitorContentsLivecrawl?, string>? Type87 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsContext? Type88 { get; set; }
+        public global::Exa.SearchMonitorContentsLivecrawl? Type88 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1370,19 +1370,19 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>? Type333 { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputContext>? Type333 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputLivecrawl? Type334 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputContext? Type334 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputContext>? Type335 { get; set; }
+        public global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>? Type335 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputContext? Type336 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputLivecrawl? Type336 { get; set; }
         /// <summary>
         ///
         /// </summary>

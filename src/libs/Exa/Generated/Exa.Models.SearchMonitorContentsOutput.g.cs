@@ -38,13 +38,6 @@ namespace Exa
         public global::Exa.SearchMonitorContentsOutputExtras? Extras { get; set; }
 
         /// <summary>
-        /// Crawl strategy for fetching page content
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("livecrawl")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>))]
-        public global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>? Livecrawl { get; set; }
-
-        /// <summary>
         /// The timeout for livecrawling in milliseconds.<br/>
         /// Default Value: 10000
         /// </summary>
@@ -85,6 +78,13 @@ namespace Exa
         public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputContext>? Context { get; set; }
 
         /// <summary>
+        /// Deprecated. Use `maxAgeHours` instead. Does not guarantee freshly fetched content. Cannot be combined with `maxAgeHours`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("livecrawl")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>))]
+        public global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>? Livecrawl { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -104,9 +104,6 @@ namespace Exa
         /// </param>
         /// <param name="extras">
         /// Extra parameters to pass.
-        /// </param>
-        /// <param name="livecrawl">
-        /// Crawl strategy for fetching page content
         /// </param>
         /// <param name="livecrawlTimeout">
         /// The timeout for livecrawling in milliseconds.<br/>
@@ -133,7 +130,6 @@ namespace Exa
             global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputHighlights>? highlights,
             global::Exa.OneOf<bool?, global::Exa.SummaryWithMaxTokensOptionsOutput>? summary,
             global::Exa.SearchMonitorContentsOutputExtras? extras,
-            global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>? livecrawl,
             int? livecrawlTimeout,
             int? maxAgeHours,
             bool? filterEmptyResults,
@@ -144,7 +140,6 @@ namespace Exa
             this.Highlights = highlights;
             this.Summary = summary;
             this.Extras = extras;
-            this.Livecrawl = livecrawl;
             this.LivecrawlTimeout = livecrawlTimeout;
             this.MaxAgeHours = maxAgeHours;
             this.FilterEmptyResults = filterEmptyResults;

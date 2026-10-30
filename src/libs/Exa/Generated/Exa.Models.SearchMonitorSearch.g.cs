@@ -16,7 +16,7 @@ namespace Exa
         public required string Query { get; set; }
 
         /// <summary>
-        /// Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact sales (hello@exa.ai) to discuss higher limits.<br/>
+        /// Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact support@exa.ai to discuss higher limits.<br/>
         /// Default Value: 10
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("numResults")]
@@ -53,7 +53,7 @@ namespace Exa
         /// The query string for the search.
         /// </param>
         /// <param name="numResults">
-        /// Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact sales (hello@exa.ai) to discuss higher limits.<br/>
+        /// Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact support@exa.ai to discuss higher limits.<br/>
         /// Default Value: 10
         /// </param>
         /// <param name="includeDomains">

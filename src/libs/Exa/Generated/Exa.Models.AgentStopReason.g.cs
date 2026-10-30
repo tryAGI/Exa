@@ -10,7 +10,7 @@ namespace Exa
     public readonly partial struct AgentStopReason : global::System.IEquatable<AgentStopReason>
     {
         /// <summary>
-        /// The agent finished the task.
+        /// The agent finished the task before reaching any limit.
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? AgentStopReasonVariant1 { get; init; }

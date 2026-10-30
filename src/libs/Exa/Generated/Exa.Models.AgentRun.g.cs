@@ -56,6 +56,12 @@ namespace Exa
         public global::Exa.AgentRunRequest? Request { get; set; }
 
         /// <summary>
+        /// Why the run failed. `null` unless `status` is `failed`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public global::Exa.AgentError? Error { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
@@ -102,6 +108,9 @@ namespace Exa
         /// </param>
         /// <param name="completedAt"></param>
         /// <param name="request"></param>
+        /// <param name="error">
+        /// Why the run failed. `null` unless `status` is `failed`.
+        /// </param>
         /// <param name="object"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -116,6 +125,7 @@ namespace Exa
             global::Exa.AgentStopReason? stopReason,
             global::System.DateTime? completedAt,
             global::Exa.AgentRunRequest? request,
+            global::Exa.AgentError? error,
             string @object = "agent_run")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -125,6 +135,7 @@ namespace Exa
             this.CreatedAt = createdAt;
             this.CompletedAt = completedAt;
             this.Request = request;
+            this.Error = error;
             this.Output = output ?? throw new global::System.ArgumentNullException(nameof(output));
             this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
             this.CostDollars = costDollars ?? throw new global::System.ArgumentNullException(nameof(costDollars));

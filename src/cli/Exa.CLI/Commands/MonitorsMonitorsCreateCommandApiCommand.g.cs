@@ -80,7 +80,7 @@ internal static partial class MonitorsMonitorsCreateCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"create", @"Create a Monitor
-Creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.");
+To run a recurring Exa search and send new results to your webhook, use the [Monitors API](https://exa.ai/docs/reference/monitors/create-a-monitor). This endpoint creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.");
                         command.Options.Add(WebsetId);
                         command.Options.Add(Metadata);                        command.Options.Add(CadenceOptions.Cron);
                         command.Options.Add(CadenceOptions.Timezone);                        command.Options.Add(BehaviorOptions.Type);

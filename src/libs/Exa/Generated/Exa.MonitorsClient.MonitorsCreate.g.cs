@@ -51,7 +51,7 @@ namespace Exa
 
         /// <summary>
         /// Create a Monitor<br/>
-        /// Creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.
+        /// To run a recurring Exa search and send new results to your webhook, use the [Monitors API](https://exa.ai/docs/reference/monitors/create-a-monitor). This endpoint creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -74,7 +74,7 @@ namespace Exa
         }
         /// <summary>
         /// Create a Monitor<br/>
-        /// Creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.
+        /// To run a recurring Exa search and send new results to your webhook, use the [Monitors API](https://exa.ai/docs/reference/monitors/create-a-monitor). This endpoint creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -445,7 +445,7 @@ namespace Exa
         }
         /// <summary>
         /// Create a Monitor<br/>
-        /// Creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.
+        /// To run a recurring Exa search and send new results to your webhook, use the [Monitors API](https://exa.ai/docs/reference/monitors/create-a-monitor). This endpoint creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.
         /// </summary>
         /// <param name="websetId">
         /// The id of the Webset

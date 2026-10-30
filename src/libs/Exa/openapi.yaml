@@ -2434,7 +2434,7 @@ paths:
     post:
       operationId: monitors-create
       summary: Create a Monitor
-      description: Creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.
+      description: To run a recurring Exa search and send new results to your webhook, use the [Monitors API](https://exa.ai/docs/reference/monitors/create-a-monitor). This endpoint creates a Monitor that searches for new Items for a Webset on a `cron` schedule in the given `timezone`.
       tags:
         - Monitors
       security:
@@ -3259,7 +3259,7 @@ components:
             - type: integer
               minimum: 1
               maximum: 100
-              description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact sales (hello@exa.ai) to discuss higher limits.
+              description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact support@exa.ai to discuss higher limits.
               default: 10
             - type: "null"
         moderation:
@@ -4350,7 +4350,7 @@ components:
             - type: integer
               minimum: 1
               maximum: 100
-              description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact sales (hello@exa.ai) to discuss higher limits.
+              description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact support@exa.ai to discuss higher limits.
               default: 10
             - type: "null"
         contents:
@@ -4454,7 +4454,7 @@ components:
           type: integer
           minimum: 1
           maximum: 100
-          description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact sales (hello@exa.ai) to discuss higher limits.
+          description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact support@exa.ai to discuss higher limits.
           default: 10
         includeDomains:
           description: Restrict search results to these domains.
@@ -4863,7 +4863,7 @@ components:
               type: integer
               minimum: 1
               maximum: 100
-              description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact sales (hello@exa.ai) to discuss higher limits.
+              description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact support@exa.ai to discuss higher limits.
               default: 10
             includeDomains:
               description: Restrict search results to these domains.
@@ -6011,6 +6011,11 @@ components:
           anyOf:
             - $ref: "#/components/schemas/AgentRunRequest"
             - type: "null"
+        error:
+          anyOf:
+            - $ref: "#/components/schemas/AgentError"
+            - type: "null"
+          description: Why the run failed. `null` unless `status` is `failed`.
         output:
           $ref: "#/components/schemas/AgentRunOutput"
         usage:
@@ -6025,6 +6030,7 @@ components:
         - createdAt
         - completedAt
         - request
+        - error
         - output
         - usage
         - costDollars
@@ -6041,7 +6047,7 @@ components:
       anyOf:
         - type: string
           const: schema_satisfied
-          description: The agent finished the task.
+          description: The agent finished the task before reaching any limit.
         - type: string
           const: budget_reached
           description: The run reached `budget.maxCostDollars`.
@@ -6129,6 +6135,38 @@ components:
       additionalProperties:
         $ref: "#/components/schemas/JsonValue"
       description: Canonicalized request fields stored with the run.
+    AgentError:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - INVALID_REQUEST
+            - AUTHENTICATION_ERROR
+            - RATE_LIMIT_ERROR
+            - NOT_FOUND
+            - SERVER_ERROR
+        code:
+          type: string
+          enum:
+            - INVALID_REQUEST
+            - TEAM_NOT_FOUND
+            - RUN_NOT_FOUND
+            - PREVIOUS_RUN_NOT_FOUND
+            - PREVIOUS_RUN_NOT_COMPLETED
+            - CONCURRENCY_LIMIT_REACHED
+            - INVALID_OUTPUT_SCHEMA
+            - INVALID_DATA_SOURCE
+            - TIMEOUT
+            - SERVER_ERROR
+        message:
+          type: string
+      required:
+        - type
+        - code
+        - message
+      additionalProperties:
+        $ref: "#/components/schemas/JsonValue"
     AgentRunOutput:
       type: object
       properties:
@@ -6261,38 +6299,6 @@ components:
       required:
         - error
       additionalProperties: false
-    AgentError:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-            - INVALID_REQUEST
-            - AUTHENTICATION_ERROR
-            - RATE_LIMIT_ERROR
-            - NOT_FOUND
-            - SERVER_ERROR
-        code:
-          type: string
-          enum:
-            - INVALID_REQUEST
-            - TEAM_NOT_FOUND
-            - RUN_NOT_FOUND
-            - PREVIOUS_RUN_NOT_FOUND
-            - PREVIOUS_RUN_NOT_COMPLETED
-            - CONCURRENCY_LIMIT_REACHED
-            - INVALID_OUTPUT_SCHEMA
-            - INVALID_DATA_SOURCE
-            - TIMEOUT
-            - SERVER_ERROR
-        message:
-          type: string
-      required:
-        - type
-        - code
-        - message
-      additionalProperties:
-        $ref: "#/components/schemas/JsonValue"
     AgentRunList:
       type: object
       properties:
@@ -8006,7 +8012,7 @@ components:
           type: integer
           minimum: 1
           maximum: 100
-          description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact sales (hello@exa.ai) to discuss higher limits.
+          description: Number of results to return. Limits vary by search type. The maximum public limit is 100 results. Contact support@exa.ai to discuss higher limits.
           default: 10
         includeDomains:
           description: Restrict search results to these domains.

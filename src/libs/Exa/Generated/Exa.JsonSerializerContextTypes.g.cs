@@ -810,75 +810,75 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentRunOutput? Type193 { get; set; }
+        public global::Exa.AgentError? Type193 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentUsage? Type194 { get; set; }
+        public global::Exa.AgentRunOutput? Type194 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentCostDollars? Type195 { get; set; }
+        public global::Exa.AgentUsage? Type195 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentRunRequestInput? Type196 { get; set; }
+        public global::Exa.AgentCostDollars? Type196 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.AgentDataSourceOutput>? Type197 { get; set; }
+        public global::Exa.AgentRunRequestInput? Type197 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentDataSourceOutput? Type198 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.AgentDataSourceOutput>? Type198 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentBudgetOutput? Type199 { get; set; }
+        public global::Exa.AgentDataSourceOutput? Type199 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.AgentGrounding>? Type200 { get; set; }
+        public global::Exa.AgentBudgetOutput? Type200 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentGrounding? Type201 { get; set; }
+        public global::Exa.AgentErrorType? Type201 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.AgentCitation>? Type202 { get; set; }
+        public global::Exa.AgentErrorCode? Type202 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentCitation? Type203 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.AgentGrounding>? Type203 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentGroundingConfidence? Type204 { get; set; }
+        public global::Exa.AgentGrounding? Type204 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, int>? Type205 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.AgentCitation>? Type205 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, double>? Type206 { get; set; }
+        public global::Exa.AgentCitation? Type206 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentErrorResponse? Type207 { get; set; }
+        public global::Exa.AgentGroundingConfidence? Type207 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentError? Type208 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, int>? Type208 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentErrorType? Type209 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, double>? Type209 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentErrorCode? Type210 { get; set; }
+        public global::Exa.AgentErrorResponse? Type210 { get; set; }
         /// <summary>
         ///
         /// </summary>

@@ -15,6 +15,10 @@ namespace Exa.TeamManagement
 
             typeof(global::Exa.TeamManagement.JsonConverters.GetApiKeyUsageGroupByNullableJsonConverter),
 
+            typeof(global::Exa.TeamManagement.JsonConverters.RotateApiKeyResponseCodeJsonConverter),
+
+            typeof(global::Exa.TeamManagement.JsonConverters.RotateApiKeyResponseCodeNullableJsonConverter),
+
             typeof(global::Exa.TeamManagement.JsonConverters.OneOfJsonConverter<global::Exa.TeamManagement.ListApiKeysResponseVariant1, global::Exa.TeamManagement.ListApiKeysResponseVariant2>),
 
             typeof(global::Exa.TeamManagement.JsonConverters.UnixTimestampJsonConverter),
@@ -27,12 +31,15 @@ namespace Exa.TeamManagement
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.UpdateApiKeyRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetApiKeyUsageGroupBy), TypeInfoPropertyName = "GetApiKeyUsageGroupBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.CreateApiKeyResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.CreateApiKeyResponseApiKey))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.CreateApiKeyResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.CreateApiKeyResponse3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.OneOf<global::Exa.TeamManagement.ListApiKeysResponseVariant1, global::Exa.TeamManagement.ListApiKeysResponseVariant2>), TypeInfoPropertyName = "OneOfListApiKeysResponseVariant1ListApiKeysResponseVariant22")]
@@ -61,6 +68,20 @@ namespace Exa.TeamManagement
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.DeleteApiKeyResponse3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.DeleteApiKeyResponse4))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.DeleteApiKeyResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyResponseApiKey))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyResponse6))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RotateApiKeyResponseCode), TypeInfoPropertyName = "RotateApiKeyResponseCode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RevokePreviousApiKeySecretResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RevokePreviousApiKeySecretResponseApiKey))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RevokePreviousApiKeySecretResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RevokePreviousApiKeySecretResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.RevokePreviousApiKeySecretResponse4))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetApiKeyUsageResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetApiKeyUsageResponsePeriod))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]

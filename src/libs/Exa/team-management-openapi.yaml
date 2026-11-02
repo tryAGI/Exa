@@ -12,7 +12,9 @@ paths:
     post:
       operationId: create-api-key
       summary: Create API key
-      description: Creates a new API key for the authenticated team. Optionally specify a name, rate limit, and budget for the API key.
+      description: >-
+        Creates a new API key for the authenticated team. Optionally specify a name, rate limit, and budget for the
+        API key. The response returns the new key in `secret`. Use `publicId` to refer to the key in later requests.
       x-codeSamples:
         - lang: bash
           label: Create API key with name and rate limit
@@ -107,7 +109,15 @@ paths:
                       id:
                         type: string
                         format: uuid
-                        description: Unique identifier for the API key
+                        deprecated: true
+                        description: Same value as `secret`, kept for backward compatibility. Use `publicId` to identify the key.
+                      publicId:
+                        type: string
+                        description: Stable identifier of the API key. Use it in `/api-keys/{id}` paths. It does not change when the key is rotated.
+                        example: key_a1B2c3D4e5F6g7H8i9J0
+                      secret:
+                        type: string
+                        description: The API key. Send it in the `x-api-key` header of Exa API requests and keep it in your secrets manager.
                       name:
                         type: string
                         description: Name of the API key
@@ -174,7 +184,7 @@ paths:
           required: false
           schema:
             type: string
-          description: Optional API key ID to retrieve a specific key.
+          description: Optional `publicId` of a single key to return. The key's current secret is also accepted for backward compatibility.
       x-codeSamples:
         - lang: bash
           label: List all API keys
@@ -225,6 +235,10 @@ paths:
                             id:
                               type: string
                               format: uuid
+                              description: The API key's secret. Despite the field name it is not an identifier; use `publicId` to identify the key.
+                            publicId:
+                              type: string
+                              description: Stable identifier of the API key. It does not change when the key is rotated.
                             name:
                               type: string
                             rateLimit:
@@ -240,6 +254,12 @@ paths:
                             isOverBudget:
                               type: boolean
                               description: Whether the API key is currently over its budget
+                            previousSecretExpiresAt:
+                              type:
+                                - string
+                                - "null"
+                              format: date-time
+                              description: When the secret replaced by the last rotation stops working, or null if it no longer works.
                   - type: object
                     properties:
                       apiKey:
@@ -248,6 +268,10 @@ paths:
                           id:
                             type: string
                             format: uuid
+                            description: The API key's secret. Despite the field name it is not an identifier; use `publicId` to identify the key.
+                          publicId:
+                            type: string
+                            description: Stable identifier of the API key. It does not change when the key is rotated.
                           name:
                             type: string
                           rateLimit:
@@ -327,7 +351,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The unique identifier of the API key.
+          description: The key's `publicId`. The key's current secret is also accepted for backward compatibility.
       x-codeSamples:
         - lang: bash
           label: Get a specific API key
@@ -348,6 +372,10 @@ paths:
                       id:
                         type: string
                         format: uuid
+                        description: The API key's secret. Despite the field name it is not an identifier; use `publicId` to identify the key.
+                      publicId:
+                        type: string
+                        description: Stable identifier of the API key. It does not change when the key is rotated.
                       name:
                         type: string
                       rateLimit:
@@ -369,6 +397,12 @@ paths:
                       createdAt:
                         type: string
                         format: date-time
+                      previousSecretExpiresAt:
+                        type:
+                          - string
+                          - "null"
+                        format: date-time
+                        description: When the secret replaced by the last rotation stops working, or null if it no longer works.
         "400":
           description: Bad request - invalid API key ID format
           content:
@@ -413,7 +447,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The unique identifier of the API key to update.
+          description: The `publicId` of the key to update. The key's current secret is also accepted for backward compatibility.
       x-codeSamples:
         - lang: bash
           label: Update API key name and rate limit
@@ -510,6 +544,10 @@ paths:
                       id:
                         type: string
                         format: uuid
+                        description: The API key's secret. Despite the field name it is not an identifier; use `publicId` to identify the key.
+                      publicId:
+                        type: string
+                        description: Stable identifier of the API key. It does not change when the key is rotated.
                       name:
                         type: string
                       rateLimit:
@@ -593,7 +631,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The unique identifier of the API key to delete.
+          description: The `publicId` of the key to delete. The key's current secret is also accepted for backward compatibility.
       x-codeSamples:
         - lang: bash
           label: Delete an API key
@@ -686,6 +724,286 @@ paths:
       security:
         - apikey: []
 
+  /api-keys/{id}/rotate:
+    post:
+      operationId: rotate-api-key
+      summary: Rotate API key
+      description: >-
+        Replaces an API key's secret and returns the new one. The key keeps its `publicId`, name, rate limit, budget,
+        and usage history. The old secret keeps working for `gracePeriodSeconds` (0 revokes it immediately), so the new
+        secret can be rolled out before the old one stops working. A key has at most one previous secret: while it is
+        still in its grace period, rotation returns 409 unless `force` is true.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: >-
+            The key's `publicId`. The key's current secret, or a previous secret still in its grace period, is also
+            accepted for backward compatibility.
+      x-codeSamples:
+        - lang: bash
+          label: Rotate with a one-day grace period
+          source: |
+            curl -X POST 'https://admin-api.exa.ai/team-management/api-keys/{id}/rotate' \
+              -H "x-api-key: $EXA_SERVICE_KEY" \
+              -H 'Content-Type: application/json' \
+              -d '{
+                "gracePeriodSeconds": 86400
+              }'
+        - lang: python
+          label: Rotate with a one-day grace period
+          source: |
+            import os
+
+            import requests
+
+            response = requests.post(
+                'https://admin-api.exa.ai/team-management/api-keys/{id}/rotate',
+                headers={'x-api-key': os.environ['EXA_SERVICE_KEY']},
+                json={'gracePeriodSeconds': 86400}
+            )
+            response.raise_for_status()
+
+            new_secret = response.json()['apiKey']['secret']
+        - lang: javascript
+          label: Rotate with a one-day grace period
+          source: |
+            const response = await fetch('https://admin-api.exa.ai/team-management/api-keys/{id}/rotate', {
+              method: 'POST',
+              headers: {
+                'x-api-key': process.env.EXA_SERVICE_KEY,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ gracePeriodSeconds: 86400 })
+            });
+
+            const { apiKey } = await response.json();
+            const newSecret = apiKey.secret;
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - gracePeriodSeconds
+              properties:
+                gracePeriodSeconds:
+                  type: integer
+                  minimum: 0
+                  maximum: 7776000
+                  description: How long the old secret keeps working, in seconds (at most 90 days). 0 revokes it immediately.
+                  example: 86400
+                force:
+                  type: boolean
+                  default: false
+                  description: >-
+                    Rotate even if the secret replaced by an earlier rotation is still in its grace period. That
+                    secret stops working immediately.
+              additionalProperties: false
+      responses:
+        "200":
+          description: API key rotated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apiKey:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                        deprecated: true
+                        description: Same value as `secret`, kept for backward compatibility. Use `publicId` to identify the key.
+                      publicId:
+                        type: string
+                        description: Stable identifier of the API key, unchanged by rotation.
+                      secret:
+                        type: string
+                        description: The new API key. Send it in the `x-api-key` header of Exa API requests and keep it in your secrets manager.
+                      name:
+                        type: string
+                      rateLimit:
+                        type:
+                          - integer
+                          - "null"
+                        description: Rate limit in requests per second
+                      budgetCents:
+                        type:
+                          - integer
+                          - "null"
+                        description: Spending budget for the API key, in cents
+                      isOverBudget:
+                        type: boolean
+                        description: Whether the API key is currently over its budget
+                      teamId:
+                        type: string
+                      createdAt:
+                        type: string
+                        format: date-time
+                      previousSecretExpiresAt:
+                        type:
+                          - string
+                          - "null"
+                        format: date-time
+                        description: When the old secret stops working, or null if it was revoked immediately.
+              example:
+                apiKey:
+                  id: "00000000-0000-4000-8000-000000000000"
+                  publicId: "key_a1B2c3D4e5F6g7H8i9J0"
+                  secret: "00000000-0000-4000-8000-000000000000"
+                  name: "Production API Key"
+                  rateLimit: 1000
+                  budgetCents: null
+                  isOverBudget: false
+                  teamId: "cmdz0ppkp0001x7ec2yh4ph46"
+                  createdAt: "2026-01-01T00:00:00.000Z"
+                  previousSecretExpiresAt: "2026-10-06T12:00:00.000Z"
+        "400":
+          description: Bad Request - Invalid parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    examples:
+                      - "Invalid API key ID format."
+                      - "gracePeriodSeconds: Invalid input: expected number, received undefined"
+        "401":
+          description: Unauthorized - Invalid or missing service key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Unauthorized"
+        "403":
+          description: Forbidden - the key is managed by an integration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "This key is managed by an integration and cannot be rotated"
+        "404":
+          description: Not Found - API key does not exist
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "API key not found"
+        "409":
+          description: >-
+            Conflict - the secret replaced by an earlier rotation is still in its grace period
+            (`previous_secret_active`), or another rotation of the same key finished first (`rotation_conflict`). Nothing
+            was changed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  code:
+                    type: string
+                    enum:
+                      - previous_secret_active
+                      - rotation_conflict
+                  previousSecretExpiresAt:
+                    type: string
+                    format: date-time
+                    description: When the previous secret stops working. Present with `previous_secret_active`.
+      tags:
+        - Team Management
+      security:
+        - apikey: []
+
+  /api-keys/{id}/revoke-previous:
+    post:
+      operationId: revoke-previous-api-key-secret
+      summary: Revoke previous API key secret
+      description: >-
+        Ends a rotation's grace period early. The secret replaced by the last rotation stops working now; the current
+        secret is unaffected. Responds with `revoked` set to false when there is no previous secret in its grace period.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The key's `publicId`. The key's current secret is also accepted for backward compatibility.
+      x-codeSamples:
+        - lang: bash
+          label: Revoke the previous secret
+          source: |
+            curl -X POST 'https://admin-api.exa.ai/team-management/api-keys/{id}/revoke-previous' \
+              -H "x-api-key: $EXA_SERVICE_KEY"
+      responses:
+        "200":
+          description: Previous secret revoked, or there was none to revoke
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apiKey:
+                    type: object
+                    properties:
+                      publicId:
+                        type: string
+                      previousSecretExpiresAt:
+                        type: "null"
+                  revoked:
+                    type: boolean
+                    description: Whether a previous secret was revoked by this request.
+        "401":
+          description: Unauthorized - Invalid or missing service key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Unauthorized"
+        "403":
+          description: Forbidden - the key is managed by an integration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "This key is managed by an integration and cannot be rotated"
+        "404":
+          description: Not Found - API key does not exist
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "API key not found"
+      tags:
+        - Team Management
+      security:
+        - apikey: []
+
   /api-keys/{id}/usage:
     get:
       operationId: get-api-key-usage
@@ -697,7 +1015,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The unique identifier of the API key.
+          description: The key's `publicId`. The key's current secret is also accepted for backward compatibility.
         - name: start_date
           in: query
           required: false
@@ -785,11 +1103,11 @@ paths:
                 properties:
                   id:
                     type: string
-                    description: The unique identifier of the API key.
+                    description: The key's `publicId`, its stable identifier.
                   api_key_id:
                     type: string
                     format: uuid
-                    description: The API key ID.
+                    description: The API key's secret, kept for backward compatibility. Despite the field name it is not an identifier; use `id` to identify the key.
                   api_key_name:
                     type:
                       - string

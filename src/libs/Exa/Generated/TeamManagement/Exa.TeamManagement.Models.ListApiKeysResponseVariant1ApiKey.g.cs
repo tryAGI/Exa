@@ -9,10 +9,16 @@ namespace Exa.TeamManagement
     public sealed partial class ListApiKeysResponseVariant1ApiKey
     {
         /// <summary>
-        ///
+        /// The API key's secret. Despite the field name it is not an identifier; use `publicId` to identify the key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         public global::System.Guid? Id { get; set; }
+
+        /// <summary>
+        /// Stable identifier of the API key. It does not change when the key is rotated.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("publicId")]
+        public string? PublicId { get; set; }
 
         /// <summary>
         ///
@@ -39,6 +45,12 @@ namespace Exa.TeamManagement
         public bool? IsOverBudget { get; set; }
 
         /// <summary>
+        /// When the secret replaced by the last rotation stops working, or null if it no longer works.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("previousSecretExpiresAt")]
+        public global::System.DateTime? PreviousSecretExpiresAt { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -47,7 +59,12 @@ namespace Exa.TeamManagement
         /// <summary>
         /// Initializes a new instance of the <see cref="ListApiKeysResponseVariant1ApiKey" /> class.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The API key's secret. Despite the field name it is not an identifier; use `publicId` to identify the key.
+        /// </param>
+        /// <param name="publicId">
+        /// Stable identifier of the API key. It does not change when the key is rotated.
+        /// </param>
         /// <param name="name"></param>
         /// <param name="rateLimit">
         /// Rate limit in requests per second
@@ -58,21 +75,28 @@ namespace Exa.TeamManagement
         /// <param name="isOverBudget">
         /// Whether the API key is currently over its budget
         /// </param>
+        /// <param name="previousSecretExpiresAt">
+        /// When the secret replaced by the last rotation stops working, or null if it no longer works.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ListApiKeysResponseVariant1ApiKey(
             global::System.Guid? id,
+            string? publicId,
             string? name,
             int? rateLimit,
             int? budgetCents,
-            bool? isOverBudget)
+            bool? isOverBudget,
+            global::System.DateTime? previousSecretExpiresAt)
         {
             this.Id = id;
+            this.PublicId = publicId;
             this.Name = name;
             this.RateLimit = rateLimit;
             this.BudgetCents = budgetCents;
             this.IsOverBudget = isOverBudget;
+            this.PreviousSecretExpiresAt = previousSecretExpiresAt;
         }
 
         /// <summary>

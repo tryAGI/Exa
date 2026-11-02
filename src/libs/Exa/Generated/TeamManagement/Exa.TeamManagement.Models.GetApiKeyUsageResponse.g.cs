@@ -9,13 +9,13 @@ namespace Exa.TeamManagement
     public sealed partial class GetApiKeyUsageResponse
     {
         /// <summary>
-        /// The unique identifier of the API key.
+        /// The key's `publicId`, its stable identifier.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The API key ID.
+        /// The API key's secret, kept for backward compatibility. Despite the field name it is not an identifier; use `id` to identify the key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key_id")]
         public global::System.Guid? ApiKeyId { get; set; }
@@ -68,10 +68,10 @@ namespace Exa.TeamManagement
         /// Initializes a new instance of the <see cref="GetApiKeyUsageResponse" /> class.
         /// </summary>
         /// <param name="id">
-        /// The unique identifier of the API key.
+        /// The key's `publicId`, its stable identifier.
         /// </param>
         /// <param name="apiKeyId">
-        /// The API key ID.
+        /// The API key's secret, kept for backward compatibility. Despite the field name it is not an identifier; use `id` to identify the key.
         /// </param>
         /// <param name="apiKeyName">
         /// The name of the API key

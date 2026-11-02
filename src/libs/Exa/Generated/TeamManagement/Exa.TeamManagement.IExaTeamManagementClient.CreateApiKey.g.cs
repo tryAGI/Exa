@@ -6,7 +6,7 @@ namespace Exa.TeamManagement
     {
         /// <summary>
         /// Create API key<br/>
-        /// Creates a new API key for the authenticated team. Optionally specify a name, rate limit, and budget for the API key.
+        /// Creates a new API key for the authenticated team. Optionally specify a name, rate limit, and budget for the API key. The response returns the new key in `secret`. Use `publicId` to refer to the key in later requests.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -28,7 +28,7 @@ namespace Exa.TeamManagement
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create API key<br/>
-        /// Creates a new API key for the authenticated team. Optionally specify a name, rate limit, and budget for the API key.
+        /// Creates a new API key for the authenticated team. Optionally specify a name, rate limit, and budget for the API key. The response returns the new key in `secret`. Use `publicId` to refer to the key in later requests.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -50,7 +50,7 @@ namespace Exa.TeamManagement
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create API key<br/>
-        /// Creates a new API key for the authenticated team. Optionally specify a name, rate limit, and budget for the API key.
+        /// Creates a new API key for the authenticated team. Optionally specify a name, rate limit, and budget for the API key. The response returns the new key in `secret`. Use `publicId` to refer to the key in later requests.
         /// </summary>
         /// <param name="name">
         /// Optional name for the API key<br/>

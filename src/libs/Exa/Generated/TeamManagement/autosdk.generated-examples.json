@@ -10,6 +10,17 @@
       "Format": "http",
       "OperationId": "get-api-key-usage",
       "Setup": null
+    },
+    {
+      "Order": 2,
+      "Title": "Rotate API key",
+      "Slug": "rotate-api-key",
+      "Description": "Replaces an API key\u0027s secret and returns the new one. The key keeps its \u0060publicId\u0060, name, rate limit, budget, and usage history. The old secret keeps working for \u0060gracePeriodSeconds\u0060 (0 revokes it immediately), so the new secret can be rolled out before the old one stops working. A key has at most one previous secret: while it is still in its grace period, rotation returns 409 unless \u0060force\u0060 is true.",
+      "Language": "http",
+      "Code": "### Rotate API key\n# @name rotate-api-key\nPOST {{host}}/api-keys/{{id}}/rotate\nx-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022gracePeriodSeconds\u0022: 86400,\n  \u0022force\u0022: false\n}\n\n## Responses\n# 200\n# Description: API key rotated successfully\n# Content-Type: application/json\n# 400\n# Description: Bad Request - Invalid parameters\n# Content-Type: application/json\n# 401\n# Description: Unauthorized - Invalid or missing service key\n# Content-Type: application/json\n# 403\n# Description: Forbidden - the key is managed by an integration\n# Content-Type: application/json\n# 404\n# Description: Not Found - API key does not exist\n# Content-Type: application/json\n# 409\n# Description: Conflict - the secret replaced by an earlier rotation is still in its grace period (\u0060previous_secret_active\u0060), or another rotation of the same key finished first (\u0060rotation_conflict\u0060). Nothing was changed.\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "rotate-api-key",
+      "Setup": null
     }
   ]
 }

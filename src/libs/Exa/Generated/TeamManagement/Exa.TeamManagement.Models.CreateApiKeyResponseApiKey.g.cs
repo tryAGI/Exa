@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Exa.TeamManagement
@@ -9,10 +11,25 @@ namespace Exa.TeamManagement
     public sealed partial class CreateApiKeyResponseApiKey
     {
         /// <summary>
-        /// Unique identifier for the API key
+        /// Same value as `secret`, kept for backward compatibility. Use `publicId` to identify the key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Guid? Id { get; set; }
+
+        /// <summary>
+        /// Stable identifier of the API key. Use it in `/api-keys/{id}` paths. It does not change when the key is rotated.<br/>
+        /// Example: key_a1B2c3D4e5F6g7H8i9J0
+        /// </summary>
+        /// <example>key_a1B2c3D4e5F6g7H8i9J0</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("publicId")]
+        public string? PublicId { get; set; }
+
+        /// <summary>
+        /// The API key. Send it in the `x-api-key` header of Exa API requests and keep it in your secrets manager.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("secret")]
+        public string? Secret { get; set; }
 
         /// <summary>
         /// Name of the API key
@@ -65,8 +82,12 @@ namespace Exa.TeamManagement
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateApiKeyResponseApiKey" /> class.
         /// </summary>
-        /// <param name="id">
-        /// Unique identifier for the API key
+        /// <param name="publicId">
+        /// Stable identifier of the API key. Use it in `/api-keys/{id}` paths. It does not change when the key is rotated.<br/>
+        /// Example: key_a1B2c3D4e5F6g7H8i9J0
+        /// </param>
+        /// <param name="secret">
+        /// The API key. Send it in the `x-api-key` header of Exa API requests and keep it in your secrets manager.
         /// </param>
         /// <param name="name">
         /// Name of the API key
@@ -93,7 +114,8 @@ namespace Exa.TeamManagement
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateApiKeyResponseApiKey(
-            global::System.Guid? id,
+            string? publicId,
+            string? secret,
             string? name,
             int? rateLimit,
             int? budgetCents,
@@ -102,7 +124,8 @@ namespace Exa.TeamManagement
             global::System.Guid? userId,
             global::System.DateTime? createdAt)
         {
-            this.Id = id;
+            this.PublicId = publicId;
+            this.Secret = secret;
             this.Name = name;
             this.RateLimit = rateLimit;
             this.BudgetCents = budgetCents;

@@ -9,10 +9,16 @@ namespace Exa.TeamManagement
     public sealed partial class ListApiKeysResponseVariant2ApiKey
     {
         /// <summary>
-        ///
+        /// The API key's secret. Despite the field name it is not an identifier; use `publicId` to identify the key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         public global::System.Guid? Id { get; set; }
+
+        /// <summary>
+        /// Stable identifier of the API key. It does not change when the key is rotated.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("publicId")]
+        public string? PublicId { get; set; }
 
         /// <summary>
         ///
@@ -59,7 +65,12 @@ namespace Exa.TeamManagement
         /// <summary>
         /// Initializes a new instance of the <see cref="ListApiKeysResponseVariant2ApiKey" /> class.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The API key's secret. Despite the field name it is not an identifier; use `publicId` to identify the key.
+        /// </param>
+        /// <param name="publicId">
+        /// Stable identifier of the API key. It does not change when the key is rotated.
+        /// </param>
         /// <param name="name"></param>
         /// <param name="rateLimit">
         /// Rate limit in requests per second
@@ -77,6 +88,7 @@ namespace Exa.TeamManagement
 #endif
         public ListApiKeysResponseVariant2ApiKey(
             global::System.Guid? id,
+            string? publicId,
             string? name,
             int? rateLimit,
             int? budgetCents,
@@ -85,6 +97,7 @@ namespace Exa.TeamManagement
             global::System.DateTime? createdAt)
         {
             this.Id = id;
+            this.PublicId = publicId;
             this.Name = name;
             this.RateLimit = rateLimit;
             this.BudgetCents = budgetCents;

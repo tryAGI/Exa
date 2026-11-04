@@ -23,7 +23,7 @@ namespace Exa
         public required string Url { get; set; }
 
         /// <summary>
-        /// An estimate of the creation date, from parsing HTML content. Format is YYYY-MM-DD.
+        /// An estimate of the creation date, from parsing HTML content, as an ISO 8601 date-time in UTC (`YYYY-MM-DDTHH:mm:ss.sssZ`). A date known only to the day has the time `00:00:00.000Z`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("publishedDate")]
         public global::System.DateTime? PublishedDate { get; set; }
@@ -116,7 +116,7 @@ namespace Exa
         /// The URL of the search result.
         /// </param>
         /// <param name="publishedDate">
-        /// An estimate of the creation date, from parsing HTML content. Format is YYYY-MM-DD.
+        /// An estimate of the creation date, from parsing HTML content, as an ISO 8601 date-time in UTC (`YYYY-MM-DDTHH:mm:ss.sssZ`). A date known only to the day has the time `00:00:00.000Z`.
         /// </param>
         /// <param name="author">
         /// If available, the author of the content.

@@ -4,12 +4,12 @@
 namespace Exa
 {
     /// <summary>
-    /// Optional per-run spending and duration limits for the metered `auto` and `ultra` efforts. Runs that finish early may cost less than the limit.
+    /// Per-run cost or contact-enrichment limits, depending on effort, and an `ultra` duration limit.
     /// </summary>
     public sealed partial class AgentBudgetOutput
     {
         /// <summary>
-        /// Maximum amount this run can spend in US dollars. Accepts $1–$100 and applies only to `auto` and `ultra`; when omitted, the default cap is $5 for `auto` and $20 for `ultra`.
+        /// Accepts $1 to $100. For `auto` and `ultra`, caps total run cost with default caps of $5 and $20 respectively. For fixed efforts, caps contact-enrichment calls using the budget remaining after the fixed request price, without limiting research or reasoning steps. Fixed efforts have no default cap, and an explicit cap must cover the fixed request price.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxCostDollars")]
         public double? MaxCostDollars { get; set; }
@@ -30,7 +30,7 @@ namespace Exa
         /// Initializes a new instance of the <see cref="AgentBudgetOutput" /> class.
         /// </summary>
         /// <param name="maxCostDollars">
-        /// Maximum amount this run can spend in US dollars. Accepts $1–$100 and applies only to `auto` and `ultra`; when omitted, the default cap is $5 for `auto` and $20 for `ultra`.
+        /// Accepts $1 to $100. For `auto` and `ultra`, caps total run cost with default caps of $5 and $20 respectively. For fixed efforts, caps contact-enrichment calls using the budget remaining after the fixed request price, without limiting research or reasoning steps. Fixed efforts have no default cap, and an explicit cap must cover the fixed request price.
         /// </param>
         /// <param name="maxDurationSeconds">
         /// Soft wall-clock ceiling for the run in seconds. Accepts 300–10,800 (5 minutes to 3 hours) and applies only to `ultra`. As the run approaches the limit, the agent stops starting new work and returns what it has found with `stopReason: "time_limit_reached"`.

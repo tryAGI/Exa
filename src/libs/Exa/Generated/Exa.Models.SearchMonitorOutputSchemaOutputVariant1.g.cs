@@ -5,7 +5,7 @@
 namespace Exa
 {
     /// <summary>
-    /// JSON schema for synthesized output. Supported root types are "text" and "object". When provided, the response includes an output object whose content matches this schema. Works with every search type and adds about 2 seconds of synthesis latency on top of the selected search type. Object schemas are limited to 10 properties in total (nested and array items properties count toward the limit) and 2 levels of nesting, and every array must define items.
+    /// JSON schema for synthesized output. Supported root types are "text" and "object". When provided, the response includes an output object whose content matches this schema. Works with every search type except `lite` and adds about 2 seconds of synthesis latency on top of the selected search type. Object schemas are limited to 10 properties in total (nested and array items properties count toward the limit) and 2 levels of nesting, and every array must define items.
     /// </summary>
     public readonly partial struct SearchMonitorOutputSchemaOutputVariant1 : global::System.IEquatable<SearchMonitorOutputSchemaOutputVariant1>
     {

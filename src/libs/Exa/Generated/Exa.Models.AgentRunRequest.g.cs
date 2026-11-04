@@ -59,7 +59,7 @@ namespace Exa
         public global::System.Collections.Generic.IList<global::Exa.AgentDataSourceOutput>? DataSources { get; set; }
 
         /// <summary>
-        /// Optional per-run spending and duration limits for the metered `auto` and `ultra` efforts. Runs that finish early may cost less than the limit.
+        /// Per-run cost or contact-enrichment limits, depending on effort, and an `ultra` duration limit.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("budget")]
         public global::Exa.AgentBudgetOutput? Budget { get; set; }
@@ -95,7 +95,7 @@ namespace Exa
         /// Exa Connect data providers configured for the run.
         /// </param>
         /// <param name="budget">
-        /// Optional per-run spending and duration limits for the metered `auto` and `ultra` efforts. Runs that finish early may cost less than the limit.
+        /// Per-run cost or contact-enrichment limits, depending on effort, and an `ultra` duration limit.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

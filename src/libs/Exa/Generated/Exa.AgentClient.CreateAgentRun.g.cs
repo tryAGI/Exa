@@ -704,7 +704,7 @@ namespace Exa
         /// Exa Connect data providers to enable for the run. Each entry enables all of that provider's tools.
         /// </param>
         /// <param name="budget">
-        /// Optional per-run spending and duration limits for the metered `auto` and `ultra` efforts. Runs that finish early may cost less than the limit.
+        /// Per-run cost or contact-enrichment limits, depending on effort, and an `ultra` duration limit.
         /// </param>
         /// <param name="userIdentifier">
         /// An opaque ID your platform assigns to the end user this request is made for, such as a UUID. Lets Exa attribute usage to that end user rather than your whole team. Must not contain personal information such as an email address, phone number, username, or name. Hash such values before sending them. 1 to 64 characters: letters, digits, underscores, and hyphens. Retained even when your team has Zero Data Retention enabled. Does not affect results.<br/>

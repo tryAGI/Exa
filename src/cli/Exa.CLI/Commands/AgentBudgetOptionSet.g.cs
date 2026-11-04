@@ -16,7 +16,7 @@ internal sealed record AgentBudgetOptionSet(
         return new AgentBudgetOptionSet(
                         MaxCostDollars: new Option<double?>($"--{normalizedPrefix}max-cost-dollars")
                 {
-                    Description = @"Maximum amount this run can spend in US dollars. Accepts $1–$100 and applies only to `auto` and `ultra`; when omitted, the default cap is $5 for `auto` and $20 for `ultra`.",
+                    Description = @"Accepts $1 to $100. For `auto` and `ultra`, caps total run cost with default caps of $5 and $20 respectively. For fixed efforts, caps contact-enrichment calls using the budget remaining after the fixed request price, without limiting research or reasoning steps. Fixed efforts have no default cap, and an explicit cap must cover the fixed request price.",
                 },
                 MaxDurationSeconds: new Option<int?>($"--{normalizedPrefix}max-duration-seconds")
                 {

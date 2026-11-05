@@ -13,6 +13,17 @@
     },
     {
       "Order": 2,
+      "Title": "Get team credits",
+      "Slug": "get-team-credits",
+      "Description": "Returns the team\u0027s remaining prepaid credit balance in USD and the credits that expire. The balance can lag recent usage by up to 5 minutes.",
+      "Language": "csharp",
+      "Code": "using var client = new ExaTeamManagementClient(apiKey);\nvar response = await client.GetTeamCreditsAsync();\n\n// Example response:\n// {\n//   \u0022credits_usd\u0022: 412.37,\n//   \u0022expiring_credits\u0022: [\n//     {\n//       \u0022amount_usd\u0022: 20.00,\n//       \u0022expires_at\u0022: \u00222026-12-01T00:00:00Z\u0022\n//     }\n//   ],\n//   \u0022metadata\u0022: {\n//     \u0022generated_at\u0022: \u00222026-11-04T19:00:00Z\u0022\n//   }\n// }",
+      "Format": "sdk",
+      "OperationId": "get-team-credits",
+      "Setup": "This example assumes \u0060using Exa.TeamManagement;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 3,
       "Title": "Rotate API key",
       "Slug": "rotate-api-key",
       "Description": "Replaces an API key\u0027s secret and returns the new one. The key keeps its \u0060publicId\u0060, name, rate limit, budget, and usage history. The old secret keeps working for \u0060gracePeriodSeconds\u0060 (0 revokes it immediately), so the new secret can be rolled out before the old one stops working. A key has at most one previous secret: while it is still in its grace period, rotation returns 409 unless \u0060force\u0060 is true.",

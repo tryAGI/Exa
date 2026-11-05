@@ -21,13 +21,13 @@ namespace Exa
         public global::Exa.CostDollarsOutputSearch? Search { get; set; }
 
         /// <summary>
-        /// Cost of synthesized summary generation for search requests.
+        /// Cost of per-result summaries requested with `contents.summary` on `/search` and `/findSimilar` requests.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
         public float? Summary { get; set; }
 
         /// <summary>
-        /// Estimated cost breakdown for standalone content retrieval (text, highlights, and summaries billed outside the bundled search price).
+        /// Cost breakdown for `/contents` requests.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("contents")]
         public global::Exa.CostDollarsOutputContents? Contents { get; set; }
@@ -48,10 +48,10 @@ namespace Exa
         /// Estimated search cost by retrieval mode. Some search types report their cost only in `total`.
         /// </param>
         /// <param name="summary">
-        /// Cost of synthesized summary generation for search requests.
+        /// Cost of per-result summaries requested with `contents.summary` on `/search` and `/findSimilar` requests.
         /// </param>
         /// <param name="contents">
-        /// Estimated cost breakdown for standalone content retrieval (text, highlights, and summaries billed outside the bundled search price).
+        /// Cost breakdown for `/contents` requests.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

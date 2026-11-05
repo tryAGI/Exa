@@ -5482,12 +5482,6 @@ components:
           type: array
           items:
             type: string
-        highlightScores:
-          description: Array of cosine similarity scores for each highlighted snippet.
-          type: array
-          items:
-            type: number
-            format: float
         summary:
           description: Summary of the webpage.
           type: string
@@ -6632,12 +6626,6 @@ components:
           type: array
           items:
             type: string
-        highlightScores:
-          description: Array of cosine similarity scores for each highlighted snippet.
-          type: array
-          items:
-            type: number
-            format: float
         summary:
           description: Summary of the webpage.
           type: string
@@ -7481,11 +7469,11 @@ components:
               type: number
           additionalProperties: false
         summary:
-          description: Cost of synthesized summary generation for search requests.
+          description: Cost of per-result summaries requested with `contents.summary` on `/search` and `/findSimilar` requests.
           format: float
           type: number
         contents:
-          description: Estimated cost breakdown for standalone content retrieval (text, highlights, and summaries billed outside the bundled search price).
+          description: Cost breakdown for `/contents` requests.
           type: object
           properties:
             text:

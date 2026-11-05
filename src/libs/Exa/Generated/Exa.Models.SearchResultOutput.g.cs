@@ -65,12 +65,6 @@ namespace Exa
         public global::System.Collections.Generic.IList<string>? Highlights { get; set; }
 
         /// <summary>
-        /// Array of cosine similarity scores for each highlighted snippet.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("highlightScores")]
-        public global::System.Collections.Generic.IList<float>? HighlightScores { get; set; }
-
-        /// <summary>
         /// Summary of the webpage.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
@@ -130,9 +124,6 @@ namespace Exa
         /// <param name="highlights">
         /// Array of highlights extracted from the search result content.
         /// </param>
-        /// <param name="highlightScores">
-        /// Array of cosine similarity scores for each highlighted snippet.
-        /// </param>
         /// <param name="summary">
         /// Summary of the webpage.
         /// </param>
@@ -158,7 +149,6 @@ namespace Exa
             string? favicon,
             string? text,
             global::System.Collections.Generic.IList<string>? highlights,
-            global::System.Collections.Generic.IList<float>? highlightScores,
             string? summary,
             global::System.Collections.Generic.IList<global::Exa.SearchResultOutputSubpage>? subpages,
             global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitie>? entities,
@@ -173,7 +163,6 @@ namespace Exa
             this.Favicon = favicon;
             this.Text = text;
             this.Highlights = highlights;
-            this.HighlightScores = highlightScores;
             this.Summary = summary;
             this.Subpages = subpages;
             this.Entities = entities;

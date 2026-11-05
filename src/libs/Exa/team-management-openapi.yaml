@@ -1227,6 +1227,110 @@ paths:
       security:
         - apikey: []
 
+  /credits:
+    get:
+      operationId: get-team-credits
+      summary: Get team credits
+      description: Returns the team's remaining prepaid credit balance in USD and the credits that expire. The balance can lag recent usage by up to 5 minutes.
+      x-codeSamples:
+        - lang: bash
+          label: Get the team's credit balance
+          source: |
+            curl -X GET 'https://admin-api.exa.ai/team-management/credits' \
+              -H "x-api-key: $EXA_SERVICE_KEY"
+        - lang: python
+          label: Get the team's credit balance
+          source: |
+            import os
+            import requests
+
+            response = requests.get(
+                "https://admin-api.exa.ai/team-management/credits",
+                headers={"x-api-key": os.environ["EXA_SERVICE_KEY"]},
+            )
+            print(response.json()["credits_usd"])
+      responses:
+        "200":
+          description: The team's credit balance
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  credits_usd:
+                    type: number
+                    description: Remaining prepaid credits in USD, including granted credits. For a team billed through its organization's billing team, the billing team's credits. Requests are refused once it reaches 0 unless overage is enabled for the team.
+                  expiring_credits:
+                    type: array
+                    description: Credits with an expiry date, soonest first. Usage draws from the soonest-expiring credits first.
+                    items:
+                      type: object
+                      properties:
+                        amount_usd:
+                          type: number
+                          description: Credits left in USD that expire at `expires_at`.
+                        expires_at:
+                          type: string
+                          format: date-time
+                          description: When these credits expire.
+                  metadata:
+                    type: object
+                    properties:
+                      generated_at:
+                        type: string
+                        format: date-time
+                        description: When this response was generated. The balance in it can be up to 5 minutes older.
+              example:
+                credits_usd: 412.37
+                expiring_credits:
+                  - amount_usd: 20.00
+                    expires_at: "2026-12-01T00:00:00Z"
+                metadata:
+                  generated_at: "2026-11-04T19:00:00Z"
+        "401":
+          description: Unauthorized - Invalid or missing service key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Unauthorized"
+        "404":
+          description: Not Found - The team has no billing account
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "No billing account found for this team."
+        "429":
+          description: Too Many Requests - Retry after the number of seconds in the `Retry-After` header
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "500":
+          description: Internal Server Error - Failed to fetch the credit balance
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Failed to fetch credit balance. Please try again later."
+      tags:
+        - Team Management
+      security:
+        - apikey: []
+
 components:
   securitySchemes:
     apikey:

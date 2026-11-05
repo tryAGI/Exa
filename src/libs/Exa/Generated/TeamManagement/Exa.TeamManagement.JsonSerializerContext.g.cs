@@ -92,8 +92,17 @@ namespace Exa.TeamManagement
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetApiKeyUsageResponse3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetApiKeyUsageResponse4))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetApiKeyUsageResponse5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetTeamCreditsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.TeamManagement.GetTeamCreditsResponseExpiringCredit>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetTeamCreditsResponseExpiringCredit))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetTeamCreditsResponseMetadata))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetTeamCreditsResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetTeamCreditsResponse3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetTeamCreditsResponse4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.TeamManagement.GetTeamCreditsResponse5))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.TeamManagement.ListApiKeysResponseVariant1ApiKey>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.TeamManagement.GetApiKeyUsageResponseCostBreakdownItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.TeamManagement.GetTeamCreditsResponseExpiringCredit>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }

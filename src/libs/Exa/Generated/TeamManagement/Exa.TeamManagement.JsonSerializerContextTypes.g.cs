@@ -287,6 +287,38 @@ namespace Exa.TeamManagement
         ///
         /// </summary>
         public global::Exa.TeamManagement.GetApiKeyUsageResponse5? Type62 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.TeamManagement.GetTeamCreditsResponse? Type63 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Exa.TeamManagement.GetTeamCreditsResponseExpiringCredit>? Type64 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.TeamManagement.GetTeamCreditsResponseExpiringCredit? Type65 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.TeamManagement.GetTeamCreditsResponseMetadata? Type66 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.TeamManagement.GetTeamCreditsResponse2? Type67 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.TeamManagement.GetTeamCreditsResponse3? Type68 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.TeamManagement.GetTeamCreditsResponse4? Type69 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.TeamManagement.GetTeamCreditsResponse5? Type70 { get; set; }
 
         /// <summary>
         ///
@@ -296,5 +328,9 @@ namespace Exa.TeamManagement
         ///
         /// </summary>
         public global::System.Collections.Generic.List<global::Exa.TeamManagement.GetApiKeyUsageResponseCostBreakdownItem>? ListType1 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::Exa.TeamManagement.GetTeamCreditsResponseExpiringCredit>? ListType2 { get; set; }
     }
 }

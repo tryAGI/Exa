@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// Estimated cost breakdown for standalone content retrieval (text, highlights, and summaries billed outside the bundled search price).
+    /// Cost breakdown for `/contents` requests.
     /// </summary>
     public sealed partial class CostDollarsOutputContents
     {

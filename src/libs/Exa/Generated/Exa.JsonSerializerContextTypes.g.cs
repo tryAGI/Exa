@@ -874,123 +874,123 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentErrorResponse? Type209 { get; set; }
+        public global::Exa.AgentRunEvent? Type209 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentRunList? Type210 { get; set; }
+        public global::Exa.AgentRunEventEvent? Type210 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.AgentRun>? Type211 { get; set; }
+        public global::Exa.AgentErrorResponse? Type211 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.DeleteAgentRunResponse? Type212 { get; set; }
+        public global::Exa.AgentRunList? Type212 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentRunEventList? Type213 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.AgentRun>? Type213 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.AgentRunEvent>? Type214 { get; set; }
+        public global::Exa.DeleteAgentRunResponse? Type214 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentRunEvent? Type215 { get; set; }
+        public global::Exa.AgentRunEventList? Type215 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Batch? Type216 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.AgentRunEvent>? Type216 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.BatchStatus? Type217 { get; set; }
+        public global::Exa.Batch? Type217 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.BatchRequestCounts? Type218 { get; set; }
+        public global::Exa.BatchStatus? Type218 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.BatchList? Type219 { get; set; }
+        public global::Exa.BatchRequestCounts? Type219 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.Batch>? Type220 { get; set; }
+        public global::Exa.BatchList? Type220 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.DeletedBatch? Type221 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.Batch>? Type221 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetsTeamInfo? Type222 { get; set; }
+        public global::Exa.DeletedBatch? Type222 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetsTeamInfoConcurrency? Type223 { get; set; }
+        public global::Exa.WebsetsTeamInfo? Type223 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetsTeamInfoLimits? Type224 { get; set; }
+        public global::Exa.WebsetsTeamInfoConcurrency? Type224 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamChunk? Type225 { get; set; }
+        public global::Exa.WebsetsTeamInfoLimits? Type225 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamCitationsChunkOutput? Type226 { get; set; }
+        public global::Exa.AnswerStreamChunk? Type226 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamCostChunkOutput? Type227 { get; set; }
+        public global::Exa.AnswerStreamCitationsChunkOutput? Type227 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamErrorChunkOutput? Type228 { get; set; }
+        public global::Exa.AnswerStreamCostChunkOutput? Type228 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamChunk? Type229 { get; set; }
+        public global::Exa.AnswerStreamErrorChunkOutput? Type229 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamTextDeltaChunkOutput? Type230 { get; set; }
+        public global::Exa.SearchStreamChunk? Type230 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutput? Type231 { get; set; }
+        public global::Exa.SearchStreamTextDeltaChunkOutput? Type231 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamResultsChunkOutput? Type232 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutput? Type232 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamResetChunkOutput? Type233 { get; set; }
+        public global::Exa.SearchStreamResultsChunkOutput? Type233 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamDoneChunkOutput? Type234 { get; set; }
+        public global::Exa.SearchStreamResetChunkOutput? Type234 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamErrorChunkOutput? Type235 { get; set; }
+        public global::Exa.SearchStreamDoneChunkOutput? Type235 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamChunkDiscriminator? Type236 { get; set; }
+        public global::Exa.SearchStreamErrorChunkOutput? Type236 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamChunkDiscriminatorType? Type237 { get; set; }
+        public global::Exa.SearchStreamChunkDiscriminator? Type237 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentRunEventEvent? Type238 { get; set; }
+        public global::Exa.SearchStreamChunkDiscriminatorType? Type238 { get; set; }
         /// <summary>
         ///
         /// </summary>

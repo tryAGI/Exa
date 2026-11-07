@@ -242,13 +242,14 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentGroundingConfidence), TypeInfoPropertyName = "AgentGroundingConfidence2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, double>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEvent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEventEvent), TypeInfoPropertyName = "AgentRunEventEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentErrorResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunList))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.AgentRun>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.DeleteAgentRunResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEventList))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.AgentRunEvent>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEvent))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.Batch))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.BatchStatus), TypeInfoPropertyName = "BatchStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.BatchRequestCounts))]
@@ -271,7 +272,6 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchStreamErrorChunkOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchStreamChunkDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchStreamChunkDiscriminatorType), TypeInfoPropertyName = "SearchStreamChunkDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEventEvent), TypeInfoPropertyName = "AgentRunEventEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.SearchResultOutputSubpage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputSubpage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitie>))]
@@ -660,11 +660,11 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentErrorType?), TypeInfoPropertyName = "NullableAgentErrorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentErrorCode?), TypeInfoPropertyName = "NullableAgentErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentGroundingConfidence?), TypeInfoPropertyName = "NullableAgentGroundingConfidence2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEventEvent?), TypeInfoPropertyName = "NullableAgentRunEventEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.BatchStatus?), TypeInfoPropertyName = "NullableBatchStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AnswerStreamChunk?), TypeInfoPropertyName = "NullableAnswerStreamChunk2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchStreamChunk?), TypeInfoPropertyName = "NullableSearchStreamChunk2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchStreamChunkDiscriminatorType?), TypeInfoPropertyName = "NullableSearchStreamChunkDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEventEvent?), TypeInfoPropertyName = "NullableAgentRunEventEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitie?), TypeInfoPropertyName = "NullableSearchResultOutputEntitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchResultOutputEntitieDiscriminatorType?), TypeInfoPropertyName = "NullableSearchResultOutputEntitieDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.SearchCompanyEntityOutputPropertiesResearchNotableWorkType?), TypeInfoPropertyName = "NullableSearchCompanyEntityOutputPropertiesResearchNotableWorkType2")]
@@ -1126,6 +1126,10 @@ namespace Exa
 
                     || typeToConvert == typeof(global::Exa.AgentGroundingConfidence?)
 
+                    || typeToConvert == typeof(global::Exa.AgentRunEventEvent)
+
+                    || typeToConvert == typeof(global::Exa.AgentRunEventEvent?)
+
                     || typeToConvert == typeof(global::Exa.BatchStatus)
 
                     || typeToConvert == typeof(global::Exa.BatchStatus?)
@@ -1133,10 +1137,6 @@ namespace Exa
                     || typeToConvert == typeof(global::Exa.SearchStreamChunkDiscriminatorType)
 
                     || typeToConvert == typeof(global::Exa.SearchStreamChunkDiscriminatorType?)
-
-                    || typeToConvert == typeof(global::Exa.AgentRunEventEvent)
-
-                    || typeToConvert == typeof(global::Exa.AgentRunEventEvent?)
 
                     || typeToConvert == typeof(global::Exa.SearchResultOutputEntitieDiscriminatorType)
 
@@ -1811,6 +1811,16 @@ namespace Exa
                     return new global::Exa.JsonConverters.AgentGroundingConfidenceNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::Exa.AgentRunEventEvent))
+                {
+                    return new global::Exa.JsonConverters.AgentRunEventEventJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Exa.AgentRunEventEvent?))
+                {
+                    return new global::Exa.JsonConverters.AgentRunEventEventNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Exa.BatchStatus))
                 {
                     return new global::Exa.JsonConverters.BatchStatusJsonConverter();
@@ -1829,16 +1839,6 @@ namespace Exa
                 if (typeToConvert == typeof(global::Exa.SearchStreamChunkDiscriminatorType?))
                 {
                     return new global::Exa.JsonConverters.SearchStreamChunkDiscriminatorTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Exa.AgentRunEventEvent))
-                {
-                    return new global::Exa.JsonConverters.AgentRunEventEventJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Exa.AgentRunEventEvent?))
-                {
-                    return new global::Exa.JsonConverters.AgentRunEventEventNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Exa.SearchResultOutputEntitieDiscriminatorType))

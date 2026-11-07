@@ -6285,6 +6285,32 @@ components:
         type: number
         minimum: 0
       description: Per-provider cost in dollars for Exa Connect data sources used during the run. Keys are provider names (e.g. `fiber`, `similarweb`). Only providers with non-zero usage are included.
+    AgentRunEvent:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Event ID within the run.
+        event:
+          type: string
+          enum:
+            - agent_run.created
+            - agent_run.started
+            - agent_run.completed
+            - agent_run.failed
+            - agent_run.cancelled
+        data:
+          $ref: "#/components/schemas/JsonValue"
+        createdAt:
+          type: string
+          format: date-time
+          description: When the event was created
+      required:
+        - id
+        - event
+        - data
+        - createdAt
+      additionalProperties: false
     AgentErrorResponse:
       type: object
       properties:
@@ -6562,32 +6588,6 @@ components:
           stream-reset: "#/components/schemas/SearchStreamResetChunkOutput"
           done: "#/components/schemas/SearchStreamDoneChunkOutput"
           error: "#/components/schemas/SearchStreamErrorChunkOutput"
-    AgentRunEvent:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Event ID within the run.
-        event:
-          type: string
-          enum:
-            - agent_run.created
-            - agent_run.started
-            - agent_run.completed
-            - agent_run.failed
-            - agent_run.cancelled
-        data:
-          $ref: "#/components/schemas/JsonValue"
-        createdAt:
-          type: string
-          format: date-time
-          description: When the event was created
-      required:
-        - id
-        - event
-        - data
-        - createdAt
-      additionalProperties: false
     SearchResultOutput:
       type: object
       properties:

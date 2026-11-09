@@ -18,7 +18,7 @@ namespace Exa.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Exa.WebsetsGetExpandItemExtensions.ToEnum(stringValue) ?? default;
+                        return global::Exa.WebsetsGetExpandItemExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::Exa.WebsetsGetExpandItem.");
                     }
 
                     break;

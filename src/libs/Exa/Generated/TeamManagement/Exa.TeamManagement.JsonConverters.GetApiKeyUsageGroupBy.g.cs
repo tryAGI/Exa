@@ -18,7 +18,7 @@ namespace Exa.TeamManagement.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Exa.TeamManagement.GetApiKeyUsageGroupByExtensions.ToEnum(stringValue) ?? default;
+                        return global::Exa.TeamManagement.GetApiKeyUsageGroupByExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::Exa.TeamManagement.GetApiKeyUsageGroupBy.");
                     }
 
                     break;

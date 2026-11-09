@@ -27,5 +27,6 @@ rootCommand.Subcommands.Add(WebhooksApiGroupCommand.Create());
 rootCommand.Subcommands.Add(WebhooksAttemptsApiGroupCommand.Create());
 rootCommand.Subcommands.Add(WebsetsApiGroupCommand.Create());
 rootCommand.Subcommands.Add(WebsetsPreviewApiGroupCommand.Create());
+rootCommand.Subcommands.Add(CliCompletion.CreateCommand(rootCommand, @"exa"));
 
 return await rootCommand.Parse(args).InvokeAsync().ConfigureAwait(false);

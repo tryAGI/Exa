@@ -21,6 +21,14 @@ namespace Exa
         public bool? IncludeHtmlTags { get; set; }
 
         /// <summary>
+        /// Keeps the page's links in the returned text, in the chosen format. Links are removed from the text when omitted.<br/>
+        /// - `full`: Each link as a markdown link, `[anchor](url)`.<br/>
+        /// - `citation`: Each link as a numbered reference, `[anchor][n]`, with the URLs listed as `[n]: url` at the end of the text. A `maxCharacters` limit can cut off the list.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("linkStyle")]
+        public string? LinkStyle { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verbosity")]
@@ -49,6 +57,11 @@ namespace Exa
         /// </summary>
         /// <param name="maxCharacters"></param>
         /// <param name="includeHtmlTags"></param>
+        /// <param name="linkStyle">
+        /// Keeps the page's links in the returned text, in the chosen format. Links are removed from the text when omitted.<br/>
+        /// - `full`: Each link as a markdown link, `[anchor](url)`.<br/>
+        /// - `citation`: Each link as a numbered reference, `[anchor][n]`, with the URLs listed as `[n]: url` at the end of the text. A `maxCharacters` limit can cut off the list.
+        /// </param>
         /// <param name="verbosity"></param>
         /// <param name="includeSections"></param>
         /// <param name="excludeSections"></param>
@@ -58,12 +71,14 @@ namespace Exa
         public ContentsRequestTextVariant1(
             int? maxCharacters,
             bool? includeHtmlTags,
+            string? linkStyle,
             global::Exa.ContentsRequestTextVariant1Verbosity? verbosity,
             global::System.Collections.Generic.IList<global::Exa.ContentsRequestTextVariant1IncludeSectionsVariant1Item>? includeSections,
             global::System.Collections.Generic.IList<global::Exa.ContentsRequestTextVariant1ExcludeSectionsVariant1Item>? excludeSections)
         {
             this.MaxCharacters = maxCharacters;
             this.IncludeHtmlTags = includeHtmlTags;
+            this.LinkStyle = linkStyle;
             this.Verbosity = verbosity;
             this.IncludeSections = includeSections;
             this.ExcludeSections = excludeSections;

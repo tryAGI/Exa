@@ -55,6 +55,7 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEvent))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEventEvent), TypeInfoPropertyName = "AgentRunEventEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentErrorResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentApiKeyBudgetExceededResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunList))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.AgentRun>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.DeleteAgentRunResponse))]
@@ -62,6 +63,7 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Exa.AgentRunEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.CreateAgentRunAccept), TypeInfoPropertyName = "CreateAgentRunAccept2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ListAgentRunEventsAccept), TypeInfoPropertyName = "ListAgentRunEventsAccept2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>), TypeInfoPropertyName = "OneOfErrorResponseAgentApiKeyBudgetExceededResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
@@ -75,6 +77,7 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.AgentRunEventEvent?), TypeInfoPropertyName = "NullableAgentRunEventEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.CreateAgentRunAccept?), TypeInfoPropertyName = "NullableCreateAgentRunAccept2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ListAgentRunEventsAccept?), TypeInfoPropertyName = "NullableListAgentRunEventsAccept2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>?), TypeInfoPropertyName = "NullableOneOfErrorResponseAgentApiKeyBudgetExceededResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.JsonValue?>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.Dictionary<string, global::Exa.JsonValue?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Exa.AgentDataSource>))]
@@ -138,6 +141,13 @@ namespace Exa
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, global::Exa.JsonValue?>>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, global::Exa.JsonValue?>>());
             options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>());
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>());
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>());
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>());
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>());
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>());
+            options.Converters.Add(new global::Exa.JsonConverters.OneOfJsonConverter<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>());
             options.Converters.Add(new global::Exa.JsonConverters.UnixTimestampJsonConverter());
             options.Converters.Add(new LazyEnumJsonConverterFactory());
         }

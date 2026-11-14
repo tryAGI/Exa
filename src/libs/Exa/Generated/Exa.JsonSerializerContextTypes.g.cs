@@ -886,1351 +886,1359 @@ namespace Exa
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentRunList? Type212 { get; set; }
+        public global::Exa.AgentApiKeyBudgetExceededResponse? Type212 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.AgentRun>? Type213 { get; set; }
+        public global::Exa.AgentRunList? Type213 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.DeleteAgentRunResponse? Type214 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.AgentRun>? Type214 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AgentRunEventList? Type215 { get; set; }
+        public global::Exa.DeleteAgentRunResponse? Type215 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.AgentRunEvent>? Type216 { get; set; }
+        public global::Exa.AgentRunEventList? Type216 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Batch? Type217 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.AgentRunEvent>? Type217 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.BatchStatus? Type218 { get; set; }
+        public global::Exa.Batch? Type218 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.BatchRequestCounts? Type219 { get; set; }
+        public global::Exa.BatchStatus? Type219 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.BatchList? Type220 { get; set; }
+        public global::Exa.BatchRequestCounts? Type220 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.Batch>? Type221 { get; set; }
+        public global::Exa.BatchList? Type221 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.DeletedBatch? Type222 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.Batch>? Type222 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetsTeamInfo? Type223 { get; set; }
+        public global::Exa.DeletedBatch? Type223 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetsTeamInfoConcurrency? Type224 { get; set; }
+        public global::Exa.WebsetsTeamInfo? Type224 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetsTeamInfoLimits? Type225 { get; set; }
+        public global::Exa.WebsetsTeamInfoConcurrency? Type225 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamChunk? Type226 { get; set; }
+        public global::Exa.WebsetsTeamInfoLimits? Type226 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamCitationsChunkOutput? Type227 { get; set; }
+        public global::Exa.AnswerStreamChunk? Type227 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamCostChunkOutput? Type228 { get; set; }
+        public global::Exa.AnswerStreamCitationsChunkOutput? Type228 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamErrorChunkOutput? Type229 { get; set; }
+        public global::Exa.AnswerStreamCostChunkOutput? Type229 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamChunk? Type230 { get; set; }
+        public global::Exa.AnswerStreamErrorChunkOutput? Type230 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamTextDeltaChunkOutput? Type231 { get; set; }
+        public global::Exa.SearchStreamChunk? Type231 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutput? Type232 { get; set; }
+        public global::Exa.SearchStreamTextDeltaChunkOutput? Type232 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamResultsChunkOutput? Type233 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutput? Type233 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamResetChunkOutput? Type234 { get; set; }
+        public global::Exa.SearchStreamResultsChunkOutput? Type234 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamDoneChunkOutput? Type235 { get; set; }
+        public global::Exa.SearchStreamResetChunkOutput? Type235 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamErrorChunkOutput? Type236 { get; set; }
+        public global::Exa.SearchStreamDoneChunkOutput? Type236 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamChunkDiscriminator? Type237 { get; set; }
+        public global::Exa.SearchStreamErrorChunkOutput? Type237 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamChunkDiscriminatorType? Type238 { get; set; }
+        public global::Exa.SearchStreamChunkDiscriminator? Type238 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputSubpage>? Type239 { get; set; }
+        public global::Exa.SearchStreamChunkDiscriminatorType? Type239 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResultOutputSubpage? Type240 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputSubpage>? Type240 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitie>? Type241 { get; set; }
+        public global::Exa.SearchResultOutputSubpage? Type241 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResultOutputEntitie? Type242 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputEntitie>? Type242 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResultOutputEntitieDiscriminator? Type243 { get; set; }
+        public global::Exa.SearchResultOutputEntitie? Type243 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResultOutputEntitieDiscriminatorType? Type244 { get; set; }
+        public global::Exa.SearchResultOutputEntitieDiscriminator? Type244 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResultOutputExtras? Type245 { get; set; }
+        public global::Exa.SearchResultOutputEntitieDiscriminatorType? Type245 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputExtrasRichImageLink>? Type246 { get; set; }
+        public global::Exa.SearchResultOutputExtras? Type246 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResultOutputExtrasRichImageLink? Type247 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputExtrasRichImageLink>? Type247 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputExtrasRichLink>? Type248 { get; set; }
+        public global::Exa.SearchResultOutputExtrasRichImageLink? Type248 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResultOutputExtrasRichLink? Type249 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputExtrasRichLink>? Type249 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputExtrasCodeBlock>? Type250 { get; set; }
+        public global::Exa.SearchResultOutputExtrasRichLink? Type250 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchResultOutputExtrasCodeBlock? Type251 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchResultOutputExtrasCodeBlock>? Type251 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputProperties? Type252 { get; set; }
+        public global::Exa.SearchResultOutputExtrasCodeBlock? Type252 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesWorkforce? Type253 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputProperties? Type253 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesHeadquarters? Type254 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesWorkforce? Type254 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesFinancials? Type255 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesHeadquarters? Type255 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesFinancialsFundingLatestRound? Type256 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesFinancials? Type256 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesWebTraffic? Type257 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesFinancialsFundingLatestRound? Type257 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchCompanyEntityOutputPropertiesWebTrafficHistoryItem>? Type258 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesWebTraffic? Type258 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesWebTrafficHistoryItem? Type259 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchCompanyEntityOutputPropertiesWebTrafficHistoryItem>? Type259 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesResearch? Type260 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesWebTrafficHistoryItem? Type260 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchCompanyEntityOutputPropertiesResearchNotableWork>? Type261 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesResearch? Type261 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesResearchNotableWork? Type262 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchCompanyEntityOutputPropertiesResearchNotableWork>? Type262 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesResearchNotableWorkType? Type263 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesResearchNotableWork? Type263 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchCompanyEntityOutputPropertiesResearchTopResearcher>? Type264 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesResearchNotableWorkType? Type264 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesResearchTopResearcher? Type265 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchCompanyEntityOutputPropertiesResearchTopResearcher>? Type265 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchCompanyEntityOutputPropertiesResearchTopResearcherPerson? Type266 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesResearchTopResearcher? Type266 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputProperties? Type267 { get; set; }
+        public global::Exa.SearchCompanyEntityOutputPropertiesResearchTopResearcherPerson? Type267 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchPersonEntityOutputPropertiesWorkHistoryItem>? Type268 { get; set; }
+        public global::Exa.SearchPersonEntityOutputProperties? Type268 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesWorkHistoryItem? Type269 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchPersonEntityOutputPropertiesWorkHistoryItem>? Type269 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesWorkHistoryItemDates? Type270 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesWorkHistoryItem? Type270 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesWorkHistoryItemCompany? Type271 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesWorkHistoryItemDates? Type271 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchPersonEntityOutputPropertiesEducationHistoryItem>? Type272 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesWorkHistoryItemCompany? Type272 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesEducationHistoryItem? Type273 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchPersonEntityOutputPropertiesEducationHistoryItem>? Type273 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesEducationHistoryItemDates? Type274 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesEducationHistoryItem? Type274 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesEducationHistoryItemInstitution? Type275 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesEducationHistoryItemDates? Type275 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesResearch? Type276 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesEducationHistoryItemInstitution? Type276 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchPersonEntityOutputPropertiesResearchNotableWork>? Type277 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesResearch? Type277 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesResearchNotableWork? Type278 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchPersonEntityOutputPropertiesResearchNotableWork>? Type278 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPersonEntityOutputPropertiesResearchNotableWorkType? Type279 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesResearchNotableWork? Type279 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPublicationEntityOutputProperties? Type280 { get; set; }
+        public global::Exa.SearchPersonEntityOutputPropertiesResearchNotableWorkType? Type280 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPublicationEntityOutputPropertiesType? Type281 { get; set; }
+        public global::Exa.SearchPublicationEntityOutputProperties? Type281 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchPublicationEntityOutputPropertiesAuthor>? Type282 { get; set; }
+        public global::Exa.SearchPublicationEntityOutputPropertiesType? Type282 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchPublicationEntityOutputPropertiesAuthor? Type283 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchPublicationEntityOutputPropertiesAuthor>? Type283 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CostDollarsOutputSearch? Type284 { get; set; }
+        public global::Exa.SearchPublicationEntityOutputPropertiesAuthor? Type284 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CostDollarsOutputContents? Type285 { get; set; }
+        public global::Exa.CostDollarsOutputSearch? Type285 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchSynthesisOutputOutputGroundingItem>? Type286 { get; set; }
+        public global::Exa.CostDollarsOutputContents? Type286 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchSynthesisOutputOutputGroundingItem? Type287 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchSynthesisOutputOutputGroundingItem>? Type287 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchSynthesisOutputOutputGroundingItemCitation>? Type288 { get; set; }
+        public global::Exa.SearchSynthesisOutputOutputGroundingItem? Type288 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchSynthesisOutputOutputGroundingItemCitation? Type289 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchSynthesisOutputOutputGroundingItemCitation>? Type289 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchSynthesisOutputOutputGroundingItemConfidence? Type290 { get; set; }
+        public global::Exa.SearchSynthesisOutputOutputGroundingItemCitation? Type290 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamTextDeltaChunkOutputChoice>? Type291 { get; set; }
+        public global::Exa.SearchSynthesisOutputOutputGroundingItemConfidence? Type291 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamTextDeltaChunkOutputChoice? Type292 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamTextDeltaChunkOutputChoice>? Type292 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamTextDeltaChunkOutputChoiceDelta? Type293 { get; set; }
+        public global::Exa.SearchStreamTextDeltaChunkOutputChoice? Type293 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamTextDeltaChunkOutputChoiceDeltaCitation>? Type294 { get; set; }
+        public global::Exa.SearchStreamTextDeltaChunkOutputChoiceDelta? Type294 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamTextDeltaChunkOutputChoiceDeltaCitation? Type295 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamTextDeltaChunkOutputChoiceDeltaCitation>? Type295 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputGroundingItem>? Type296 { get; set; }
+        public global::Exa.SearchStreamTextDeltaChunkOutputChoiceDeltaCitation? Type296 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutputGroundingItem? Type297 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputGroundingItem>? Type297 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputGroundingItemCitation>? Type298 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutputGroundingItem? Type298 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutputGroundingItemCitation? Type299 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputGroundingItemCitation>? Type299 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutputGroundingItemConfidence? Type300 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutputGroundingItemCitation? Type300 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputCitation>? Type301 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutputGroundingItemConfidence? Type301 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutputCitation? Type302 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputCitation>? Type302 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputChoice>? Type303 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutputCitation? Type303 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutputChoice? Type304 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputChoice>? Type304 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutputChoiceDelta? Type305 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutputChoice? Type305 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputChoiceDeltaCitation>? Type306 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutputChoiceDelta? Type306 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamGroundingChunkOutputChoiceDeltaCitation? Type307 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamGroundingChunkOutputChoiceDeltaCitation>? Type307 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamDoneChunkOutputChoice>? Type308 { get; set; }
+        public global::Exa.SearchStreamGroundingChunkOutputChoiceDeltaCitation? Type308 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamDoneChunkOutputChoice? Type309 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamDoneChunkOutputChoice>? Type309 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamDoneChunkOutputChoiceDelta? Type310 { get; set; }
+        public global::Exa.SearchStreamDoneChunkOutputChoice? Type310 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchStreamDoneChunkOutputChoiceDeltaCitation>? Type311 { get; set; }
+        public global::Exa.SearchStreamDoneChunkOutputChoiceDelta? Type311 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamDoneChunkOutputChoiceDeltaCitation? Type312 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchStreamDoneChunkOutputChoiceDeltaCitation>? Type312 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchStreamErrorChunkOutputError? Type313 { get; set; }
+        public global::Exa.SearchStreamDoneChunkOutputChoiceDeltaCitation? Type313 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.AnswerStreamCitationsChunkOutputCitation>? Type314 { get; set; }
+        public global::Exa.SearchStreamErrorChunkOutputError? Type314 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamCitationsChunkOutputCitation? Type315 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.AnswerStreamCitationsChunkOutputCitation>? Type315 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamErrorChunkOutputPayload? Type316 { get; set; }
+        public global::Exa.AnswerStreamCitationsChunkOutputCitation? Type316 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.AnswerStreamErrorChunkOutputPayloadError? Type317 { get; set; }
+        public global::Exa.AnswerStreamErrorChunkOutputPayload? Type317 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutput? Type318 { get; set; }
+        public global::Exa.AnswerStreamErrorChunkOutputPayloadError? Type318 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputText>? Type319 { get; set; }
+        public global::Exa.SearchMonitorContentsOutput? Type319 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputText? Type320 { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputText>? Type320 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputTextVerbosity? Type321 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputText? Type321 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchMonitorContentsOutputTextIncludeSectionsVariant1Item>? Type322 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputTextVerbosity? Type322 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputTextIncludeSectionsVariant1Item? Type323 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchMonitorContentsOutputTextIncludeSectionsVariant1Item>? Type323 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchMonitorContentsOutputTextExcludeSectionsVariant1Item>? Type324 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputTextIncludeSectionsVariant1Item? Type324 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputTextExcludeSectionsVariant1Item? Type325 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchMonitorContentsOutputTextExcludeSectionsVariant1Item>? Type325 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputHighlights>? Type326 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputTextExcludeSectionsVariant1Item? Type326 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputHighlights? Type327 { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputHighlights>? Type327 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputHighlightsVerbosity? Type328 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputHighlights? Type328 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<bool?, global::Exa.SummaryWithMaxTokensOptionsOutput>? Type329 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputHighlightsVerbosity? Type329 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SummaryWithMaxTokensOptionsOutput? Type330 { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.SummaryWithMaxTokensOptionsOutput>? Type330 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputExtras? Type331 { get; set; }
+        public global::Exa.SummaryWithMaxTokensOptionsOutput? Type331 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputContext>? Type332 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputExtras? Type332 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputContext? Type333 { get; set; }
+        public global::Exa.OneOf<bool?, global::Exa.SearchMonitorContentsOutputContext>? Type333 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>? Type334 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputContext? Type334 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorContentsOutputLivecrawl? Type335 { get; set; }
+        public global::Exa.OneOf<global::Exa.SearchMonitorContentsOutputLivecrawl?, string>? Type335 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OutputSchemaTextOutput? Type336 { get; set; }
+        public global::Exa.SearchMonitorContentsOutputLivecrawl? Type336 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorOutputSchemaOutputVariant1Discriminator? Type337 { get; set; }
+        public global::Exa.OutputSchemaTextOutput? Type337 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorOutputSchemaOutputVariant1DiscriminatorType? Type338 { get; set; }
+        public global::Exa.SearchMonitorOutputSchemaOutputVariant1Discriminator? Type338 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.SearchMonitorWebhookOutputEvent>? Type339 { get; set; }
+        public global::Exa.SearchMonitorOutputSchemaOutputVariant1DiscriminatorType? Type339 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.SearchMonitorWebhookOutputEvent? Type340 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.SearchMonitorWebhookOutputEvent>? Type340 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParameters? Type341 { get; set; }
+        public global::Exa.SearchMonitorWebhookOutputEvent? Type341 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersSearch? Type342 { get; set; }
+        public global::Exa.CreateWebsetParameters? Type342 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Entity? Type343 { get; set; }
+        public global::Exa.CreateWebsetParametersSearch? Type343 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateCriterionParameters>? Type344 { get; set; }
+        public global::Exa.Entity? Type344 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateCriterionParameters? Type345 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateCriterionParameters>? Type345 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetParametersSearchExcludeItem>? Type346 { get; set; }
+        public global::Exa.CreateCriterionParameters? Type346 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersSearchExcludeItem? Type347 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetParametersSearchExcludeItem>? Type347 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersSearchExcludeItemSource? Type348 { get; set; }
+        public global::Exa.CreateWebsetParametersSearchExcludeItem? Type348 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetParametersSearchScopeItem>? Type349 { get; set; }
+        public global::Exa.CreateWebsetParametersSearchExcludeItemSource? Type349 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersSearchScopeItem? Type350 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetParametersSearchScopeItem>? Type350 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersSearchScopeItemSource? Type351 { get; set; }
+        public global::Exa.CreateWebsetParametersSearchScopeItem? Type351 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersSearchScopeItemRelationship? Type352 { get; set; }
+        public global::Exa.CreateWebsetParametersSearchScopeItemSource? Type352 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetParametersImportItem>? Type353 { get; set; }
+        public global::Exa.CreateWebsetParametersSearchScopeItemRelationship? Type353 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersImportItem? Type354 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetParametersImportItem>? Type354 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersImportItemSource? Type355 { get; set; }
+        public global::Exa.CreateWebsetParametersImportItem? Type355 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateEnrichmentParameters>? Type356 { get; set; }
+        public global::Exa.CreateWebsetParametersImportItemSource? Type356 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateEnrichmentParameters? Type357 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateEnrichmentParameters>? Type357 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetParametersExcludeItem>? Type358 { get; set; }
+        public global::Exa.CreateEnrichmentParameters? Type358 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersExcludeItem? Type359 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetParametersExcludeItem>? Type359 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetParametersExcludeItemSource? Type360 { get; set; }
+        public global::Exa.CreateWebsetParametersExcludeItem? Type360 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CompanyEntity? Type361 { get; set; }
+        public global::Exa.CreateWebsetParametersExcludeItemSource? Type361 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PersonEntity? Type362 { get; set; }
+        public global::Exa.CompanyEntity? Type362 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ArticleEntity? Type363 { get; set; }
+        public global::Exa.PersonEntity? Type363 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ResearchPaperEntity? Type364 { get; set; }
+        public global::Exa.ArticleEntity? Type364 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CustomEntity? Type365 { get; set; }
+        public global::Exa.ResearchPaperEntity? Type365 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetEnrichmentFormat? Type366 { get; set; }
+        public global::Exa.CustomEntity? Type366 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateEnrichmentParametersOption>? Type367 { get; set; }
+        public global::Exa.WebsetEnrichmentFormat? Type367 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateEnrichmentParametersOption? Type368 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateEnrichmentParametersOption>? Type368 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.UpdateWebsetRequest? Type369 { get; set; }
+        public global::Exa.CreateEnrichmentParametersOption? Type369 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetSearchParameters? Type370 { get; set; }
+        public global::Exa.UpdateWebsetRequest? Type370 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetSearchParametersExcludeItem>? Type371 { get; set; }
+        public global::Exa.CreateWebsetSearchParameters? Type371 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetSearchParametersExcludeItem? Type372 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetSearchParametersExcludeItem>? Type372 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetSearchParametersExcludeItemSource? Type373 { get; set; }
+        public global::Exa.CreateWebsetSearchParametersExcludeItem? Type373 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetSearchParametersScopeItem>? Type374 { get; set; }
+        public global::Exa.CreateWebsetSearchParametersExcludeItemSource? Type374 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetSearchParametersScopeItem? Type375 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.CreateWebsetSearchParametersScopeItem>? Type375 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetSearchParametersScopeItemSource? Type376 { get; set; }
+        public global::Exa.CreateWebsetSearchParametersScopeItem? Type376 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebsetSearchParametersScopeItemRelationship? Type377 { get; set; }
+        public global::Exa.CreateWebsetSearchParametersScopeItemSource? Type377 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchBehavior? Type378 { get; set; }
+        public global::Exa.CreateWebsetSearchParametersScopeItemRelationship? Type378 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.UpdateEnrichmentParameters? Type379 { get; set; }
+        public global::Exa.WebsetSearchBehavior? Type379 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.UpdateEnrichmentParametersOption>? Type380 { get; set; }
+        public global::Exa.UpdateEnrichmentParameters? Type380 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.UpdateEnrichmentParametersOption? Type381 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.UpdateEnrichmentParametersOption>? Type381 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PreviewWebsetParameters? Type382 { get; set; }
+        public global::Exa.UpdateEnrichmentParametersOption? Type382 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PreviewWebsetParametersSearch? Type383 { get; set; }
+        public global::Exa.PreviewWebsetParameters? Type383 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateMonitorParameters? Type384 { get; set; }
+        public global::Exa.PreviewWebsetParametersSearch? Type384 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorCadence? Type385 { get; set; }
+        public global::Exa.CreateMonitorParameters? Type385 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorBehavior? Type386 { get; set; }
+        public global::Exa.MonitorCadence? Type386 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorBehaviorConfig? Type387 { get; set; }
+        public global::Exa.MonitorBehavior? Type387 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.MonitorBehaviorConfigCriteriaItem>? Type388 { get; set; }
+        public global::Exa.MonitorBehaviorConfig? Type388 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorBehaviorConfigCriteriaItem? Type389 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.MonitorBehaviorConfigCriteriaItem>? Type389 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.UpdateMonitor? Type390 { get; set; }
+        public global::Exa.MonitorBehaviorConfigCriteriaItem? Type390 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.UpdateMonitorStatus? Type391 { get; set; }
+        public global::Exa.UpdateMonitor? Type391 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportParameters? Type392 { get; set; }
+        public global::Exa.UpdateMonitorStatus? Type392 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportParametersVariant1? Type393 { get; set; }
+        public global::Exa.CreateImportParameters? Type393 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportParametersVariant1Format? Type394 { get; set; }
+        public global::Exa.CreateImportParametersVariant1? Type394 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportParametersVariant1Csv? Type395 { get; set; }
+        public global::Exa.CreateImportParametersVariant1Format? Type395 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportParametersDiscriminator? Type396 { get; set; }
+        public global::Exa.CreateImportParametersVariant1Csv? Type396 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportParametersDiscriminatorFormat? Type397 { get; set; }
+        public global::Exa.CreateImportParametersDiscriminator? Type397 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.UpdateImport? Type398 { get; set; }
+        public global::Exa.CreateImportParametersDiscriminatorFormat? Type398 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateWebhookParameters? Type399 { get; set; }
+        public global::Exa.UpdateImport? Type399 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.EventType>? Type400 { get; set; }
+        public global::Exa.CreateWebhookParameters? Type400 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventType? Type401 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.EventType>? Type401 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.UpdateWebhookParameters? Type402 { get; set; }
+        public global::Exa.EventType? Type402 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Webset? Type403 { get; set; }
+        public global::Exa.UpdateWebhookParameters? Type403 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetStatus? Type404 { get; set; }
+        public global::Exa.Webset? Type404 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetSearch>? Type405 { get; set; }
+        public global::Exa.WebsetStatus? Type405 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearch? Type406 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetSearch>? Type406 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.Import>? Type407 { get; set; }
+        public global::Exa.WebsetSearch? Type407 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Import? Type408 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.Import>? Type408 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetEnrichment>? Type409 { get; set; }
+        public global::Exa.Import? Type409 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetEnrichment? Type410 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetEnrichment>? Type410 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.Monitor>? Type411 { get; set; }
+        public global::Exa.WebsetEnrichment? Type411 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Monitor? Type412 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.Monitor>? Type412 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetExclude>? Type413 { get; set; }
+        public global::Exa.Monitor? Type413 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetExclude? Type414 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetExclude>? Type414 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetExcludeSource? Type415 { get; set; }
+        public global::Exa.WebsetExclude? Type415 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchStatus? Type416 { get; set; }
+        public global::Exa.WebsetExcludeSource? Type416 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetSearchCriteriaItem>? Type417 { get; set; }
+        public global::Exa.WebsetSearchStatus? Type417 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchCriteriaItem? Type418 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetSearchCriteriaItem>? Type418 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetSearchExcludeItem>? Type419 { get; set; }
+        public global::Exa.WebsetSearchCriteriaItem? Type419 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchExcludeItem? Type420 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetSearchExcludeItem>? Type420 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchExcludeItemSource? Type421 { get; set; }
+        public global::Exa.WebsetSearchExcludeItem? Type421 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetSearchScopeItem>? Type422 { get; set; }
+        public global::Exa.WebsetSearchExcludeItemSource? Type422 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchScopeItem? Type423 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetSearchScopeItem>? Type423 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchScopeItemSource? Type424 { get; set; }
+        public global::Exa.WebsetSearchScopeItem? Type424 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchScopeItemRelationship? Type425 { get; set; }
+        public global::Exa.WebsetSearchScopeItemSource? Type425 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchProgress? Type426 { get; set; }
+        public global::Exa.WebsetSearchScopeItemRelationship? Type426 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchRecall? Type427 { get; set; }
+        public global::Exa.WebsetSearchProgress? Type427 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchRecallExpected? Type428 { get; set; }
+        public global::Exa.WebsetSearchRecall? Type428 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchRecallExpectedConfidence? Type429 { get; set; }
+        public global::Exa.WebsetSearchRecallExpected? Type429 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchRecallExpectedBounds? Type430 { get; set; }
+        public global::Exa.WebsetSearchRecallExpectedConfidence? Type430 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetSearchCanceledReason? Type431 { get; set; }
+        public global::Exa.WebsetSearchRecallExpectedBounds? Type431 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ImportObject? Type432 { get; set; }
+        public global::Exa.WebsetSearchCanceledReason? Type432 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ImportStatus? Type433 { get; set; }
+        public global::Exa.ImportObject? Type433 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ImportFormat? Type434 { get; set; }
+        public global::Exa.ImportStatus? Type434 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ImportFailedReason? Type435 { get; set; }
+        public global::Exa.ImportFormat? Type435 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetEnrichmentStatus? Type436 { get; set; }
+        public global::Exa.ImportFailedReason? Type436 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetEnrichmentOption>? Type437 { get; set; }
+        public global::Exa.WebsetEnrichmentStatus? Type437 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetEnrichmentOption? Type438 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetEnrichmentOption>? Type438 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorObject? Type439 { get; set; }
+        public global::Exa.WebsetEnrichmentOption? Type439 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorStatus? Type440 { get; set; }
+        public global::Exa.MonitorObject? Type440 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorRun? Type441 { get; set; }
+        public global::Exa.MonitorStatus? Type441 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorRunObject? Type442 { get; set; }
+        public global::Exa.MonitorRun? Type442 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorRunStatus? Type443 { get; set; }
+        public global::Exa.MonitorRunObject? Type443 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.MonitorRunType? Type444 { get; set; }
+        public global::Exa.MonitorRunStatus? Type444 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListWebsetsResponse? Type445 { get; set; }
+        public global::Exa.MonitorRunType? Type445 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.Webset>? Type446 { get; set; }
+        public global::Exa.ListWebsetsResponse? Type446 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.GetWebsetResponse? Type447 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.Webset>? Type447 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.GetWebsetResponseVariant2? Type448 { get; set; }
+        public global::Exa.GetWebsetResponse? Type448 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetItem>? Type449 { get; set; }
+        public global::Exa.GetWebsetResponseVariant2? Type449 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItem? Type450 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetItem>? Type450 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemSource? Type451 { get; set; }
+        public global::Exa.WebsetItem? Type451 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonProperties? Type452 { get; set; }
+        public global::Exa.WebsetItemSource? Type452 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemCompanyProperties? Type453 { get; set; }
+        public global::Exa.WebsetItemPersonProperties? Type453 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemArticleProperties? Type454 { get; set; }
+        public global::Exa.WebsetItemCompanyProperties? Type454 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemResearchPaperProperties? Type455 { get; set; }
+        public global::Exa.WebsetItemArticleProperties? Type455 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemCustomProperties? Type456 { get; set; }
+        public global::Exa.WebsetItemResearchPaperProperties? Type456 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetItemEvaluation>? Type457 { get; set; }
+        public global::Exa.WebsetItemCustomProperties? Type457 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemEvaluation? Type458 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetItemEvaluation>? Type458 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.EnrichmentResult>? Type459 { get; set; }
+        public global::Exa.WebsetItemEvaluation? Type459 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EnrichmentResult? Type460 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.EnrichmentResult>? Type460 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonPropertiesPerson? Type461 { get; set; }
+        public global::Exa.EnrichmentResult? Type461 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonPropertiesPersonCompany? Type462 { get; set; }
+        public global::Exa.WebsetItemPersonPropertiesPerson? Type462 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItem>? Type463 { get; set; }
+        public global::Exa.WebsetItemPersonPropertiesPersonCompany? Type463 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItem? Type464 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItem>? Type464 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItemDates? Type465 { get; set; }
+        public global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItem? Type465 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItemCompany? Type466 { get; set; }
+        public global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItemDates? Type466 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItem>? Type467 { get; set; }
+        public global::Exa.WebsetItemPersonPropertiesPersonWorkHistoryItemCompany? Type467 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItem? Type468 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItem>? Type468 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItemDates? Type469 { get; set; }
+        public global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItem? Type469 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItemInstitution? Type470 { get; set; }
+        public global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItemDates? Type470 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemCompanyPropertiesCompany? Type471 { get; set; }
+        public global::Exa.WebsetItemPersonPropertiesPersonEducationHistoryItemInstitution? Type471 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemCompanyPropertiesCompanyHeadquarters? Type472 { get; set; }
+        public global::Exa.WebsetItemCompanyPropertiesCompany? Type472 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemCompanyPropertiesCompanyFinancials? Type473 { get; set; }
+        public global::Exa.WebsetItemCompanyPropertiesCompanyHeadquarters? Type473 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemCompanyPropertiesCompanyFinancialsFundingLatestRound? Type474 { get; set; }
+        public global::Exa.WebsetItemCompanyPropertiesCompanyFinancials? Type474 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemCompanyPropertiesCompanyWebTraffic? Type475 { get; set; }
+        public global::Exa.WebsetItemCompanyPropertiesCompanyFinancialsFundingLatestRound? Type475 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemArticlePropertiesArticle? Type476 { get; set; }
+        public global::Exa.WebsetItemCompanyPropertiesCompanyWebTraffic? Type476 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemResearchPaperPropertiesResearchPaper? Type477 { get; set; }
+        public global::Exa.WebsetItemArticlePropertiesArticle? Type477 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemCustomPropertiesCustom? Type478 { get; set; }
+        public global::Exa.WebsetItemResearchPaperPropertiesResearchPaper? Type478 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemEvaluationSatisfied? Type479 { get; set; }
+        public global::Exa.WebsetItemCustomPropertiesCustom? Type479 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetItemEvaluationReference>? Type480 { get; set; }
+        public global::Exa.WebsetItemEvaluationSatisfied? Type480 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemEvaluationReference? Type481 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetItemEvaluationReference>? Type481 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EnrichmentResultStatus? Type482 { get; set; }
+        public global::Exa.WebsetItemEvaluationReference? Type482 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.EnrichmentResultReference>? Type483 { get; set; }
+        public global::Exa.EnrichmentResultStatus? Type483 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EnrichmentResultReference? Type484 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.EnrichmentResultReference>? Type484 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListWebsetItemResponse? Type485 { get; set; }
+        public global::Exa.EnrichmentResultReference? Type485 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PreviewWebsetResponse? Type486 { get; set; }
+        public global::Exa.ListWebsetItemResponse? Type486 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PreviewWebsetResponseSearch? Type487 { get; set; }
+        public global::Exa.PreviewWebsetResponse? Type487 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.CompanyEntity, global::Exa.PersonEntity, global::Exa.ArticleEntity, global::Exa.ResearchPaperEntity, global::Exa.CustomEntity>? Type488 { get; set; }
+        public global::Exa.PreviewWebsetResponseSearch? Type488 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseSearchCriteriaItem>? Type489 { get; set; }
+        public global::Exa.OneOf<global::Exa.CompanyEntity, global::Exa.PersonEntity, global::Exa.ArticleEntity, global::Exa.ResearchPaperEntity, global::Exa.CustomEntity>? Type489 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PreviewWebsetResponseSearchCriteriaItem? Type490 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseSearchCriteriaItem>? Type490 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseEnrichment>? Type491 { get; set; }
+        public global::Exa.PreviewWebsetResponseSearchCriteriaItem? Type491 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PreviewWebsetResponseEnrichment? Type492 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseEnrichment>? Type492 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PreviewWebsetResponseEnrichmentFormat? Type493 { get; set; }
+        public global::Exa.PreviewWebsetResponseEnrichment? Type493 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseEnrichmentOption>? Type494 { get; set; }
+        public global::Exa.PreviewWebsetResponseEnrichmentFormat? Type494 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.PreviewWebsetResponseEnrichmentOption? Type495 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.PreviewWebsetResponseEnrichmentOption>? Type495 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetItemPreview>? Type496 { get; set; }
+        public global::Exa.PreviewWebsetResponseEnrichmentOption? Type496 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetItemPreview? Type497 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetItemPreview>? Type497 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListMonitorsResponse? Type498 { get; set; }
+        public global::Exa.WebsetItemPreview? Type498 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListMonitorRunsResponse? Type499 { get; set; }
+        public global::Exa.ListMonitorsResponse? Type499 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.MonitorRun>? Type500 { get; set; }
+        public global::Exa.ListMonitorRunsResponse? Type500 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportResponse? Type501 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.MonitorRun>? Type501 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportResponseObject? Type502 { get; set; }
+        public global::Exa.CreateImportResponse? Type502 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportResponseStatus? Type503 { get; set; }
+        public global::Exa.CreateImportResponseObject? Type503 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportResponseFormat? Type504 { get; set; }
+        public global::Exa.CreateImportResponseStatus? Type504 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateImportResponseFailedReason? Type505 { get; set; }
+        public global::Exa.CreateImportResponseFormat? Type505 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListImportsResponse? Type506 { get; set; }
+        public global::Exa.CreateImportResponseFailedReason? Type506 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Webhook? Type507 { get; set; }
+        public global::Exa.ListImportsResponse? Type507 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebhookStatus? Type508 { get; set; }
+        public global::Exa.Webhook? Type508 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListWebhooksResponse? Type509 { get; set; }
+        public global::Exa.WebhookStatus? Type509 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.Webhook>? Type510 { get; set; }
+        public global::Exa.ListWebhooksResponse? Type510 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListWebhookAttemptsResponse? Type511 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.Webhook>? Type511 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebhookAttempt>? Type512 { get; set; }
+        public global::Exa.ListWebhookAttemptsResponse? Type512 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebhookAttempt? Type513 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebhookAttempt>? Type513 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListEventsResponse? Type514 { get; set; }
+        public global::Exa.WebhookAttempt? Type514 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.Event>? Type515 { get; set; }
+        public global::Exa.ListEventsResponse? Type515 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.Event? Type516 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.Event>? Type516 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetCreatedEvent? Type517 { get; set; }
+        public global::Exa.Event? Type517 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetDeletedEvent? Type518 { get; set; }
+        public global::Exa.EventWebsetCreatedEvent? Type518 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetIdleEvent? Type519 { get; set; }
+        public global::Exa.EventWebsetDeletedEvent? Type519 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetPausedEvent? Type520 { get; set; }
+        public global::Exa.EventWebsetIdleEvent? Type520 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetItemCreatedEvent? Type521 { get; set; }
+        public global::Exa.EventWebsetPausedEvent? Type521 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetItemEnrichedEvent? Type522 { get; set; }
+        public global::Exa.EventWebsetItemCreatedEvent? Type522 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetSearchCreatedEvent? Type523 { get; set; }
+        public global::Exa.EventWebsetItemEnrichedEvent? Type523 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetSearchUpdatedEvent? Type524 { get; set; }
+        public global::Exa.EventWebsetSearchCreatedEvent? Type524 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetSearchCanceledEvent? Type525 { get; set; }
+        public global::Exa.EventWebsetSearchUpdatedEvent? Type525 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventWebsetSearchCompletedEvent? Type526 { get; set; }
+        public global::Exa.EventWebsetSearchCanceledEvent? Type526 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventImportCreatedEvent? Type527 { get; set; }
+        public global::Exa.EventWebsetSearchCompletedEvent? Type527 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventImportCompletedEvent? Type528 { get; set; }
+        public global::Exa.EventImportCreatedEvent? Type528 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventMonitorCreatedEvent? Type529 { get; set; }
+        public global::Exa.EventImportCompletedEvent? Type529 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventMonitorUpdatedEvent? Type530 { get; set; }
+        public global::Exa.EventMonitorCreatedEvent? Type530 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventMonitorDeletedEvent? Type531 { get; set; }
+        public global::Exa.EventMonitorUpdatedEvent? Type531 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventMonitorRunCreatedEvent? Type532 { get; set; }
+        public global::Exa.EventMonitorDeletedEvent? Type532 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventMonitorRunCompletedEvent? Type533 { get; set; }
+        public global::Exa.EventMonitorRunCreatedEvent? Type533 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventDiscriminator? Type534 { get; set; }
+        public global::Exa.EventMonitorRunCompletedEvent? Type534 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventDiscriminatorType? Type535 { get; set; }
+        public global::Exa.EventDiscriminator? Type535 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListMonitorsStatus? Type536 { get; set; }
+        public global::Exa.EventDiscriminatorType? Type536 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateAgentRunAccept? Type537 { get; set; }
+        public global::Exa.ListMonitorsStatus? Type537 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListAgentRunEventsAccept? Type538 { get; set; }
+        public global::Exa.CreateAgentRunAccept? Type538 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CreateBatchExaBeta? Type539 { get; set; }
+        public global::Exa.ListAgentRunEventsAccept? Type539 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.ListBatchesExaBeta? Type540 { get; set; }
+        public global::Exa.CreateBatchExaBeta? Type540 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.GetBatchExaBeta? Type541 { get; set; }
+        public global::Exa.ListBatchesExaBeta? Type541 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.DeleteBatchExaBeta? Type542 { get; set; }
+        public global::Exa.GetBatchExaBeta? Type542 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.CancelBatchExaBeta? Type543 { get; set; }
+        public global::Exa.DeleteBatchExaBeta? Type543 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.WebsetsGetExpandItem>? Type544 { get; set; }
+        public global::Exa.CancelBatchExaBeta? Type544 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.WebsetsGetExpandItem? Type545 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.WebsetsGetExpandItem>? Type545 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Exa.EventsListType>? Type546 { get; set; }
+        public global::Exa.WebsetsGetExpandItem? Type546 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.EventsListType? Type547 { get; set; }
+        public global::System.Collections.Generic.IList<global::Exa.EventsListType>? Type547 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.X402PaymentChallenge>? Type548 { get; set; }
+        public global::Exa.EventsListType? Type548 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.X402PaymentChallenge>? Type549 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>? Type550 { get; set; }
 
         /// <summary>
         ///

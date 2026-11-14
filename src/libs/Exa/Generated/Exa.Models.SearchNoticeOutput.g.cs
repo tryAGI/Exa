@@ -9,7 +9,7 @@ namespace Exa
     public sealed partial class SearchNoticeOutput
     {
         /// <summary>
-        /// Machine-readable notice code, UPPER_SNAKE. `RESTRICTIONS_RELAXED`: the `site:` or exact-phrase restrictions written in the query matched nothing, so the results come from a search with them removed; filters set in the request body were kept. Codes are an open set: tolerate codes you do not recognize.<br/>
+        /// Machine-readable notice code. Handle codes you do not recognize without failing. See [notice codes](https://exa.ai/docs/search/best-practices#notice-codes) for what each code means.<br/>
         /// Example: RESTRICTIONS_RELAXED
         /// </summary>
         /// <example>RESTRICTIONS_RELAXED</example>
@@ -49,7 +49,7 @@ namespace Exa
         /// Initializes a new instance of the <see cref="SearchNoticeOutput" /> class.
         /// </summary>
         /// <param name="code">
-        /// Machine-readable notice code, UPPER_SNAKE. `RESTRICTIONS_RELAXED`: the `site:` or exact-phrase restrictions written in the query matched nothing, so the results come from a search with them removed; filters set in the request body were kept. Codes are an open set: tolerate codes you do not recognize.<br/>
+        /// Machine-readable notice code. Handle codes you do not recognize without failing. See [notice codes](https://exa.ai/docs/search/best-practices#notice-codes) for what each code means.<br/>
         /// Example: RESTRICTIONS_RELAXED
         /// </param>
         /// <param name="path">

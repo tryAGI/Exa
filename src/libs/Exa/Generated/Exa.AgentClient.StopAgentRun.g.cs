@@ -43,7 +43,7 @@ namespace Exa
 
         /// <summary>
         /// Stop a run<br/>
-        /// Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Currently supported only for `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
+        /// Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Supported for `high`, `xhigh`, and `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
         /// </summary>
         /// <param name="id">
         /// Agent run ID.
@@ -70,7 +70,7 @@ namespace Exa
         }
         /// <summary>
         /// Stop a run<br/>
-        /// Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Currently supported only for `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
+        /// Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Supported for `high`, `xhigh`, and `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
         /// </summary>
         /// <param name="id">
         /// Agent run ID.
@@ -407,6 +407,43 @@ namespace Exa
                                     innerException: __exception_401,
                                     responseBody: __content_401,
                                     responseObject: __value_401,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The API key has exceeded its spending budget. Ask a team administrator to raise the key's budget, or use a different API key.
+                            if ((int)__response.StatusCode == 402)
+                            {
+                                string? __content_402 = null;
+                                global::System.Exception? __exception_402 = null;
+                                global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>? __value_402 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_402 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_402 = global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>.FromJson(__content_402, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_402 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_402 = global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>.FromJson(__content_402, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_402 = __ex;
+                                }
+
+
+                                throw global::Exa.ApiException<global::Exa.OneOf<global::Exa.ErrorResponse, global::Exa.AgentApiKeyBudgetExceededResponse>?>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_402 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_402,
+                                    responseBody: __content_402,
+                                    responseObject: __value_402,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,

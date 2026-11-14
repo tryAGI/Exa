@@ -870,6 +870,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AgentErrorResponse"
+        "402":
+          description: The API key has exceeded its spending budget. Ask a team administrator to raise the key's budget, or use a different API key.
+          headers:
+            x-request-id:
+              $ref: "#/components/headers/XRequestId"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ErrorResponse"
+                  - $ref: "#/components/schemas/AgentApiKeyBudgetExceededResponse"
         "403":
           $ref: "#/components/responses/ForbiddenResponse"
         "429":
@@ -959,6 +970,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AgentErrorResponse"
+        "402":
+          description: The API key has exceeded its spending budget. Ask a team administrator to raise the key's budget, or use a different API key.
+          headers:
+            x-request-id:
+              $ref: "#/components/headers/XRequestId"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ErrorResponse"
+                  - $ref: "#/components/schemas/AgentApiKeyBudgetExceededResponse"
         "403":
           $ref: "#/components/responses/ForbiddenResponse"
         "500":
@@ -1032,6 +1054,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AgentErrorResponse"
+        "402":
+          description: The API key has exceeded its spending budget. Ask a team administrator to raise the key's budget, or use a different API key.
+          headers:
+            x-request-id:
+              $ref: "#/components/headers/XRequestId"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ErrorResponse"
+                  - $ref: "#/components/schemas/AgentApiKeyBudgetExceededResponse"
         "403":
           $ref: "#/components/responses/ForbiddenResponse"
         "404":
@@ -1122,6 +1155,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AgentErrorResponse"
+        "402":
+          description: The API key has exceeded its spending budget. Ask a team administrator to raise the key's budget, or use a different API key.
+          headers:
+            x-request-id:
+              $ref: "#/components/headers/XRequestId"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ErrorResponse"
+                  - $ref: "#/components/schemas/AgentApiKeyBudgetExceededResponse"
         "403":
           $ref: "#/components/responses/ForbiddenResponse"
         "404":
@@ -1213,6 +1257,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AgentErrorResponse"
+        "402":
+          description: The API key has exceeded its spending budget. Ask a team administrator to raise the key's budget, or use a different API key.
+          headers:
+            x-request-id:
+              $ref: "#/components/headers/XRequestId"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ErrorResponse"
+                  - $ref: "#/components/schemas/AgentApiKeyBudgetExceededResponse"
         "403":
           $ref: "#/components/responses/ForbiddenResponse"
         "404":
@@ -1265,7 +1320,7 @@ paths:
     post:
       operationId: stopAgentRun
       summary: Stop a run
-      description: Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Currently supported only for `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
+      description: Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Supported for `high`, `xhigh`, and `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
       tags:
         - Agent
       parameters:
@@ -1304,6 +1359,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AgentErrorResponse"
+        "402":
+          description: The API key has exceeded its spending budget. Ask a team administrator to raise the key's budget, or use a different API key.
+          headers:
+            x-request-id:
+              $ref: "#/components/headers/XRequestId"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ErrorResponse"
+                  - $ref: "#/components/schemas/AgentApiKeyBudgetExceededResponse"
         "403":
           $ref: "#/components/responses/ForbiddenResponse"
         "404":
@@ -1413,6 +1479,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AgentErrorResponse"
+        "402":
+          description: The API key has exceeded its spending budget. Ask a team administrator to raise the key's budget, or use a different API key.
+          headers:
+            x-request-id:
+              $ref: "#/components/headers/XRequestId"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ErrorResponse"
+                  - $ref: "#/components/schemas/AgentApiKeyBudgetExceededResponse"
         "403":
           $ref: "#/components/responses/ForbiddenResponse"
         "404":
@@ -1669,6 +1746,8 @@ paths:
       description: Returns information about the authenticated team, including current concurrency usage and limits.
       tags:
         - Teams
+      servers:
+        - url: https://api.exa.ai/websets
       responses:
         "200":
           description: Team information retrieved successfully
@@ -3551,6 +3630,22 @@ components:
                           description: If true, include lightweight HTML tags in returned text instead of plain markdown-style text.
                           default: false
                         - type: "null"
+                    linkStyle:
+                      description: |-
+                        Keeps the page's links in the returned text, in the chosen format. Links are removed from the text when omitted.
+
+                        - `full`: Each link as a markdown link, `[anchor](url)`.
+                        - `citation`: Each link as a numbered reference, `[anchor][n]`, with the URLs listed as `[n]: url` at the end of the text. A `maxCharacters` limit can cut off the list.
+                      oneOf:
+                        - type: string
+                          const: full
+                          description: Each link as a markdown link, `[anchor](url)`.
+                          title: full
+                        - type: string
+                          const: citation
+                          description: "Each link as a numbered reference, `[anchor][n]`, with the URLs listed as `[n]: url` at the end of the text. A `maxCharacters` limit can cut off the list."
+                          title: citation
+                        - type: "null"
                     verbosity:
                       anyOf:
                         - type: string
@@ -3743,7 +3838,7 @@ components:
             - type: integer
               minimum: -1
               maximum: 720
-              description: Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. `0` always fetches fresh content and `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
+              description: Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. A failed fetch may return the latest cached copy instead. `0` returns live content, fetched within the last 60 seconds. `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
             - type: "null"
         snapshotAsOf:
           anyOf:
@@ -3928,6 +4023,22 @@ components:
                         - type: boolean
                           description: If true, include lightweight HTML tags in returned text instead of plain markdown-style text.
                           default: false
+                        - type: "null"
+                    linkStyle:
+                      description: |-
+                        Keeps the page's links in the returned text, in the chosen format. Links are removed from the text when omitted.
+
+                        - `full`: Each link as a markdown link, `[anchor](url)`.
+                        - `citation`: Each link as a numbered reference, `[anchor][n]`, with the URLs listed as `[n]: url` at the end of the text. A `maxCharacters` limit can cut off the list.
+                      oneOf:
+                        - type: string
+                          const: full
+                          description: Each link as a markdown link, `[anchor](url)`.
+                          title: full
+                        - type: string
+                          const: citation
+                          description: "Each link as a numbered reference, `[anchor][n]`, with the URLs listed as `[n]: url` at the end of the text. A `maxCharacters` limit can cut off the list."
+                          title: citation
                         - type: "null"
                     verbosity:
                       anyOf:
@@ -4117,7 +4228,7 @@ components:
             - type: integer
               minimum: -1
               maximum: 720
-              description: Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. `0` always fetches fresh content and `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
+              description: Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. A failed fetch may return the latest cached copy instead. `0` returns live content, fetched within the last 60 seconds. `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
             - type: "null"
         snapshotAsOf:
           anyOf:
@@ -4664,7 +4775,7 @@ components:
           type: integer
           minimum: -1
           maximum: 720
-          description: Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. `0` always fetches fresh content and `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
+          description: Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. A failed fetch may return the latest cached copy instead. `0` returns live content, fetched within the last 60 seconds. `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
         filterEmptyResults:
           type: boolean
           description: Filter out results with no content
@@ -6319,6 +6430,37 @@ components:
       required:
         - error
       additionalProperties: false
+    AgentApiKeyBudgetExceededResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code of the response.
+        timestamp:
+          type: string
+          format: date-time
+          description: When the error occurred.
+        message:
+          type: string
+          description: What went wrong and how to resolve it.
+        error:
+          type: string
+          const: API_KEY_BUDGET_EXCEEDED
+          description: Machine-readable error tag.
+        path:
+          type: string
+          description: Request path that failed.
+        requestId:
+          type: string
+          description: ID of the failed request, for support.
+      required:
+        - statusCode
+        - timestamp
+        - message
+        - error
+        - path
+        - requestId
+      additionalProperties: false
     AgentRunList:
       type: object
       properties:
@@ -7516,7 +7658,7 @@ components:
       properties:
         code:
           type: string
-          description: "Machine-readable notice code, UPPER_SNAKE. `RESTRICTIONS_RELAXED`: the `site:` or exact-phrase restrictions written in the query matched nothing, so the results come from a search with them removed; filters set in the request body were kept. Codes are an open set: tolerate codes you do not recognize."
+          description: Machine-readable notice code. Handle codes you do not recognize without failing. See [notice codes](https://exa.ai/docs/search/best-practices#notice-codes) for what each code means.
           example: RESTRICTIONS_RELAXED
         path:
           type: string
@@ -8214,7 +8356,7 @@ components:
           type: integer
           minimum: -1
           maximum: 720
-          description: Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. `0` always fetches fresh content and `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
+          description: Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. A failed fetch may return the latest cached copy instead. `0` returns live content, fetched within the last 60 seconds. `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
         filterEmptyResults:
           type: boolean
           description: Filter out results with no content

@@ -9,9 +9,9 @@ namespace Exa.TeamManagement
     public sealed partial class DeleteApiKeyResponse4
     {
         /// <summary>
-        /// Example: API key not found
+        /// Example: You do not have permission to access this API key
         /// </summary>
-        /// <example>API key not found</example>
+        /// <example>You do not have permission to access this API key</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public string? Error { get; set; }
 
@@ -25,7 +25,7 @@ namespace Exa.TeamManagement
         /// Initializes a new instance of the <see cref="DeleteApiKeyResponse4" /> class.
         /// </summary>
         /// <param name="error">
-        /// Example: API key not found
+        /// Example: You do not have permission to access this API key
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

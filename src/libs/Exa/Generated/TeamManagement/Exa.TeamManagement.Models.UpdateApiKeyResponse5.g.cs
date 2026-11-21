@@ -9,8 +9,9 @@ namespace Exa.TeamManagement
     public sealed partial class UpdateApiKeyResponse5
     {
         /// <summary>
-        ///
+        /// Example: API key not found
         /// </summary>
+        /// <example>API key not found</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public string? Error { get; set; }
 
@@ -23,7 +24,9 @@ namespace Exa.TeamManagement
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateApiKeyResponse5" /> class.
         /// </summary>
-        /// <param name="error"></param>
+        /// <param name="error">
+        /// Example: API key not found
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

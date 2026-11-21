@@ -43,7 +43,7 @@ internal static partial class WebsetsPreviewWebsetsPreviewCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"websets-preview", @"Preview a webset
-Returns how a search query will be interpreted before you create a Webset, including the detected entity, generated criteria, and suggested enrichments.");
+Returns how a search query will be interpreted before you create a Webset, including the detected entity and generated criteria.");
                         command.Options.Add(Search);
                         command.Options.Add(RequestSearch);
 

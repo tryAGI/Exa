@@ -9,9 +9,8 @@ namespace Exa.TeamManagement
     public sealed partial class CreateApiKeyResponse2
     {
         /// <summary>
-        /// Example: Unauthorized
+        ///
         /// </summary>
-        /// <example>Unauthorized</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public string? Error { get; set; }
 
@@ -24,9 +23,7 @@ namespace Exa.TeamManagement
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateApiKeyResponse2" /> class.
         /// </summary>
-        /// <param name="error">
-        /// Example: Unauthorized
-        /// </param>
+        /// <param name="error"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

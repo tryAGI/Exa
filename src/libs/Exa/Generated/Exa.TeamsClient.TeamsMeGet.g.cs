@@ -6,6 +6,14 @@ namespace Exa
     public partial class TeamsClient
     {
 
+        private static readonly global::Exa.AutoSDKServer[] s_TeamsMeGetServers = new global::Exa.AutoSDKServer[]
+        {            new global::Exa.AutoSDKServer(
+                id: "https-api-exa-ai-websets",
+                name: "api.exa.ai websets",
+                url: "https://api.exa.ai/websets",
+                description: ""),
+        };
+
 
         private static readonly global::Exa.EndPointSecurityRequirement s_TeamsMeGetSecurityRequirement0 =
             new global::Exa.EndPointSecurityRequirement
@@ -98,7 +106,9 @@ namespace Exa
 
                             var __pathBuilder = new global::Exa.PathBuilder(
                                 path: "/v0/teams/me",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.exa.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                baseUri: ResolveBaseUri(
+                                servers: s_TeamsMeGetServers,
+                                defaultBaseUrl: "https://api.exa.ai/websets"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Exa.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -351,7 +361,7 @@ namespace Exa
                                 {
                                     throw global::Exa.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -396,7 +406,7 @@ namespace Exa
 
                                     throw global::Exa.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(

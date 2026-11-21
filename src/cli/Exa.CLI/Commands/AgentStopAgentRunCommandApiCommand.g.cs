@@ -38,7 +38,7 @@ internal static partial class AgentStopAgentRunCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"stop-agent-run", @"Stop a run
-Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Currently supported only for `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.");
+Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Supported for `high`, `xhigh`, and `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.");
                         command.Arguments.Add(Id);
 
 

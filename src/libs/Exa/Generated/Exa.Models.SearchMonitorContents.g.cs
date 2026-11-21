@@ -45,7 +45,7 @@ namespace Exa
         public int? LivecrawlTimeout { get; set; }
 
         /// <summary>
-        /// Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. `0` always fetches fresh content and `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
+        /// Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. A failed fetch may return the latest cached copy instead. `0` returns live content, fetched within the last 60 seconds. `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxAgeHours")]
         public int? MaxAgeHours { get; set; }
@@ -110,7 +110,7 @@ namespace Exa
         /// Default Value: 10000
         /// </param>
         /// <param name="maxAgeHours">
-        /// Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. `0` always fetches fresh content and `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
+        /// Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. A failed fetch may return the latest cached copy instead. `0` returns live content, fetched within the last 60 seconds. `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live.
         /// </param>
         /// <param name="filterEmptyResults">
         /// Filter out results with no content

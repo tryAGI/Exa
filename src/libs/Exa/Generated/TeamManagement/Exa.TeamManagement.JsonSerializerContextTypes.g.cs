@@ -82,11 +82,11 @@ namespace Exa.TeamManagement
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.CreateApiKeyResponse2? Type11 { get; set; }
+        public global::Exa.TeamManagement.CreateApiKeyResponse3? Type11 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.CreateApiKeyResponse3? Type12 { get; set; }
+        public global::Exa.TeamManagement.CreateApiKeyResponse2? Type12 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -158,19 +158,19 @@ namespace Exa.TeamManagement
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.UpdateApiKeyResponse2? Type30 { get; set; }
+        public global::Exa.TeamManagement.UpdateApiKeyResponse3? Type30 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.UpdateApiKeyResponse3? Type31 { get; set; }
+        public global::Exa.TeamManagement.UpdateApiKeyResponse4? Type31 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.UpdateApiKeyResponse4? Type32 { get; set; }
+        public global::Exa.TeamManagement.UpdateApiKeyResponse5? Type32 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.UpdateApiKeyResponse5? Type33 { get; set; }
+        public global::Exa.TeamManagement.UpdateApiKeyResponse2? Type33 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -178,19 +178,19 @@ namespace Exa.TeamManagement
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.DeleteApiKeyResponse2? Type35 { get; set; }
+        public global::Exa.TeamManagement.DeleteApiKeyResponse3? Type35 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.DeleteApiKeyResponse3? Type36 { get; set; }
+        public global::Exa.TeamManagement.DeleteApiKeyResponse4? Type36 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.DeleteApiKeyResponse4? Type37 { get; set; }
+        public global::Exa.TeamManagement.DeleteApiKeyResponse5? Type37 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Exa.TeamManagement.DeleteApiKeyResponse5? Type38 { get; set; }
+        public global::Exa.TeamManagement.DeleteApiKeyResponse2? Type38 { get; set; }
         /// <summary>
         ///
         /// </summary>

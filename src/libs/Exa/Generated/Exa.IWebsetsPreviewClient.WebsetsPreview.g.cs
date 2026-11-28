@@ -6,7 +6,7 @@ namespace Exa
     {
         /// <summary>
         /// Preview a webset<br/>
-        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity, generated criteria, and suggested enrichments.
+        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity and generated criteria.
         /// </summary>
         /// <param name="search"></param>
         /// <param name="request"></param>
@@ -21,7 +21,7 @@ namespace Exa
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Preview a webset<br/>
-        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity, generated criteria, and suggested enrichments.
+        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity and generated criteria.
         /// </summary>
         /// <param name="search"></param>
         /// <param name="request"></param>
@@ -36,7 +36,7 @@ namespace Exa
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Preview a webset<br/>
-        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity, generated criteria, and suggested enrichments.
+        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity and generated criteria.
         /// </summary>
         /// <param name="search"></param>
         /// <param name="requestSearch"></param>

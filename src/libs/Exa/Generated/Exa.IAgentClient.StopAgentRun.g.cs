@@ -6,7 +6,7 @@ namespace Exa
     {
         /// <summary>
         /// Stop a run<br/>
-        /// Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Currently supported only for `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
+        /// Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Supported for `high`, `xhigh`, and `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
         /// </summary>
         /// <param name="id">
         /// Agent run ID.
@@ -24,7 +24,7 @@ namespace Exa
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Stop a run<br/>
-        /// Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Currently supported only for `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
+        /// Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Supported for `high`, `xhigh`, and `ultra` effort runs. If the run has already reached a terminal status, the API returns the existing run.
         /// </summary>
         /// <param name="id">
         /// Agent run ID.

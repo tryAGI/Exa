@@ -53,7 +53,7 @@ namespace Exa
 
         /// <summary>
         /// Preview a webset<br/>
-        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity, generated criteria, and suggested enrichments.
+        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity and generated criteria.
         /// </summary>
         /// <param name="search"></param>
         /// <param name="request"></param>
@@ -79,7 +79,7 @@ namespace Exa
         }
         /// <summary>
         /// Preview a webset<br/>
-        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity, generated criteria, and suggested enrichments.
+        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity and generated criteria.
         /// </summary>
         /// <param name="search"></param>
         /// <param name="request"></param>
@@ -383,7 +383,7 @@ namespace Exa
 
                                 throw global::Exa.ApiException.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -425,7 +425,7 @@ namespace Exa
                                 {
                                     throw global::Exa.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -470,7 +470,7 @@ namespace Exa
 
                                     throw global::Exa.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -489,7 +489,7 @@ namespace Exa
         }
         /// <summary>
         /// Preview a webset<br/>
-        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity, generated criteria, and suggested enrichments.
+        /// Returns how a search query will be interpreted before you create a Webset, including the detected entity and generated criteria.
         /// </summary>
         /// <param name="search"></param>
         /// <param name="requestSearch"></param>

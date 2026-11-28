@@ -4,7 +4,7 @@
 namespace Exa
 {
     /// <summary>
-    /// Advanced options for controlling text extraction. Use this when you need to limit text length or include HTML structure. Set `maxAgeHours: 0` to apply `includeHtmlTags`, `verbosity`, and section filters to freshly fetched content.
+    /// Advanced options for controlling text extraction. Use this when you need to limit text length or include HTML structure. `verbosity` and section filters apply to any page Exa holds with section structure, whether cached or fetched live.
     /// </summary>
     public sealed partial class SearchMonitorContentsOutputText
     {

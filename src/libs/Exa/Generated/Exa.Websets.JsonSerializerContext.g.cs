@@ -85,6 +85,7 @@ namespace Exa
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.WebsetSearchRecallExpected))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.WebsetSearchRecallExpectedConfidence), TypeInfoPropertyName = "WebsetSearchRecallExpectedConfidence2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.WebsetSearchRecallExpectedBounds))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.WebsetSearchCostDollars))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.WebsetSearchCanceledReason), TypeInfoPropertyName = "WebsetSearchCanceledReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ImportObject), TypeInfoPropertyName = "ImportObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Exa.ImportStatus), TypeInfoPropertyName = "ImportStatus2")]

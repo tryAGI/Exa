@@ -112,6 +112,12 @@ namespace Exa
         public global::Exa.WebsetSearchRecall? Recall { get; set; }
 
         /// <summary>
+        /// What the search cost, in dollars. Returned once the search has finished, for teams on the pay-as-you-go plan, which is charged for what each search uses. Omitted for teams on other plans. `emails`, `phoneNumbers` and `total` keep growing after the search has finished, as enrichments find contact details for its items. They are final once the Webset's status is `idle`, and grow again if an enrichment is added or changed. This response value is not an invoice record.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("costDollars")]
+        public global::Exa.WebsetSearchCostDollars? CostDollars { get; set; }
+
+        /// <summary>
         /// Set of key-value pairs you want to associate with this object.<br/>
         /// Default Value: {}
         /// </summary>
@@ -207,6 +213,9 @@ namespace Exa
         /// <param name="recall">
         /// Recall metrics for the search, null if not yet computed or requested.
         /// </param>
+        /// <param name="costDollars">
+        /// What the search cost, in dollars. Returned once the search has finished, for teams on the pay-as-you-go plan, which is charged for what each search uses. Omitted for teams on other plans. `emails`, `phoneNumbers` and `total` keep growing after the search has finished, as enrichments find contact details for its items. They are final once the Webset's status is `idle`, and grow again if an enrichment is added or changed. This response value is not an invoice record.
+        /// </param>
         /// <param name="metadata">
         /// Set of key-value pairs you want to associate with this object.<br/>
         /// Default Value: {}
@@ -238,6 +247,7 @@ namespace Exa
             int? maxPeoplePerCompany,
             global::Exa.WebsetSearchBehavior? behavior,
             global::Exa.WebsetSearchRecall? recall,
+            global::Exa.WebsetSearchCostDollars? costDollars,
             global::System.Collections.Generic.Dictionary<string, string>? metadata,
             global::System.DateTime? canceledAt,
             string @object = "webset_search")
@@ -256,6 +266,7 @@ namespace Exa
             this.Scope = scope ?? throw new global::System.ArgumentNullException(nameof(scope));
             this.Progress = progress ?? throw new global::System.ArgumentNullException(nameof(progress));
             this.Recall = recall;
+            this.CostDollars = costDollars;
             this.Metadata = metadata;
             this.CanceledAt = canceledAt;
             this.CanceledReason = canceledReason;
